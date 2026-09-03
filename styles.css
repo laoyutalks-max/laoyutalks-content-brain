@@ -1,6 +1,6 @@
 /* =========================================================
    LAOYU PROFESSIONAL WEBSITE
-   Responsive Desktop / Tablet / Mobile
+   Desktop + Tablet + Mobile Responsive Design
    ========================================================= */
 
 * {
@@ -43,7 +43,7 @@ button {
 
 
 /* =========================================================
-   HEADER / NAVIGATION
+   HEADER
    ========================================================= */
 
 .nav {
@@ -84,9 +84,7 @@ button {
 }
 
 .links a {
-  transition:
-    color 0.2s ease,
-    background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease;
 }
 
 .links a:hover {
@@ -141,7 +139,7 @@ button {
 
 
 /* =========================================================
-   MOBILE MENU BUTTON
+   MOBILE MENU
    ========================================================= */
 
 .mobileMenu {
@@ -947,7 +945,6 @@ button {
     display: block;
     margin-top: 6px;
   }
-
 }
 
 
@@ -1016,7 +1013,6 @@ button {
   .brain h2 {
     font-size: 28px;
   }
-
 }
 
 
