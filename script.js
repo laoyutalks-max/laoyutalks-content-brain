@@ -1,22 +1,64 @@
+/* =========================================================
+   LAOYU WEBSITE JAVASCRIPT
+   Mobile Navigation
+   Active Page Navigation
+   Smooth Scrolling
+   Copyright Year
+   ========================================================= */
+
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* =========================================
-     LAOYU MOBILE NAVIGATION
-     ========================================= */
 
-  const nav = document.querySelector(".nav");
-  const navIn = document.querySelector(".navin");
-  const links = document.querySelector(".links");
+  /* =======================================================
+     COPYRIGHT YEAR
+     ======================================================= */
+
+  const yearElements =
+    document.querySelectorAll("[data-year]");
+
+  yearElements.forEach(function (element) {
+    element.textContent =
+      new Date().getFullYear();
+  });
+
+
+  /* =======================================================
+     MOBILE NAVIGATION
+     ======================================================= */
+
+  const nav =
+    document.querySelector(".nav");
+
+  const navIn =
+    document.querySelector(".navin");
+
+  const links =
+    document.querySelector(".links");
+
 
   if (nav && navIn && links) {
 
-    // Create mobile menu button
-    const menuButton = document.createElement("button");
 
-    menuButton.className = "mobileMenu";
-    menuButton.setAttribute("type", "button");
-    menuButton.setAttribute("aria-label", "Open navigation menu");
-    menuButton.setAttribute("aria-expanded", "false");
+    /* Create mobile menu button */
+
+    const menuButton =
+      document.createElement("button");
+
+    menuButton.className =
+      "mobileMenu";
+
+    menuButton.type =
+      "button";
+
+    menuButton.setAttribute(
+      "aria-label",
+      "Open navigation menu"
+    );
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
+    );
 
     menuButton.innerHTML = `
       <span></span>
@@ -26,101 +68,201 @@ document.addEventListener("DOMContentLoaded", function () {
 
     navIn.appendChild(menuButton);
 
-    // Open / close mobile menu
-    menuButton.addEventListener("click", function () {
 
-      const isOpen = nav.classList.toggle("menuOpen");
+    /* Open / close menu */
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
+    menuButton.addEventListener(
+      "click",
+      function () {
 
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Close navigation menu" : "Open navigation menu"
-      );
-    });
+        const isOpen =
+          nav.classList.toggle("menuOpen");
 
-    // Close menu after selecting a page
-    const navLinks = links.querySelectorAll("a");
-
-    navLinks.forEach(function (link) {
-
-      link.addEventListener("click", function () {
-
-        nav.classList.remove("menuOpen");
 
         menuButton.setAttribute(
           "aria-expanded",
-          "false"
+          isOpen ? "true" : "false"
         );
+
 
         menuButton.setAttribute(
           "aria-label",
-          "Open navigation menu"
+          isOpen
+            ? "Close navigation menu"
+            : "Open navigation menu"
         );
 
-      });
+      }
+    );
 
-    });
+
+    /* Close menu after selecting a page */
+
+    const navLinks =
+      links.querySelectorAll("a");
+
+
+    navLinks.forEach(
+      function (link) {
+
+        link.addEventListener(
+          "click",
+          function () {
+
+            nav.classList.remove(
+              "menuOpen"
+            );
+
+            menuButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            menuButton.setAttribute(
+              "aria-label",
+              "Open navigation menu"
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /* Close menu with Escape key */
+
+    document.addEventListener(
+      "keydown",
+      function (event) {
+
+        if (event.key === "Escape") {
+
+          nav.classList.remove(
+            "menuOpen"
+          );
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+          );
+
+        }
+
+      }
+    );
 
   }
 
 
-  /* =========================================
-     CURRENT PAGE NAVIGATION
-     ========================================= */
+  /* =======================================================
+     ACTIVE PAGE NAVIGATION
+     ======================================================= */
 
-  const currentPage =
-    window.location.pathname.split("/").pop() || "index.html";
+  let currentPage =
+    window.location.pathname
+      .split("/")
+      .pop();
+
+
+  if (!currentPage) {
+    currentPage = "index.html";
+  }
+
 
   const pageLinks =
-    document.querySelectorAll(".links a");
-
-  pageLinks.forEach(function (link) {
-
-    const linkPage =
-      link.getAttribute("href");
-
-    if (linkPage === currentPage) {
-      link.classList.add("active");
-    }
-
-  });
+    document.querySelectorAll(
+      ".links a"
+    );
 
 
-  /* =========================================
-     SMOOTH SCROLL
-     ========================================= */
+  pageLinks.forEach(
+    function (link) {
 
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      const href =
+        link.getAttribute("href");
 
-    link.addEventListener("click", function (event) {
 
-      const targetId =
-        this.getAttribute("href");
-
-      if (targetId === "#") {
+      if (!href) {
         return;
       }
 
-      const target =
-        document.querySelector(targetId);
 
-      if (target) {
+      const linkPage =
+        href.split("#")[0];
 
-        event.preventDefault();
 
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
+      if (
+        linkPage === currentPage
+      ) {
+
+        link.classList.add(
+          "active"
+        );
 
       }
 
-    });
+    }
+  );
 
-  });
+
+  /* =======================================================
+     SMOOTH SCROLLING
+     ======================================================= */
+
+  const anchorLinks =
+    document.querySelectorAll(
+      'a[href^="#"]'
+    );
+
+
+  anchorLinks.forEach(
+    function (link) {
+
+      link.addEventListener(
+        "click",
+        function (event) {
+
+          const targetId =
+            this.getAttribute("href");
+
+
+          if (
+            !targetId ||
+            targetId === "#"
+          ) {
+            return;
+          }
+
+
+          const target =
+            document.querySelector(
+              targetId
+            );
+
+
+          if (!target) {
+            return;
+          }
+
+
+          event.preventDefault();
+
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+        }
+      );
+
+    }
+  );
 
 });
