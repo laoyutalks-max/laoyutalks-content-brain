@@ -75,8 +75,8 @@
       links: [{ en: "See all on TikTok ↗", zh: "在 TikTok 查看全部 ↗", url: PROFILE }] },
 
     { id: "tiktok", kw: ["tiktok", "follow", "account", "handle", "social", "douyin", "where can i watch", "watch"], zh: ["关注", "账号", "抖音", "在哪看", "哪里看", "社交"],
-      a: { en: "LAOYU posts on TikTok as <b>@laoyu.talks</b>. YouTube and LinkedIn are coming soon.",
-           zh: "老鱼的 TikTok 账号是 <b>@laoyu.talks</b>。YouTube 与 LinkedIn 即将推出。" },
+      a: { en: "LAOYU posts on TikTok as <b>@laoyu.talks</b>.",
+           zh: "老鱼的 TikTok 账号是 <b>@laoyu.talks</b>。" },
       links: [{ en: "Open @laoyu.talks ↗", zh: "打开 @laoyu.talks ↗", url: PROFILE }] },
 
     { id: "ai_mfg", kw: ["manufacturing", "factory", "factories", "production", "plant", "shop floor", "operations", "lab", "lab data", "report", "reports", "productive", "productivity", "line", "dashboard", "dashboards", "data"], zh: ["制造", "工厂", "生产", "车间", "运营", "实验", "报告", "仪表板", "数据", "生产线", "效率"],
