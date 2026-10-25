@@ -316,11 +316,14 @@
     });
   }
 
-  function botSay(html, chips, delay) {
+  /* render: a function returning the reply HTML in the current language,
+     kept on the message so it can be redrawn when the language changes */
+  function botSay(render, chips, delay) {
     var typing = addMsg("bot", '<span class="lyDots"><i></i><i></i><i></i></span>');
     setChips([]);
     setTimeout(function () {
-      typing.querySelector(".lyBubble").innerHTML = html;
+      typing.__render = render;
+      typing.querySelector(".lyBubble").innerHTML = render();
       log.scrollTop = Math.max(0, typing.offsetTop - log.offsetTop - 60);
       setChips(chips);
     }, delay === undefined ? 450 + Math.random() * 300 : delay);
@@ -330,33 +333,36 @@
 
   function startLead() {
     lead = { step: "name" };
-    botSay(esc(L(UI.askName)), []);
+    botSay(function () { return esc(L(UI.askName)); }, []);
   }
 
   function continueLead(text) {
     if (/^(cancel|stop|quit|取消|算了|不用了)$/i.test(text.trim())) {
       lead = null;
-      botSay(esc(L(UI.cancelled)), START_CHIPS);
+      botSay(function () { return esc(L(UI.cancelled)); }, START_CHIPS);
       return;
     }
     if (lead.step === "name") {
       lead.name = text.trim().slice(0, 80);
       lead.step = "email";
-      botSay(esc(L(UI.askEmail).replace("{name}", lead.name)), []);
+      var name = lead.name;
+      botSay(function () { return esc(L(UI.askEmail).replace("{name}", name)); }, []);
     } else if (lead.step === "email") {
       var email = text.trim();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-        botSay(esc(L(UI.badEmail)), []);
+        botSay(function () { return esc(L(UI.badEmail)); }, []);
         return;
       }
       lead.email = email.slice(0, 120);
       lead.step = "message";
-      botSay(esc(L(UI.askMsg)), []);
+      botSay(function () { return esc(L(UI.askMsg)); }, []);
     } else if (lead.step === "message") {
       var sent = record({ type: "lead", name: lead.name, email: lead.email, message: text.trim().slice(0, 1000) });
-      var msg = sent ? L(UI.leadDone).replace("{email}", lead.email) : L(UI.leadOffline);
+      var email = lead.email;
       lead = null;
-      botSay(esc(msg), START_CHIPS);
+      botSay(function () {
+        return esc(sent ? L(UI.leadDone).replace("{email}", email) : L(UI.leadOffline));
+      }, START_CHIPS);
     }
   }
 
@@ -372,10 +378,10 @@
     var entry = topicId ? byId(topicId) : match(text);
     if (entry) {
       record({ type: "chat", question: text.slice(0, 500), topic: entry.id, answered: true });
-      botSay(answerHTML(entry), entry.chips || START_CHIPS.filter(function (c) { return c !== entry.id; }).slice(0, 4));
+      botSay(function () { return answerHTML(entry); }, entry.chips || START_CHIPS.filter(function (c) { return c !== entry.id; }).slice(0, 4));
     } else {
       record({ type: "chat", question: text.slice(0, 500), topic: "unanswered", answered: false });
-      botSay(esc(L(UI.fallback)), FALLBACK_CHIPS);
+      botSay(function () { return esc(L(UI.fallback)); }, FALLBACK_CHIPS);
     }
   }
 
@@ -393,6 +399,9 @@
     chipsBox.querySelectorAll(".lyChip").forEach(function (b) {
       b.textContent = L(CHIP_LABELS[b.getAttribute("data-topic")]);
     });
+    log.querySelectorAll(".lyBot").forEach(function (m) {
+      if (m.__render) m.querySelector(".lyBubble").innerHTML = m.__render();
+    });
   }
 
   function open() {
@@ -401,7 +410,7 @@
     root.querySelector(".lyLaunch").setAttribute("aria-expanded", "true");
     if (!greeted) {
       greeted = true;
-      botSay(esc(L(UI.welcome)), START_CHIPS, 250);
+      botSay(function () { return esc(L(UI.welcome)); }, START_CHIPS, 250);
     }
     setTimeout(function () { input.focus(); }, 200);
   }
