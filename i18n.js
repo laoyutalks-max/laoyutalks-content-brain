@@ -49,6 +49,30 @@
     "Short, practical ideas that help you work smarter.": "简短实用的想法，助你更聪明地工作。",
     "VIEW ALL ON TIKTOK ↗": "在 TIKTOK 查看全部 ↗",
 
+    /* Home — TikTok video cards */
+    "Boost Work Efficiency with AI": "用 AI 提升工作效率",
+    "Boost work": "用 AI 提升",
+    "efficiency with AI": "工作效率",
+    "3 practical methods": "3 个实用方法",
+    "#AI #Efficiency #Tools": "#AI #效率 #工具",
+    "Core Thinking in Manufacturing Management": "制造业管理核心思维",
+    "Manufacturing": "制造业管理",
+    "management mindset": "核心思维",
+    "#Management #Improvement #Thinking": "#管理 #改善 #思维",
+    "Get 1% Better Every Day": "每天进步 1%",
+    "1% better every day": "每天进步 1%",
+    "37× better in a year": "一年改变 37 倍",
+    "#Kaizen #Growth #Habits": "#改善 #成长 #习惯",
+    "Data-Driven Decisions": "数据驱动决策",
+    "Data-driven,": "数据驱动",
+    "sharper decisions": "决策更精准",
+    "#Data #Decisions #Analytics": "#数据 #决策 #分析",
+    "5 Must-Have Skills for Managers": "管理者必备 5 大能力",
+    "5 must-have skills": "管理者必备",
+    "for managers": "5 大能力",
+    "Do you have them?": "你具备了吗？",
+    "#Management #Skills #Leadership": "#管理 #能力 #领导力",
+
     /* Home — resources */
     "Free Resources": "免费资源",
     "Templates, prompts and practical tools.": "模板、提示词与实用工具。",
@@ -149,6 +173,7 @@
 
     /* About page */
     "ABOUT LAOYU": "关于 LAOYU",
+    "Stay curious. Keep improving.": "保持好奇，持续改善。",
     "Lead with thinking. Improve with AI.": "以思维引领，用 AI 提升。",
     "What LAOYU stands for": "LAOYU 的理念",
     "LAOYU turns real-world problems into practical solutions using AI, productivity, manufacturing excellence, manager thinking and continuous improvement.": "LAOYU 运用 AI、效率方法、卓越制造、管理者思维与持续改善，把真实问题变成实用的解决方案。",
