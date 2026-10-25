@@ -116,9 +116,9 @@
       a: { en: "Mindset and career videos from LAOYU:", zh: "老鱼关于心态与职业成长的视频：" },
       v: ["overthinking", "control", "change", "success", "skills"] },
 
-    { id: "resources", kw: ["resource", "resources", "template", "templates", "download", "checklist", "checklists", "planner", "prompt library", "free", "tools"], zh: ["资源", "模板", "下载", "清单", "免费", "规划表", "提示词库"],
-      a: { en: "LAOYU's free resources — content planner, AI prompt library, productivity and dashboard templates, and checklists — are <b>coming soon</b>. The Resources page will list them as they're released.",
-           zh: "老鱼的免费资源——内容规划表、AI 提示词库、效率与仪表板模板、检查清单——<b>即将推出</b>，上线后会在资源页面列出。" },
+    { id: "resources", kw: ["resource", "resources", "template", "templates", "download", "checklist", "checklists", "prompt library", "free", "tools"], zh: ["资源", "模板", "下载", "清单", "免费", "提示词库"],
+      a: { en: "LAOYU's free resources — an AI prompt library for work, productivity and dashboard templates, and checklists — are <b>coming soon</b>. The Resources page will list them as they're released.",
+           zh: "老鱼的免费资源——工作用 AI 提示词库、效率与仪表板模板、检查清单——<b>即将推出</b>，上线后会在资源页面列出。" },
       links: [{ en: "Resources page →", zh: "资源页面 →", url: "resources.html" }] },
 
 

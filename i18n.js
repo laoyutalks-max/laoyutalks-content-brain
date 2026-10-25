@@ -86,6 +86,10 @@
     "Checklists": "检查清单",
     "Practical checklists for work.": "实用的工作检查清单。",
 
+    "Track actions, projects and team performance.": "追踪行动、项目与团队绩效。",
+    "Useful resources for AI at work, manufacturing, management and continuous improvement.": "涵盖工作中的 AI、制造、管理与持续改善的实用资源。",
+    "Ready-to-use AI prompts for daily work.": "可直接使用的日常工作 AI 提示词。",
+    "Practical AI prompts for productivity, management, problem solving and daily operations.": "用于效率、管理、解决问题与日常运营的实用 AI 提示词。",
     /* Home — content brain */
     "LAOYUTALKS CONTENT BRAIN": "LAOYUTALKS 内容大脑",
     "Generate. Analyze. Improve. Repeat.": "生成。分析。改善。循环。",
