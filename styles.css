@@ -1843,6 +1843,31 @@ html[data-lang="zh"] body {
   100% { opacity: 0; }
 }
 
+
+/* LAOYUTALKS topic cards */
+.cb-in { animation: cbIn 3s linear infinite; }
+@keyframes cbIn { 0% { transform: translateX(0); opacity: 0; } 10% { opacity: 1; } 80% { transform: translateX(52px); opacity: 1; } 100% { transform: translateX(56px); opacity: 0; } }
+.cb-out { stroke-dasharray: 24; animation: cbOut 3s ease-out infinite; }
+@keyframes cbOut { 0%, 70% { stroke-dashoffset: 24; opacity: 0; } 85% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0.3; } }
+.cb-chip { animation: caCalmText 3s ease-in-out infinite; }
+@keyframes caCalmText { 50% { opacity: 0.55; } }
+.cb-gear { animation: spin 7s linear infinite; }
+.cb-gear2 { animation: spin 4.2s linear infinite reverse; }
+.cb-rise { stroke-dasharray: 110; animation: cbRise 4s ease-in-out infinite; }
+@keyframes cbRise { 0% { stroke-dashoffset: 110; opacity: 1; } 35%, 88% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.cb-head { animation: cbHead 4s ease-in-out infinite; }
+@keyframes cbHead { 0%, 32% { opacity: 0; } 40%, 88% { opacity: 1; } 100% { opacity: 0; } }
+.cb-curve { stroke-dasharray: 220; animation: cbCurve 4.5s ease-in infinite; }
+@keyframes cbCurve { 0% { stroke-dashoffset: 220; } 70%, 100% { stroke-dashoffset: 0; } }
+.cb-label { animation: cbHead 4.5s ease-in-out infinite; }
+.cb-bar { transform-box: fill-box; transform-origin: bottom; animation: cbBar 5s ease-out infinite; }
+.cb-b2 { animation-delay: 0.15s; } .cb-b3 { animation-delay: 0.3s; } .cb-b4 { animation-delay: 0.45s; } .cb-b5 { animation-delay: 0.6s; }
+@keyframes cbBar { 0% { transform: scaleY(0.05); } 30%, 100% { transform: scaleY(1); } }
+.cb-trend { stroke-dasharray: 160; animation: cbTrend 5s ease-in-out infinite; }
+@keyframes cbTrend { 0%, 30% { stroke-dashoffset: 160; } 60%, 100% { stroke-dashoffset: 0; } }
+.cb-flag { animation: cbFlag 5s ease-out infinite; }
+@keyframes cbFlag { 0%, 62% { opacity: 0; transform: translateY(6px); } 72%, 100% { opacity: 1; transform: none; } }
+
 @media (max-width: 760px) {
   .coverArt {
     left: auto;
