@@ -25,7 +25,7 @@
     "INITIALIZING": "正在启动",
     "INITIALIZING LAOYU AI CORE": "正在启动 LAOYU AI 核心",
     "LOADING KNOWLEDGE MODULES": "正在加载知识模块",
-    "CALIBRATING CONTENT BRAIN": "正在校准内容大脑",
+    "PREPARING YOUR INSIGHTS": "正在准备你的洞见",
     "SYSTEMS ONLINE": "系统已就绪",
 
     /* Home — hero */

@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var steps = [
       "INITIALIZING LAOYU AI CORE",
       "LOADING KNOWLEDGE MODULES",
-      "CALIBRATING CONTENT BRAIN",
+      "PREPARING YOUR INSIGHTS",
       "SYSTEMS ONLINE"
     ];
     var text = boot.querySelector(".bootText");

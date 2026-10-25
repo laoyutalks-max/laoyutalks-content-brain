@@ -101,7 +101,7 @@
       a: { en: "On using AI at work, LAOYU covers:<br>• What AI can do beyond answering questions<br>• How to write a good AI prompt<br>• Too many emails? Let AI find what needs attention<br>• How to verify an AI answer on something you don't know<br>• Can AI build a shift schedule that actually works?",
            zh: "关于在工作中用 AI，老鱼讲过：<br>• AI 不只是回答问题，还能做什么<br>• 如何写出好的 AI 提示词<br>• 邮件太多？让 AI 找出需要处理的<br>• 遇到不懂的领域，如何验证 AI 的答案<br>• AI 能排出真正可用的班表吗？" },
       v: ["aiMore"],
-      chips: ["brain", "ai_mfg"] },
+      chips: ["ai_mfg", "resources"] },
 
     { id: "manager", kw: ["manager", "managers", "management", "leader", "leadership", "lead", "boss", "team", "teams", "decision", "decisions", "restructure", "restructuring", "delegate", "supervisor", "department", "promotion", "promoted"], zh: ["管理", "管理者", "领导", "老板", "团队", "决策", "组织调整", "重组", "授权", "主管", "部门", "升职", "晋升"],
       a: { en: "Manager-thinking videos from LAOYU:", zh: "老鱼的管理者思维视频：" },
@@ -121,10 +121,6 @@
            zh: "老鱼的免费资源——内容规划表、AI 提示词库、效率与仪表板模板、检查清单——<b>即将推出</b>，上线后会在资源页面列出。" },
       links: [{ en: "Resources page →", zh: "资源页面 →", url: "resources.html" }] },
 
-    { id: "brain", kw: ["content brain", "brain", "workflow", "google sheets", "sheets", "content system", "content workflow"], zh: ["内容大脑", "工作流", "内容系统"],
-      a: { en: "<b>AI Content Brain</b> is LAOYU's content workflow: Google Sheets as the control centre, Gemini as the content engine, and performance data to improve the next post — from ideas and scripts to tracking views, saves and shares.",
-           zh: "<b>AI 内容大脑</b>是老鱼的内容工作流：以 Google Sheets 为控制中心，Gemini 为内容引擎，用数据表现改善下一条内容——从选题、脚本到追踪播放、收藏与分享。" },
-      links: [{ en: "AI Content Brain →", zh: "AI 内容大脑 →", url: "ai-content-brain.html" }] },
 
     { id: "contact", kw: ["contact", "email", "reach", "collaborate", "collaboration", "collab", "partner", "partnership", "sponsor", "hire", "consult", "consulting", "business", "speak", "speaking", "work with", "get in touch", "message"], zh: ["联系", "邮箱", "合作", "赞助", "咨询", "商务", "讲座", "找你", "私信"],
       a: { en: "You can email LAOYU at <a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a>. Or leave your name and email here and LAOYU can get back to you.",
@@ -132,8 +128,8 @@
       chips: ["leave_contact"] },
 
     { id: "website", kw: ["website", "site", "page", "pages", "menu", "navigate"], zh: ["网站", "页面", "网页"],
-      a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"resources.html\">Resources</a>, <a href=\"ai-content-brain.html\">AI Content Brain</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
-           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"laoyutalks.html\">LAOYUTALKS</a>、<a href=\"resources.html\">资源</a>、<a href=\"ai-content-brain.html\">AI 内容大脑</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
+      a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"resources.html\">Resources</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
+           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"laoyutalks.html\">LAOYUTALKS</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
 
     { id: "language", kw: ["chinese", "english", "language", "translate", "mandarin"], zh: ["中文", "英文", "语言", "翻译", "华语"],
       a: { en: "LAOYU's videos are mainly in English. This site and I work in both English and 中文 — use the EN / 中文 switch at the top.",
@@ -153,7 +149,6 @@
     employee: { en: "Engaging employees", zh: "员工积极性" },
     mindset:  { en: "Mindset & career", zh: "心态与职业" },
     resources:{ en: "Free resources", zh: "免费资源" },
-    brain:    { en: "AI Content Brain", zh: "AI 内容大脑" },
     contact:  { en: "Contact LAOYU", zh: "联系老鱼" },
     leave_contact: { en: "Leave my contact", zh: "留下联系方式" }
   };
