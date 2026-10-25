@@ -129,7 +129,7 @@
 
     { id: "website", kw: ["website", "site", "page", "pages", "menu", "navigate"], zh: ["网站", "页面", "网页"],
       a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"resources.html\">Resources</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
-           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"laoyutalks.html\">LAOYUTALKS</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
+           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"laoyutalks.html\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
 
     { id: "language", kw: ["chinese", "english", "language", "translate", "mandarin"], zh: ["中文", "英文", "语言", "翻译", "华语"],
       a: { en: "LAOYU's videos are mainly in English. This site and I work in both English and 中文 — use the EN / 中文 switch at the top.",

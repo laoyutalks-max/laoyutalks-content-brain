@@ -91,7 +91,6 @@
     "Ready-to-use AI prompts for daily work.": "可直接使用的日常工作 AI 提示词。",
     "Practical AI prompts for productivity, management, problem solving and daily operations.": "用于效率、管理、解决问题与日常运营的实用 AI 提示词。",
     /* Home — content brain */
-    "LAOYUTALKS CONTENT BRAIN": "LAOYUTALKS 内容大脑",
     "Generate. Analyze. Improve. Repeat.": "生成。分析。改善。循环。",
     "Your AI-powered content management workflow for ideas, scripts, captions, performance insights and the next content idea.": "AI 驱动的内容管理工作流：从选题、脚本、文案，到数据洞察，再到下一个内容创意。",
     "EXPLORE CONTENT BRAIN →": "探索内容大脑 →",
@@ -120,6 +119,7 @@
     "Built with ♥ by LAOYU": "由 LAOYU 用 ♥ 打造",
 
     /* LAOYUTALKS page */
+    "LAOYUTALKS": "老鱼说",
     "Practical ideas. Better thinking.": "实用想法，更好思维。",
     "AI, manufacturing excellence, manager thinking and continuous improvement — explained simply.": "AI、卓越制造、管理者思维与持续改善——简单讲清楚。",
     "AI × WORK": "AI × 工作",
@@ -156,8 +156,8 @@
     "LAOYU AI Content Brain helps transform ideas, problems and experiences into structured content that can be reused across your workflow.": "LAOYU AI 内容大脑帮助你把想法、问题与经验转化为结构化内容，并在整个工作流中重复使用。",
     "EXPLORE AI CONTENT BRAIN →": "探索 AI 内容大脑 →",
     "FOLLOW LAOYU": "关注 LAOYU",
-    "Follow LAOYUTALKS": "关注 LAOYUTALKS",
-    "Follow LAOYUTALKS for practical ideas about AI, productivity, manufacturing excellence and management.": "关注 LAOYUTALKS，获取关于 AI、效率、卓越制造与管理的实用想法。",
+    "Follow LAOYUTALKS": "关注老鱼说",
+    "Follow LAOYUTALKS for practical ideas about AI, productivity, manufacturing excellence and management.": "关注老鱼说，获取关于 AI、效率、卓越制造与管理的实用想法。",
     "FOLLOW @laoyu.talks ↗": "关注 @laoyu.talks ↗",
     "About": "关于",
     "Contact": "联系",
@@ -195,7 +195,7 @@
 
     /* Page titles */
     "LAOYU | Work Smarter. Create Better.": "LAOYU 老鱼 | 工作更聪明，创造更出色",
-    "LAOYUTALKS | LAOYU": "LAOYUTALKS | LAOYU 老鱼",
+    "LAOYUTALKS | LAOYU": "老鱼说 | LAOYU 老鱼",
     "Resources | LAOYU": "资源 | LAOYU 老鱼",
     "AI Content Brain | LAOYU": "AI 内容大脑 | LAOYU 老鱼",
     "About | LAOYU": "关于 | LAOYU 老鱼",
