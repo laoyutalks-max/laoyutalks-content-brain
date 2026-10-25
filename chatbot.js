@@ -11,7 +11,7 @@
 
 (function () {
 
-  var LOG_URL = "";
+  var LOG_URL = "https://script.google.com/macros/s/AKfycbyjk02ceJcMxwfuGGsnkwafQwP0tEkjoy7OWDhbnd3D_WUiu32qRJobGCNj2Tco__s6zg/exec";
 
   var PROFILE = "https://www.tiktok.com/@laoyu.talks";
   var V = PROFILE + "/video/";
