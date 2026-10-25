@@ -163,7 +163,7 @@
     "Have a question, collaboration idea or feedback for LAOYU?": "对 LAOYU 有疑问、合作想法或反馈？",
     "Send a message": "发送消息",
     "Email:": "电子邮件：",
-    "For now, replace this email with your preferred contact address before publishing.": "发布前，请先把此邮箱替换为你常用的联系地址。",
+    "Questions, collaborations or feedback are all welcome. Drop an email anytime.": "欢迎提问、合作或反馈，随时发邮件联系。",
     "Find LAOYU online": "在网上找到 LAOYU",
 
     /* Page titles */
