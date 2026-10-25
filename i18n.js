@@ -261,6 +261,7 @@
         var p = node.parentElement;
         if (!p || /^(SCRIPT|STYLE)$/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
         if (p.closest("[data-i18n-block]")) return NodeFilter.FILTER_REJECT;
+        if (p.closest(".lyChat")) return NodeFilter.FILTER_REJECT;
         return norm(node.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
       }
     });
@@ -290,6 +291,9 @@
       b.classList.toggle("on", b.getAttribute("data-l") === lang);
       b.setAttribute("aria-pressed", b.getAttribute("data-l") === lang ? "true" : "false");
     });
+    try {
+      document.dispatchEvent(new CustomEvent("laoyu:lang", { detail: lang }));
+    } catch (e) {}
   }
 
   function set(next) {
