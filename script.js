@@ -498,3 +498,13 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   if (window.LAOYU_I18N) window.LAOYU_I18N.init();
 });
+
+
+/* Pause SVG motion-path animations for visitors who prefer reduced motion */
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("svg.coverArt").forEach(function (svg) {
+      if (svg.pauseAnimations) svg.pauseAnimations();
+    });
+  }
+});
