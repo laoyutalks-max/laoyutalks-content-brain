@@ -1317,6 +1317,74 @@ p {
 
 
 /* =========================================================
+   LANGUAGE SWITCH (EN / 中文)
+   ========================================================= */
+
+.links {
+  margin-left: auto;
+}
+
+.langToggle {
+  margin-left: 4px;
+  display: flex;
+  flex-shrink: 0;
+  border: 1px solid var(--line-strong);
+  background: rgba(53, 224, 255, 0.05);
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.langToggle button {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 8px 11px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.langToggle button:hover {
+  color: var(--cyan);
+}
+
+.langToggle button.on {
+  color: var(--bg);
+  background: var(--cyan);
+  box-shadow: var(--glow);
+}
+
+/* Hero sections without their own spacing (e.g. Resources) */
+.hero:not([style]) > .wrap:not(.heroIn) {
+  padding: 80px 0 30px;
+}
+
+/* Chinese reads better without wide display tracking */
+html[data-lang="zh"] .hero h1,
+html[data-lang="zh"] h2,
+html[data-lang="zh"] h3 {
+  letter-spacing: 0.04em;
+}
+
+html[data-lang="zh"] body {
+  font-size: 16px;
+}
+
+@media (max-width: 760px) {
+  .langToggle {
+    margin-left: auto;
+  }
+
+  .langToggle button {
+    padding: 8px 9px;
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 

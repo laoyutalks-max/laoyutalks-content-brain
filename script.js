@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
     boot.innerHTML =
       '<div class="bootCore">' +
         '<div class="bootRing"></div>' +
-        '<div class="bootText">INITIALIZING</div>' +
+        '<div class="bootText">' + (window.LAOYU_I18N ? window.LAOYU_I18N.t : String)("INITIALIZING") + '</div>' +
         '<div class="bootBar"><i></i></div>' +
       '</div>';
     document.documentElement.appendChild(boot);
@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var bar = boot.querySelector(".bootBar i");
     var i = 0;
     var timer = setInterval(function () {
-      text.textContent = steps[i];
+      text.textContent = (window.LAOYU_I18N ? window.LAOYU_I18N.t : String)(steps[i]);
       bar.style.width = ((i + 1) / steps.length * 100) + "%";
       i++;
       if (i === steps.length) {
@@ -376,8 +376,9 @@ document.addEventListener("DOMContentLoaded", function () {
       eyebrow.style.minHeight = "1.6em";
       var k = 0;
       setTimeout(function type() {
-        eyebrow.textContent = full.slice(0, ++k) + (k < full.length ? "▌" : "");
-        if (k < full.length) setTimeout(type, 38);
+        var line = (window.LAOYU_I18N ? window.LAOYU_I18N.t : String)(full);
+        eyebrow.textContent = line.slice(0, ++k) + (k < line.length ? "▌" : "");
+        if (k < line.length) setTimeout(type, 38);
       }, safeSession("laoyuBooted") ? 1700 : 300);
     }
 
@@ -488,3 +489,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 })();
+
+
+/* =========================================================
+   LANGUAGE SWITCH (EN / 中文) — runs after the HUD is built
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.LAOYU_I18N) window.LAOYU_I18N.init();
+});
