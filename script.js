@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------- Boot sequence (once per browser session) ---------- */
 
-  if (!reduceMotion && !safeSession("laoyuBooted")) {
+  if (false) { /* boot sequence retired: content first */
     var boot = document.createElement("div");
     boot.className = "boot";
     boot.innerHTML =
@@ -379,7 +379,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var line = (window.LAOYU_I18N ? window.LAOYU_I18N.t : String)(full);
         eyebrow.textContent = line.slice(0, ++k) + (k < line.length ? "▌" : "");
         if (k < line.length) setTimeout(type, 38);
-      }, safeSession("laoyuBooted") ? 1700 : 300);
+      }, 300);
     }
 
 
@@ -407,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ---------- Node-network background ---------- */
 
-    if (reduceMotion) return;
+    if (reduceMotion || (window.matchMedia && window.matchMedia("(max-width: 760px)").matches)) return;
 
     var canvas = document.createElement("canvas");
     canvas.id = "hudCanvas";
