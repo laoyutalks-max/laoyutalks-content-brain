@@ -60,7 +60,13 @@
     ta.remove();
   }
 
+  function langOptions() {
+    document.querySelectorAll("option[data-en]").forEach(function (o) { o.textContent = o.getAttribute(zh() ? "data-zh" : "data-en"); });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    langOptions();
+    document.addEventListener("laoyu:lang", langOptions);
     restore();
     document.addEventListener("change", function (e) { if (e.target.matches("[data-sig], [data-keep]")) { persist(); score(); } });
     document.addEventListener("input", function (e) { if (e.target.matches("[data-keep]")) persist(); });

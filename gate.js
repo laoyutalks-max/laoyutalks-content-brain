@@ -89,7 +89,7 @@
     });
     remember(res, p.name);
     var note = document.querySelector(".gateDone");
-    if (note) { note.textContent = t("done").replace("{name}", p.name); note.hidden = false; }
+    if (note) { note.dataset.name = p.name; note.textContent = t("done").replace("{name}", p.name); note.hidden = false; }
     open(gate);
     var first = document.querySelector(".gated");
     if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -164,7 +164,11 @@
     var res = gate.getAttribute("data-resource");
     if (unlocked()[res]) { open(gate); return; }
     render(gate);
-    document.addEventListener("laoyu:lang", function () { if (!gate.hidden) render(gate); });
+    document.addEventListener("laoyu:lang", function () {
+      if (!gate.hidden) render(gate);
+      var note = document.querySelector(".gateDone");
+      if (note && note.dataset.name) note.textContent = t("done").replace("{name}", note.dataset.name);
+    });
   });
 
 })();

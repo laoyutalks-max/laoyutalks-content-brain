@@ -88,8 +88,8 @@
     if (!table) return;
     var KEY = "laoyuMP", tb = table.querySelector("tbody"), hrs = document.getElementById("mpHours");
     var sample = function () {
-      return [{ n: "Line A", r: 12, s: 12, a: 2, p: 1 }, { n: "Line B", r: 8, s: 9, a: 0, p: 2 },
-              { n: "Packing", r: 6, s: 8, a: 1, p: 3 }, { n: "QC", r: 4, s: 4, a: 1, p: 1 }];
+      return [{ n: L("Line A", "A 线"), r: 12, s: 12, a: 2, p: 1 }, { n: L("Line B", "B 线"), r: 8, s: 9, a: 0, p: 2 },
+              { n: L("Packing", "包装"), r: 6, s: 8, a: 1, p: 3 }, { n: L("QC", "质检"), r: 4, s: 4, a: 1, p: 1 }];
     };
     var rows = load(KEY, null) || sample();
     function num(v) { v = parseFloat(v); return isFinite(v) && v > 0 ? v : 0; }
@@ -172,7 +172,12 @@
       var last = tb.querySelector("tr:last-child input"); if (last) last.focus();
     });
     hrs.addEventListener("input", calc);
-    on("laoyu:lang", render);
+    var SAMPLE = [["Line A", "A 线"], ["Line B", "B 线"], ["Packing", "包装"], ["QC", "质检"]];
+    on("laoyu:lang", function () {
+      // untouched sample names follow the language; names the user typed are kept
+      rows.forEach(function (r) { SAMPLE.forEach(function (n) { if (r.n === n[0] || r.n === n[1]) r.n = zh() ? n[1] : n[0]; }); });
+      save(KEY, rows); render();
+    });
     on("laoyu:reset", function () { rows = [{ n: "", r: "", s: "", a: "", p: 1 }, { n: "", r: "", s: "", a: "", p: 2 }]; save(KEY, rows); hrs.value = 8; render(); });
     window.addEventListener("load", function () { if (!hrs.value) hrs.value = 8; calc(); });
     if (!hrs.value) hrs.value = 8;
