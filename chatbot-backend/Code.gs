@@ -8,7 +8,7 @@
  *
  * Tabs it creates:
  *   Chats     — every visitor question, topic matched, answered or not
- *   Leads     — name / email / message visitors chose to leave
+ *   Leads     — chatbot contacts and free-resource sign-ups
  *   Dashboard — live summary: totals, chats per day, top topics,
  *               unanswered questions, languages, pages
  */
@@ -102,7 +102,8 @@ function buildDashboard_(ss) {
     ['Answered rate',    '=IFERROR(COUNTIF(Chats!G2:G,TRUE)/COUNTA(Chats!G2:G),0)'],
     ['Unanswered',       '=COUNTIF(Chats!G2:G,FALSE)'],
     ['Contacts left',    '=COUNTA(Leads!C2:C)'],
-    ['New contacts',     '=COUNTIF(Leads!H2:H,"New")']
+    ['New contacts',     '=COUNTIF(Leads!H2:H,"New")'],
+    ['Resource sign-ups','=COUNTIF(Leads!D2:D,"Free resource:*")']
   ];
   d.getRange(4, 1, kpis.length, 2).setValues(kpis);
   d.getRange(4, 1, kpis.length, 1).setFontWeight('bold');
