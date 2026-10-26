@@ -1935,3 +1935,114 @@ html[data-lang="zh"] .hero h1 span { white-space: nowrap; }
     display: none;
   }
 }
+
+/* =========================================================
+   FREE RESOURCE PAGES (checklist, prompt pack, sign-up gate)
+   ========================================================= */
+html:not([data-lang="zh"]) .resPage .zh,
+html[data-lang="zh"] .resPage .en { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.resHero { padding-bottom: 24px; }
+.resHero h1 span { color: var(--orange); }
+.resHero p { max-width: 720px; font-size: 19px; color: var(--text); }
+.resMeta { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.resMeta li { border: 1px solid var(--line-strong); padding: 5px 12px; font-family: var(--font-display); font-size: 11px; letter-spacing: .1em; color: var(--cyan); }
+.resSection { padding-top: 10px; }
+.resWrap { max-width: 880px; display: grid; gap: 22px; }
+.resPage .gated { display: grid; gap: 22px; }
+.resPage .gated[hidden], .resPage .gate[hidden], .resPage .gateDone[hidden] { display: none !important; }
+
+/* gate */
+.gate { border: 1px solid var(--orange); box-shadow: var(--glow-orange); }
+.gateForm h2 { color: var(--orange); }
+.gateFields { display: grid; grid-template-columns: 1fr; gap: 6px; margin: 18px 0 14px; max-width: 460px; }
+.gateFields label { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.resPage input:not([type=checkbox]), .resPage select, .resPage textarea {
+  width: 100%; box-sizing: border-box; background: rgba(2, 10, 20, .75); color: var(--text);
+  border: 1px solid var(--line-strong); padding: 11px 12px; font: 16px var(--font-body); border-radius: 0;
+}
+.resPage input:focus, .resPage select:focus, .resPage textarea:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.gateHp { position: absolute !important; left: -9999px; width: 1px !important; }
+.gateCheck { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; margin-bottom: 16px; max-width: 460px; }
+.gateErr { color: #ff9b5c; font-weight: 600; }
+.gatePriv { font-size: 13px; color: var(--muted); margin-top: 14px; }
+.gateDone { color: var(--cyan); font-family: var(--font-display); letter-spacing: .06em; margin: 0; }
+.resPage input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--orange); flex: none; margin: 2px 0 0; }
+
+/* checklist */
+.resTools { display: flex; gap: 12px; flex-wrap: wrap; }
+.resTools .btn { cursor: pointer; background: transparent; font-family: var(--font-display); }
+.resPart { position: relative; }
+.resNum { font-family: var(--font-display); color: var(--orange); font-size: 13px; letter-spacing: .2em; margin-bottom: 4px; }
+.resNum::before { content: "PART "; }
+.prompt .resNum::before, .promptHead .resNum::before { content: ""; }
+.signals, .checks { list-style: none; padding: 0; margin: 18px 0; display: grid; gap: 8px; }
+.signals label, .checks label { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--line); cursor: pointer; font-size: 17px; line-height: 1.4; }
+.signals label:hover, .checks label:hover { border-color: var(--line-strong); }
+.signals label:has(input:checked) { border-color: var(--orange); background: rgba(255, 122, 26, .08); }
+.checks label:has(input:checked) { border-color: var(--cyan); background: rgba(53, 224, 255, .06); }
+.score { display: flex; gap: 18px; align-items: center; padding: 16px; border: 1px solid var(--line-strong); margin: 8px 0 14px; flex-wrap: wrap; }
+.scoreNum { font-family: var(--font-display); font-size: 18px; color: var(--muted); }
+.scoreNum b { font-size: 40px; color: var(--cyan); }
+.scoreBand { display: grid; gap: 2px; flex: 1; min-width: 200px; }
+.scoreBand b { font-family: var(--font-display); letter-spacing: .06em; font-size: 15px; text-transform: uppercase; }
+.scoreBand.ok b { color: #3ddc97; } .scoreBand.warn b { color: #ffc23d; } .scoreBand.bad b { color: #ff6b4a; }
+.resNote { font-size: 15px; color: var(--muted); }
+.questions { padding-left: 22px; display: grid; gap: 8px; font-size: 17px; }
+.doDont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.doDont > div { border: 1px solid var(--line); padding: 12px 16px; }
+.doDont h3 { margin: 0 0 6px; font-size: 14px; letter-spacing: .14em; color: var(--cyan); }
+.doDont > div + div h3 { color: var(--orange); }
+.doDont ul { margin: 0; padding-left: 18px; }
+.notesLbl { display: block; margin: 10px 0 6px; color: var(--muted); }
+.tblWrapR { overflow-x: auto; }
+.tracker { width: 100%; border-collapse: collapse; font-size: 16px; }
+.tracker th, .tracker td { border: 1px solid var(--line); padding: 8px; text-align: left; vertical-align: middle; }
+.tracker th { font-family: var(--font-display); font-size: 11px; letter-spacing: .12em; color: var(--cyan); }
+.tracker td:first-child { text-align: center; color: var(--orange); font-family: var(--font-display); }
+.tracker td:nth-child(3) { min-width: 180px; }
+.relLinks { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; align-items: flex-start; }
+.relLinks .btn { white-space: normal; text-align: left; }
+
+/* prompt pack */
+.howTo ol { padding-left: 22px; display: grid; gap: 6px; font-size: 17px; }
+.resPage mark { background: rgba(255, 122, 26, .2); color: #ffb27a; padding: 0 2px; }
+.promptHead { display: flex; gap: 14px; align-items: baseline; }
+.promptHead h2 { font-size: 19px; }
+.when { color: var(--muted); font-size: 16px; }
+.when b { color: var(--cyan); font-weight: 600; }
+.prompt pre { white-space: pre-wrap; word-break: break-word; background: rgba(2, 10, 20, .8); border: 1px solid var(--line); border-left: 3px solid var(--orange); padding: 16px; font: 15px/1.55 ui-monospace, "SFMono-Regular", Menlo, Consolas, "Noto Sans SC", monospace; color: var(--text); margin: 12px 0; }
+.promptFoot { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.promptFoot .btn { cursor: pointer; font-family: var(--font-display); }
+.vidLink { font-size: 15px; }
+
+/* home card link */
+.resource .resLink { display: inline-block; margin-top: 12px; padding: 3px 10px; border: 1px solid var(--orange); font-family: var(--font-display); font-size: 10px; letter-spacing: .14em; color: var(--orange); text-decoration: none; }
+.resource .resLink:hover { background: var(--orange); color: #020a14; }
+
+@media (max-width: 760px) {
+  .doDont { grid-template-columns: 1fr; }
+  .resHero p { font-size: 17px; }
+  .promptHead h2 { font-size: 17px; }
+}
+
+/* print: clean black-on-white checklist */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  header.nav, footer.footer, .lyChat, .lyRoot, #lyChat, .lyLaunch, .lyPanel, .resTools, .gate, .gateDone, .resRelated, canvas, .hudStatus, .bootScreen { display: none !important; }
+  .resPage, .resPage * { color: #000 !important; background: transparent !important; box-shadow: none !important; text-shadow: none !important; }
+  .panel, .resPart, .signals label, .checks label, .tracker th, .tracker td, .score, .doDont > div, .prompt pre { border-color: #999 !important; }
+  .resPart, .prompt { break-inside: avoid; padding: 12px 0 !important; border: 0 !important; }
+  .resPage input:not([type=checkbox]), .resPage textarea { border: 1px solid #999 !important; }
+  .resHero { padding: 0 !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  body::before, body::after { display: none !important; }
+}
+.resWrap, .resPage .gated { grid-template-columns: minmax(0, 1fr); }
+.relLinks .btn { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 760px) {
+  .tracker { font-size: 14px; }
+  .tracker td:nth-child(3) { min-width: 120px; }
+  .tracker th, .tracker td { padding: 6px; }
+}

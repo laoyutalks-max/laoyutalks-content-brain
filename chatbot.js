@@ -117,9 +117,9 @@
       v: ["overthinking", "control", "change", "success", "skills"] },
 
     { id: "resources", kw: ["resource", "resources", "template", "templates", "download", "checklist", "checklists", "prompt library", "free", "tools"], zh: ["资源", "模板", "下载", "清单", "免费", "提示词库"],
-      a: { en: "LAOYU's free resources — an AI prompt library for work, productivity and dashboard templates, and checklists — are <b>coming soon</b>. The Resources page will list them as they're released.",
-           zh: "老鱼的免费资源——工作用 AI 提示词库、效率与仪表板模板、检查清单——<b>即将推出</b>，上线后会在资源页面列出。" },
-      links: [{ en: "Resources page →", zh: "资源页面 →", url: "resources.html" }] },
+      a: { en: "Two free resources are ready now: the <b>Quiet Quitting Early-Warning Checklist</b> (spot a disengaging team member, check the system first, run the 1:1 and follow up for 30 days) and the <b>AI Prompt Pack for Operations Managers</b> (10 copy-ready prompts for reports, repeated mistakes, manpower, audits and KPIs). Leave your name and email to unlock them. Dashboard and productivity templates are coming soon.",
+           zh: "现在有两份免费资源：<b>员工默默躺平预警清单</b>（及早发现失去动力的成员、先检查系统、进行一对一谈话并跟进 30 天）和<b>运营经理 AI 提示词包</b>（10 个可直接复制的提示词，涵盖报告、重复错误、人力、审核与 KPI）。留下姓名和邮箱即可解锁。仪表板与效率模板即将推出。" },
+      links: [{ en: "Checklist →", zh: "预警清单 →", url: "checklist-quiet-quitting.html" }, { en: "AI Prompt Pack →", zh: "AI 提示词包 →", url: "ai-prompt-pack.html" }, { en: "All resources →", zh: "全部资源 →", url: "resources.html" }] },
 
 
     { id: "contact", kw: ["contact", "email", "reach", "collaborate", "collaboration", "collab", "partner", "partnership", "sponsor", "hire", "consult", "consulting", "business", "speak", "speaking", "work with", "get in touch", "message"], zh: ["联系", "邮箱", "合作", "赞助", "咨询", "商务", "讲座", "找你", "私信"],
