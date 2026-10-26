@@ -29,6 +29,11 @@
     privacy: ["Your details are only used for LAOYU resources and updates. No spam, unsubscribe any time. ", "你的信息只用于老鱼的资源与更新。不发垃圾邮件，可随时退订。"],
     privacyLink: ["Privacy policy", "隐私政策"],
     badEmail: ["Please enter a valid email address.", "请输入有效的邮箱地址。"],
+    typo: ["Did you mean {s}?", "你是不是要输入 {s}？"],
+    useIt: ["Yes, use it", "是，使用这个"],
+    disposable: ["Temporary or test email addresses can't be used. Please use your work or personal email.", "不能使用临时或测试邮箱。请使用你的工作或个人邮箱。"],
+    noMail: ["This email domain can't receive mail. Please check the spelling.", "这个邮箱域名无法收信，请检查拼写。"],
+    checking: ["CHECKING…", "正在检查…"],
     badName: ["Please enter your name.", "请输入你的名字。"],
     done: ["Unlocked. Thanks, {name}!", "已解锁，谢谢你，{name}！"],
     back: ["Welcome back, {name}", "欢迎回来，{name}"],
@@ -127,14 +132,29 @@
     gate.querySelector("form").addEventListener("submit", function (e) {
       e.preventDefault();
       var f = e.target, err = f.querySelector(".gateErr");
-      var name = f.name.value.trim(), email = f.email.value.trim();
+      var name = f.name.value.trim(), email = f.email.value.trim().toLowerCase();
+      var btn = f.querySelector("button[type=submit]");
+      function fail(msg) { err.textContent = msg; err.hidden = false; f.email.focus(); btn.disabled = false; btn.innerHTML = t("btn"); }
       if (f.website.value) return;
       if (!name) { err.textContent = t("badName"); err.hidden = false; f.name.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = t("badEmail"); err.hidden = false; f.email.focus(); return; }
+      var EC = window.LAOYU_EMAIL;
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail(t("badEmail"));
+      var fix = EC ? EC.typoFix(email) : null;
+      if (fix && f.dataset.keptTypo !== email) {
+        err.hidden = false;
+        err.innerHTML = esc(t("typo")).replace("{s}", "<b>" + esc(fix) + "</b>") + ' <button type="button" class="gateSwap" data-fix>' + t("useIt") + "</button>";
+        err.querySelector("[data-fix]").addEventListener("click", function () { f.email.value = fix; err.hidden = true; f.dataset.keptTypo = ""; });
+        f.dataset.keptTypo = email; // pressing UNLOCK again keeps what they typed
+        return;
+      }
       err.hidden = true;
-      var p = { name: name, email: email, role: f.role.value, updates: f.querySelector("#gUpd").checked };
-      keepProfile(p);
-      unlock(gate, res, p);
+      btn.disabled = true; btn.textContent = t("checking");
+      (EC ? EC.check(email) : Promise.resolve({ ok: true })).then(function (r) {
+        if (!r.ok) return fail(t(r.reason === "format" ? "badEmail" : r.reason === "disposable" ? "disposable" : "noMail"));
+        var p = { name: name, email: email, role: f.role.value, updates: f.querySelector("#gUpd").checked };
+        keepProfile(p);
+        unlock(gate, res, p);
+      });
     });
   }
 

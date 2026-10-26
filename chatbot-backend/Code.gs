@@ -8,7 +8,8 @@
  *
  * Tabs it creates:
  *   Chats     — every visitor question, topic matched, answered or not
- *   Leads     — chatbot contacts and free-resource sign-ups
+ *   Leads     — chatbot contacts and free-resource sign-ups (valid emails only)
+ *   Rejected  — sign-ups whose email failed the checks, with the reason
  *   Dashboard — live summary: totals, chats per day, top topics,
  *               unanswered questions, languages, pages
  */
@@ -27,6 +28,12 @@ function setup() {
     ['Time', 'Name', 'Email', 'Message', 'Page', 'Language', 'Session', 'Status']);
   leads.setColumnWidth(4, 380);
   leads.getRange('A:A').setNumberFormat('yyyy-mm-dd hh:mm');
+
+  var rej = ensureSheet_(ss, 'Rejected',
+    ['Time', 'Name', 'Email', 'Reason', 'Message', 'Page']);
+  rej.setColumnWidth(3, 240);
+  rej.setColumnWidth(4, 260);
+  rej.getRange('A:A').setNumberFormat('yyyy-mm-dd hh:mm');
 
   buildDashboard_(ss);
 
@@ -54,6 +61,13 @@ function doPost(e) {
       var now = new Date();
 
       if (data.type === 'lead') {
+        var problem = emailProblem_(String(data.email || '').trim().toLowerCase());
+        if (problem) {
+          (ss.getSheetByName('Rejected') || ensureSheet_(ss, 'Rejected', ['Time', 'Name', 'Email', 'Reason', 'Message', 'Page'])).appendRow([
+            now, clean_(data.name, 80), clean_(data.email, 120), problem, clean_(data.message, 500), clean_(data.page, 60)
+          ]);
+          return ok_();
+        }
         ss.getSheetByName('Leads').appendRow([
           now,
           clean_(data.name, 80),
@@ -103,7 +117,8 @@ function buildDashboard_(ss) {
     ['Unanswered',       '=COUNTIF(Chats!G2:G,FALSE)'],
     ['Contacts left',    '=COUNTA(Leads!C2:C)'],
     ['New contacts',     '=COUNTIF(Leads!H2:H,"New")'],
-    ['Resource sign-ups','=COUNTIF(Leads!D2:D,"Free resource:*")']
+    ['Resource sign-ups','=COUNTIF(Leads!D2:D,"Free resource:*")'],
+    ['Rejected emails',  '=COUNTA(Rejected!C2:C)']
   ];
   d.getRange(4, 1, kpis.length, 2).setValues(kpis);
   d.getRange(4, 1, kpis.length, 1).setFontWeight('bold');
@@ -148,6 +163,66 @@ function buildDashboard_(ss) {
     .setOption('colors', ['#35e0ff'])
     .build();
   d.insertChart(chart);
+}
+
+/* ---------------- Email checks ---------------- */
+
+var DISPOSABLE_ = ('mailinator.com guerrillamail.com guerrillamail.net guerrillamail.org sharklasers.com grr.la 10minutemail.com ' +
+  '10minutemail.net tempmail.com temp-mail.org temp-mail.io tempmail.net tempmailo.com tempr.email yopmail.com yopmail.net ' +
+  'trashmail.com trashmail.de getnada.com nada.email dispostable.com maildrop.cc throwawaymail.com fakeinbox.com mintemail.com ' +
+  'mohmal.com emailondeck.com discard.email mailnesia.com mytemp.email spamgourmet.com burnermail.io mail.tm moakt.com ' +
+  'tempinbox.com spambox.us mailcatch.com getairmail.com inboxkitten.com emailfake.com fakemail.net tempail.com ' +
+  'example.com example.org example.net test.com test.org invalid.com').split(' ');
+
+/** Returns '' when the email looks real, otherwise the reason it was rejected. */
+function emailProblem_(email) {
+  var re = /^[a-z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*\.[a-z]{2,24}$/;
+  if (!re.test(email) || email.indexOf('..') >= 0) return 'Invalid format';
+  var domain = email.split('@')[1];
+  if (DISPOSABLE_.indexOf(domain) >= 0) return 'Temporary or test email';
+  var mail = domainReceivesMail_(domain);
+  if (mail === false) return 'Domain cannot receive email';
+  return '';
+}
+
+/** true = has mail (MX) or address record, false = domain does not exist / no mail, null = could not check. */
+function domainReceivesMail_(domain) {
+  var cache = CacheService.getScriptCache(), key = 'mx_' + domain;
+  var hit = cache.get(key);
+  if (hit) return hit === 'yes' ? true : hit === 'no' ? false : null;
+  var result = null;
+  try {
+    var mx = dns_(domain, 'MX', 15);
+    result = mx === true ? true : (dns_(domain, 'A', 1) === true ? true : (mx === false ? false : null));
+  } catch (err) {
+    result = null; // DNS service unreachable: do not block the sign-up
+  }
+  cache.put(key, result === true ? 'yes' : result === false ? 'no' : 'unknown', 21600);
+  return result;
+}
+
+function dns_(domain, type, code) {
+  var res = UrlFetchApp.fetch('https://dns.google/resolve?name=' + encodeURIComponent(domain) + '&type=' + type,
+    { muteHttpExceptions: true });
+  if (res.getResponseCode() !== 200) return null;
+  var j = JSON.parse(res.getContentText());
+  if (j.Status === 3) return false;                       // domain does not exist
+  if (j.Status !== 0) return null;
+  return (j.Answer || []).some(function (a) { return a.type === code; }) ? true : false;
+}
+
+/** Run this once from the editor to check old rows already in Leads. Bad ones are marked in the Status column. */
+function checkExistingLeads() {
+  var sh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Leads');
+  var last = sh.getLastRow();
+  if (last < 2) return;
+  var emails = sh.getRange(2, 3, last - 1, 1).getValues();
+  var status = sh.getRange(2, 8, last - 1, 1).getValues();
+  emails.forEach(function (row, i) {
+    var p = emailProblem_(String(row[0]).trim().toLowerCase());
+    if (p) status[i][0] = 'Invalid: ' + p;
+  });
+  sh.getRange(2, 8, last - 1, 1).setValues(status);
 }
 
 /* ---------------- Helpers ---------------- */

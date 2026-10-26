@@ -169,6 +169,9 @@
     askName:   { en: "Great! What's your name?", zh: "好的！请问怎么称呼你？" },
     askEmail:  { en: "Thanks, {name}. What email can LAOYU reply to?", zh: "谢谢，{name}。老鱼可以回复到哪个邮箱？" },
     badEmail:  { en: "That doesn't look like an email address. Could you check it? (Type “cancel” to stop.)", zh: "这个邮箱格式好像不对，可以再检查一下吗？（输入“取消”可停止）" },
+    tempEmail: { en: "Temporary or test email addresses can't be used. Could you share your work or personal email? (Type “cancel” to stop.)", zh: "不能使用临时或测试邮箱。可以提供你的工作或个人邮箱吗？（输入“取消”可停止）" },
+    noMail:    { en: "That email domain can't receive mail. Could you check the spelling? (Type “cancel” to stop.)", zh: "这个邮箱域名无法收信，可以检查一下拼写吗？（输入“取消”可停止）" },
+    typoAsk:   { en: "Did you mean {s}? Type it again to confirm, or type the one you meant.", zh: "你是不是要输入 {s}？请再输入一次确认，或输入正确的邮箱。" },
     askMsg:    { en: "What would you like to talk to LAOYU about?", zh: "想和老鱼聊些什么？" },
     leadDone:  { en: "Thank you! Your details have been sent to LAOYU, who will reply to {email}.", zh: "谢谢！你的信息已发送给老鱼，他会回复到 {email}。" },
     leadOffline: { en: "Thanks! Recording isn't switched on yet, so please email LAOYU directly at " + EMAIL + ".", zh: "谢谢！记录功能尚未开启，请直接发邮件至 " + EMAIL + "。" },
@@ -343,14 +346,29 @@
       var name = lead.name;
       botSay(function () { return esc(L(UI.askEmail).replace("{name}", name)); }, []);
     } else if (lead.step === "email") {
-      var email = text.trim();
+      var email = text.trim().toLowerCase();
+      var EC = window.LAOYU_EMAIL;
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
         botSay(function () { return esc(L(UI.badEmail)); }, []);
         return;
       }
-      lead.email = email.slice(0, 120);
-      lead.step = "message";
-      botSay(function () { return esc(L(UI.askMsg)); }, []);
+      var fix = EC ? EC.typoFix(email) : null;
+      if (fix && lead.typo !== email) {
+        lead.typo = email;
+        botSay(function () { return esc(L(UI.typoAsk).replace("{s}", fix)); }, []);
+        return;
+      }
+      var cur = lead;
+      (EC ? EC.check(email) : Promise.resolve({ ok: true })).then(function (r) {
+        if (lead !== cur) return; // cancelled meanwhile
+        if (!r.ok) {
+          botSay(function () { return esc(L(r.reason === "disposable" ? UI.tempEmail : r.reason === "nomail" ? UI.noMail : UI.badEmail)); }, []);
+          return;
+        }
+        lead.email = email.slice(0, 120);
+        lead.step = "message";
+        botSay(function () { return esc(L(UI.askMsg)); }, []);
+      });
     } else if (lead.step === "message") {
       var sent = record({ type: "lead", name: lead.name, email: lead.email, message: text.trim().slice(0, 1000) });
       var email = lead.email;
