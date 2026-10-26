@@ -30,7 +30,11 @@
     privacyLink: ["Privacy policy", "隐私政策"],
     badEmail: ["Please enter a valid email address.", "请输入有效的邮箱地址。"],
     badName: ["Please enter your name.", "请输入你的名字。"],
-    done: ["Unlocked. Thanks, {name}!", "已解锁，谢谢你，{name}！"]
+    done: ["Unlocked. Thanks, {name}!", "已解锁，谢谢你，{name}！"],
+    back: ["Welcome back, {name}", "欢迎回来，{name}"],
+    backSub: ["You already signed up. Unlock this one with {email}.", "你已经注册过了。用 {email} 一键解锁这份资源。"],
+    oneClick: ["UNLOCK WITH ONE CLICK →", "一键解锁 →"],
+    notMe: ["Use a different email", "使用其他邮箱"]
   };
   function t(k) { return T[k][zh() ? 1 : 0]; }
 
@@ -40,6 +44,11 @@
   function remember(res, name) {
     try { var u = unlocked(); u[res] = { at: Date.now(), name: name }; localStorage.setItem(KEY, JSON.stringify(u)); } catch (e) {}
   }
+
+  var PKEY = "laoyuProfile";
+  function profile() { try { return JSON.parse(localStorage.getItem(PKEY) || "null"); } catch (e) { return null; } }
+  function keepProfile(p) { try { localStorage.setItem(PKEY, JSON.stringify(p)); } catch (e) {} }
+  var full = false;
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
@@ -62,8 +71,41 @@
     document.documentElement.classList.add("isUnlocked");
   }
 
+  function unlock(gate, res, p) {
+    send({
+      type: "lead",
+      name: p.name,
+      email: p.email,
+      message: "Free resource: " + res + " · Role: " + (p.role || "not given") + " · New resources by email: " + (p.updates ? "yes" : "no"),
+      page: location.pathname.split("/").pop() || "index.html",
+      lang: zh() ? "zh" : "en",
+      session: "res-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      hp: ""
+    });
+    remember(res, p.name);
+    var note = document.querySelector(".gateDone");
+    if (note) { note.textContent = t("done").replace("{name}", p.name); note.hidden = false; }
+    open(gate);
+    var first = document.querySelector(".gated");
+    if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function render(gate) {
     var res = gate.getAttribute("data-resource");
+    var p = profile();
+    if (p && p.email && !full) {
+      gate.innerHTML =
+        '<div class="gateForm gateBack">' +
+          "<h2>" + esc(t("back").replace("{name}", p.name)) + "</h2>" +
+          "<p>" + esc(t("backSub")).replace("{email}", "<b>" + esc(p.email) + "</b>") + "</p>" +
+          '<button type="button" class="btn orange" data-one>' + t("oneClick") + "</button> " +
+          '<button type="button" class="gateSwap" data-swap>' + t("notMe") + "</button>" +
+          '<p class="gatePriv">' + t("privacy") + '<a href="privacy.html">' + t("privacyLink") + "</a></p>" +
+        "</div>";
+      gate.querySelector("[data-one]").addEventListener("click", function () { unlock(gate, res, p); });
+      gate.querySelector("[data-swap]").addEventListener("click", function () { full = true; render(gate); var n = gate.querySelector("#gName"); if (n) n.focus(); });
+      return;
+    }
     gate.innerHTML =
       '<form class="gateForm" novalidate>' +
         "<h2>" + t("title") + "</h2>" +
@@ -90,22 +132,9 @@
       if (!name) { err.textContent = t("badName"); err.hidden = false; f.name.focus(); return; }
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { err.textContent = t("badEmail"); err.hidden = false; f.email.focus(); return; }
       err.hidden = true;
-      send({
-        type: "lead",
-        name: name,
-        email: email,
-        message: "Free resource: " + res + " · Role: " + (f.role.value || "not given") + " · New resources by email: " + (f.querySelector("#gUpd").checked ? "yes" : "no"),
-        page: location.pathname.split("/").pop() || "index.html",
-        lang: zh() ? "zh" : "en",
-        session: "res-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-        hp: ""
-      });
-      remember(res, name);
-      var note = document.querySelector(".gateDone");
-      if (note) { note.textContent = t("done").replace("{name}", name); note.hidden = false; }
-      open(gate);
-      var first = document.querySelector(".gated");
-      if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
+      var p = { name: name, email: email, role: f.role.value, updates: f.querySelector("#gUpd").checked };
+      keepProfile(p);
+      unlock(gate, res, p);
     });
   }
 

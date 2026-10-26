@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manpower Gap Calculator | LAOYU</title><meta name="description" content="Free manpower gap calculator for production: enter required, scheduled and absent headcount per area to see the gap, suggested moves and overtime needed."><meta property="og:title" content="Manpower Gap Calculator"><meta property="og:description" content="Free manpower gap calculator for production: enter required, scheduled and absent headcount per area to see the gap, suggested moves and overtime needed."><meta property="og:image" content="https://laoyutalks-max.github.io/laoyutalks-content-brain/assets/laoyu-logo.png"><link rel="icon" href="assets/laoyu-logo.png"><link rel="stylesheet" href="styles.css"></head><body>
+<header class="nav"><div class="wrap navin"><a href="index.html"><img class="logo" src="assets/laoyu-logo-hud.png" alt="LAOYU 老鱼"></a><nav class="links"><a href="index.html">HOME</a><a href="laoyutalks.html">LAOYUTALKS</a><a href="resources.html">RESOURCES</a><a href="about.html">ABOUT</a><a href="contact.html">CONTACT</a><a class="btn orange" href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">FOLLOW ON TIKTOK ↗</a></nav></div></header>
+<main class="resPage">
+<section class="hero resHero"><div class="wrap">
+  <div class="eyebrow">FREE TOOL</div>
+  <h1><span class="en">Manpower <span>Gap</span> Calculator</span><span class="zh">人力<span>缺口</span>计算器</span></h1>
+  <p class="en">Absences again? Enter what each area needs and who turned up. See the gap, which people to move first by priority, and how many overtime hours are still needed.</p>
+  <p class="zh">又有人缺勤？输入每个区域需要多少人、实际到了多少人，立即看到缺口、按优先级先调谁，以及还需要多少加班工时。</p>
+  <ul class="resMeta"><li class="en">For supervisors &amp; planners</li><li class="zh">适合主管与计划员</li><li class="en">Instant result</li><li class="zh">即时计算</li><li class="en">Works on your phone</li><li class="zh">手机可用</li></ul>
+</div></section>
+<section class="section resSection" data-i18n-block><div class="wrap resWrap">
+  <div class="gate panel" data-resource="Manpower Gap Calculator"></div>
+  <p class="gateDone note" hidden></p>
+  <div class="gated" hidden>
+    <div class="resTools">
+      <button type="button" class="btn outline" data-print><span class="en">PRINT / SAVE AS PDF</span><span class="zh">打印 / 另存为 PDF</span></button>
+      <button type="button" class="btn outline" data-reset><span class="en">CLEAR</span><span class="zh">清除</span></button>
+    </div>
+    <article class="panel resPart">
+      <div class="resNum">1</div><h2><span class="en">Today's numbers</span><span class="zh">今天的数字</span></h2>
+      <p class="en">One row per area or line. <b>Priority 1</b> is the area you protect first, for example a customer order due today.</p><p class="zh">每个区域或产线一行。<b>优先级 1</b> 是要最先保住的区域，例如今天要交的客户订单。</p>
+      <div class="fldGrid"><div class="fld"><label for="mpHours"><span class="en">Shift length (hours)</span><span class="zh">班次时长（小时）</span></label><input id="mpHours" type="number" data-keep></div></div>
+      <div class="tblWrapR"><table class="tracker mpTable" id="mpTable"><thead><tr><th><span class="en">Area / line</span><span class="zh">区域 / 产线</span></th><th><span class="en">Required</span><span class="zh">需要人数</span></th><th><span class="en">Scheduled</span><span class="zh">排班人数</span></th><th><span class="en">Absent</span><span class="zh">缺勤</span></th><th><span class="en">Priority</span><span class="zh">优先级</span></th><th><span class="en">Gap</span><span class="zh">差额</span></th><th><span class="sr">Remove</span></th></tr></thead><tbody></tbody></table></div>
+      <div class="resTools"><button type="button" class="btn outline" id="mpAdd"><span class="en">+ ADD AREA</span><span class="zh">+ 新增区域</span></button></div>
+    </article>
+    <article class="panel resPart">
+      <div class="resNum">2</div><h2><span class="en">Result</span><span class="zh">结果</span></h2>
+      <div class="mpKpis" id="mpKpis" aria-live="polite"></div>
+      <h3 class="mpH"><span class="en">Suggested moves</span><span class="zh">建议调动</span></h3>
+      <ol class="mpMoves" id="mpMoves"></ol>
+      <div id="mpLeft"></div>
+      <p class="en resNote">This is a starting point. Before you move anyone, check that they are trained and qualified for the station.</p><p class="zh resNote">这只是起点。调人之前，请确认对方已经过该岗位的培训并具备资格。</p>
+    </article>
+    <article class="panel resPart resRelated">
+      <h2><span class="en">Related</span><span class="zh">相关内容</span></h2>
+      <div class="relLinks"><a class="btn outline" href="https://www.tiktok.com/@laoyu.talks/video/7697970844294991124" target="_blank" rel="noopener noreferrer"><span class="en">Dashboards that hide the real problem ↗</span><span class="zh">隐藏真正问题的仪表板 ↗</span></a><a class="btn outline" href="ai-prompt-pack.html#manpower"><span class="en">Prompt: Manpower gap, who gets the hours? →</span><span class="zh">提示词：人力缺口，工时给谁？ →</span></a></div>
+      <p class="en">More free tools: <a href="resources.html">all LAOYU resources →</a></p><p class="zh">更多免费工具：<a href="resources.html">老鱼全部资源 →</a></p>
+    </article>
+  </div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap foot"><div><img src="assets/laoyu-logo-hud.png" alt="LAOYU"><p>Stay curious. Keep improving.<br>Lead with <b style="color:#ff6a00">thinking</b>. Improve with <b style="color:#ff6a00">AI</b>.</p></div><div><h4>NAVIGATION</h4><a href="index.html">Home</a><a href="laoyutalks.html">LAOYUTALKS</a><a href="resources.html">Resources</a></div><div><h4>RESOURCES</h4><a href="resources.html">Templates</a><a href="resources.html">AI Prompts</a><a href="resources.html">Guides</a><a href="resources.html">Checklists</a></div><div><h4>CONNECT</h4><a href="https://www.tiktok.com/@laoyu.talks">TikTok @laoyu.talks</a><a href="contact.html">Email</a></div></div><div class="wrap copy"><span>© <span data-year></span> LAOYU. All rights reserved.</span><span>Built with ♥ by LAOYU</span></div></footer><script src="i18n.js"></script><script src="script.js"></script><script src="chatbot.js"></script><script src="gate.js"></script><script src="res.js"></script><script src="tools.js"></script></body></html>

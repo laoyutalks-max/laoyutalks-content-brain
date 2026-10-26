@@ -70,12 +70,19 @@
       if (!t) return;
       if (t.hasAttribute("data-print")) window.print();
       else if (t.hasAttribute("data-reset")) {
-        if (t.dataset.armed !== "1") { t.dataset.armed = "1"; t.querySelector(zh() ? ".zh" : ".en").textContent = zh() ? "再点一次确认清除" : "CLICK AGAIN TO CLEAR"; return; }
+        if (t.dataset.armed !== "1") {
+          t.dataset.armed = "1";
+          t.dataset.en = t.dataset.en || t.querySelector(".en").textContent; t.dataset.zh = t.dataset.zh || t.querySelector(".zh").textContent;
+          t.querySelector(".en").textContent = "CLICK AGAIN TO CLEAR"; t.querySelector(".zh").textContent = "再点一次确认清除";
+          setTimeout(function () { if (t.dataset.armed === "1") { t.dataset.armed = ""; t.querySelector(".en").textContent = t.dataset.en; t.querySelector(".zh").textContent = t.dataset.zh; } }, 4000);
+          return;
+        }
         try { localStorage.removeItem(KEY); } catch (err) {}
         fields().forEach(function (el) { if (el.type === "checkbox") el.checked = false; else el.value = ""; });
         score();
+        document.dispatchEvent(new Event("laoyu:reset"));
         t.dataset.armed = "";
-        t.querySelector(".en").textContent = "CLEAR MY ANSWERS"; t.querySelector(".zh").textContent = "清除我的填写";
+        t.querySelector(".en").textContent = t.dataset.en; t.querySelector(".zh").textContent = t.dataset.zh;
       } else if (t.hasAttribute("data-copy")) {
         var card = t.closest(".prompt");
         var pre = card.querySelector("pre." + (zh() ? "zh" : "en"));
