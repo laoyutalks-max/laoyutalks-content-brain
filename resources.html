@@ -12,7 +12,7 @@
   >
 
   <link rel="icon" href="assets/laoyu-logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"><link rel="stylesheet" href="styles.css?v=20261030"><link rel="stylesheet" href="twin.css?v=20261030c">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"><link rel="stylesheet" href="styles.css?v=20261030"><link rel="stylesheet" href="twin.css?v=20261030d">
 </head>
 
 <body>
@@ -67,10 +67,10 @@
           <svg viewBox="0 0 64 64" class="mIco"><rect class="s f" x="8" y="16" width="48" height="32" rx="4"/><path class="o" d="M20 32l6 6 12-12"/><path class="s" d="M44 26h6M44 32h6M44 38h6"/></svg>
         </div>
         <div class="passTxt">
-          <b>One sign-up unlocks all 8 tools.</b>
+          <b>One sign-up unlocks all 16 tools.</b>
           <span data-pass-msg>Leave your name and email once and every tool opens instantly on this browser. Free, no payment.</span>
         </div>
-        <div class="passStat"><span data-pass-state>8 FREE TOOLS</span></div>
+        <div class="passStat"><span data-pass-state>16 FREE TOOLS</span></div>
       </div>
     </div>
   </section>
@@ -86,25 +86,169 @@
         </div>
       </div>
 
-      <div class="chips" role="group" aria-label="Problems"><button type="button" class="chip" data-prob="mistake" aria-pressed="false"><i aria-hidden="true">🔁</i><span>Same mistake keeps happening</span></button><button type="button" class="chip" data-prob="handover" aria-pressed="false"><i aria-hidden="true">📋</i><span>Shift handover is messy</span></button><button type="button" class="chip" data-prob="manpower" aria-pressed="false"><i aria-hidden="true">👥</i><span>Short of manpower</span></button><button type="button" class="chip" data-prob="kpi" aria-pressed="false"><i aria-hidden="true">📊</i><span>No clear KPI view</span></button><button type="button" class="chip" data-prob="chaos" aria-pressed="false"><i aria-hidden="true">🗓</i><span>My day is chaos</span></button><button type="button" class="chip" data-prob="actions" aria-pressed="false"><i aria-hidden="true">✅</i><span>Actions never get closed</span></button><button type="button" class="chip" data-prob="team" aria-pressed="false"><i aria-hidden="true">😐</i><span>Team stopped caring</span></button><button type="button" class="chip" data-prob="ai" aria-pressed="false"><i aria-hidden="true">🤖</i><span>Want AI to save me time</span></button></div>
+      <div class="chipGroup"><h3 class="chipH">PRODUCTION PROBLEMS</h3><div class="chips" role="group" aria-label="Production problems"><button type="button" class="chip" data-prob="downtime" aria-pressed="false"><i aria-hidden="true">🛠</i><span>Machine keeps breaking down</span></button><button type="button" class="chip" data-prob="output" aria-pressed="false"><i aria-hidden="true">📉</i><span>Output or OEE too low</span></button><button type="button" class="chip" data-prob="quality" aria-pressed="false"><i aria-hidden="true">🎯</i><span>Quality problem or defects</span></button><button type="button" class="chip" data-prob="mistake" aria-pressed="false"><i aria-hidden="true">🔁</i><span>Same mistake keeps happening</span></button><button type="button" class="chip" data-prob="complaint" aria-pressed="false"><i aria-hidden="true">📨</i><span>Customer complaint</span></button><button type="button" class="chip" data-prob="handover" aria-pressed="false"><i aria-hidden="true">📋</i><span>Shift handover is messy</span></button><button type="button" class="chip" data-prob="manpower" aria-pressed="false"><i aria-hidden="true">👥</i><span>Short of manpower</span></button><button type="button" class="chip" data-prob="kpi" aria-pressed="false"><i aria-hidden="true">📊</i><span>No clear KPI view</span></button></div></div><div class="chipGroup"><h3 class="chipH">PEOPLE &amp; MANAGEMENT</h3><div class="chips" role="group" aria-label="Management problems"><button type="button" class="chip" data-prob="team" aria-pressed="false"><i aria-hidden="true">😐</i><span>Team stopped caring</span></button><button type="button" class="chip" data-prob="talk" aria-pressed="false"><i aria-hidden="true">💬</i><span>Need a tough conversation</span></button><button type="button" class="chip" data-prob="skills" aria-pressed="false"><i aria-hidden="true">🧩</i><span>Too few people can run key jobs</span></button><button type="button" class="chip" data-prob="decide" aria-pressed="false"><i aria-hidden="true">⚖</i><span>Hard decision to make</span></button><button type="button" class="chip" data-prob="escalate" aria-pressed="false"><i aria-hidden="true">📣</i><span>Need support from management</span></button><button type="button" class="chip" data-prob="chaos" aria-pressed="false"><i aria-hidden="true">🗓</i><span>My day is chaos</span></button><button type="button" class="chip" data-prob="actions" aria-pressed="false"><i aria-hidden="true">✅</i><span>Actions never get closed</span></button><button type="button" class="chip" data-prob="ai" aria-pressed="false"><i aria-hidden="true">🤖</i><span>Want AI to save me time</span></button></div></div>
 
       <div class="filters">
         <div class="seg" role="group" aria-label="Role"><span class="segLbl">ROLE</span><button type="button" data-role="all" aria-pressed="true">All</button><button type="button" data-role="supervisor" aria-pressed="false">Supervisor</button><button type="button" data-role="engineer" aria-pressed="false">Engineer</button><button type="button" data-role="manager" aria-pressed="false">Manager</button></div>
-        <div class="seg" role="group" aria-label="Type"><span class="segLbl">TYPE</span><button type="button" data-type="all" aria-pressed="true">All</button><button type="button" data-type="template" aria-pressed="false">Templates</button><button type="button" data-type="tracker" aria-pressed="false">Trackers</button><button type="button" data-type="calculator" aria-pressed="false">Calculators</button><button type="button" data-type="checklist" aria-pressed="false">Checklists</button><button type="button" data-type="prompts" aria-pressed="false">AI Prompts</button></div>
+        <div class="seg" role="group" aria-label="Type"><span class="segLbl">TYPE</span><button type="button" data-type="all" aria-pressed="true">All</button><button type="button" data-type="solver" aria-pressed="false">Problem solvers</button><button type="button" data-type="template" aria-pressed="false">Templates</button><button type="button" data-type="tracker" aria-pressed="false">Trackers</button><button type="button" data-type="calculator" aria-pressed="false">Calculators</button><button type="button" data-type="checklist" aria-pressed="false">Checklists</button><button type="button" data-type="prompts" aria-pressed="false">AI Prompts</button></div>
       </div>
 
       <div class="finderBar">
-        <span class="fCount" aria-live="polite"><b data-count-shown>8</b> <span data-count-label>tools ready</span></span>
+        <span class="fCount" aria-live="polite"><b data-count-shown>16</b> <span data-count-label>tools ready</span></span>
         <button type="button" class="fClear" data-clear hidden>✕ Clear filters</button>
       </div>
 
       <div class="toolGrid">
-        <article class="toolCard" data-type="template" data-roles="supervisor engineer" data-probs="mistake">
+        <article class="toolCard" data-type="solver" data-roles="supervisor engineer" data-probs="downtime output">
+          <a class="tcShot" href="downtime-troubleshooter.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/downtime-troubleshooter-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/downtime-troubleshooter-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">PROBLEM SOLVER</span>
+            <span class="tcNo">T-01</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="downtime-troubleshooter.html">Downtime Troubleshooter</a></h3>
+            <p>Machine stopped? Safe checks in the right order, likely causes and when to escalate.</p>
+            <ul class="tcBadges"><li>8 common problems</li><li>Downtime clock</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="downtime-troubleshooter.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="calculator" data-roles="supervisor engineer manager" data-probs="output kpi downtime">
+          <a class="tcShot" href="oee-loss-calculator.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/oee-loss-calculator-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/oee-loss-calculator-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">CALCULATOR</span>
+            <span class="tcNo">T-02</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="oee-loss-calculator.html">OEE Loss Calculator</a></h3>
+            <p>See where your shift&#x27;s minutes went, what it cost, and fix the biggest loss first.</p>
+            <ul class="tcBadges"><li>2 min</li><li>Instant result</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="oee-loss-calculator.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="solver" data-roles="supervisor engineer" data-probs="quality mistake complaint">
+          <a class="tcShot" href="fishbone-5why.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/fishbone-5why-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/fishbone-5why-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">PROBLEM SOLVER</span>
+            <span class="tcNo">T-03</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="fishbone-5why.html">Fishbone + 5-Why Builder</a></h3>
+            <p>List causes under the 6Ms, drill the suspects with 5 Whys, leave with a real fix.</p>
+            <ul class="tcBadges"><li>30 min</li><li>Print as A3</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="fishbone-5why.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="solver" data-roles="engineer supervisor manager" data-probs="complaint quality">
+          <a class="tcShot" href="8d-report.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/8d-report-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/8d-report-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">PROBLEM SOLVER</span>
+            <span class="tcNo">T-04</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="8d-report.html">8D Report Builder</a></h3>
+            <p>Customer complaint? Work through all 8 steps with a progress bar, then print and send.</p>
+            <ul class="tcBadges"><li>8 steps</li><li>Print or save as PDF</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="8d-report.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="tracker" data-roles="supervisor manager" data-probs="skills manpower">
+          <a class="tcShot" href="skills-matrix.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/skills-matrix-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/skills-matrix-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">TRACKER</span>
+            <span class="tcNo">T-05</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="skills-matrix.html">Team Skills Matrix</a></h3>
+            <p>See who can run what, spot single points of failure and get a training plan.</p>
+            <ul class="tcBadges"><li>Risk alerts</li><li>Export to Excel</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="skills-matrix.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="solver" data-roles="supervisor manager" data-probs="talk team">
+          <a class="tcShot" href="difficult-conversation.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/difficult-conversation-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/difficult-conversation-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">PROBLEM SOLVER</span>
+            <span class="tcNo">T-06</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="difficult-conversation.html">Difficult Conversation Planner</a></h3>
+            <p>Plan a performance or behaviour talk in 10 minutes and walk in with a script.</p>
+            <ul class="tcBadges"><li>10 min</li><li>Ready-made script</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="difficult-conversation.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="solver" data-roles="supervisor manager" data-probs="escalate downtime">
+          <a class="tcShot" href="escalation-report.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/escalation-report-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/escalation-report-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">PROBLEM SOLVER</span>
+            <span class="tcNo">T-07</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="escalation-report.html">Escalation Report Builder</a></h3>
+            <p>Turn a floor problem into a report management can act on: cost, risk and your ask.</p>
+            <ul class="tcBadges"><li>Cost impact calculator</li><li>Copy as email</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="escalation-report.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="solver" data-roles="manager engineer" data-probs="decide">
+          <a class="tcShot" href="decision-matrix.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/decision-matrix-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/decision-matrix-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">PROBLEM SOLVER</span>
+            <span class="tcNo">T-08</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="decision-matrix.html">Decision Matrix</a></h3>
+            <p>Weight what matters, score the options and get a clear, defensible choice.</p>
+            <ul class="tcBadges"><li>Ready templates</li><li>Robustness check</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="decision-matrix.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="template" data-roles="supervisor engineer" data-probs="mistake quality">
           <a class="tcShot" href="repeated-mistake-worksheet.html" tabindex="-1" aria-hidden="true">
             <img class="en" src="assets/previews/repeated-mistake-worksheet-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/repeated-mistake-worksheet-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">TEMPLATE</span>
-            <span class="tcNo">T-01</span>
+            <span class="tcNo">T-09</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -122,7 +266,7 @@
             <img class="en" src="assets/previews/shift-handover-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/shift-handover-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">TEMPLATE</span>
-            <span class="tcNo">T-02</span>
+            <span class="tcNo">T-10</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -140,7 +284,7 @@
             <img class="en" src="assets/previews/manpower-gap-calculator-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/manpower-gap-calculator-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">CALCULATOR</span>
-            <span class="tcNo">T-03</span>
+            <span class="tcNo">T-11</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -153,12 +297,12 @@
             </div>
           </div>
         </article>
-        <article class="toolCard" data-type="tracker" data-roles="manager supervisor" data-probs="kpi">
+        <article class="toolCard" data-type="tracker" data-roles="manager supervisor" data-probs="kpi output">
           <a class="tcShot" href="production-kpi-dashboard.html" tabindex="-1" aria-hidden="true">
             <img class="en" src="assets/previews/production-kpi-dashboard-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/production-kpi-dashboard-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">TRACKER</span>
-            <span class="tcNo">T-04</span>
+            <span class="tcNo">T-12</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -176,7 +320,7 @@
             <img class="en" src="assets/previews/supervisor-daily-planner-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/supervisor-daily-planner-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">TEMPLATE</span>
-            <span class="tcNo">T-05</span>
+            <span class="tcNo">T-13</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -194,7 +338,7 @@
             <img class="en" src="assets/previews/weekly-action-tracker-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/weekly-action-tracker-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">TRACKER</span>
-            <span class="tcNo">T-06</span>
+            <span class="tcNo">T-14</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -207,12 +351,12 @@
             </div>
           </div>
         </article>
-        <article class="toolCard" data-type="checklist" data-roles="supervisor manager" data-probs="team">
+        <article class="toolCard" data-type="checklist" data-roles="supervisor manager" data-probs="team talk">
           <a class="tcShot" href="checklist-quiet-quitting.html" tabindex="-1" aria-hidden="true">
             <img class="en" src="assets/previews/checklist-quiet-quitting-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/checklist-quiet-quitting-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">CHECKLIST</span>
-            <span class="tcNo">T-07</span>
+            <span class="tcNo">T-15</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -230,7 +374,7 @@
             <img class="en" src="assets/previews/ai-prompt-pack-en.jpg" alt="" loading="lazy" width="680" height="427">
             <img class="zh" src="assets/previews/ai-prompt-pack-zh.jpg" alt="" loading="lazy" width="680" height="427">
             <span class="tcType">AI PROMPTS</span>
-            <span class="tcNo">T-08</span>
+            <span class="tcNo">T-16</span>
             <span class="tcMatch">MATCH</span>
           </a>
           <div class="tcBody">
@@ -269,7 +413,7 @@
 <footer class="footer"><div class="wrap foot"><div><img src="assets/laoyu-logo-hud.png" alt="LAOYU"><p>Stay curious. Keep improving.<br>Lead with <b style="color:#ff6a00">thinking</b>. Improve with <b style="color:#ff6a00">AI</b>.</p></div><div><h4>NAVIGATION</h4><a href="index.html">Home</a><a href="laoyutalks.html">LAOYUTALKS</a><a href="resources.html">Resources</a></div><div><h4>RESOURCES</h4><a href="resources.html">Templates</a><a href="resources.html">AI Prompts</a><a href="resources.html">Guides</a><a href="resources.html">Checklists</a></div><div><h4>CONNECT</h4><a href="https://www.tiktok.com/@laoyu.talks">TikTok @laoyu.talks</a><a href="contact.html">Email</a></div></div><div class="wrap copy"><span>© <span data-year></span> LAOYU. All rights reserved.</span><span>Built with ♥ by LAOYU</span></div></footer>
 
 
-<script src="i18n.js?v=20261030c"></script><script src="script.js?v=20261030"></script><script src="twin.js?v=20261030c"></script><script src="finder.js?v=20261030"></script><script src="email-check.js?v=20261030"></script><script src="chatbot.js?v=20261030"></script>
+<script src="i18n.js?v=20261030d"></script><script src="script.js?v=20261030"></script><script src="twin.js?v=20261030d"></script><script src="finder.js?v=20261030"></script><script src="email-check.js?v=20261030"></script><script src="chatbot.js?v=20261030"></script>
 
 </body>
 </html>

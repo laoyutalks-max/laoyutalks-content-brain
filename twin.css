@@ -522,3 +522,7 @@ html[data-lang="zh"] .seg button { letter-spacing: .04em; font-size: 12px; }
 .bayPass { margin: 14px 0 16px !important; color: #fff !important; font-weight: 600; font-size: 14px !important; }
 .bayPass::before { content: "✓ "; color: var(--ok); }
 .bayIntro .btn { padding: 11px 16px; font-size: 11px; }
+.chipGroup { margin-bottom: 18px; }
+.chipH { font: 700 11px var(--font-mono); letter-spacing: .2em; color: var(--orange); margin: 0 0 10px; text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.chipH::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.chipGroup .chips { margin-bottom: 0; }

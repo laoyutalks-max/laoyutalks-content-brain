@@ -33,7 +33,7 @@
       ["OEE", "87.4%", ""],
       ["AI VISION QC", "ONLINE", "ok"],
       ["PREDICTIVE MAINTENANCE", "WATCHING", "warn"],
-      ["FREE TOOLS", "8", ""],
+      ["FREE TOOLS", "16", ""],
       ["LANGUAGE", "EN / 中文", ""],
       ["TIKTOK", "@laoyu.talks", ""],
       ["DATA", "SIMULATED", ""]
