@@ -76,7 +76,7 @@
     document.documentElement.classList.add("isUnlocked");
   }
 
-  function unlock(gate, res, p) {
+  function unlock(gate, res, p, quiet) {
     send({
       type: "lead",
       name: p.name,
@@ -92,7 +92,7 @@
     if (note) { note.dataset.name = p.name; note.textContent = t("done").replace("{name}", p.name); note.hidden = false; }
     open(gate);
     var first = document.querySelector(".gated");
-    if (first) first.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (first && !quiet) first.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function render(gate) {
@@ -163,6 +163,9 @@
     if (!gate) return;
     var res = gate.getAttribute("data-resource");
     if (unlocked()[res]) { open(gate); return; }
+    // One sign-up unlocks every tool: a visitor who already signed up gets straight in
+    var p = profile();
+    if (p && p.email) { unlock(gate, res, p, true); return; }
     render(gate);
     document.addEventListener("laoyu:lang", function () {
       if (!gate.hidden) render(gate);

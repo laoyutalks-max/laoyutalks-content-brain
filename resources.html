@@ -12,7 +12,7 @@
   >
 
   <link rel="icon" href="assets/laoyu-logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"><link rel="stylesheet" href="styles.css?v=20261030"><link rel="stylesheet" href="twin.css?v=20261030">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap"><link rel="stylesheet" href="styles.css?v=20261030"><link rel="stylesheet" href="twin.css?v=20261030c">
 </head>
 
 <body>
@@ -48,209 +48,228 @@
 </header>
 
 
-<main>
+<main class="resLib">
 
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-
-      <div class="eyebrow">
-        LAOYU RESOURCES
-      </div>
-
-      <h1>
-        Practical Tools to
-        <span>Work Smarter.</span>
-      </h1>
-
-      <p>
-        Simple templates, AI prompts and productivity tools
-        designed to help you create, organize and improve your work.
-      </p>
-
+      <div class="eyebrow">LAOYU RESOURCES</div>
+      <h1>Practical Tools to <span>Work Smarter.</span></h1>
+      <p>Simple templates, AI prompts and productivity tools designed to help you create, organize and improve your work.</p>
     </div>
   </section>
 
-
-  <!-- RESOURCE LIBRARY -->
-  <section class="section">
-
+  <!-- PASS BANNER -->
+  <section class="passWrap">
     <div class="wrap">
-
-      <div class="section-head">
-
-        <div>
-          <div class="eyebrow">
-            RESOURCE LIBRARY
-          </div>
-
-          <h2>
-            Tools for Better Work
-          </h2>
+      <div class="pass" data-pass>
+        <div class="passIco" aria-hidden="true">
+          <svg viewBox="0 0 64 64" class="mIco"><rect class="s f" x="8" y="16" width="48" height="32" rx="4"/><path class="o" d="M20 32l6 6 12-12"/><path class="s" d="M44 26h6M44 32h6M44 38h6"/></svg>
         </div>
-
-        <p>
-          More resources will be added as the LAOYU platform grows.
-        </p>
-
+        <div class="passTxt">
+          <b>One sign-up unlocks all 8 tools.</b>
+          <span data-pass-msg>Leave your name and email once and every tool opens instantly on this browser. Free, no payment.</span>
+        </div>
+        <div class="passStat"><span data-pass-state>8 FREE TOOLS</span></div>
       </div>
-
-
-      <div class="cards">
-
-
-        <!-- AI PROMPTS -->
-        <article class="card">
-
-          <div class="card-icon">
-            01
-          </div>
-
-          <h3>
-            AI Prompt Library
-          </h3>
-
-          <p>
-            Practical AI prompts for productivity,
-            management, problem solving and daily operations.
-          </p>
-
-          <a class="btn orange" href="ai-prompt-pack.html">GET IT FREE →</a>
-
-        </article>
-
-
-        <!-- PRODUCTIVITY -->
-        <article class="card">
-
-          <div class="card-icon">
-            02
-          </div>
-
-          <h3>
-            Productivity Templates
-          </h3>
-
-          <p>
-            Templates designed to simplify daily planning,
-            prioritization and execution.
-          </p>
-
-          <ul class="resList"><li><a href="supervisor-daily-planner.html">Supervisor Daily Planner →</a></li><li><a href="shift-handover.html">Shift Handover Template →</a></li><li><a href="weekly-action-tracker.html">Weekly Action Tracker →</a></li></ul>
-
-        </article>
-
-
-        <!-- DASHBOARDS -->
-        <article class="card">
-
-          <div class="card-icon">
-            03
-          </div>
-
-          <h3>
-            Dashboard Templates
-          </h3>
-
-          <p>
-            Simple dashboards for tracking actions,
-            projects, workload and performance.
-          </p>
-
-          <ul class="resList"><li><a href="production-kpi-dashboard.html">Production KPI Dashboard (Excel) →</a></li></ul>
-
-        </article>
-
-
-        <!-- CHECKLISTS -->
-        <article class="card">
-
-          <div class="card-icon">
-            04
-          </div>
-
-          <h3>
-            Checklists
-          </h3>
-
-          <p>
-            Ready-to-use checklists for continuous improvement,
-            operations and everyday work.
-          </p>
-
-          <a class="btn orange" href="checklist-quiet-quitting.html">GET IT FREE →</a>
-
-        </article>
-
-
-        <!-- MORE RESOURCES -->
-        <article class="card">
-
-          <div class="card-icon">
-            05
-          </div>
-
-          <h3>
-            More Resources
-          </h3>
-
-          <p>
-            Practical tools for everyday problems on the floor.
-          </p>
-
-          <ul class="resList"><li><a href="manpower-gap-calculator.html">Manpower Gap Calculator →</a></li><li><a href="repeated-mistake-worksheet.html">Repeated Mistake Worksheet →</a></li></ul>
-
-        </article>
-
-      </div>
-
     </div>
-
   </section>
 
+  <!-- TOOL FINDER -->
+  <section class="section finder" id="finder">
+    <div class="wrap">
+      <div class="stHead">
+        <div>
+          <div class="stTag"><span>TOOL FINDER</span><i></i><b>STEP 1</b></div>
+          <h2>What's your problem today?</h2>
+          <p>Pick a problem and the right tool lights up.</p>
+        </div>
+      </div>
+
+      <div class="chips" role="group" aria-label="Problems"><button type="button" class="chip" data-prob="mistake" aria-pressed="false"><i aria-hidden="true">🔁</i><span>Same mistake keeps happening</span></button><button type="button" class="chip" data-prob="handover" aria-pressed="false"><i aria-hidden="true">📋</i><span>Shift handover is messy</span></button><button type="button" class="chip" data-prob="manpower" aria-pressed="false"><i aria-hidden="true">👥</i><span>Short of manpower</span></button><button type="button" class="chip" data-prob="kpi" aria-pressed="false"><i aria-hidden="true">📊</i><span>No clear KPI view</span></button><button type="button" class="chip" data-prob="chaos" aria-pressed="false"><i aria-hidden="true">🗓</i><span>My day is chaos</span></button><button type="button" class="chip" data-prob="actions" aria-pressed="false"><i aria-hidden="true">✅</i><span>Actions never get closed</span></button><button type="button" class="chip" data-prob="team" aria-pressed="false"><i aria-hidden="true">😐</i><span>Team stopped caring</span></button><button type="button" class="chip" data-prob="ai" aria-pressed="false"><i aria-hidden="true">🤖</i><span>Want AI to save me time</span></button></div>
+
+      <div class="filters">
+        <div class="seg" role="group" aria-label="Role"><span class="segLbl">ROLE</span><button type="button" data-role="all" aria-pressed="true">All</button><button type="button" data-role="supervisor" aria-pressed="false">Supervisor</button><button type="button" data-role="engineer" aria-pressed="false">Engineer</button><button type="button" data-role="manager" aria-pressed="false">Manager</button></div>
+        <div class="seg" role="group" aria-label="Type"><span class="segLbl">TYPE</span><button type="button" data-type="all" aria-pressed="true">All</button><button type="button" data-type="template" aria-pressed="false">Templates</button><button type="button" data-type="tracker" aria-pressed="false">Trackers</button><button type="button" data-type="calculator" aria-pressed="false">Calculators</button><button type="button" data-type="checklist" aria-pressed="false">Checklists</button><button type="button" data-type="prompts" aria-pressed="false">AI Prompts</button></div>
+      </div>
+
+      <div class="finderBar">
+        <span class="fCount" aria-live="polite"><b data-count-shown>8</b> <span data-count-label>tools ready</span></span>
+        <button type="button" class="fClear" data-clear hidden>✕ Clear filters</button>
+      </div>
+
+      <div class="toolGrid">
+        <article class="toolCard" data-type="template" data-roles="supervisor engineer" data-probs="mistake">
+          <a class="tcShot" href="repeated-mistake-worksheet.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/repeated-mistake-worksheet-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/repeated-mistake-worksheet-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">TEMPLATE</span>
+            <span class="tcNo">T-01</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="repeated-mistake-worksheet.html">Repeated Mistake Worksheet</a></h3>
+            <p>Find the real cause so the same mistake stops coming back.</p>
+            <ul class="tcBadges"><li>20 min</li><li>Fill on screen or print</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="repeated-mistake-worksheet.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7700187298062781716" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="template" data-roles="supervisor" data-probs="handover">
+          <a class="tcShot" href="shift-handover.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/shift-handover-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/shift-handover-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">TEMPLATE</span>
+            <span class="tcNo">T-02</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="shift-handover.html">Shift Handover Template</a></h3>
+            <p>Hand over the shift without losing a single open issue.</p>
+            <ul class="tcBadges"><li>10 min</li><li>Fill on screen or print</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="shift-handover.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7700187298062781716" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="calculator" data-roles="supervisor manager" data-probs="manpower">
+          <a class="tcShot" href="manpower-gap-calculator.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/manpower-gap-calculator-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/manpower-gap-calculator-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">CALCULATOR</span>
+            <span class="tcNo">T-03</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="manpower-gap-calculator.html">Manpower Gap Calculator</a></h3>
+            <p>Know how many people you&#x27;re short before the shift starts.</p>
+            <ul class="tcBadges"><li>Instant result</li><li>Works on your phone</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="manpower-gap-calculator.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7697970844294991124" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="tracker" data-roles="manager supervisor" data-probs="kpi">
+          <a class="tcShot" href="production-kpi-dashboard.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/production-kpi-dashboard-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/production-kpi-dashboard-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">TRACKER</span>
+            <span class="tcNo">T-04</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="production-kpi-dashboard.html">Production KPI Dashboard</a></h3>
+            <p>Output, yield and downtime on one page in 2 minutes a day.</p>
+            <ul class="tcBadges"><li>2 min a day</li><li>Excel · Google Sheets · WPS</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="production-kpi-dashboard.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7697970844294991124" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="template" data-roles="supervisor" data-probs="chaos">
+          <a class="tcShot" href="supervisor-daily-planner.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/supervisor-daily-planner-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/supervisor-daily-planner-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">TEMPLATE</span>
+            <span class="tcNo">T-05</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="supervisor-daily-planner.html">Supervisor Daily Planner</a></h3>
+            <p>Start every shift knowing your top 3 priorities.</p>
+            <ul class="tcBadges"><li>5 min a day</li><li>Fill on screen or print</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="supervisor-daily-planner.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7697970844294991124" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="tracker" data-roles="manager supervisor" data-probs="actions chaos kpi">
+          <a class="tcShot" href="weekly-action-tracker.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/weekly-action-tracker-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/weekly-action-tracker-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">TRACKER</span>
+            <span class="tcNo">T-06</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="weekly-action-tracker.html">Weekly Action Tracker</a></h3>
+            <p>Every open action, owner and due date. Overdue ones flag themselves.</p>
+            <ul class="tcBadges"><li>Overdue alerts</li><li>Export to Excel</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="weekly-action-tracker.html">OPEN TOOL →</a>
+              <span class="tcVid off">NEW</span>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="checklist" data-roles="supervisor manager" data-probs="team">
+          <a class="tcShot" href="checklist-quiet-quitting.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/checklist-quiet-quitting-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/checklist-quiet-quitting-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">CHECKLIST</span>
+            <span class="tcNo">T-07</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="checklist-quiet-quitting.html">Quiet Quitting Early-Warning Checklist</a></h3>
+            <p>Spot the early signs that a good employee is checking out.</p>
+            <ul class="tcBadges"><li>15 min</li><li>Print or save as PDF</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="checklist-quiet-quitting.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7681167224157179157" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+        <article class="toolCard" data-type="prompts" data-roles="manager supervisor engineer" data-probs="ai mistake">
+          <a class="tcShot" href="ai-prompt-pack.html" tabindex="-1" aria-hidden="true">
+            <img class="en" src="assets/previews/ai-prompt-pack-en.jpg" alt="" loading="lazy" width="680" height="427">
+            <img class="zh" src="assets/previews/ai-prompt-pack-zh.jpg" alt="" loading="lazy" width="680" height="427">
+            <span class="tcType">AI PROMPTS</span>
+            <span class="tcNo">T-08</span>
+            <span class="tcMatch">MATCH</span>
+          </a>
+          <div class="tcBody">
+            <h3><a href="ai-prompt-pack.html">AI Prompt Pack for Operations Managers</a></h3>
+            <p>10 ready prompts to write reports, analyse problems and plan faster.</p>
+            <ul class="tcBadges"><li>10 prompts</li><li>One-tap copy</li><li>EN / 中文</li></ul>
+            <div class="tcActions">
+              <a class="btn orange" href="ai-prompt-pack.html">OPEN TOOL →</a>
+              <a class="tcVid" href="https://www.tiktok.com/@laoyu.talks/video/7700187298062781716" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="fEmpty" hidden>
+        <p>No tool matches that yet.</p>
+        <a class="btn outline" href="mailto:laoyutalks@gmail.com?subject=Tool%20request">REQUEST THIS TOOL →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- TIKTOK -->
   <section class="section">
-
     <div class="wrap">
-
       <div class="cta">
-
-        <div class="eyebrow">
-          FOLLOW LAOYU
-        </div>
-
-        <h2>
-          Follow LAOYUTALKS
-        </h2>
-
-        <p>
-          Follow LAOYUTALKS for practical ideas about AI,
-          productivity, manufacturing excellence and management.
-        </p>
-
-        <a
-          class="btn orange"
-          href="https://www.tiktok.com/@laoyu.talks"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          FOLLOW @laoyu.talks ↗
-        </a>
-
+        <div class="eyebrow">FOLLOW LAOYU</div>
+        <h2>Follow LAOYUTALKS</h2>
+        <p>Follow LAOYUTALKS for practical ideas about AI, productivity, manufacturing excellence and management.</p>
+        <a class="btn orange" href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">FOLLOW @laoyu.talks ↗</a>
       </div>
-
     </div>
-
   </section>
-
 </main>
 
 
 <footer class="footer"><div class="wrap foot"><div><img src="assets/laoyu-logo-hud.png" alt="LAOYU"><p>Stay curious. Keep improving.<br>Lead with <b style="color:#ff6a00">thinking</b>. Improve with <b style="color:#ff6a00">AI</b>.</p></div><div><h4>NAVIGATION</h4><a href="index.html">Home</a><a href="laoyutalks.html">LAOYUTALKS</a><a href="resources.html">Resources</a></div><div><h4>RESOURCES</h4><a href="resources.html">Templates</a><a href="resources.html">AI Prompts</a><a href="resources.html">Guides</a><a href="resources.html">Checklists</a></div><div><h4>CONNECT</h4><a href="https://www.tiktok.com/@laoyu.talks">TikTok @laoyu.talks</a><a href="contact.html">Email</a></div></div><div class="wrap copy"><span>© <span data-year></span> LAOYU. All rights reserved.</span><span>Built with ♥ by LAOYU</span></div></footer>
 
 
-<script src="i18n.js?v=20261030"></script><script src="script.js?v=20261030"></script><script src="twin.js?v=20261030"></script><script src="email-check.js?v=20261030"></script><script src="chatbot.js?v=20261030"></script>
+<script src="i18n.js?v=20261030c"></script><script src="script.js?v=20261030"></script><script src="twin.js?v=20261030c"></script><script src="finder.js?v=20261030"></script><script src="email-check.js?v=20261030"></script><script src="chatbot.js?v=20261030"></script>
 
 </body>
 </html>
