@@ -39,7 +39,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
   // ---- Renderer / scene / camera ----
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, small ? 1.5 : 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.9;
+  renderer.toneMappingExposure = 0.68;
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.domElement.className = "t3Canvas";
@@ -58,7 +58,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 
   const pmrem = new THREE.PMREMGenerator(renderer);
   scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-  scene.environmentIntensity = 0.6;
+  scene.environmentIntensity = 0.35;
 
   const camera = new THREE.PerspectiveCamera(34, 1.4, 0.1, 140);
   const target = new THREE.Vector3(-0.2, 1.6, 0.3);
@@ -68,7 +68,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 
   // ---- Lights ----
   scene.add(new THREE.HemisphereLight(0x9fdcff, 0x050a12, 0.3));
-  const key = new THREE.DirectionalLight(0xffffff, 1.7);
+  const key = new THREE.DirectionalLight(0xffffff, 1.25);
   key.position.set(8, 16, 10);
   key.castShadow = true;
   key.shadow.mapSize.set(small ? 1024 : 2048, small ? 1024 : 2048);
@@ -76,8 +76,8 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
   key.shadow.bias = -0.0004;
   key.shadow.radius = 4;
   scene.add(key);
-  const rimC = new THREE.PointLight(0x35e0ff, 60, 22, 2); rimC.position.set(-6, 5, -6); scene.add(rimC);
-  const rimO = new THREE.PointLight(0xff7a1a, 40, 14, 2); rimO.position.set(5, 3, 4); scene.add(rimO);
+  const rimC = new THREE.PointLight(0x35e0ff, 30, 22, 2); rimC.position.set(-6, 5, -6); scene.add(rimC);
+  const rimO = new THREE.PointLight(0xff7a1a, 18, 14, 2); rimO.position.set(5, 3, 4); scene.add(rimO);
 
   // ---- Brushed-steel texture ----
   const bc = document.createElement("canvas"); bc.width = 256; bc.height = 256;
@@ -93,22 +93,22 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 
   // ---- Materials ----
   const M = {
-    body: new THREE.MeshStandardMaterial({ color: 0xaeb9c4, metalness: 0.92, roughness: 0.34, roughnessMap: brushed }),
+    body: new THREE.MeshStandardMaterial({ color: 0x8e9aa6, metalness: 0.92, roughness: 0.34, roughnessMap: brushed }),
     panel: new THREE.MeshStandardMaterial({ color: 0xe9f1f6, metalness: 0.2, roughness: 0.35 }),
-    steel: new THREE.MeshStandardMaterial({ color: 0xc9d2da, metalness: 1, roughness: 0.24 }),
+    steel: new THREE.MeshStandardMaterial({ color: 0xa4afb9, metalness: 1, roughness: 0.3 }),
     dark: new THREE.MeshStandardMaterial({ color: 0x0b1622, metalness: 0.5, roughness: 0.45 }),
     orange: new THREE.MeshStandardMaterial({ color: 0xff7a1a, metalness: 0.45, roughness: 0.3 }),
     belt: new THREE.MeshStandardMaterial({ color: 0x0d1a26, metalness: 0.2, roughness: 0.8 }),
-    cyanGlow: new THREE.MeshStandardMaterial({ color: 0x35e0ff, emissive: 0x35e0ff, emissiveIntensity: 2.2 }),
-    orangeGlow: new THREE.MeshStandardMaterial({ color: 0xff7a1a, emissive: 0xff6a00, emissiveIntensity: 2.4 }),
+    cyanGlow: new THREE.MeshStandardMaterial({ color: 0x35e0ff, emissive: 0x35e0ff, emissiveIntensity: 1.5 }),
+    orangeGlow: new THREE.MeshStandardMaterial({ color: 0xff7a1a, emissive: 0xff6a00, emissiveIntensity: 1.7 }),
     greenGlow: new THREE.MeshStandardMaterial({ color: 0x3dffa2, emissive: 0x3dffa2, emissiveIntensity: 2.4 }),
     amberDim: new THREE.MeshStandardMaterial({ color: 0x5a3c08, emissive: 0xffb020, emissiveIntensity: 0.25 }),
     redDim: new THREE.MeshStandardMaterial({ color: 0x4a0e0e, emissive: 0xff3030, emissiveIntensity: 0.2 }),
     glass: new THREE.MeshPhysicalMaterial({ color: 0x7fdcff, metalness: 0, roughness: 0.05, transparent: true, opacity: 0.18, clearcoat: 1 }),
     carton: new THREE.MeshStandardMaterial({ color: 0xb98a5a, roughness: 0.8 }),
-    part: new THREE.MeshStandardMaterial({ color: 0xdff6ff, metalness: 0.35, roughness: 0.22, emissive: 0x35e0ff, emissiveIntensity: 0.12 }),
-    partOk: new THREE.MeshStandardMaterial({ color: 0xcafff0, metalness: 0.35, roughness: 0.22, emissive: 0x3dffa2, emissiveIntensity: 0.35 }),
-    partBad: new THREE.MeshStandardMaterial({ color: 0xffb070, metalness: 0.2, roughness: 0.3, emissive: 0xff5a00, emissiveIntensity: 1.6 })
+    part: new THREE.MeshStandardMaterial({ color: 0xa9c4d2, metalness: 0.45, roughness: 0.3, emissive: 0x35e0ff, emissiveIntensity: 0.05 }),
+    partOk: new THREE.MeshStandardMaterial({ color: 0x9fd8c4, metalness: 0.4, roughness: 0.3, emissive: 0x3dffa2, emissiveIntensity: 0.15 }),
+    partBad: new THREE.MeshStandardMaterial({ color: 0xffb070, metalness: 0.2, roughness: 0.3, emissive: 0xff5a00, emissiveIntensity: 1.0 })
   };
 
   const shadowy = (o) => { o.traverse((m) => { if (m.isMesh) { m.castShadow = true; m.receiveShadow = true; } }); return o; };
@@ -254,7 +254,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
   vis.add(mesh(new THREE.BoxGeometry(0.62, 0.06, 3.02), M.cyanGlow, 0, 3.2, 0));
   vis.add(mesh(rbox(0.7, 0.55, 0.7, 0.08), M.panel, 0, 2.95, 0));
   const lens = mesh(new THREE.CylinderGeometry(0.16, 0.2, 0.2, 24), M.orangeGlow, 0, 2.6, 0); vis.add(lens);
-  const cone = mesh(new THREE.ConeGeometry(0.95, 1.6, 40, 1, true), new THREE.MeshBasicMaterial({ color: 0xff7a1a, transparent: true, opacity: 0.12, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }), 0, 1.75, 0);
+  const cone = mesh(new THREE.ConeGeometry(0.95, 1.6, 40, 1, true), new THREE.MeshBasicMaterial({ color: 0xff7a1a, transparent: true, opacity: 0.07, blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide }), 0, 1.75, 0);
   vis.add(cone);
   const laser = mesh(new THREE.BoxGeometry(0.05, 0.02, BZ), M.orangeGlow, 0, BY + 0.07 - 0.3, 0); vis.add(laser);
   scene.add(shadowy(vis)); cone.castShadow = false; laser.castShadow = false; tag(vis, "vision");
@@ -295,7 +295,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
     let z; do { z = (Math.random() - 0.5) * 46; } while (Math.abs(z - 0.4) < 7.2);
     const o = { x: (Math.random() - 0.5) * 70, z, len: 0.6 + Math.random() * 3.2, v: 3 + Math.random() * 9 };
     sd.push(o);
-    col.set(Math.random() < 0.12 ? 0xff8a2a : 0x35e0ff).multiplyScalar(0.8 + Math.random() * 2.2);
+    col.set(Math.random() < 0.12 ? 0xff8a2a : 0x35e0ff).multiplyScalar(0.35 + Math.random() * 1.0);
     streak.setColorAt(i, col);
   }
   scene.add(streak);
@@ -304,7 +304,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
   const rainGeo = new THREE.BufferGeometry(), rp = new Float32Array(RN * 3), rc = new Float32Array(RN * 3), rv = new Float32Array(RN);
   for (let i = 0; i < RN; i++) {
     rp[i * 3] = (Math.round((Math.random() - 0.5) * 60 / 0.9) * 0.9); rp[i * 3 + 1] = Math.random() * 22; rp[i * 3 + 2] = -10 - Math.random() * 8;
-    const c = Math.random() < 0.1 ? [1, 0.55, 0.15] : [0.21, 0.88, 1]; const k = 0.25 + Math.random() * 0.7;
+    const c = Math.random() < 0.1 ? [1, 0.55, 0.15] : [0.21, 0.88, 1]; const k = 0.15 + Math.random() * 0.45;
     rc[i * 3] = c[0] * k; rc[i * 3 + 1] = c[1] * k; rc[i * 3 + 2] = c[2] * k; rv[i] = 0.6 + Math.random() * 2.2;
   }
   rainGeo.setAttribute("position", new THREE.BufferAttribute(rp, 3));
@@ -398,14 +398,14 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
     else if (c < 0.85) { const k = (c - 0.6) / 0.25; yaw = s(0.15, -2.2, k); sh = s(0.55, -0.2, k); el = s(1.35, 0.4, k); }
     else { yaw = -2.2; sh = -0.2; el = 0.4; }
     turret.rotation.y = yaw; shoulder.rotation.x = sh; elbow.rotation.x = el; wrist.rotation.x = 0.9;
-    spark.intensity = work ? 6 + Math.random() * 10 : 0;
+    spark.intensity = work ? 3 + Math.random() * 5 : 0;
     // press stamping cycle
     const pc = (time % 2.5) / 2.5;
     ram.position.y = pc < 0.15 ? 4.0 - (pc / 0.15) * 1.8 : pc < 0.25 ? 2.2 : 2.2 + Math.min(1, (pc - 0.25) / 0.5) * 1.8;
-    pressGlow.intensity = pc > 0.12 && pc < 0.3 ? 40 : 14;
+    pressGlow.intensity = pc > 0.12 && pc < 0.3 ? 22 : 7;
     // scanner
     laser.position.x = Math.sin(time * 4) * 0.6;
-    cone.material.opacity = 0.09 + 0.05 * Math.sin(time * 5);
+    cone.material.opacity = 0.05 + 0.03 * Math.sin(time * 5);
     lampG.material.emissiveIntensity = 1.6 + Math.sin(time * 6) * 0.9;
     // hover rings
     Object.keys(rings).forEach((k) => {
@@ -418,7 +418,7 @@ import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
   // ---- Post-processing ----
   const composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  const bloom = new UnrealBloomPass(new THREE.Vector2(512, 512), 0.85, 0.5, 1.0);
+  const bloom = new UnrealBloomPass(new THREE.Vector2(512, 512), 0.45, 0.4, 1.15);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 
