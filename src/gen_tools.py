@@ -125,7 +125,7 @@ page("8d-report", "8D Report Builder", "8D 报告生成器",
      "8D Report Builder", "Free 8D report builder: team, problem description, containment, root cause, corrective actions, verification, prevention and closure.",
      '<div class="d8Prog panel"><div><b id="d8Pct">0%</b> ' + E("complete", "已完成") + '</div><i><b id="d8Bar"></b></i><nav class="d8Nav" id="d8Nav"></nav></div>' +
      D(1, "Team", "团队", '<div class="fldGrid">' + FLD("d1lead", "Team leader", "组长") + FLD("d1champ", "Sponsor / champion", "支持人") + FLD("d1team", "Team members (cross-functional)", "成员（跨部门）", wide=True) + "</div>") +
-     D(2, "Describe the problem (5W2H)", "描述问题（5W2H）", '<div class="fldGrid">' + FLD("d2cust", "Customer / complaint ref.", "客户 / 投诉编号") + FLD("d2part", "Part / product", "零件 / 产品") +
+     D(2, "Describe the problem (5W2H)", "描述问题（七问分析法）", '<div class="fldGrid">' + FLD("d2cust", "Customer / complaint ref.", "客户 / 投诉编号") + FLD("d2part", "Part / product", "零件 / 产品") +
        FLD("d2what", "What is wrong (vs. the specification)?", "哪里不对（对比规格）？", wide=True) + FLD("d2where", "Where was it found?", "在哪里发现？") + FLD("d2when", "When was it found / made?", "什么时候发现 / 生产？") +
        FLD("d2who", "Who found it?", "谁发现的？") + FLD("d2qty", "How many affected?", "影响数量？") + FLD("d2how", "How was it detected?", "如何被发现？", wide=True) + "</div>") +
      D(3, "Containment (protect the customer now)", "围堵措施（立即保护客户）", P("Check every place suspect product could be. Aim to contain within 24 hours.", "检查所有可能有可疑品的地方，目标在 24 小时内完成围堵。") +
@@ -200,7 +200,7 @@ page("escalation-report", "Escalation Report Builder", "升级报告生成器",
      '<div id="erForm">' +
      PART(1, "The issue", "问题", '<div class="fldGrid">' + FLD("erTitle", "Issue title (one line)", "问题标题（一句话）", wide=True) + SEL("erSev", "Severity", "严重程度", sev) +
           FLD("erWhat", "What happened (facts only)", "发生了什么（只写事实）", wide=True, area=True) + "</div>") +
-     PART(2, "Impact", "影响", '<div class="fldGrid">' + FLD("erCur", "Currency (e.g. RM, S$, $)", "货币（如 RM、S$、¥）") + FLD("erHrs", "Downtime so far (hours)", "目前停机（小时）", "number") + FLD("erRate", "Cost per downtime hour", "每小时停机成本", "number") +
+     PART(2, "Impact", "影响", '<div class="fldGrid">' + FLD("erCur", "Currency (e.g. RM, S$, $)", "货币（如令吉、新元、人民币）") + FLD("erHrs", "Downtime so far (hours)", "目前停机（小时）", "number") + FLD("erRate", "Cost per downtime hour", "每小时停机成本", "number") +
           FLD("erScrap", "Units scrapped", "报废数量", "number") + FLD("erUnit", "Cost per unit", "每件成本", "number") + FLD("erOther", "Other cost (overtime, freight…)", "其他成本（加班、运费…）", "number") +
           FLD("erCust", "Customer / order affected", "受影响的客户 / 订单") + FLD("erQty", "Units at risk for delivery", "交付风险数量") + FLD("erDate", "Due date", "交期", "date") +
           FLD("erRisk", "Safety or quality risk", "安全或质量风险", wide=True) + '</div><div class="mpKpis" id="erCost"></div>') +

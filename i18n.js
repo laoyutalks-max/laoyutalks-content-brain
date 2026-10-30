@@ -405,6 +405,32 @@
     "Ready templates": "现成模板",
     "Robustness check": "稳健性检查",
 
+    /* Language-purity fixes (Oct 2026) */
+    "English & Chinese": "中英双语",
+    "ENGLISH · CHINESE": "英文 · 中文",
+    "DAY 1": "第 1 天",
+    "DAY 365": "第 365 天",
+    "M-01": "机台 01",
+    "M-02": "机台 02",
+    "M-03": "机台 03",
+    "M-04": "机台 04",
+    "T-01": "工具 01",
+    "T-02": "工具 02",
+    "T-03": "工具 03",
+    "T-04": "工具 04",
+    "T-05": "工具 05",
+    "T-06": "工具 06",
+    "T-07": "工具 07",
+    "T-08": "工具 08",
+    "T-09": "工具 09",
+    "T-10": "工具 10",
+    "T-11": "工具 11",
+    "T-12": "工具 12",
+    "T-13": "工具 13",
+    "T-14": "工具 14",
+    "T-15": "工具 15",
+    "T-16": "工具 16",
+
     /* Page titles */
     "LAOYU | Work Smarter. Create Better.": "LAOYU 老鱼 | 工作更聪明，创造更出色",
     "LAOYUTALKS | LAOYU": "老鱼说 | LAOYU 老鱼",
@@ -419,6 +445,14 @@
     "Difficult Conversation Planner | LAOYU": "困难对话准备表 | LAOYU 老鱼",
     "Escalation Report Builder | LAOYU": "升级报告生成器 | LAOYU 老鱼",
     "Decision Matrix | LAOYU": "决策矩阵 | LAOYU 老鱼",
+    "AI Prompt Pack for Operations Managers | LAOYU": "运营经理 AI 提示词包 | LAOYU 老鱼",
+    "Manpower Gap Calculator | LAOYU": "人力缺口计算器 | LAOYU 老鱼",
+    "Production KPI Dashboard | LAOYU": "生产 KPI 仪表板 | LAOYU 老鱼",
+    "Quiet Quitting Early-Warning Checklist | LAOYU": "员工默默躺平预警清单 | LAOYU 老鱼",
+    "Repeated Mistake Worksheet | LAOYU": "重复错误改善工作表 | LAOYU 老鱼",
+    "Shift Handover Template | LAOYU": "交接班模板 | LAOYU 老鱼",
+    "Supervisor Daily Planner | LAOYU": "主管每日计划表 | LAOYU 老鱼",
+    "Weekly Action Tracker | LAOYU": "每周行动追踪表 | LAOYU 老鱼",
     "Contact | LAOYU": "联系 | LAOYU 老鱼"
   };
 

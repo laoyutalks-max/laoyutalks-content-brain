@@ -95,7 +95,7 @@ TYPES = [("all", "All"), ("solver", "Problem solvers"), ("template", "Templates"
 e = html.escape
 cards = []
 for i, t in enumerate(TOOLS, 1):
-    badges = "".join(f'<li>{e(b)}</li>' for b in t["badges"]) + "<li>EN / 中文</li>"
+    badges = "".join(f'<li>{e(b)}</li>' for b in t["badges"]) + "<li>English &amp; Chinese</li>"
     vid = (f'<a class="tcVid" href="{V}{t["video"]}" target="_blank" rel="noopener noreferrer">▶ Watch the video</a>'
            if t["video"] else '<span class="tcVid off">NEW</span>')
     cards.append(f'''

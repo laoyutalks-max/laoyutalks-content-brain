@@ -308,7 +308,7 @@
     function bonesUI() {
       $("fbBones").innerHTML = BONES.map(function (b) {
         var list = st.causes[b[0]];
-        return '<div class="fbBone"><h3><span>' + b[2] + "</span>" + esc(L(b[1], b[2])) + '</h3><p class="fbQ">' + esc(L(b[3], b[4])) + "</p>" +
+        return '<div class="fbBone"><h3><span>' + (zh() ? b[2] : BONES.indexOf(b) + 1) + "</span>" + esc(L(b[1], b[2])) + '</h3><p class="fbQ">' + esc(L(b[3], b[4])) + "</p>" +
           '<ul class="fbList">' + list.map(function (c, i) {
             return '<li class="' + (c.s ? "sus" : "") + '"><button type="button" class="fbStar" data-b="' + b[0] + '" data-i="' + i + '" title="' + L("Mark as suspect", "标记为嫌疑原因") + '">★</button><span>' + esc(c.t) + '</span><button type="button" class="fbDel" data-b="' + b[0] + '" data-i="' + i + '" aria-label="' + L("Remove", "删除") + '">×</button></li>';
           }).join("") + "</ul>" +

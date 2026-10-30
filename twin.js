@@ -34,7 +34,7 @@
       ["AI VISION QC", "ONLINE", "ok"],
       ["PREDICTIVE MAINTENANCE", "WATCHING", "warn"],
       ["FREE TOOLS", "16", ""],
-      ["LANGUAGE", "EN / 中文", ""],
+      ["LANGUAGE", "ENGLISH · CHINESE", ""],
       ["TIKTOK", "@laoyu.talks", ""],
       ["DATA", "SIMULATED", ""]
     ];
