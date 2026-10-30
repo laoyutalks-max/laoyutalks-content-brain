@@ -235,6 +235,7 @@
     "CONTROL ROOM": "中控室",
     "AI ROBOT CELL": "AI 机器人工站",
     "CNC / INPUT": "CNC / 投料",
+    "PRESS / INPUT": "冲压机 / 投料",
     "PACK / OUTPUT": "包装 / 产出",
     "REJECT": "不良品",
     "DEFECT FOUND": "发现缺陷",

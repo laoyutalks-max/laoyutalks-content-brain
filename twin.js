@@ -147,7 +147,11 @@
     var stage = $(".tStage");
     var svg = stage && stage.querySelector(".twinSvg");
     if (!svg) return;
+    var is3d = stage.classList.contains("is3d");
 
+    var stats = { inspected: 0, rejected: 0, oee: 87.4 };
+    var alertNow = function () {};
+    if (!is3d) (function () {
     var K = 1.55, C = Math.cos(Math.PI / 6), S = 0.5;
     function iso(x, y, z) { return [(x - y) * C * K, (x + y) * S * K - z * K]; }
     function P(a) { return a.map(function (p) { var q = iso(p[0], p[1], p[2]); return q[0].toFixed(1) + "," + q[1].toFixed(1); }).join(" "); }
@@ -166,7 +170,6 @@
 
     var V = 30, GAP = 1.25, SCAN_X = 183, PUSH_X = 214, END_X = 292;
     var prods = [], n = 0, since = GAP, time = 0, last = 0, running = true, visible = true;
-    var stats = { inspected: 0, rejected: 0, oee: 87.4 };
 
     function make() {
       var g = document.createElementNS(NS, "g");
@@ -273,6 +276,8 @@
     }
     document.addEventListener("visibilitychange", function () { running = !document.hidden; last = 0; });
 
+    })();
+
     /* ---- HUD panels ---- */
     var elIns = $("[data-k=inspected]"), elRej = $("[data-k=rejected]"), elOee = $("[data-k=oee]"), elMeter = $("[data-k=meter]");
     function hud() {
@@ -302,10 +307,15 @@
       alertEl.style.opacity = 0;
       setTimeout(function () { alertEl.setAttribute("data-en", s); alertEl.textContent = t(s); alertEl.style.opacity = 1; }, 250);
     }
-    function alertNow(kind) {
+    alertNow = function (kind) {
       var now = Date.now();
       if (kind === "defect" && now - lastDefect > 12000) { lastDefect = now; setAlert(ALERTS.defect); }
-    }
+    };
+    document.addEventListener("twin3d:part", function (e) {
+      stats.inspected++;
+      if (e.detail && e.detail.bad) { stats.rejected++; alertNow("defect"); }
+      hud();
+    });
     setAlert(ALERTS.list[0]);
     if (!reduce) setInterval(function () {
       if (Date.now() - lastDefect < 4000) return;
@@ -363,6 +373,16 @@
       hs.addEventListener("blur", hide);
       hs.addEventListener("click", function (e) { e.preventDefault(); idle = false; show(hs); });
     });
+    function showAt(key, x, y) {
+      clearTimeout(hideT);
+      curKey = key; fillTip(key);
+      var sr = stage.getBoundingClientRect();
+      tip.style.left = Math.max(130, Math.min(sr.width - 130, x)) + "px";
+      tip.style.top = Math.max(110, y) + "px";
+      tip.classList.add("show");
+    }
+    document.addEventListener("twin3d:hover", function (e) { idle = false; showAt(e.detail.key, e.detail.x, e.detail.y); });
+    document.addEventListener("twin3d:leave", hide);
     tip.addEventListener("mouseenter", function () { clearTimeout(hideT); });
     tip.addEventListener("mouseleave", hide);
     document.addEventListener("click", function (e) {
@@ -374,6 +394,7 @@
     if (!reduce) setInterval(function () {
       if (!idle || tip.classList.contains("show")) return;
       var key = order[oi++ % order.length];
+      if (is3d && window.LAOYU_3D) { window.LAOYU_3D.highlight(key); setTimeout(function () { if (idle) window.LAOYU_3D.highlight(null); }, 1100); return; }
       $$(".hs", svg).forEach(function (h) { h.classList.toggle("hot", h.getAttribute("data-tip") === key); });
       setTimeout(function () { if (idle) $$(".hs.hot", svg).forEach(function (h) { h.classList.remove("hot"); }); }, 1100);
     }, 2600);

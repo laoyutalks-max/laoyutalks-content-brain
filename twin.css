@@ -81,7 +81,7 @@ p { line-height: 1.65; }
 }
 .tHeroIn { display: grid; grid-template-columns: 0.92fr 1.25fr; gap: 28px; align-items: center; position: relative; }
 .tCopy h1 {
-  font-size: clamp(40px, 5vw, 70px);
+  font-size: clamp(40px, 4.4vw, 62px);
   line-height: 1.0;
   margin: 18px 0 20px;
   text-transform: none;
@@ -383,3 +383,39 @@ html[data-lang="zh"] .tCopy h1 { line-height: 1.18; font-size: clamp(34px, 4.1vw
   .rv { opacity: 1; transform: none; }
 }
 .twinSvg #prods, .twinSvg #flag, .twinSvg .lbl, .twinSvg #scan { pointer-events: none; }
+
+/* =========================================================
+   REAL 3D FACTORY (WebGL) — replaces the SVG when supported
+   ========================================================= */
+.tStage.is3d .twinSvg, .tStage.is3d .tHint { display: none; }
+.t3View {
+  position: relative; width: 100%; aspect-ratio: 1.32;
+  -webkit-mask-image: radial-gradient(ellipse 56% 58% at 50% 50%, #000 66%, transparent 100%);
+  mask-image: radial-gradient(ellipse 56% 58% at 50% 50%, #000 66%, transparent 100%);
+}
+.t3Canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; display: block; cursor: grab; }
+.tStage.dragging .t3Canvas { cursor: grabbing; }
+.t3Labels { position: absolute !important; inset: 0; pointer-events: none; }
+.t3Label {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: .16em;
+  color: #dff8ff; padding: 4px 8px; white-space: nowrap;
+  background: rgba(3, 16, 30, .62); border: 1px solid rgba(53, 224, 255, .45);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  text-shadow: 0 0 8px rgba(53, 224, 255, .6);
+}
+.t3Label.o { color: var(--orange); border-color: rgba(255, 122, 26, .6); text-shadow: 0 0 8px rgba(255, 122, 26, .6); }
+.t3Label.defect { color: #fff; background: var(--orange); border-color: var(--orange); box-shadow: 0 0 18px rgba(255, 122, 26, .7); text-shadow: none; }
+.tStage.is3d .tHud.h1 { bottom: 6%; }
+.tStage.is3d .tHud.h3 { bottom: 4%; }
+.tStage.is3d::after {
+  content: "DRAG TO ROTATE · HOVER A MACHINE"; position: absolute; left: 50%; top: 0; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; color: var(--muted); pointer-events: none;
+}
+@media (pointer: coarse) { .tStage.is3d::after { content: "TAP A MACHINE TO EXPLORE"; } }
+@media (min-width: 1101px) { .tHeroIn { grid-template-columns: 0.85fr 1.35fr; } }
+@media (max-width: 760px) {
+  .t3View { aspect-ratio: 1.05; }
+  .tStage.is3d .tHud.h1, .tStage.is3d .tHud.h3 { bottom: auto; }
+}
+html[data-lang="zh"] .tStage.is3d::after { content: "拖动旋转 · 鼠标移到设备上"; letter-spacing: .1em; }
+@media (pointer: coarse) { html[data-lang="zh"] .tStage.is3d::after { content: "点击设备探索"; } }
