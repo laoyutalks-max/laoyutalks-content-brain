@@ -1,0 +1,385 @@
+/* =========================================================
+   LAOYU — SMART FACTORY DIGITAL TWIN THEME (Oct 2026)
+   Loaded after styles.css on every page. Restyles the shared
+   components and adds the digital-twin hero, stations and rail.
+   ========================================================= */
+
+:root {
+  --bg: #020912;
+  --ok: #3dffa2;
+  --amber: #ffb020;
+  --font-display: "Space Grotesk", "Noto Sans SC", sans-serif;
+  --font-body: "Inter", "Noto Sans SC", "Segoe UI", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "Noto Sans SC", ui-monospace, monospace;
+}
+
+body {
+  font-size: 16.5px;
+  font-weight: 400;
+  background:
+    radial-gradient(ellipse 70% 50% at 75% -5%, rgba(53, 224, 255, 0.12), transparent 60%),
+    radial-gradient(ellipse 50% 40% at -5% 60%, rgba(255, 122, 26, 0.06), transparent 60%),
+    linear-gradient(rgba(53, 224, 255, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(53, 224, 255, 0.035) 1px, transparent 1px) 0 0 / 40px 40px,
+    var(--bg);
+  background-attachment: fixed;
+}
+
+#hudCanvas { display: none !important; }
+
+h1, h2, h3, h4 { letter-spacing: -0.01em; }
+p { line-height: 1.65; }
+
+/* ---------- Header ---------- */
+.nav {
+  background: rgba(2, 9, 18, 0.72) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+.links a { font-family: var(--font-mono); letter-spacing: 0.12em; font-size: 11.5px; }
+.links .btn { font-family: var(--font-mono); }
+
+/* ---------- Line status ticker (replaces HUD strip) ---------- */
+.hudStatus {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  background: rgba(3, 14, 26, 0.85);
+}
+.hudStatus .wrap { gap: 22px; }
+.tickWrap { flex: 1; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.tick { display: inline-flex; gap: 38px; animation: tick 38s linear infinite; padding-left: 100%; }
+.tick span b { color: var(--cyan); font-weight: 600; }
+.tick span b.ok { color: var(--ok); }
+.tick span b.warn { color: var(--amber); }
+@keyframes tick { to { transform: translateX(-100%); } }
+
+/* ---------- Buttons ---------- */
+.btn { font-family: var(--font-mono); font-weight: 600; letter-spacing: 0.12em; }
+.btn.orange { position: relative; overflow: hidden; }
+.btn.orange::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: sheen 3.6s ease-in-out infinite;
+}
+@keyframes sheen { 60%, 100% { transform: translateX(120%); } }
+
+/* ---------- Eyebrow ---------- */
+.eyebrow { font-family: var(--font-mono); letter-spacing: 0.22em; font-weight: 600; }
+
+/* =========================================================
+   DIGITAL TWIN HERO (home)
+   ========================================================= */
+.tHero { position: relative; padding: 56px 0 40px; overflow: hidden; }
+.tHero::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 60% at 70% 55%, rgba(53, 224, 255, 0.10), transparent 70%);
+  pointer-events: none;
+}
+.tHeroIn { display: grid; grid-template-columns: 0.92fr 1.25fr; gap: 28px; align-items: center; position: relative; }
+.tCopy h1 {
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 1.0;
+  margin: 18px 0 20px;
+  text-transform: none;
+  font-weight: 700;
+  color: #f4fbff;
+}
+.tCopy h1 span {
+  color: transparent;
+  background: linear-gradient(95deg, var(--cyan) 10%, #9ff3ff 45%, var(--cyan) 80%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  animation: shine 6s linear infinite;
+  filter: drop-shadow(0 0 18px rgba(53, 224, 255, 0.35));
+}
+html[data-lang="zh"] .tCopy h1 { line-height: 1.18; font-size: clamp(34px, 4.1vw, 58px); }
+@keyframes shine { to { background-position: -200% 0; } }
+.tCopy > p { font-size: 18px; color: #a9c7d8; max-width: 520px; }
+.tCopy .actions { margin-top: 26px; }
+
+.tStats { display: flex; gap: 0; margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+.tStats > div { flex: 1; padding-right: 16px; }
+.tStats > div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+.tStats b { display: block; font-family: var(--font-display); font-size: 30px; font-weight: 700; color: #fff; line-height: 1.1; }
+.tStats b em { font-style: normal; color: var(--orange); }
+
+.tStats > div > span { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--muted); }
+
+.tStage { position: relative; }
+.twinSvg { width: 100%; height: auto; display: block; overflow: visible; }
+
+/* SVG styling */
+.twinSvg .slab-top { fill: rgba(53, 224, 255, 0.035); stroke: rgba(53, 224, 255, 0.45); stroke-width: 1; }
+.twinSvg .slab-l { fill: rgba(53, 224, 255, 0.10); stroke: rgba(53, 224, 255, 0.45); }
+.twinSvg .slab-r { fill: rgba(53, 224, 255, 0.05); stroke: rgba(53, 224, 255, 0.45); }
+.twinSvg .grid { stroke: rgba(53, 224, 255, 0.09); stroke-width: 0.8; }
+.twinSvg .walk { stroke: var(--amber); stroke-width: 1.4; stroke-dasharray: 8 6; opacity: 0.55; }
+.twinSvg .m .ft { fill: rgba(53, 224, 255, 0.16); }
+.twinSvg .m .fl { fill: rgba(10, 45, 72, 0.92); }
+.twinSvg .m .fr { fill: rgba(5, 26, 44, 0.95); }
+.twinSvg .m polygon, .twinSvg .leg polygon { stroke: var(--cyan); stroke-width: 1; stroke-linejoin: round; }
+.twinSvg .leg polygon { fill: rgba(5, 26, 44, 0.95); stroke-opacity: 0.55; }
+.twinSvg .m.cam .ft, .twinSvg .m.cam .fl { fill: rgba(255, 122, 26, 0.35); }
+.twinSvg .m.cam polygon { stroke: var(--orange); }
+.twinSvg .belt-top { fill: #04182a; stroke: var(--cyan); stroke-width: 1; }
+.twinSvg .belt-side { fill: rgba(53, 224, 255, 0.14); stroke: var(--cyan); stroke-width: 1; }
+.twinSvg .slat { stroke: rgba(53, 224, 255, 0.28); stroke-width: 1; }
+.twinSvg .brail { stroke: var(--cyan); stroke-width: 1.4; opacity: 0.8; }
+.twinSvg .screen { fill: #021322; stroke: var(--cyan); stroke-width: 1; }
+.twinSvg .bar { fill: var(--cyan); opacity: 0.85; animation: barPulse 2.4s ease-in-out infinite; }
+.twinSvg .bar.b1 { animation-delay: .3s; } .twinSvg .bar.b2 { animation-delay: .6s; }
+.twinSvg .bar.b3 { animation-delay: .9s; fill: var(--orange); } .twinSvg .bar.b4 { animation-delay: 1.2s; }
+@keyframes barPulse { 50% { opacity: 0.3; } }
+.twinSvg .win { fill: rgba(53, 224, 255, 0.22); stroke: var(--cyan); animation: winGlow 3s ease-in-out infinite; }
+@keyframes winGlow { 50% { fill: rgba(53, 224, 255, 0.08); } }
+.twinSvg .door { fill: #010810; stroke: var(--cyan); stroke-opacity: .6; }
+.twinSvg .crate { fill: rgba(255, 122, 26, 0.25); stroke: var(--orange); }
+.twinSvg .lamp.g { fill: var(--ok); filter: drop-shadow(0 0 5px var(--ok)); animation: blink 1.6s steps(2) infinite; }
+@keyframes blink { 50% { opacity: .35; } }
+.twinSvg .rb { fill: rgba(53, 224, 255, 0.1); stroke: var(--cyan); }
+.twinSvg .rb2 { fill: rgba(10, 45, 72, 0.95); stroke: var(--cyan); }
+.twinSvg .rb3 { fill: rgba(53, 224, 255, 0.25); stroke: var(--cyan); }
+.twinSvg #arm { animation: armSwing 4.2s ease-in-out infinite; }
+@keyframes armSwing { 0%, 100% { transform: rotate(-18deg); } 45%, 55% { transform: rotate(22deg); } }
+.twinSvg .arm1, .twinSvg .arm2 { stroke: #9ff3ff; stroke-width: 6; stroke-linecap: round; filter: drop-shadow(0 0 4px rgba(53,224,255,.6)); }
+.twinSvg .arm2 { stroke-width: 4.5; }
+.twinSvg .joint { fill: #021322; stroke: var(--cyan); stroke-width: 2; }
+.twinSvg .joint.o { stroke: var(--orange); }
+.twinSvg .grip { stroke: var(--orange); stroke-width: 2.2; fill: none; stroke-linecap: round; }
+.twinSvg .beam { fill: rgba(255, 122, 26, 0.10); stroke: none; animation: beamPulse 1.8s ease-in-out infinite; }
+@keyframes beamPulse { 50% { fill: rgba(255, 122, 26, 0.2); } }
+.twinSvg .scanline { fill: var(--orange); opacity: 0.9; filter: drop-shadow(0 0 6px var(--orange)); }
+.twinSvg .bin polygon { fill: rgba(255, 122, 26, 0.08); stroke: var(--orange); stroke-width: 1; }
+.twinSvg .bin .bin-f, .twinSvg .bin .bin-f2 { fill: rgba(40, 16, 4, 0.85); }
+.twinSvg .lbl { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; fill: #bfeeff; font-weight: 600; }
+.twinSvg .lbl.o { fill: var(--orange); }
+.twinSvg .prod .ft { fill: #7ef0ff; }
+.twinSvg .prod .fl { fill: #2bbfe0; }
+.twinSvg .prod .fr { fill: #138aa8; }
+.twinSvg .prod polygon { stroke: #dffbff; stroke-width: .6; transition: fill .25s; }
+.twinSvg .prod.bad .ft { fill: #ffb070; }
+.twinSvg .prod.bad .fl { fill: #ff7a1a; }
+.twinSvg .prod.bad .fr { fill: #c74d00; }
+.twinSvg .prod.ok .ft { fill: #b6ffd9; }
+.twinSvg #flag rect { fill: var(--orange); }
+.twinSvg #flag text { font-family: var(--font-mono); font-size: 9px; font-weight: 700; fill: #fff; letter-spacing: .1em; }
+.twinSvg #flag line { stroke: var(--orange); stroke-width: 1.5; }
+.twinSvg .hs { cursor: pointer; transition: filter .25s; }
+.twinSvg .hs:hover, .twinSvg .hs.hot { filter: drop-shadow(0 0 10px rgba(53, 224, 255, 0.85)) brightness(1.25); }
+
+/* HUD panels around the twin */
+.tHud {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #cfefff;
+  background: rgba(3, 16, 30, 0.78);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 12px;
+  min-width: 170px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(53, 224, 255, 0.05);
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  z-index: 3;
+}
+.tHud h5 { margin: 0 0 8px; font-size: 10px; letter-spacing: .16em; color: var(--muted); font-weight: 600; display: flex; align-items: center; gap: 7px; }
+.tHud h5 i { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); animation: blink 1.4s steps(2) infinite; }
+.tHud .row { display: flex; justify-content: space-between; gap: 18px; padding: 3px 0; }
+.tHud .row b { color: #fff; font-weight: 600; font-variant-numeric: tabular-nums; }
+.tHud .row b.ok { color: var(--ok); }
+.tHud .row b.bad { color: var(--orange); }
+.tHud .big { font-family: var(--font-display); font-size: 30px; font-weight: 700; color: #fff; line-height: 1; font-variant-numeric: tabular-nums; }
+.tHud .big small { font-size: 14px; color: var(--cyan); }
+.tHud .meter { height: 4px; background: rgba(53, 224, 255, 0.12); margin-top: 8px; }
+.tHud .meter i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--ok)); transition: width .6s; }
+.tHud.h1 { left: 0; bottom: 16%; }
+.tHud.h2 { right: 0; top: 2%; }
+.tHud.h3 { right: 2%; bottom: 3%; max-width: 270px; border-color: rgba(255, 122, 26, 0.6); }
+.tHud.h3 h5 i { background: var(--orange); box-shadow: 0 0 8px var(--orange); }
+.tHud.h3 p { margin: 0; font-family: var(--font-body); font-size: 12.5px; color: #e6f6ff; letter-spacing: 0; line-height: 1.45; min-height: 3em; transition: opacity .35s; }
+.tHint { position: absolute; left: 0; bottom: 4%; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: .14em; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.tHint::before { content: ""; width: 18px; height: 18px; border: 1px solid var(--cyan); border-radius: 50%; box-shadow: 0 0 0 0 rgba(53,224,255,.5); animation: ping 1.8s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(53,224,255,0); } 100% { box-shadow: 0 0 0 0 rgba(53,224,255,0); } }
+
+.tTip {
+  position: absolute; z-index: 5; width: 250px;
+  background: rgba(3, 18, 34, 0.95);
+  border: 1px solid var(--cyan);
+  box-shadow: 0 0 30px rgba(53, 224, 255, 0.3);
+  padding: 14px 16px;
+  pointer-events: auto;
+  transform: translate(-50%, calc(-100% - 14px));
+  opacity: 0; transition: opacity .2s;
+}
+.tTip.show { opacity: 1; }
+.tTip small { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; color: var(--orange); }
+.tTip h4 { margin: 4px 0 6px; font-size: 18px; color: #fff; }
+.tTip p { margin: 0 0 10px; font-size: 13.5px; color: #b9d8e8; line-height: 1.5; }
+.tTip a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--cyan); font-weight: 600; }
+
+/* =========================================================
+   STATIONS
+   ========================================================= */
+.station { position: relative; padding: 84px 0; }
+.station + .station { border-top: 1px solid rgba(53, 224, 255, 0.08); }
+.stHead { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; margin-bottom: 34px; }
+.stHead h2 { font-size: clamp(30px, 3.4vw, 46px); margin: 10px 0 6px; line-height: 1.05; font-weight: 700; }
+.stHead p { margin: 0; max-width: 560px; font-size: 17px; }
+.stTag { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .2em; color: var(--muted); }
+.stTag span { color: var(--orange); font-weight: 700; }
+.stTag i { width: 36px; height: 1px; background: var(--line-strong); }
+.stTag b { color: var(--cyan); font-weight: 600; }
+.stState { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; color: var(--ok); display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid rgba(61, 255, 162, 0.35); background: rgba(61, 255, 162, 0.06); white-space: nowrap; }
+.stState::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); animation: blink 1.4s steps(2) infinite; }
+.stHead .btn { white-space: nowrap; }
+
+/* Station 01 — machine cards */
+.machines { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.machine {
+  position: relative; display: block; padding: 26px 22px 22px;
+  background: linear-gradient(180deg, rgba(8, 34, 56, 0.75), rgba(3, 16, 30, 0.75));
+  border: 1px solid var(--line);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+  overflow: hidden;
+}
+.machine::after {
+  content: ""; position: absolute; left: 0; right: 0; top: -60%; height: 60%;
+  background: linear-gradient(180deg, transparent, rgba(53, 224, 255, 0.12), transparent);
+  opacity: 0; transition: opacity .3s;
+}
+.machine:hover { transform: translateY(-6px); border-color: var(--cyan); box-shadow: 0 18px 40px rgba(0,0,0,.4), 0 0 30px rgba(53,224,255,.18); }
+.machine:hover::after { opacity: 1; animation: scan 1.8s linear infinite; }
+.machine .mNo { font-family: var(--font-mono); font-size: 11px; letter-spacing: .16em; color: var(--muted); display: flex; justify-content: space-between; }
+.machine .mNo b { color: var(--ok); font-weight: 600; }
+.machine svg.mIco { width: 64px; height: 64px; margin: 18px 0 14px; display: block; }
+.machine h3 { font-size: 20px; margin: 0 0 8px; color: #fff; font-weight: 700; text-transform: none; }
+.machine p { font-size: 14.5px; margin: 0 0 18px; }
+.machine .more { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--cyan); font-weight: 600; }
+.machine .mBar { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: rgba(53,224,255,.1); }
+.machine .mBar i { display: block; height: 100%; width: 40%; background: linear-gradient(90deg, transparent, var(--cyan), transparent); animation: run 2.6s linear infinite; }
+@keyframes run { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+
+/* icon strokes */
+.mIco .s { fill: none; stroke: var(--cyan); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mIco .o { fill: none; stroke: var(--orange); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mIco .f { fill: rgba(53, 224, 255, 0.12); }
+.mIco .spin { transform-origin: 32px 32px; animation: spin 8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Station 03 — tooling bays */
+.bays { display: grid; grid-template-columns: 1.15fr repeat(4, 1fr); gap: 16px; }
+.bayIntro { padding: 28px 24px; border: 1px solid rgba(255,122,26,.45); background: linear-gradient(160deg, rgba(255, 122, 26, 0.14), rgba(3, 16, 30, 0.6)); position: relative; }
+.bayIntro h3 { font-size: 26px; line-height: 1.1; margin: 0 0 10px; text-transform: none; color: #fff; }
+.bayIntro p { margin: 0; font-size: 15px; color: #d8c2b0; }
+.bay { position: relative; padding: 22px 20px; background: rgba(4, 20, 36, 0.75); border: 1px solid var(--line); transition: transform .3s, border-color .3s, box-shadow .3s; display: flex; flex-direction: column; }
+.bay:hover { transform: translateY(-6px); border-color: var(--orange); box-shadow: 0 0 28px rgba(255,122,26,.2); }
+.bay svg.mIco { width: 46px; height: 46px; margin-bottom: 14px; }
+.bay h3 { font-size: 17px; margin: 0 0 6px; text-transform: none; color: #fff; }
+.bay p { font-size: 14px; margin: 0 0 16px; flex: 1; }
+.bay .resLink { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--orange); font-weight: 700; }
+.bay .bin { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; color: var(--muted); margin-bottom: 10px; }
+
+/* Station 04 — output */
+.outGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.outGrid .panel { padding: 34px; }
+.outGrid .panel h2 { font-size: 30px; text-transform: none; }
+.outGrid .panel.dark { background: linear-gradient(140deg, rgba(53,224,255,.12), rgba(3,16,30,.8)); }
+
+/* TikTok cards inside stations */
+.station .cards .card { background: rgba(4, 20, 36, 0.8); }
+.station .cardbody h3 { font-family: var(--font-display); text-transform: none; letter-spacing: 0; font-size: 15px; line-height: 1.35; }
+
+/* =========================================================
+   SCROLL RAIL — vertical conveyor that follows the page
+   ========================================================= */
+.rail { position: fixed; left: 26px; top: 50%; transform: translateY(-50%); height: 56vh; width: 30px; z-index: 40; pointer-events: none; display: none; }
+.rail::before { content: ""; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: repeating-linear-gradient(180deg, rgba(53,224,255,.45) 0 6px, transparent 6px 12px); animation: railRun 1s linear infinite; }
+@keyframes railRun { to { background-position: 0 12px; } }
+.rail .node { position: absolute; left: 7px; width: 16px; height: 16px; border: 1.5px solid var(--line-strong); background: var(--bg); transform: rotate(45deg); transition: all .3s; pointer-events: auto; cursor: pointer; }
+.rail .node.on { border-color: var(--ok); background: rgba(61,255,162,.25); box-shadow: 0 0 10px var(--ok); }
+.rail .node em { position: absolute; left: 24px; top: -4px; transform: rotate(-45deg); transform-origin: 0 0; font-family: var(--font-mono); font-style: normal; font-size: 10px; letter-spacing: .14em; color: var(--muted); white-space: nowrap; opacity: 0; transition: opacity .3s; }
+.rail:hover .node em, .rail .node.on em { opacity: 1; }
+.rail .pk { position: absolute; left: 8px; width: 14px; height: 14px; background: var(--orange); box-shadow: 0 0 12px var(--orange); transform: translateY(-50%); transition: top .15s linear; }
+@media (min-width: 1320px) { .rail { display: block; } }
+
+/* =========================================================
+   SUB-PAGE HERO — blueprint floor + mini production line
+   ========================================================= */
+.subHero { position: relative; overflow: hidden; }
+.subHero::after {
+  content: ""; position: absolute; left: -10%; right: -10%; bottom: -40%; height: 90%;
+  background:
+    linear-gradient(rgba(53, 224, 255, 0.10) 1px, transparent 1px) 0 0 / 60px 60px,
+    linear-gradient(90deg, rgba(53, 224, 255, 0.10) 1px, transparent 1px) 0 0 / 60px 60px;
+  transform: perspective(600px) rotateX(62deg);
+  transform-origin: 50% 0;
+  mask-image: linear-gradient(180deg, transparent, #000 40%, transparent);
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 40%, transparent);
+  pointer-events: none;
+  animation: floorRun 6s linear infinite;
+}
+@keyframes floorRun { to { background-position: 0 60px, 0 0; } }
+.subHero > .wrap { position: relative; z-index: 2; }
+.subHero h1 { font-weight: 700; text-transform: none; }
+.miniLine { position: relative; z-index: 2; height: 34px; margin-top: 34px; max-width: 520px; }
+.miniLine::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 6px; border: 1px solid var(--line-strong); background: repeating-linear-gradient(90deg, rgba(53,224,255,.25) 0 2px, transparent 2px 12px); animation: beltRun .6s linear infinite; }
+@keyframes beltRun { to { background-position: 12px 0; } }
+.miniLine i { position: absolute; top: 8px; left: 0; width: 13px; height: 13px; background: #7ef0ff; box-shadow: 0 0 10px rgba(53,224,255,.7); animation: ride 7s linear infinite; }
+.miniLine i:nth-child(2) { animation-delay: -1.75s; }
+.miniLine i:nth-child(3) { animation-delay: -3.5s; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
+.miniLine i:nth-child(4) { animation-delay: -5.25s; }
+.miniLine b { position: absolute; left: 62%; top: -8px; width: 2px; height: 30px; background: var(--orange); box-shadow: 0 0 10px var(--orange); }
+.miniLine b::after { content: "AI QC"; position: absolute; left: 8px; top: -2px; font-family: var(--font-mono); font-size: 9px; letter-spacing: .16em; color: var(--orange); white-space: nowrap; }
+@keyframes ride { from { left: 0; opacity: 0; } 6% { opacity: 1; } 94% { opacity: 1; } to { left: calc(100% - 13px); opacity: 0; } }
+
+/* principle / contact icons (replaces emoji) */
+.pIco { display: inline-flex; width: 26px; height: 26px; vertical-align: -7px; margin-right: 10px; }
+.pIco svg { width: 100%; height: 100%; }
+
+/* ---------- Footer ---------- */
+.footer { background: linear-gradient(180deg, transparent, rgba(3, 14, 26, 0.95) 30%) !important; border-top: 1px solid var(--line); }
+.foot h4 { font-family: var(--font-mono); letter-spacing: .18em; font-size: 11px; }
+
+/* ---------- Reveal ---------- */
+.rv { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1100px) {
+  .tHeroIn { grid-template-columns: 1fr; }
+  .tStage { margin-top: 10px; }
+  .machines { grid-template-columns: repeat(2, 1fr); }
+  .bays { grid-template-columns: repeat(2, 1fr); }
+  .bayIntro { grid-column: 1 / -1; }
+}
+@media (max-width: 760px) {
+  .tHero { padding: 30px 0 20px; }
+  .tCopy h1 { font-size: 40px; }
+  .tStats b { font-size: 24px; }
+  .tStats > div > span { font-size: 9.5px; }
+  .tHud { min-width: 0; padding: 7px 9px; font-size: 9.5px; }
+  .tHud.h1 { position: relative; left: auto; bottom: auto; top: auto; margin-top: 10px; }
+  .tHud.h2 { display: none; }
+  .tHud.h3 { position: relative; right: auto; bottom: auto; max-width: none; margin-top: 10px; }
+  .tHud .big { font-size: 22px; }
+  .tHint { display: none; }
+  .tStage { aspect-ratio: auto; }
+  .tTip { width: 220px; }
+  .station { padding: 60px 0; }
+  .stHead { grid-template-columns: 1fr; }
+  .machines, .bays, .outGrid { grid-template-columns: 1fr; }
+  .outGrid .panel { padding: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tick, .twinSvg #arm, .machine .mBar i, .miniLine i, .subHero::after, .btn.orange::after, .tCopy h1 span, .rail::before { animation: none !important; }
+  .rv { opacity: 1; transform: none; }
+}
+.twinSvg #prods, .twinSvg #flag, .twinSvg .lbl, .twinSvg #scan { pointer-events: none; }
