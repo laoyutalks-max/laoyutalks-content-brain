@@ -193,6 +193,7 @@
   function escalation() {
     if (!$("erOut")) return;
     function build() {
+      var C = L(": ", "：");
       var cur = val("erCur") || "";
       var hrs = num("erHrs"), rate = num("erRate"), scrap = num("erScrap"), unit = num("erUnit"), other = num("erOther");
       var cost = (isFinite(hrs) && isFinite(rate) ? hrs * rate : 0) + (isFinite(scrap) && isFinite(unit) ? scrap * unit : 0) + (isFinite(other) ? other : 0);
@@ -206,7 +207,7 @@
         '<div class="atChip sev-' + sev + '"><b>' + sevT + "</b><span>" + L("Severity", "严重程度") + "</span></div>";
       var opts = [1, 2, 3].map(function (i) {
         var t = val("erOpt" + i); if (!t) return "";
-        return "  " + String.fromCharCode(64 + i) + ") " + t + (val("erOptC" + i) ? " — " + L("cost", "成本") + ": " + val("erOptC" + i) : "") + (val("erOptE" + i) ? " — " + L("effect", "效果") + ": " + val("erOptE" + i) : "");
+        return "  " + String.fromCharCode(64 + i) + ") " + t + (val("erOptC" + i) ? " — " + L("cost", "成本") + C + val("erOptC" + i) : "") + (val("erOptE" + i) ? " — " + L("effect", "效果") + C + val("erOptE" + i) : "");
       }).filter(Boolean);
       var lines = [
         L("Subject", "主题") + ": [" + sevT + "] " + (val("erTitle") || L("Issue title", "问题标题")) + (val("erAsk") ? " — " + L("decision needed by ", "需要在以下时间前决定：") + (val("erBy") || "?") : ""),
@@ -218,9 +219,9 @@
         val("erWhat") || "-",
         "",
         L("IMPACT", "影响"),
-        "• " + L("Cost so far", "目前成本") + ": " + (cost ? m(cost) : "-") + (isFinite(hrs) ? " (" + hrs + " " + L("h downtime", "小时停机") + (isFinite(scrap) ? ", " + scrap + " " + L("units scrapped", "件报废") : "") + ")" : ""),
-        "• " + L("Delivery", "交付") + ": " + (val("erCust") || "-") + (val("erQty") ? ", " + val("erQty") + " " + L("units at risk", "件有风险") : "") + (val("erDate") ? ", " + L("due", "交期") + " " + val("erDate") : ""),
-        "• " + L("Safety / quality risk", "安全 / 质量风险") + ": " + (risk || L("none known", "目前未知")),
+        "• " + L("Cost so far", "目前成本") + C + (cost ? m(cost) : "-") + (isFinite(hrs) ? " (" + hrs + " " + L("h downtime", "小时停机") + (isFinite(scrap) ? ", " + scrap + " " + L("units scrapped", "件报废") : "") + ")" : ""),
+        "• " + L("Delivery", "交付") + C + (val("erCust") || "-") + (val("erQty") ? ", " + val("erQty") + " " + L("units at risk", "件有风险") : "") + (val("erDate") ? ", " + L("due", "交期") + " " + val("erDate") : ""),
+        "• " + L("Safety / quality risk", "安全 / 质量风险") + C + (risk || L("none known", "目前未知")),
         "",
         L("CAUSE", "原因"),
         (val("erCause") || "-") + " (" + ({ known: L("confirmed", "已确认"), inv: L("under investigation", "调查中"), unk: L("not yet known", "尚未知") }[val("erCauseSt") || "inv"]) + ")",
@@ -229,8 +230,8 @@
         val("erDone") || "-",
         ""
       ];
-      if (opts.length) lines = lines.concat([L("OPTIONS", "可选方案")]).concat(opts).concat([L("Recommendation", "建议") + ": " + (val("erRec") || "-"), ""]);
-      lines.push(L("NEXT UPDATE", "下次更新") + ": " + (val("erNext") || "-"));
+      if (opts.length) lines = lines.concat([L("OPTIONS", "可选方案")]).concat(opts).concat([L("Recommendation", "建议") + C + (val("erRec") || "-"), ""]);
+      lines.push(L("NEXT UPDATE", "下次更新") + C + (val("erNext") || "-"));
       $("erOut").textContent = lines.join("\n");
     }
     on("input", function (e) { if (e.target.closest("#erForm")) build(); });

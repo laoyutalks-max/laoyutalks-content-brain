@@ -1,0 +1,15 @@
+date,line,shift,target_units,actual_units,good_units,scrap_units,planned_minutes,downtime_minutes,top_downtime_reason,ideal_cycle_sec
+2026-10-12,Line 3,Day,1200,1000,983,17,420,55,Conveyor jam,20
+2026-10-13,Line 3,Day,1200,1062,1020,42,420,20,Sensor fault,20
+2026-10-14,Line 3,Day,1200,1089,1049,40,420,15,Conveyor jam,20
+2026-10-15,Line 3,Day,1200,926,892,34,420,70,Conveyor jam,20
+2026-10-16,Line 3,Day,1200,1002,991,11,420,70,Conveyor jam,20
+2026-10-17,Line 3,Day,1200,1130,1085,45,420,30,Sensor fault,20
+2026-10-18,Line 3,Day,1200,1017,1006,11,420,70,Conveyor jam,20
+2026-10-19,Line 3,Day,1200,1085,1059,26,420,25,Sensor fault,20
+2026-10-20,Line 3,Day,1200,1086,1042,44,420,20,No operator,20
+2026-10-21,Line 3,Day,1200,1103,1089,14,420,25,Quality hold,20
+2026-10-22,Line 3,Day,1200,1035,1004,31,420,30,Quality hold,20
+2026-10-23,Line 3,Day,1200,1058,1014,44,420,20,Changeover,20
+2026-10-24,Line 3,Day,1200,907,865,42,420,90,Waiting for material,20
+2026-10-25,Line 3,Day,1200,954,909,45,420,90,Waiting for material,20
