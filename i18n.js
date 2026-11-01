@@ -11,6 +11,7 @@
   var TEXT = {
     /* Quick wins */
     "MANUFACTURING × AI × MANAGEMENT": "制造 × AI × 管理",
+    "Real workplace problems, tested with AI and explained simply, for supervisors, engineers and managers.": "把真实的工作问题交给 AI 实测，再用简单的方式讲清楚，写给主管、工程师和管理者。",
     "20 years on the shop floor. Real workplace problems, tested with AI and explained simply, for supervisors, engineers and managers.": "20 年车间一线经验。把真实的工作问题交给 AI 实测，再用简单的方式讲清楚，写给主管、工程师和管理者。",
     "FOLLOW ON TIKTOK ↗": "关注 TikTok ↗",
     "LAOYU | Practical AI for Manufacturing Leaders": "LAOYU 老鱼 | 写给制造业管理者的实用 AI",
