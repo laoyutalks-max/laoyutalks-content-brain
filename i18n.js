@@ -471,6 +471,37 @@
     "AI Root Cause Assistant | LAOYU": "AI 根本原因助手 | LAOYU 老鱼",
     "AI Shift Handover Assistant | LAOYU": "AI 交接班助手 | LAOYU 老鱼",
 
+    /* AI Hub (Nov 2026) */
+    "AI TOOLS": "AI 工具",
+    "LEARN": "学习",
+    "AUTOMATION LAB": "自动化实验室",
+    "AI Tools": "AI 工具",
+    "LAOYU · MANUFACTURING × AI": "老鱼 · 制造 × AI",
+    "Practical AI for manufacturing leaders.": "写给制造业管理者的实用 AI。",
+    "EXPLORE AI TOOLS →": "探索 AI 工具 →",
+    "FREE RESOURCES": "免费资源",
+    "Learn AI": "学习 AI",
+    "Use AI": "使用 AI",
+    "Build with AI": "用 AI 创造",
+    "Explore the Hub": "探索中心",
+    "AI Assistant": "AI 助手",
+    "Learning Centre": "学习中心",
+    "Automation Lab": "自动化实验室",
+    "ALL TOOLS →": "全部工具 →",
+    "OPEN LIBRARY →": "打开资源库 →",
+    "COMING SOON": "即将推出",
+    "Making AI Practical for Everyday Work.": "让 AI 真正用于日常工作。",
+    "ASK LAOYU AI →": "问老鱼 AI →",
+    "Switch to dark mode": "切换到深色模式",
+    "Switch to light mode": "切换到浅色模式",
+    "Practical tools for manufacturing, management, quality and daily work.": "面向制造、管理、质量和日常工作的实用工具。",
+    "AI Tools | LAOYU": "AI 工具 | LAOYU 老鱼",
+    "Excel Formula Assistant | LAOYU": "Excel 公式助手 | LAOYU 老鱼",
+    "Meeting Minutes Generator | LAOYU": "会议纪要生成器 | LAOYU 老鱼",
+    "CAPA Action Planner | LAOYU": "CAPA 措施计划 | LAOYU 老鱼",
+    "Downtime Analysis Assistant | LAOYU": "停机分析助手 | LAOYU 老鱼",
+    "Email Writing Assistant | LAOYU": "邮件写作助手 | LAOYU 老鱼",
+
     /* Page titles */
     "LAOYU | Work Smarter. Create Better.": "LAOYU 老鱼 | 工作更聪明，创造更出色",
     "LAOYUTALKS | LAOYU": "老鱼说 | LAOYU 老鱼",
@@ -503,6 +534,10 @@
       '写给<span>制造业管理者</span><br>的实用 AI。',
     "Work Smarter. Create Better.":
       '工作更<span>聪明</span>，<br>创造更<span>出色</span>。',
+    "Work Smarter. Think Better. Build with AI.":
+      '工作更聪明，<br>思考更深入，<span>用 AI 创造。</span>',
+    "AI Tools for Real Work.":
+      '真正用于工作的 <span>AI 工具。</span>',
     "Find the Right Tool. Solve the Right Problem.":
       '找到合适的工具，<span>解决真正的问题。</span>',
     "Practical Tools to Work Smarter.":

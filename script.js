@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ---------- Typing effect on the first hero eyebrow ---------- */
 
     var eyebrow = document.querySelector(".hero .eyebrow");
-    if (eyebrow && !reduceMotion) {
+    if (eyebrow && !reduceMotion && !eyebrow.children.length) {
       var full = eyebrow.textContent.trim();
       eyebrow.textContent = "";
       eyebrow.style.minHeight = "1.6em";

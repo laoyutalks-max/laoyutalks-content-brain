@@ -23,43 +23,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="styles.css?v=20261030">
-  <link rel="stylesheet" href="twin.css?v=20261030d">
-</head>
+  <link rel="stylesheet" href="twin.css?v=20261030d"><link rel="stylesheet" href="resources2.css?v=20261101h"><link rel="stylesheet" href="hub.css?v=20261101">
+<script>try{if(localStorage.getItem("laoyuTheme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script></head>
 <body>
 
 <header class="nav">
   <div class="wrap navin">
     <a href="index.html"><img class="logo" src="assets/laoyu-logo-hud.png" alt="LAOYU"></a>
-    <nav class="links">
-      <a href="index.html">HOME</a>
-      <a href="laoyutalks.html">LAOYUTALKS</a>
-      <a href="resources.html">RESOURCES</a>
-      <a href="about.html">ABOUT</a>
-      <a href="contact.html">CONTACT</a>
-      <a class="btn orange" href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">FOLLOW ON TIKTOK ↗</a>
-    </nav>
+    <nav class="links"><a href="index.html">HOME</a><a href="ai-tools.html">AI TOOLS</a><a href="resources.html">RESOURCES</a><a href="index.html#learn">LEARN</a><a href="index.html#lab">AUTOMATION LAB</a><a href="about.html">ABOUT</a><a class="btn orange" href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">FOLLOW ON TIKTOK ↗</a></nav>
   </div>
 </header>
 
-<main>
+<main class="hubHome">
 
-<!-- =====================================================
-     HERO — DIGITAL TWIN
-     ===================================================== -->
-<section class="tHero">
-  <div class="wrap tHeroIn">
-    <div class="tCopy">
-      <div class="eyebrow">MANUFACTURING × AI × MANAGEMENT</div>
-      <h1>Practical AI for <span>Manufacturing</span> Leaders.</h1>
-      <p>Real workplace problems, tested with AI and explained simply, for supervisors, engineers and managers.</p>
+<section class="hubHero">
+  <div class="wrap hubHeroIn">
+    <div class="hubCopy">
+      <div class="eyebrow">LAOYU · MANUFACTURING × AI</div>
+      <h1>Work Smarter. Think Better. <span>Build with AI.</span></h1>
+      <p>Practical AI for manufacturing leaders.</p>
       <div class="actions">
-        <a class="btn orange" href="#station-1">EXPLORE LAOYU →</a>
-        <a class="btn outline" href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
+        <a class="btn orange" href="ai-tools.html">EXPLORE AI TOOLS →</a>
+        <a class="btn outline" href="resources.html">FREE RESOURCES</a>
       </div>
     </div>
-
     <div class="tStage">
-      <svg class="twinSvg" viewBox="-234 -84 750 480" role="img" aria-label="Animated digital twin of a production line: a CNC machine feeds a conveyor, an AI robot cell works the line, AI vision inspects each part and rejects defects, and good parts are packed.">
+<svg class="twinSvg" viewBox="-234 -84 750 480" role="img" aria-label="Animated digital twin of a production line: a CNC machine feeds a conveyor, an AI robot cell works the line, AI vision inspects each part and rejects defects, and good parts are packed.">
 <g class="floor">
 <polygon class="slab-top" points="0.0,-46.5 510.1,248.0 281.9,379.7 -228.2,85.2"/>
 <polygon class="slab-l" points="-228.2,97.6 281.9,392.1 281.9,379.7 -228.2,85.2"/>
@@ -199,377 +188,63 @@
 </g>
 <g id="flag" opacity="0"><rect x="-44" y="-30" width="88" height="18" rx="2"/><text x="0" y="-17" text-anchor="middle">DEFECT FOUND</text><line x1="0" y1="-12" x2="0" y2="-2"/></g>
 </svg>
-      <div class="tHud h1">
-        <h5><i></i>LIVE LINE · SIMULATION</h5>
-        <div class="big"><span data-k="oee">87.4</span><small>% OEE</small></div>
-        <div class="meter"><i data-k="meter" style="width:87%"></i></div>
-      </div>
-      <div class="tHud h2">
-        <h5><i></i>AI VISION QC</h5>
-        <div class="row"><span>INSPECTED</span><b data-k="inspected">0</b></div>
-        <div class="row"><span>REJECTED BY AI</span><b class="bad" data-k="rejected">0</b></div>
-        <div class="row"><span>ESCAPED TO CUSTOMER</span><b class="ok">0</b></div>
-      </div>
-      <div class="tHud h3">
-        <h5><i></i>AI ALERT · DEMO</h5>
-        <p data-k="alert" aria-live="polite"></p>
-      </div>
-      <div class="tHint">HOVER A MACHINE TO EXPLORE</div>
+    </div>
+  </div>
+  <div class="wrap hubJourney">
+    <a href="#learn"><i>01</i><span>Learn AI</span></a>
+    <a href="ai-tools.html"><i>02</i><span>Use AI</span></a>
+    <a href="#lab"><i>03</i><span>Build with AI</span></a>
+  </div>
+</section>
+
+<section class="hubSec">
+  <div class="wrap">
+    <h2 class="hubH">Explore the Hub</h2>
+    <div class="hubCards">
+      <a class="hubCard" href="#ask" data-open-ask><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 10h8M8 13h5"/></svg><b>AI Assistant</b><em data-c-ask>Ask</em></a>
+      <a class="hubCard" href="ai-tools.html"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><b>AI Tools</b><em data-c-aitools></em></a>
+      <a class="hubCard" href="resources.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h10l4 4v12H5z"/><path d="M15 4v4h4M8 12h8M8 16h6"/></svg><b>Free Resources</b><em data-c-res></em></a>
+      <a class="hubCard" href="#learn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5"/></svg><b>Learning Centre</b><em data-c-learn></em></a>
+      <a class="hubCard" href="#lab"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="12" r="2.5"/><circle cx="6" cy="18" r="2.5"/><path d="M8.5 6h4a3 3 0 0 1 3 3v.5M8.5 18h4a3 3 0 0 0 3-3v-.5"/></svg><b>Automation Lab</b><em data-c-lab></em></a>
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     STATION 01 — INTAKE: WHAT LAOYU COVERS
-     ===================================================== -->
-<section class="station" id="station-1" data-station="01" data-station-name="INTAKE">
+<section class="hubSec" id="tools">
   <div class="wrap">
-    <div class="stHead">
-      <div>
-        <div class="stTag"><span>STATION 01</span><i></i><b>INTAKE</b></div>
-        <h2>What LAOYU Covers</h2>
-        <p>Four lines of thinking. One goal: better work on the floor.</p>
-      </div>
-      <div class="stState">RUNNING</div>
-    </div>
+    <div class="hubHead"><h2 class="hubH">AI Tools</h2><a href="ai-tools.html">ALL TOOLS →</a></div>
+    <div class="atTabs" id="hTabs" data-i18n-block></div>
+    <div class="hTools" id="hTools" data-i18n-block></div>
+  </div>
+</section>
 
-    <div class="machines">
-      <a class="machine" href="https://www.tiktok.com/@laoyu.talks/video/7699481900641029397" target="_blank" rel="noopener noreferrer">
-        <div class="mNo"><span>M-01</span><b>● ONLINE</b></div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <rect class="s f" x="18" y="18" width="28" height="28" rx="3"/>
-          <path class="s" d="M24 10v8M32 10v8M40 10v8M24 46v8M32 46v8M40 46v8M10 24h8M10 32h8M10 40h8M46 24h8M46 32h8M46 40h8"/>
-          <path class="o" d="M26 38l4-12h4l4 12M28 34h8"/>
-        </svg>
-        <h3>AI Solutions</h3>
-        <p>Smart tools and AI-powered systems to help you work intelligently.</p>
-        <span class="more">▶ Watch on TikTok</span>
-        <span class="mBar"><i></i></span>
-      </a>
-      <a class="machine" href="https://www.tiktok.com/@laoyu.talks/video/7697574703711653140" target="_blank" rel="noopener noreferrer">
-        <div class="mNo"><span>M-02</span><b>● ONLINE</b></div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <g class="spin"><circle cx="32" cy="32" r="21" fill="none" stroke="var(--cyan)" stroke-width="6" stroke-dasharray="5.5 5.5"/><circle class="s f" cx="32" cy="32" r="16"/></g>
-          <circle class="o" cx="32" cy="32" r="7"/>
-        </svg>
-        <h3>Manufacturing Excellence</h3>
-        <p>Process improvement, automation and data-driven systems.</p>
-        <span class="more">▶ Watch on TikTok</span>
-        <span class="mBar"><i></i></span>
-      </a>
-      <a class="machine" href="https://www.tiktok.com/@laoyu.talks/video/7698852824586669333" target="_blank" rel="noopener noreferrer">
-        <div class="mNo"><span>M-03</span><b>● ONLINE</b></div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <rect class="s f" x="24" y="8" width="16" height="12" rx="2"/>
-          <path class="s" d="M32 20v8M14 36V28h36v8"/>
-          <rect class="s" x="6" y="36" width="16" height="12" rx="2"/>
-          <rect class="o" x="42" y="36" width="16" height="12" rx="2"/>
-          <path class="s" d="M14 48v6M50 48v6"/>
-        </svg>
-        <h3>Manager Thinking</h3>
-        <p>Leadership, planning and decision-making frameworks.</p>
-        <span class="more">▶ Watch on TikTok</span>
-        <span class="mBar"><i></i></span>
-      </a>
-      <a class="machine" href="https://www.tiktok.com/@laoyu.talks/video/7700187298062781716" target="_blank" rel="noopener noreferrer">
-        <div class="mNo"><span>M-04</span><b>● ONLINE</b></div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <path class="s" d="M50 22A20 20 0 0 0 14 24M14 42a20 20 0 0 0 36-2"/>
-          <path class="s" d="M14 14v10h10M50 50V40H40"/>
-          <path class="o" d="M22 40l7-7 5 4 9-11"/>
-          <path class="o" d="M38 26h5v5"/>
-        </svg>
-        <h3>Continuous Improvement</h3>
-        <p>Small changes, big impact. Build better systems every day.</p>
-        <span class="more">▶ Watch on TikTok</span>
-        <span class="mBar"><i></i></span>
-      </a>
+<section class="hubSec">
+  <div class="wrap">
+    <div class="hubHead"><h2 class="hubH">Free Resources</h2><a href="resources.html">OPEN LIBRARY →</a></div>
+    <div class="hResGrid" id="hRes" data-i18n-block></div>
+  </div>
+</section>
+
+<section class="hubSec" id="learn">
+  <div class="wrap">
+    <div class="hubHead"><h2 class="hubH">Learning Centre <small>COMING SOON</small></h2></div>
+    <div class="hLevels" id="hLearn" data-i18n-block></div>
+  </div>
+</section>
+
+<section class="hubSec" id="lab">
+  <div class="wrap">
+    <div class="hubHead"><h2 class="hubH">Automation Lab</h2></div>
+    <div class="hLab">
+      <div class="atTabs" id="hLabTabs" data-i18n-block></div>
+      <div class="hFlow" id="hFlow" data-i18n-block></div>
+      <div class="hStack" id="hStack"></div>
     </div>
   </div>
 </section>
 
-<!-- =====================================================
-     STATION 02 — PROCESS: MOST WATCHED
-     ===================================================== -->
-<section class="station" id="station-2" data-station="02" data-station-name="PROCESS">
-  <div class="wrap">
-    <div class="stHead">
-      <div>
-        <div class="stTag"><span>STATION 02</span><i></i><b>PROCESS</b></div>
-        <h2>Most Watched on TikTok</h2>
-        <p>Short, practical ideas that help you work smarter.</p>
-      </div>
-      <a class="btn outline" href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">VIEW ALL ON TIKTOK ↗</a>
-    </div>
-    <div class="cards">
-      <a class="card" href="https://www.tiktok.com/@laoyu.talks/video/7681167224157179157" target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <svg class="coverArt ca1" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
-            <polyline class="ca-pulse" points="10,30 50,30 58,30 64,14 70,44 76,24 82,30 120,30 126,30 130,26 134,32 138,30 190,30" fill="none" stroke="var(--cyan)" stroke-width="1.6" stroke-linejoin="round"/>
-            <rect x="62" y="56" width="76" height="46" rx="3" fill="rgba(53,224,255,.06)" stroke="var(--cyan)" stroke-width="1.4"/>
-            <line class="ca-type" x1="70" y1="68" x2="118" y2="68" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <line class="ca-type ca-d2" x1="70" y1="77" x2="108" y2="77" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" opacity=".45"/>
-            <line class="ca-type ca-d3" x1="70" y1="86" x2="124" y2="86" stroke="var(--cyan)" stroke-width="2" stroke-linecap="round" opacity=".35"/>
-            <line x1="100" y1="102" x2="100" y2="112" stroke="var(--cyan)" stroke-width="1.4"/>
-            <line x1="84" y1="112" x2="116" y2="112" stroke="var(--cyan)" stroke-width="1.4"/>
-            <g class="ca-slump">
-              <circle cx="42" cy="84" r="8" fill="none" stroke="var(--orange)" stroke-width="1.6"/>
-              <path d="M28 118 Q30 96 42 94 Q54 96 56 118" fill="none" stroke="var(--orange)" stroke-width="1.6"/>
-            </g>
-            <rect x="156" y="62" width="22" height="38" rx="3" fill="none" stroke="var(--cyan)" stroke-width="1.4"/>
-            <rect x="163" y="58" width="8" height="4" rx="1" fill="var(--cyan)"/>
-            <rect class="ca-drain" x="159" y="65" width="16" height="32" rx="1.5" fill="var(--orange)"/>
-          </svg>
-          Your best employee
-          <br>
-          still works…
-          <br>
-          <small>
-            But no longer cares?
-          </small>
-        </div>
-        <div class="cardbody">
-          <h3>
-            Your Best Employee Still Works — But No Longer Cares
-          </h3>
-          <div class="muted">
-            ▶ Watch on TikTok
-          </div>
-        </div>
-      </a>
-      <a class="card" href="https://www.tiktok.com/@laoyu.talks/video/7693410922819325204" target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <svg class="coverArt ca2" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
-            <g stroke="var(--cyan)" stroke-width="1" opacity=".35">
-              <line x1="100" y1="22" x2="66" y2="60"/><line x1="100" y1="22" x2="134" y2="60"/>
-              <line x1="66" y1="60" x2="34" y2="100"/><line x1="66" y1="60" x2="80" y2="100"/>
-              <line x1="134" y1="60" x2="120" y2="100"/><line x1="134" y1="60" x2="166" y2="100"/>
-              <line x1="66" y1="60" x2="134" y2="60" stroke-dasharray="2 4"/>
-            </g>
-            <circle class="ca-up" r="2.6" fill="var(--cyan)"><animateMotion dur="3s" repeatCount="indefinite" path="M34 100 L66 60 L100 22"/></circle>
-            <circle class="ca-up ca-d2" r="2.6" fill="var(--cyan)"><animateMotion dur="3s" begin="1s" repeatCount="indefinite" path="M166 100 L134 60 L100 22"/></circle>
-            <circle class="ca-up ca-d3" r="2.6" fill="var(--cyan)"><animateMotion dur="3s" begin="2s" repeatCount="indefinite" path="M120 100 L134 60 L100 22"/></circle>
-            <g fill="rgba(53,224,255,.12)" stroke="var(--cyan)" stroke-width="1.3">
-              <circle class="ca-tw" cx="34" cy="100" r="6"/><circle class="ca-tw ca-d2" cx="80" cy="100" r="6"/>
-              <circle class="ca-tw ca-d3" cx="120" cy="100" r="6"/><circle class="ca-tw" cx="166" cy="100" r="6"/>
-              <circle cx="66" cy="60" r="7"/><circle cx="134" cy="60" r="7"/>
-            </g>
-            <circle class="ca-halo" cx="100" cy="22" r="14" fill="none" stroke="var(--orange)" stroke-width="1"/>
-            <circle cx="100" cy="22" r="8" fill="rgba(255,122,26,.18)" stroke="var(--orange)" stroke-width="1.6"/>
-          </svg>
-          The higher you go,
-          <br>
-          the fewer people
-          <br>
-          <small>
-            you can talk to honestly
-          </small>
-        </div>
-        <div class="cardbody">
-          <h3>
-            The Higher You Go, the Fewer People You Can Talk To
-          </h3>
-          <div class="muted">
-            ▶ Watch on TikTok
-          </div>
-        </div>
-      </a>
-      <a class="card" href="https://www.tiktok.com/@laoyu.talks/video/7683467041931562261" target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <svg class="coverArt ca3" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
-            <path d="M86 112 V96 Q70 92 70 74 Q70 46 98 44 Q126 44 128 70 L134 80 L127 82 V94 Q127 100 118 100 H108 V112" fill="rgba(53,224,255,.05)" stroke="var(--cyan)" stroke-width="1.5" stroke-linejoin="round"/>
-            <path class="ca-spin" d="M100 72 m-2 0 a2 2 0 1 1 4 0 a5 5 0 1 1 -10 0 a8 8 0 1 1 16 0 a11 11 0 1 1 -22 0" fill="none" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" style="transform-origin:100px 72px"/>
-            <g class="ca-orbit" style="transform-origin:100px 72px">
-              <g transform="translate(100 18)"><ellipse rx="9" ry="5" fill="none" stroke="var(--cyan)" stroke-width="1.2"/><circle class="ca-blink" r="2.4" fill="var(--cyan)"/></g>
-              <g transform="translate(154 98)"><ellipse rx="9" ry="5" fill="none" stroke="var(--cyan)" stroke-width="1.2"/><circle class="ca-blink ca-d2" r="2.4" fill="var(--cyan)"/></g>
-              <g transform="translate(46 98)"><ellipse rx="9" ry="5" fill="none" stroke="var(--cyan)" stroke-width="1.2"/><circle class="ca-blink ca-d3" r="2.4" fill="var(--cyan)"/></g>
-            </g>
-            <circle cx="100" cy="72" r="56" fill="none" stroke="var(--cyan)" stroke-width=".8" stroke-dasharray="3 6" opacity=".35"/>
-          </svg>
-          Stop overthinking
-          <br>
-          what people think
-          <br>
-          <small>
-            of you
-          </small>
-        </div>
-        <div class="cardbody">
-          <h3>
-            Stop Overthinking What People Think of You
-          </h3>
-          <div class="muted">
-            ▶ Watch on TikTok
-          </div>
-        </div>
-      </a>
-      <a class="card" href="https://www.tiktok.com/@laoyu.talks/video/7686723112175553812" target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <svg class="coverArt ca4" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
-            <g fill="var(--cyan)" opacity=".75">
-              <circle r="2.2"><animateMotion dur="3.2s" repeatCount="indefinite" path="M20 20 C70 0 40 80 10 110 C60 130 30 60 20 20Z"/></circle>
-              <circle r="1.8"><animateMotion dur="4.1s" repeatCount="indefinite" path="M180 18 C130 40 196 70 186 120 C150 96 160 40 180 18Z"/></circle>
-              <circle r="2.4" fill="var(--orange)"><animateMotion dur="2.7s" repeatCount="indefinite" path="M40 130 C80 110 20 90 60 70 C10 80 30 120 40 130Z"/></circle>
-              <circle r="1.6"><animateMotion dur="3.6s" repeatCount="indefinite" path="M160 130 C120 116 186 90 150 74 C190 70 176 120 160 130Z"/></circle>
-              <circle r="2"><animateMotion dur="2.9s" repeatCount="indefinite" path="M100 6 C140 20 60 24 100 6Z M100 6 C70 0 130 -4 100 6Z"/></circle>
-              <circle r="1.7" fill="var(--orange)"><animateMotion dur="3.9s" repeatCount="indefinite" path="M190 70 C170 40 150 110 190 70Z"/></circle>
-              <circle r="1.9"><animateMotion dur="3.3s" repeatCount="indefinite" path="M8 70 C30 40 50 100 8 70Z"/></circle>
-            </g>
-            <circle cx="100" cy="72" r="40" fill="none" stroke="var(--cyan)" stroke-width="1" stroke-dasharray="4 5" class="ca-ring" style="transform-origin:100px 72px"/>
-            <circle class="ca-calm" cx="100" cy="72" r="26" fill="rgba(53,224,255,.08)" stroke="var(--cyan)" stroke-width="1.4" style="transform-origin:100px 72px"/>
-            <circle cx="100" cy="72" r="9" fill="var(--cyan)" opacity=".9"/>
-          </svg>
-          You can't control
-          <br>
-          everything in life
-          <br>
-          <small>
-            But you can control your response
-          </small>
-        </div>
-        <div class="cardbody">
-          <h3>
-            You Can't Control Everything — Only Your Response
-          </h3>
-          <div class="muted">
-            ▶ Watch on TikTok
-          </div>
-        </div>
-      </a>
-      <a class="card" href="https://www.tiktok.com/@laoyu.talks/video/7682751500170513684" target="_blank" rel="noopener noreferrer">
-        <div class="cover">
-          <svg class="coverArt ca5" viewBox="0 0 200 140" aria-hidden="true" focusable="false">
-            <circle class="ca-glow" cx="100" cy="58" r="34" fill="var(--orange)" opacity=".18"/>
-            <path d="M100 26 C82 26 70 40 70 56 C70 68 78 74 84 84 C87 90 88 94 88 98 H112 C112 94 113 90 116 84 C122 74 130 68 130 56 C130 40 118 26 100 26Z" fill="rgba(53,224,255,.05)" stroke="var(--cyan)" stroke-width="1.6" stroke-linejoin="round"/>
-            <path class="ca-fil" d="M92 98 V78 L96 66 L100 78 L104 66 L108 78 V98" fill="none" stroke="var(--orange)" stroke-width="1.6" stroke-linejoin="round"/>
-            <g stroke="var(--cyan)" stroke-width="1.6" stroke-linecap="round">
-              <line x1="88" y1="104" x2="112" y2="104"/><line x1="90" y1="110" x2="110" y2="110"/><line x1="94" y1="116" x2="106" y2="116"/>
-            </g>
-            <g class="ca-rays" stroke="var(--orange)" stroke-width="1.6" stroke-linecap="round">
-              <line x1="100" y1="10" x2="100" y2="18"/><line x1="58" y1="28" x2="64" y2="34"/><line x1="142" y1="28" x2="136" y2="34"/>
-              <line x1="48" y1="58" x2="56" y2="58"/><line x1="152" y1="58" x2="144" y2="58"/>
-            </g>
-            <circle class="ca-spark" cx="78" cy="40" r="1.8" fill="var(--orange)"/>
-            <circle class="ca-spark ca-d2" cx="124" cy="36" r="1.6" fill="var(--orange)"/>
-            <circle class="ca-spark ca-d3" cx="132" cy="70" r="1.4" fill="var(--cyan)"/>
-          </svg>
-          Your best employee
-          <br>
-          stopped giving ideas
-          <br>
-          <small>
-            Should you be worried?
-          </small>
-        </div>
-        <div class="cardbody">
-          <h3>
-            Your Best Employee Suddenly Stopped Giving Ideas
-          </h3>
-          <div class="muted">
-            ▶ Watch on TikTok
-          </div>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================
-     STATION 03 — TOOLING: FREE RESOURCES
-     ===================================================== -->
-<section class="station" id="station-3" data-station="03" data-station-name="TOOLING">
-  <div class="wrap">
-    <div class="stHead">
-      <div>
-        <div class="stTag"><span>STATION 03</span><i></i><b>TOOLING</b></div>
-        <h2>Free Resources</h2>
-        <p>Templates, prompts and practical tools.</p>
-      </div>
-      <a class="btn outline" href="resources.html">BROWSE RESOURCES →</a>
-    </div>
-
-    <div class="bays">
-      <div class="bayIntro">
-        <h3>Start building better systems.</h3>
-        <p>Useful resources for AI at work, manufacturing, management and continuous improvement.</p>
-        <p class="bayPass">One sign-up unlocks all 16 tools.</p>
-        <a class="btn orange" href="resources.html#finder">FIND YOUR TOOL →</a>
-      </div>
-      <div class="bay">
-        <div class="bin">BAY A</div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <rect class="s f" x="8" y="10" width="48" height="40" rx="3"/>
-          <path class="s" d="M16 42V32M26 42V24M36 42V28M46 42V18"/>
-          <path class="o" d="M16 26l10-8 10 4 10-8"/>
-          <path class="s" d="M24 56h16"/>
-        </svg>
-        <h3>Dashboard Templates</h3>
-        <p>Track actions, projects and team performance.</p>
-        <a class="resLink" href="resources.html#type-tracker">FREE · GET IT →</a>
-      </div>
-      <div class="bay">
-        <div class="bin">BAY B</div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <path class="s f" d="M8 12h48v30H30l-12 10V42H8z"/>
-          <path class="o" d="M20 24l-5 3 5 3M44 24l5 3-5 3M35 21l-6 12"/>
-        </svg>
-        <h3>AI Prompt Library</h3>
-        <p>Ready-to-use AI prompts for daily work.</p>
-        <a class="resLink" href="ai-prompt-pack.html">FREE · GET IT →</a>
-      </div>
-      <div class="bay">
-        <div class="bin">BAY C</div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <path class="s f" d="M14 6h26l10 10v42H14z"/>
-          <path class="s" d="M40 6v10h10"/>
-          <path class="s" d="M21 26h22M21 34h22M21 42h14"/>
-          <rect class="o" x="21" y="12" width="10" height="6"/>
-        </svg>
-        <h3>Productivity Templates</h3>
-        <p>Planning and tracking templates.</p>
-        <a class="resLink" href="resources.html#type-template">FREE · GET IT →</a>
-      </div>
-      <div class="bay">
-        <div class="bin">BAY D</div>
-        <svg class="mIco" viewBox="0 0 64 64" aria-hidden="true">
-          <rect class="s f" x="12" y="8" width="40" height="50" rx="3"/>
-          <path class="o" d="M19 21l3 3 6-6M19 34l3 3 6-6M19 47l3 3 6-6"/>
-          <path class="s" d="M33 21h12M33 34h12M33 47h12"/>
-        </svg>
-        <h3>Checklists</h3>
-        <p>Practical checklists for work.</p>
-        <a class="resLink" href="checklist-quiet-quitting.html">FREE · GET IT →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =====================================================
-     STATION 04 — OUTPUT: ABOUT + CONTACT
-     ===================================================== -->
-<section class="station" id="station-4" data-station="04" data-station-name="OUTPUT">
-  <div class="wrap">
-    <div class="stHead">
-      <div>
-        <div class="stTag"><span>STATION 04</span><i></i><b>OUTPUT</b></div>
-        <h2>Lead with thinking. Improve with AI.</h2>
-      </div>
-      <div class="stState">QUALITY PASSED</div>
-    </div>
-    <div class="outGrid">
-      <div class="panel">
-        <h2>About LAOYU</h2>
-        <p>LAOYU is a practical platform focused on productivity, AI and smarter ways of working.</p>
-        <p>We turn real-world problems into simple systems, useful tools and actionable content.</p>
-        <a class="btn orange" href="about.html">LEARN MORE →</a>
-      </div>
-      <div class="panel dark">
-        <h2>Have a question?</h2>
-        <p>Let's connect and create better solutions together.</p>
-        <a class="btn outline" href="contact.html">CONTACT LAOYU →</a>
-      </div>
-    </div>
-  </div>
+<section class="hubBand">
+  <div class="wrap"><h2>Making AI Practical for Everyday Work.</h2><a class="btn orange" href="#ask" data-open-ask>ASK LAOYU AI →</a></div>
 </section>
 
 </main>
@@ -620,6 +295,8 @@
       <a href="resources.html">
         Resources
       </a>
+      <a href="ai-tools.html">AI Tools</a>
+      <a href="contact.html">Contact</a>
 
     </div>
 
@@ -690,11 +367,11 @@
 
 </footer>
 
-<script src="i18n.js?v=20261101b"></script>
-<script src="script.js?v=20261030"></script>
+<script src="i18n.js?v=20261101h"></script>
+<script src="script.js?v=20261101h"></script>
 <script src="factory3d.js?v=20261030b"></script>
-<script src="twin.js?v=20261030e"></script>
+<script src="twin.js?v=20261101i"></script>
 <script src="email-check.js?v=20261030"></script>
-<script src="chatbot.js?v=20261030"></script>
+<script src="resources-data.js?v=20261101h"></script><script src="home.js?v=20261101"></script><script src="chatbot.js?v=20261101h"></script>
 </body>
 </html>

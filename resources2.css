@@ -202,3 +202,45 @@ html[data-lang="zh"] .kitPrompt pre { font-family: "Noto Sans SC", var(--font-mo
 .kitExtra input[type=range] { width: 100%; accent-color: var(--orange); }
 .kitExtra output { font: 700 16px var(--font-mono); color: var(--orange); }
 .fbMore[hidden] { display: none; }
+
+/* =========================================================
+   AI TOOLS (library + tool pages)
+   ========================================================= */
+.atTabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.atTabs button { cursor: pointer; font: 600 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; padding: 10px 14px; color: #a9c7d8; background: transparent; border: 1px solid var(--line); }
+.atTabs button[aria-pressed="true"] { color: #021322; background: var(--cyan); border-color: var(--cyan); }
+html[data-lang="zh"] .atTabs button { letter-spacing: .02em; font-size: 13px; }
+.atGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.atCard { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: rgba(4,20,36,.85); border: 1px solid var(--line); transition: border-color .2s, transform .2s; }
+.atCard.s-live { border-color: rgba(255,122,26,.55); }
+.atCard:hover { transform: translateY(-3px); border-color: var(--cyan); }
+.atCard.s-soon, .atCard.s-api { opacity: .72; }
+.atCard h3 { margin: 0; font-size: 17px; text-transform: none; letter-spacing: 0; color: #fff; }
+.atCard p { margin: 0; font-size: 14px; color: #a9c7d8; flex: 1; }
+.atCard small { font: 600 10.5px var(--font-mono); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.atCard .btn { align-self: flex-start; padding: 10px 14px; font-size: 11px; margin-top: 4px; }
+.atPill { align-self: flex-start; font: 700 10px var(--font-mono); letter-spacing: .1em; padding: 4px 8px; text-transform: uppercase; }
+.atPill.p-live { color: #fff; background: var(--orange); }
+.atPill.p-exist { color: #021322; background: var(--cyan); }
+.atPill.p-soon { color: var(--muted); border: 1px solid var(--line-strong); }
+.atPill.p-api { color: var(--amber); border: 1px solid rgba(255,176,32,.5); }
+.atLegend { margin-top: 16px; font-size: 13.5px; color: var(--muted); }
+.toolWrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 18px; align-items: start; }
+.toolWrap .panel { padding: 22px !important; }
+.toolWrap h2 { font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin: 0 0 12px; }
+.toolForm select { width: 100%; }
+.toolRes .demoOut { min-height: 220px; }
+.formulaOut { font: 600 18px/1.5 var(--font-mono); color: #9ff0ff; background: #01101d; border: 1px solid var(--line-strong); padding: 14px 16px; margin-bottom: 10px; word-break: break-all; }
+.warnTxt { color: var(--amber); }
+.emSubj { font-weight: 600; color: #fff; }
+.toolRes pre { white-space: pre-wrap; font: 500 14.5px/1.6 var(--font-body); color: #e3f3fb; margin: 0; }
+.pareto .bar { display: inline-block; width: 90px; height: 8px; background: rgba(53,224,255,.12); vertical-align: middle; margin-right: 6px; }
+.pareto .bar i { display: block; height: 100%; background: var(--cyan); }
+.pareto tr.vital td:first-child { color: var(--orange); font-weight: 700; }
+.pareto tr.vital .bar i { background: var(--orange); }
+.toolInfo { margin-top: 18px; }
+.toolNote { font-size: 13px; color: var(--muted); margin: 14px 0; }
+.aiTool .kitRel a b { margin: 0; }
+@media (max-width: 1000px) { .atGrid { grid-template-columns: repeat(2, 1fr); } .toolWrap { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .atGrid { grid-template-columns: 1fr; } }
+.aiTool .resWrap { max-width: 1180px; }

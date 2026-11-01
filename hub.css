@@ -1,0 +1,152 @@
+/* =========================================================
+   LAOYU AI HUB — homepage, navigation, theme switch, light mode
+   Loaded on every page after twin.css.
+   ========================================================= */
+
+/* Clean header: no ticker strip, no scroll rail */
+.hudStatus, .rail { display: none !important; }
+.links a { font-size: 11.5px; }
+
+/* theme toggle (added by twin.js next to EN / 中文) */
+.themeToggle {
+  cursor: pointer; width: 36px; height: 34px; display: grid; place-items: center; margin-left: 8px;
+  background: transparent; border: 1px solid var(--line-strong); color: var(--cyan); font-size: 16px; line-height: 1;
+}
+.themeToggle:hover { background: rgba(53,224,255,.1); }
+
+/* ---------------- Homepage ---------------- */
+.hubHero { padding: 18px 0 0; border-bottom: 1px solid rgba(53,224,255,.08); background: #020912; }
+.hubHeroIn { display: grid; grid-template-columns: .8fr 1.2fr; gap: 20px; align-items: center; }
+.hubCopy h1 { font-size: clamp(40px, 4.8vw, 64px); line-height: 1.02; margin: 14px 0 16px; font-weight: 700; color: #fff; text-transform: none; }
+.hubCopy h1 span { display: block; color: var(--cyan); }
+html[data-lang="zh"] .hubCopy h1 { line-height: 1.15; }
+.hubCopy p { font-size: 18px; color: #a9c7d8; margin: 0 0 26px; }
+.hubJourney { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(53,224,255,.1); margin-top: 6px; }
+.hubJourney a { display: flex; align-items: center; gap: 12px; padding: 18px 0; text-decoration: none; color: #fff; font: 700 17px var(--font-display); }
+.hubJourney a + a { border-left: 1px solid rgba(53,224,255,.1); padding-left: 26px; }
+.hubJourney i { font: 600 12px var(--font-mono); font-style: normal; color: var(--cyan); }
+.hubJourney a:hover span { color: var(--cyan); }
+.hubHero .tStage.is3d .tHint { display: none; }
+
+.hubSec { padding: 56px 0 0; }
+.hubHead { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 18px; }
+.hubHead a { font: 600 12px var(--font-mono); letter-spacing: .12em; color: var(--cyan); text-decoration: none; white-space: nowrap; }
+.hubH { font-size: clamp(26px, 3vw, 36px); font-weight: 700; margin: 0 0 18px; text-transform: none; color: #fff; }
+.hubHead .hubH { margin: 0; }
+.hubH small { font: 700 10px var(--font-mono); letter-spacing: .14em; color: var(--amber); border: 1px solid rgba(255,176,32,.5); padding: 4px 7px; vertical-align: middle; margin-left: 10px; }
+html[data-lang="zh"] .hubH small { letter-spacing: .04em; font-size: 11px; }
+
+.hubCards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.hubCard { display: grid; gap: 10px; padding: 20px; background: rgba(4,20,36,.8); border: 1px solid var(--line); text-decoration: none; color: inherit; transition: border-color .2s, transform .2s, box-shadow .2s; }
+.hubCard:hover { border-color: var(--cyan); transform: translateY(-3px); box-shadow: 0 0 24px rgba(53,224,255,.14); }
+.hubCard svg { width: 30px; height: 30px; stroke: var(--cyan); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hubCard b { font: 700 17px var(--font-display); color: #fff; }
+.hubCard em { font-style: normal; font: 600 12px var(--font-mono); color: var(--muted); }
+
+.hTools { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.hTool { display: grid; gap: 10px; align-content: start; padding: 16px; background: rgba(4,20,36,.8); border: 1px solid var(--line); text-decoration: none; transition: border-color .2s, transform .2s; }
+a.hTool:hover { border-color: var(--cyan); transform: translateY(-3px); }
+.hTool b { font: 700 15px/1.3 var(--font-display); color: #fff; }
+.hTool.s-soon, .hTool.s-api { opacity: .65; }
+
+.hResGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.hRes { display: block; background: rgba(4,20,36,.85); border: 1px solid var(--line); text-decoration: none; transition: border-color .2s, transform .2s; }
+.hRes:hover { border-color: var(--cyan); transform: translateY(-3px); }
+.hShot { display: block; aspect-ratio: 680 / 360; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hShot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+.hResB { display: grid; gap: 4px; padding: 14px 16px; }
+.hResB small { font: 600 10.5px var(--font-mono); letter-spacing: .1em; color: var(--cyan); text-transform: uppercase; }
+.hResB b { font: 700 16px var(--font-display); color: #fff; }
+
+.hLevels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.hLevel { padding: 18px 20px; background: rgba(4,20,36,.8); border: 1px solid var(--line); }
+.hLevel h3 { font-size: 18px; margin: 0 0 10px; text-transform: none; color: #fff; }
+.hLevel h3 span { display: block; font: 600 11px var(--font-mono); letter-spacing: .14em; color: var(--cyan); margin-bottom: 2px; }
+.hLevel ul { list-style: none; margin: 0; padding: 0; }
+.hLevel li { display: flex; justify-content: space-between; gap: 10px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 14.5px; color: #dceefa; }
+.hLevel li em { font-style: normal; font: 500 12px var(--font-mono); color: var(--muted); white-space: nowrap; }
+
+.hLab { padding: 22px; background: rgba(4,20,36,.8); border: 1px solid var(--line); }
+.hFlow { display: grid; grid-template-columns: repeat(5, minmax(130px, 1fr)); gap: 30px; overflow-x: auto; padding-bottom: 4px; }
+.hNode { position: relative; padding: 14px; border: 1px solid var(--line-strong); background: rgba(2,12,24,.8); }
+.hNode + .hNode::before { content: "→"; position: absolute; left: -23px; top: 50%; transform: translateY(-50%); color: var(--cyan); font-weight: 700; }
+.hNode small { font: 600 10.5px var(--font-mono); letter-spacing: .1em; color: var(--orange); }
+.hNode b { display: block; color: #fff; font-size: 14.5px; margin-top: 2px; }
+.hStack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.hStack span { font: 600 11.5px var(--font-mono); color: var(--muted); border: 1px solid var(--line); padding: 4px 8px; }
+
+.hubBand { margin-top: 64px; padding: 48px 0; border-top: 1px solid var(--line); background: radial-gradient(ellipse 50% 100% at 80% 50%, rgba(53,224,255,.08), transparent 70%); }
+.hubBand .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.hubBand h2 { margin: 0; font-size: clamp(24px, 3vw, 36px); text-transform: none; color: #fff; }
+
+/* AI assistant recommendations inside the chat panel */
+.lyRecs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+.lyRecs a { display: grid; gap: 2px; padding: 8px 10px; border: 1px solid var(--line-strong); text-decoration: none; background: rgba(2,12,24,.6); }
+.lyRecs a:hover { border-color: var(--cyan); }
+.lyRecs small { font: 700 9.5px var(--font-mono); letter-spacing: .1em; color: var(--orange); text-transform: uppercase; }
+.lyRecs b { font: 600 13px/1.3 var(--font-body); color: #fff; }
+.lyGuided { font: 600 10px var(--font-mono); letter-spacing: .06em; color: var(--amber); }
+
+@media (max-width: 1000px) {
+  .hubHeroIn { grid-template-columns: 1fr; }
+  .hubCards, .hTools { grid-template-columns: repeat(3, 1fr); }
+  .hResGrid { grid-template-columns: repeat(2, 1fr); }
+  .hLevels { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hubCards, .hTools { grid-template-columns: repeat(2, 1fr); }
+  .hResGrid { grid-template-columns: 1fr; }
+  .hubJourney { grid-template-columns: 1fr; }
+  .hubJourney a + a { border-left: 0; padding-left: 0; border-top: 1px solid rgba(53,224,255,.1); }
+}
+
+/* =========================================================
+   LIGHT MODE (optional; dark is the default)
+   Header and the homepage 3D hero stay dark as the brand band.
+   ========================================================= */
+html[data-theme="light"] {
+  --bg: #f3f6f9; --bg-2: #ffffff; --panel: #ffffff; --panel-solid: #ffffff;
+  --line: #dbe3ea; --line-strong: #b9c7d3; --text: #15212d; --muted: #5a6b79;
+  --cyan: #0a8fb8; --cyan-soft: #0a7fa3;
+  color-scheme: light;
+}
+html[data-theme="light"] body { background: var(--bg) !important; color: var(--text); }
+html[data-theme="light"] .nav { background: #020912 !important; }
+html[data-theme="light"] .nav .links a:not(.btn) { color: #a9c7d8; }
+html[data-theme="light"] .nav .links a.active, html[data-theme="light"] .nav .links a:hover { color: #35e0ff; }
+html[data-theme="light"] .themeToggle { color: #35e0ff; border-color: rgba(53,224,255,.4); }
+html[data-theme="light"] .langToggle button { color: #a9c7d8; }
+html[data-theme="light"] .langToggle button.on { color: #021322; background: #35e0ff; }
+html[data-theme="light"] h1, html[data-theme="light"] h2, html[data-theme="light"] h3, html[data-theme="light"] h4 { color: var(--text); }
+html[data-theme="light"] p { color: var(--muted); }
+html[data-theme="light"] .eyebrow { color: var(--cyan); }
+/* keep the homepage hero dark */
+html[data-theme="light"] .hubHero h1 { color: #fff; }
+html[data-theme="light"] .hubHero h1 span, html[data-theme="light"] .hubHero .eyebrow, html[data-theme="light"] .hubJourney i { color: #35e0ff; }
+html[data-theme="light"] .hubHero p { color: #a9c7d8; }
+/* surfaces */
+html[data-theme="light"] :is(.panel, .card, .rCard, .atCard, .goal, .demoCard, .kitBox, .machine, .bay, .bayIntro, .toolCard, .path, .hubCard, .hTool, .hRes, .hLevel, .hLab, .feature, .resource, .intro, .cta, .featureGrid, .demoOut, .chip, .dtChip, .fbBone, .oeBig, .dtClockBox, .rlSearchBig, .rlSearchSmall, .pass, .cover) {
+  background: #ffffff !important; border-color: var(--line) !important; box-shadow: 0 1px 2px rgba(11,27,43,.05), 0 6px 18px rgba(11,27,43,.05);
+}
+html[data-theme="light"] .demoCard { background: linear-gradient(160deg, #fff4ea, #ffffff) !important; border-color: #f3c49c !important; }
+html[data-theme="light"] .pass { background: linear-gradient(100deg, #fff1e4, #ffffff 60%) !important; }
+html[data-theme="light"] .hNode, html[data-theme="light"] .formulaOut, html[data-theme="light"] .toolOut, html[data-theme="light"] .kitPrompt pre { background: #f3f6f9 !important; color: var(--text) !important; }
+html[data-theme="light"] .formulaOut { color: #075b75 !important; }
+/* text that was light-on-dark */
+html[data-theme="light"] :is(.hubCard b, .hTool b, .hResB b, .hLevel h3, .hNode b, .rBody h3 a, .atCard h3, .goal b, .demoCard h3, .machine h3, .bay h3, .bayIntro h3, .path h3, .pT b, .kitRel a b, .tcBody h3 a, .passTxt b, .stHead h2, .hubH, .hubBand h2, .emSubj, .whyStart, .dKpis b, .tHud .big, .tHud .row b, .smTable input, .smSum b, .oeBig b, .oeG b, .oeRow > b, .dmBar > b, .cover) { color: var(--text) !important; }
+html[data-theme="light"] :is(.hLevel li, .rProb, .rMeta dd, .demoOut ul, .demoOut p, .kitBox p, .kitBox li, .dtChecks label, .dtCols ul, .hoCat ul, .chip, .dtChip, .goal span, .demoCard p, .atCard p, .rDesc, .pT small, .kitRel a span, .passTxt span, .toolRes pre, .cvTip, .smRisk li, .tracker td, .resPage label, .fld label, .oeRow, .dmBar, .mfgCard p, .machine p, .bay p) { color: #33424f !important; }
+html[data-theme="light"] .resPage input:not([type=checkbox]), html[data-theme="light"] .resPage select, html[data-theme="light"] .resPage textarea,
+html[data-theme="light"] .rlSearchBig input, html[data-theme="light"] .rlSearchSmall input { background: #fff !important; color: var(--text) !important; border-color: var(--line-strong) !important; }
+html[data-theme="light"] .resPage select option { background: #fff; color: var(--text); }
+html[data-theme="light"] .seg button, html[data-theme="light"] .atTabs button, html[data-theme="light"] .rlToggle { color: #33424f; border-color: var(--line-strong); }
+html[data-theme="light"] .seg button[aria-pressed="true"], html[data-theme="light"] .atTabs button[aria-pressed="true"], html[data-theme="light"] .rlToggle[aria-pressed="true"] { color: #fff; background: var(--cyan); border-color: var(--cyan); }
+html[data-theme="light"] .footer { background: #e9eef3 !important; }
+html[data-theme="light"] .foot a, html[data-theme="light"] .foot p, html[data-theme="light"] .copy { color: #4b5b68 !important; }
+html[data-theme="light"] .hubBand { background: #e9eef3; }
+html[data-theme="light"] .subHero::after { opacity: .35; }
+html[data-theme="light"] .lyPanel { background: #ffffff !important; }
+html[data-theme="light"] .lyBot .lyBubble { background: #f1f5f8 !important; color: var(--text) !important; }
+html[data-theme="light"] .lyRecs a { background: #fff; }
+html[data-theme="light"] .lyRecs b, html[data-theme="light"] .lyTitle { color: var(--text) !important; }
+html[data-theme="light"] .lyInput { background: #fff !important; color: var(--text) !important; }
+html[data-theme="light"] .lyChip { color: #075b75 !important; }

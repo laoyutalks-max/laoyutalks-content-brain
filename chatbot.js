@@ -128,8 +128,8 @@
       chips: ["leave_contact"] },
 
     { id: "website", kw: ["website", "site", "page", "pages", "menu", "navigate"], zh: ["网站", "页面", "网页"],
-      a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"resources.html\">Resources</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
-           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"laoyutalks.html\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
+      a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"ai-tools.html\">AI Tools</a>, <a href=\"resources.html\">Resources</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
+           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"ai-tools.html\">AI 工具</a>、<a href=\"laoyutalks.html\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
 
     { id: "language", kw: ["chinese", "english", "language", "translate", "mandarin"], zh: ["中文", "英文", "语言", "翻译", "华语"],
       a: { en: "LAOYU's videos are mainly in English. This site and I work in both English and 中文 — use the EN / 中文 switch at the top.",
@@ -152,19 +152,20 @@
     contact:  { en: "Contact LAOYU", zh: "联系老鱼" },
     leave_contact: { en: "Leave my contact", zh: "留下联系方式" }
   };
+  function chipLabel(id) { var f = id && id.indexOf("f_") === 0 ? finderById(id) : null; return f ? L(f.label) : L(CHIP_LABELS[id]); }
 
   var UI = {
     launcher:  { en: "Ask LAOYU AI", zh: "问老鱼 AI" },
     title:     { en: "LAOYU AI Assistant", zh: "老鱼 AI 助手" },
-    status:    { en: "Online · answers about LAOYU content", zh: "在线 · 只回答老鱼相关内容" },
-    placeholder: { en: "Ask about LAOYU's content…", zh: "问问老鱼的内容…" },
+    status:    { en: "Guided answers · not a live AI chat", zh: "引导式回答 · 非实时 AI 对话" },
+    placeholder: { en: "e.g. analyse downtime, 5 Why, Excel formula", zh: "例如：分析停机、5 个为什么、Excel 公式" },
     send:      { en: "Send", zh: "发送" },
     close:     { en: "Close chat", zh: "关闭对话" },
     notice:    { en: "Chats are recorded to improve LAOYU content.", zh: "对话会被记录，用于改进老鱼的内容。" },
-    welcome:   { en: "Hi! I'm the LAOYU AI assistant. I can answer questions about LAOYU's videos, AI × manufacturing, manager thinking, resources and contact. What would you like to know?",
-                 zh: "你好！我是老鱼 AI 助手，可以回答关于老鱼的视频、AI × 制造业、管理者思维、资源与联系方式的问题。想了解什么？" },
-    fallback:  { en: "I can only help with LAOYU's content — videos, AI × manufacturing, manager thinking, resources and contact. Try one of these, or leave your contact and LAOYU can reply personally:",
-                 zh: "我只能回答与老鱼内容相关的问题——视频、AI × 制造业、管理者思维、资源与联系方式。试试下面的问题，或留下联系方式让老鱼亲自回复：" },
+    welcome:   { en: "<b>What would you like to improve today?</b><br>Tell me the problem and I'll point you to the right tool, resource or demo. You can also ask about LAOYU's videos.",
+                 zh: "<b>你今天想改善什么？</b><br>告诉我你的问题，我会推荐合适的工具、资源或演示。也可以问我老鱼的视频。" },
+    fallback:  { en: "I'm not sure yet. Try one of these workplace problems, or leave your contact and LAOYU can reply personally:",
+                 zh: "我暂时还不确定。试试下面这些工作问题，或留下联系方式让老鱼亲自回复：" },
     watch:     { en: "▶ Watch", zh: "▶ 观看" },
     askName:   { en: "Great! What's your name?", zh: "好的！请问怎么称呼你？" },
     askEmail:  { en: "Thanks, {name}. What email can LAOYU reply to?", zh: "谢谢，{name}。老鱼可以回复到哪个邮箱？" },
@@ -178,8 +179,8 @@
     cancelled: { en: "No problem, cancelled. Anything else about LAOYU's content?", zh: "好的，已取消。还想了解老鱼的哪些内容？" }
   };
 
-  var START_CHIPS = ["who", "popular", "ai_mfg", "manager", "contact"];
-  var FALLBACK_CHIPS = ["content", "popular", "ai_mfg", "manager", "leave_contact"];
+  var START_CHIPS = ["f_perf", "f_manpower", "f_downtime", "f_5why", "f_project", "f_excel", "f_present"];
+  var FALLBACK_CHIPS = ["f_downtime", "f_5why", "f_handover", "f_team", "leave_contact"];
 
   /* ---------------- Helpers ---------------- */
 
@@ -265,6 +266,45 @@
     return null;
   }
 
+
+  /* ---------------- AI Assistant: guided tool finder ----------------
+     Matches a workplace problem to LAOYU tools, resources, demos and
+     lessons. Guided rules, not a live AI model. Future AI backend:
+     replace findTools() with a call to your own server endpoint.      */
+  var R = function (kind, en, zh, url) { return { k: kind, t: { en: en, zh: zh }, u: url }; };
+  var KIND = { tool: { en: "AI tool", zh: "AI 工具" }, res: { en: "Resource", zh: "资源" }, demo: { en: "AI demo", zh: "AI 演示" }, learn: { en: "Learn", zh: "学习" } };
+  var FINDER = [
+    { id: "f_perf", label: { en: "Analyse production performance", zh: "分析生产绩效" }, kw: ["performance", "oee", "output", "yield", "efficiency", "productivity", "kpi", "target"], zh: ["绩效", "产量", "良率", "效率", "达成", "目标", "综合效率"],
+      r: [R("tool", "OEE Loss Calculator", "OEE 损失计算器", "oee-loss-calculator.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("demo", "AI Daily Production Report", "AI 每日生产报告", "demo-daily-report.html"), R("tool", "Downtime Analysis Assistant", "停机分析助手", "tool-downtime-analysis.html")] },
+    { id: "f_manpower", label: { en: "Manpower utilization", zh: "人力利用率" }, kw: ["manpower", "utilization", "utilisation", "headcount", "absence", "absent", "workload", "staffing", "people", "overtime"], zh: ["人力", "利用率", "人手", "缺勤", "工作量", "排班", "加班", "缺人"],
+      r: [R("tool", "Manpower Gap Calculator", "人力缺口计算器", "manpower-gap-calculator.html"), R("res", "Team Skills Matrix", "团队技能矩阵", "skills-matrix.html"), R("res", "Supervisor Daily Planner", "主管每日计划表", "supervisor-daily-planner.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html")] },
+    { id: "f_downtime", label: { en: "Analyse downtime", zh: "分析停机" }, kw: ["downtime", "breakdown", "stoppage", "stop", "stops", "jam", "machine down", "pareto", "loss", "losses"], zh: ["停机", "故障", "卡料", "停线", "柏拉图", "损失"],
+      r: [R("tool", "Downtime Analysis Assistant", "停机分析助手", "tool-downtime-analysis.html"), R("res", "Downtime Troubleshooter", "停机排查工具", "downtime-troubleshooter.html"), R("tool", "OEE Loss Calculator", "OEE 损失计算器", "oee-loss-calculator.html"), R("res", "Escalation Report Builder", "升级报告生成器", "escalation-report.html")] },
+    { id: "f_5why", label: { en: "5 Why analysis", zh: "5 个为什么分析" }, kw: ["5 why", "5why", "five why", "root cause", "why", "fishbone", "capa", "8d", "defect", "complaint", "mistake", "ncr"], zh: ["5 个为什么", "五个为什么", "根本原因", "鱼骨", "纠正", "缺陷", "投诉", "错误", "不合格"],
+      r: [R("demo", "AI Root Cause Assistant", "AI 根本原因助手", "demo-root-cause.html"), R("res", "Fishbone + 5-Why Builder", "鱼骨图 + 5 个为什么", "fishbone-5why.html"), R("tool", "CAPA Action Planner", "CAPA 措施计划", "tool-capa-planner.html"), R("res", "8D Report Builder", "8D 报告生成器", "8d-report.html")] },
+    { id: "f_project", label: { en: "Project tracker", zh: "项目追踪" }, kw: ["project", "tracker", "tracking", "action", "actions", "overdue", "task", "tasks", "follow up", "meeting"], zh: ["项目", "追踪", "行动", "逾期", "任务", "跟进", "会议"],
+      r: [R("res", "Weekly Action Tracker", "每周行动追踪表", "weekly-action-tracker.html"), R("tool", "Meeting Minutes Generator", "会议纪要生成器", "tool-meeting-minutes.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html"), R("learn", "Automation Lab", "自动化实验室", "index.html#lab")] },
+    { id: "f_excel", label: { en: "Excel formula", zh: "Excel 公式" }, kw: ["excel", "formula", "formulas", "spreadsheet", "sheets", "vlookup", "xlookup", "countif", "sumif"], zh: ["公式", "表格", "函数"],
+      r: [R("tool", "Excel Formula Assistant", "Excel 公式助手", "tool-excel-formula.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("res", "AI Prompt Pack", "AI 提示词包", "ai-prompt-pack.html"), R("learn", "AI for Excel (soon)", "用 AI 做 Excel（即将推出）", "index.html#learn")] },
+    { id: "f_present", label: { en: "Management presentation", zh: "管理层汇报" }, kw: ["presentation", "slides", "report", "management", "boss", "director", "escalate", "escalation", "budget", "email"], zh: ["汇报", "演示", "报告", "管理层", "上级", "升级", "预算", "邮件"],
+      r: [R("res", "Escalation Report Builder", "升级报告生成器", "escalation-report.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html"), R("res", "Decision Matrix", "决策矩阵", "decision-matrix.html"), R("demo", "AI Daily Production Report", "AI 每日生产报告", "demo-daily-report.html")] },
+    { id: "f_handover", label: { en: "Shift handover", zh: "交接班" }, kw: ["handover", "hand over", "shift", "night shift"], zh: ["交接", "交接班", "班次", "夜班"],
+      r: [R("demo", "AI Shift Handover Assistant", "AI 交接班助手", "demo-shift-handover.html"), R("res", "Shift Handover Template", "交接班模板", "shift-handover.html"), R("res", "Supervisor Daily Planner", "主管每日计划表", "supervisor-daily-planner.html"), R("tool", "Meeting Minutes Generator", "会议纪要生成器", "tool-meeting-minutes.html")] },
+    { id: "f_team", label: { en: "Team & people issues", zh: "团队与人员问题" }, kw: ["employee", "motivation", "engagement", "quiet quitting", "conversation", "feedback", "performance review", "conflict", "attitude"], zh: ["员工", "积极性", "躺平", "谈话", "反馈", "冲突", "态度"],
+      r: [R("res", "Difficult Conversation Planner", "困难对话准备表", "difficult-conversation.html"), R("res", "Quiet Quitting Checklist", "员工躺平预警清单", "checklist-quiet-quitting.html"), R("res", "Team Skills Matrix", "团队技能矩阵", "skills-matrix.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html")] }
+  ];
+  function finderById(id) { for (var i = 0; i < FINDER.length; i++) if (FINDER[i].id === id) return FINDER[i]; return null; }
+  function findTools(input) {
+    var text = " " + input.toLowerCase().replace(/[?!.,;:()"'“”‘’？！。，；：（）]/g, " ").replace(/\s+/g, " ") + " ";
+    var words = text.trim().split(" "), best = null, bestScore = 0;
+    FINDER.forEach(function (f) { var sc = score(f, text, words); if (sc > bestScore) { best = f; bestScore = sc; } });
+    return { f: best, s: bestScore };
+  }
+  function recsHTML(f) {
+    return L({ en: "Here's where I'd start for <b>" + esc(f.label.en.toLowerCase()) + "</b>:", zh: "关于<b>" + esc(f.label.zh) + "</b>，建议从这里开始：" }) +
+      '<div class="lyRecs">' + f.r.map(function (x) { return '<a href="' + x.u + '"><small>' + esc(L(KIND[x.k])) + "</small><b>" + esc(L(x.t)) + "</b></a>"; }).join("") + "</div>";
+  }
+
   /* ---------------- Rendering ---------------- */
 
   var root, log, chipsBox, input, form, opened = false, greeted = false;
@@ -304,11 +344,11 @@
   function setChips(ids) {
     chipsBox.innerHTML = "";
     (ids || []).forEach(function (id) {
-      if (!CHIP_LABELS[id]) return;
+      if (!CHIP_LABELS[id] && !(id.indexOf("f_") === 0 && finderById(id))) return;
       var b = document.createElement("button");
       b.type = "button";
       b.className = "lyChip";
-      b.textContent = L(CHIP_LABELS[id]);
+      b.textContent = chipLabel(id);
       b.setAttribute("data-topic", id);
       chipsBox.appendChild(b);
     });
@@ -388,7 +428,15 @@
 
     if (topicId === "leave_contact") { startLead(); return; }
 
+    var fz = topicId ? { f: finderById(topicId), s: topicId.indexOf("f_") === 0 ? 99 : 0 } : findTools(text);
     var entry = topicId ? byId(topicId) : match(text);
+    var kbScore = entry && !topicId ? score(entry, " " + text.toLowerCase() + " ", text.toLowerCase().split(/\s+/)) : (entry ? 50 : 0);
+    if (fz.f && fz.s >= 1.5 && fz.s >= kbScore) {
+      var f = fz.f;
+      record({ type: "chat", question: text.slice(0, 500), topic: f.id, answered: true });
+      botSay(function () { return recsHTML(f); }, FINDER.filter(function (x) { return x.id !== f.id; }).slice(0, 3).map(function (x) { return x.id; }).concat(["contact"]));
+      return;
+    }
     if (entry) {
       record({ type: "chat", question: text.slice(0, 500), topic: entry.id, answered: true });
       botSay(function () { return answerHTML(entry); }, entry.chips || START_CHIPS.filter(function (c) { return c !== entry.id; }).slice(0, 4));
@@ -410,7 +458,7 @@
     root.querySelector(".lySend").setAttribute("aria-label", L(UI.send));
     root.querySelector(".lyClose").setAttribute("aria-label", L(UI.close));
     chipsBox.querySelectorAll(".lyChip").forEach(function (b) {
-      b.textContent = L(CHIP_LABELS[b.getAttribute("data-topic")]);
+      b.textContent = chipLabel(b.getAttribute("data-topic"));
     });
     log.querySelectorAll(".lyBot").forEach(function (m) {
       if (m.__render) m.querySelector(".lyBubble").innerHTML = m.__render();
@@ -423,7 +471,7 @@
     root.querySelector(".lyLaunch").setAttribute("aria-expanded", "true");
     if (!greeted) {
       greeted = true;
-      botSay(function () { return esc(L(UI.welcome)); }, START_CHIPS, 250);
+      botSay(function () { return L(UI.welcome); }, START_CHIPS, 250);
     }
     setTimeout(function () { input.focus(); }, 200);
   }

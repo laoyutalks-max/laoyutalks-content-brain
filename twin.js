@@ -12,7 +12,33 @@
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
+  /* ---------- Dark / light theme switch (dark is default) ---------- */
+  function themeToggle() {
+    var navIn = $(".navin");
+    if (!navIn || navIn.querySelector(".themeToggle")) return;
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "themeToggle";
+    function sync() {
+      var light = document.documentElement.getAttribute("data-theme") === "light";
+      b.textContent = light ? "☾" : "☀";
+      b.setAttribute("aria-label", light ? t("Switch to dark mode") : t("Switch to light mode"));
+      b.title = b.getAttribute("aria-label");
+    }
+    b.addEventListener("click", function () {
+      var light = document.documentElement.getAttribute("data-theme") !== "light";
+      if (light) document.documentElement.setAttribute("data-theme", "light"); else document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("laoyuTheme", light ? "light" : "dark"); } catch (e) {}
+      sync();
+    });
+    var lt = navIn.querySelector(".langToggle"), menu = navIn.querySelector(".mobileMenu");
+    if (lt) lt.insertAdjacentElement("afterend", b); else navIn.insertBefore(b, menu || null);
+    document.addEventListener("laoyu:lang", sync);
+    sync();
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    $$(".links a[href*='#']").forEach(function (a) { a.classList.remove("active"); });
+    themeToggle();
     ticker();
     subHero();
     reveal();

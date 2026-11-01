@@ -394,3 +394,40 @@ window.LAOYU_DATA = {
     }
   ]
 };
+
+/* ---------------- AI TOOLS LIBRARY ----------------
+   status: live = new tool, works now in the browser
+           exist = links to an existing LAOYU resource
+           soon = planned, no page yet
+           api = planned, needs a future AI connection        */
+window.LAOYU_DATA.aicats = {
+  mfg: ["AI Manufacturing Intelligence", "AI 制造智能"],
+  mgmt: ["AI Management Assistant", "AI 管理助手"],
+  qci: ["AI Quality & Continuous Improvement", "AI 质量与持续改善"],
+  prod: ["AI Workplace Productivity", "AI 职场效率"]
+};
+window.LAOYU_DATA.aitools = [
+  { id: "perf-analyzer", cat: "mfg", status: "soon", t: ["Production Performance Analyzer", "生产绩效分析器"], d: ["Target vs actual, trend and gap.", "目标对比实际、趋势与差距。"] },
+  { id: "oee", cat: "mfg", status: "exist", url: "oee-loss-calculator.html", t: ["OEE Calculator", "OEE 计算器"], d: ["OEE split into its losses.", "OEE 及各项损失拆分。"] },
+  { id: "downtime-ai", cat: "mfg", status: "live", url: "tool-downtime-analysis.html", t: ["Downtime Analysis Assistant", "停机分析助手"], d: ["Paste stops, get the Pareto.", "粘贴停机记录，得到柏拉图。"] },
+  { id: "yield", cat: "mfg", status: "soon", t: ["Yield Analysis Assistant", "良率分析助手"], d: ["First-pass yield by step.", "按工序的一次合格率。"] },
+  { id: "report", cat: "mfg", status: "exist", url: "demo-daily-report.html", t: ["Production Report Generator", "生产报告生成器"], d: ["Shift numbers into a report.", "把班次数据变成报告。"] },
+  { id: "manpower", cat: "mgmt", status: "exist", url: "manpower-gap-calculator.html", t: ["Manpower Planning Assistant", "人力规划助手"], d: ["Gaps, hours and scenarios.", "缺口、工时与情景。"] },
+  { id: "workload", cat: "mgmt", status: "soon", t: ["Workload Balancing Assistant", "工作量平衡助手"], d: ["Spread tasks across people.", "把任务分配给合适的人。"] },
+  { id: "review", cat: "mgmt", status: "api", t: ["Performance Review Writer", "绩效评语助手"], d: ["Fair, specific review drafts.", "公正、具体的评语草稿。"] },
+  { id: "present", cat: "mgmt", status: "api", t: ["Management Presentation Generator", "管理汇报生成器"], d: ["Slide outline from your numbers.", "根据数据生成汇报大纲。"] },
+  { id: "minutes", cat: "mgmt", status: "live", url: "tool-meeting-minutes.html", t: ["Meeting Minutes Generator", "会议纪要生成器"], d: ["Notes into decisions and actions.", "把笔记整理成决定和行动。"] },
+  { id: "5why", cat: "qci", status: "exist", url: "demo-root-cause.html", t: ["5 Why Analysis Generator", "5 个为什么分析"], d: ["Guided whys with evidence.", "有证据的引导式追问。"] },
+  { id: "fishbone", cat: "qci", status: "exist", url: "fishbone-5why.html", t: ["Fishbone Analysis Assistant", "鱼骨图分析助手"], d: ["Live 6M fishbone.", "实时 6M 鱼骨图。"] },
+  { id: "capa", cat: "qci", status: "live", url: "tool-capa-planner.html", t: ["CAPA Action Planner", "CAPA 措施计划"], d: ["Containment to effectiveness check.", "从围堵到有效性验证。"] },
+  { id: "8d", cat: "qci", status: "exist", url: "8d-report.html", t: ["8D Report Assistant", "8D 报告助手"], d: ["D1–D8 with progress.", "D1–D8 及进度。"] },
+  { id: "audit", cat: "qci", status: "soon", t: ["Audit Preparation Assistant", "审核准备助手"], d: ["Checklist and evidence list.", "检查清单与证据清单。"] },
+  { id: "excel", cat: "prod", status: "live", url: "tool-excel-formula.html", t: ["Excel Formula Assistant", "Excel 公式助手"], d: ["Pick a task, get the formula.", "选择任务，得到公式。"] },
+  { id: "email", cat: "prod", status: "live", url: "tool-email-writer.html", t: ["Email Writing Assistant", "邮件写作助手"], d: ["Purpose and facts into a clear email.", "根据目的和事实写出清晰的邮件。"] },
+  { id: "project", cat: "prod", status: "exist", url: "weekly-action-tracker.html", t: ["Project Tracking Assistant", "项目追踪助手"], d: ["Owners, dates, overdue flags.", "负责人、日期、逾期提醒。"] },
+  { id: "sop", cat: "prod", status: "api", t: ["SOP Drafting Assistant", "SOP 起草助手"], d: ["Structured SOP drafts.", "结构化 SOP 草稿。"] },
+  { id: "prioritize", cat: "prod", status: "soon", t: ["Task Prioritization Assistant", "任务优先级助手"], d: ["Urgent vs important.", "紧急与重要。"] }
+];
+window.LAOYU_DATA.status = {
+  live: ["New · works now", "新 · 可用"], exist: ["On site", "已上线"], soon: ["Coming soon", "即将推出"], api: ["Needs AI API", "需接入 AI"]
+};
