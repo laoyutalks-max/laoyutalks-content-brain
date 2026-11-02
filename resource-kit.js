@@ -186,7 +186,29 @@
     host.setAttribute("data-i18n-block", "");
   }
 
+  /* ---------------- preview beside the sign-up form ---------------- */
+  function gatePeek() {
+    var gate = document.querySelector(".gate");
+    if (!gate || gate.hidden || document.documentElement.classList.contains("isUnlocked") || document.querySelector(".gatePeek")) return;
+    var b = function (a) { return '<span class="en">' + esc(a[0]) + '</span><span class="zh">' + esc(a[1]) + "</span>"; };
+    var img = function (lg) { return '<img class="' + lg + '" src="assets/previews/' + R.id + "-" + lg + '.jpg" alt="' + esc(R.title[lg === "en" ? 0 : 1]) + '" width="680" height="427" loading="eager">'; };
+    var row = document.createElement("div");
+    row.className = "gateRow";
+    row.setAttribute("data-i18n-block", "");
+    row.innerHTML =
+      '<aside class="gatePeek panel">' +
+        '<div class="gpImg">' + img("en") + img("zh") + '<span class="gpTag">' + b(["PREVIEW", "预览"]) + "</span></div>" +
+        '<p class="gpProb">' + b(R.problem) + "</p>" +
+        '<h3 class="gpH">' + b(["What you get", "你将获得"]) + "</h3>" +
+        '<ul class="gpList">' + R.kit.inc.map(function (i) { return "<li>" + b(i) + "</li>"; }).join("") + "</ul>" +
+        '<p class="gpMeta">' + b(["Free · Time needed: " + R.setup[0] + " · One sign-up opens all 16 tools", "免费 · 所需时间：" + R.setup[1] + " · 注册一次，16 个工具全部开放"]) + "</p>" +
+      "</aside>";
+    gate.parentNode.insertBefore(row, gate);
+    row.appendChild(gate);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    gatePeek();
     mount();
     if (R.id === "ai-prompt-pack") promptSearch();
     document.addEventListener("laoyu:lang", mount);

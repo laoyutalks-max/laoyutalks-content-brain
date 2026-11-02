@@ -512,6 +512,11 @@
     form = root.querySelector(".lyForm");
 
     root.querySelector(".lyLaunch").addEventListener("click", function () { opened ? close() : open(); });
+    // Show the label briefly once per visit, then shrink to the icon so it does not cover the page
+    try { if (!sessionStorage.getItem("lyIntro")) { sessionStorage.setItem("lyIntro", "1"); root.classList.add("intro"); setTimeout(function () { root.classList.remove("intro"); }, 4000); } } catch (e) {}
+    // On phones, hide the button while the visitor types in a form (keyboard open)
+    document.addEventListener("focusin", function (e) { if (e.target.matches && e.target.matches("input, textarea, select") && !root.contains(e.target)) document.documentElement.classList.add("lyTyping"); });
+    document.addEventListener("focusout", function () { document.documentElement.classList.remove("lyTyping"); });
     root.querySelector(".lyClose").addEventListener("click", close);
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && opened) close(); });
 

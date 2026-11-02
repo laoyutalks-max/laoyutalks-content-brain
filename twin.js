@@ -46,7 +46,23 @@
     counters();
     hero();
     if (window.LAOYU_I18N) window.LAOYU_I18N.apply();
+    label3dLang();
   });
+
+  /* 3D labels that first appear later (e.g. DEFECT FOUND) still follow the language */
+  function label3dLang() {
+    var stage = document.querySelector(".tStage");
+    if (!stage || !window.MutationObserver) return;
+    var fix = function (el) {
+      if (!el.dataset.en) el.dataset.en = el.textContent;
+      var want = t(el.dataset.en);
+      if (el.textContent !== want) el.textContent = want;
+    };
+    new MutationObserver(function (list) {
+      list.forEach(function (m) { m.addedNodes.forEach(function (n) { if (n.nodeType === 1 && n.classList.contains("t3Label")) fix(n); }); });
+    }).observe(stage, { childList: true, subtree: true });
+    document.addEventListener("laoyu:lang", function () { $$(".t3Label[data-en]").forEach(fix); });
+  }
 
   /* ---------- Line-status ticker in the strip under the header ---------- */
   function ticker() {
