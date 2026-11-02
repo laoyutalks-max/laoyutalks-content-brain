@@ -22,7 +22,7 @@ def shell_page(slug, title_en, desc, body, scripts):
     if "resources2.css" not in h:
         h = h.replace('<link rel="stylesheet" href="twin.css', '<link rel="stylesheet" href="resources2.css?v=20261101b"><link rel="stylesheet" href="twin.css', 1)
     if "tools2.css" not in h:
-        h = h.replace('<link rel="stylesheet" href="resources2.css', '<link rel="stylesheet" href="tools2.css?v=20261030"><link rel="stylesheet" href="resources2.css', 1)
+        h = h.replace('<link rel="stylesheet" href="resources2.css', '<link rel="stylesheet" href="tools2.css?v=20261101s"><link rel="stylesheet" href="resources2.css', 1)
     f = foot_tpl
     f = re.sub(r'<script src="gate\.js[^"]*"></script>', "", f)
     f = re.sub(r'<script src="tools\.js[^"]*"></script>', scripts, f)

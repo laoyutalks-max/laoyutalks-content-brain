@@ -72,7 +72,7 @@
       var miss = [], act = [];
       if (!(tg > 0)) miss.push(L("Target output is missing.", "缺少目标产量。"));
       if (!(ac >= 0)) miss.push(L("Actual output is missing.", "缺少实际产量。"));
-      downs.forEach(function (d) { if (d.m > 0 && !d.r) miss.push(L(d.m + " min of downtime has no reason. Reasons drive the Pareto.", d.m + " 分钟停机没有写原因。原因决定柏拉图分析。")); if (d.r && !(d.m > 0)) miss.push(L("\"" + d.r + "\" has no minutes recorded.", "“" + d.r + "”没有记录分钟数。")); });
+      downs.forEach(function (d) { if (d.m > 0 && !d.r) miss.push(L(d.m + " min of downtime has no reason. Reasons drive the Pareto.", d.m + " 分钟停机没有写原因。原因决定柏拉图分析。")); if (d.r && !(d.m > 0)) miss.push(L("\"" + esc(d.r) + "\" has no minutes recorded.", "“" + esc(d.r) + "”没有记录分钟数。")); });
       if (sc > 0 && !v("drQual")) miss.push(L("Scrap was recorded but no defect or cause is described.", "记录了报废，但没有描述缺陷或原因。"));
       if (!(hp > 0) || !(ha >= 0)) miss.push(L("Planned vs actual manpower not given.", "没有填写计划与实际人数。"));
       if (gap > 0 && tg > 0 && gap / tg > 0.05 && !dTot && !(sc > 0)) miss.push(L("Output is " + pct(gap / tg) + " below target but no downtime or quality reason explains it.", "产量低于目标 " + pct(gap / tg) + "，但没有停机或质量原因来解释。"));
@@ -83,8 +83,8 @@
       if (hp > 0 && ha >= 0 && ha < hp) act.push(L("Short by " + (hp - ha) + " people. Plan tomorrow's cover now (see Manpower Gap Calculator).", "少了 " + (hp - ha) + " 人。现在就安排明天的补位（可用人力缺口计算器）。"));
       if (miss.length) act.push(L("Fill in the missing information below before sending the report.", "发送报告前，请补齐下面的缺失信息。"));
       var status = !isFinite(ach) ? ["", L("Not enough data", "数据不足")] : ach >= 1 ? ["ok", L("Target met", "达成目标")] : ach >= 0.95 ? ["warn", L("Slightly below target", "略低于目标")] : ["bad", L("Below target", "低于目标")];
-      var summary = isFinite(ach) ? L((v("drLine") || "The line") + " made " + fmt(ac) + " of " + fmt(tg) + " units (" + pct(ach) + ")" + (dTot ? ", with " + dTot + " min of downtime" + (top && top.r ? ", mainly " + top.r : "") : "") + (scr > 0 ? " and " + pct(scr) + " scrap" : "") + ".",
-        (v("drLine") || "产线") + "完成 " + fmt(ac) + " / " + fmt(tg) + " 件（" + pct(ach) + "）" + (dTot ? "，停机 " + dTot + " 分钟" + (top && top.r ? "，主要原因是" + top.r : "") : "") + (scr > 0 ? "，报废率 " + pct(scr) : "") + "。") : L("Enter target and actual output to generate the summary.", "请输入目标和实际产量以生成摘要。");
+      var summary = isFinite(ach) ? L(esc(v("drLine") || "The line") + " made " + fmt(ac) + " of " + fmt(tg) + " units (" + pct(ach) + ")" + (dTot ? ", with " + dTot + " min of downtime" + (top && top.r ? ", mainly " + esc(top.r) : "") : "") + (scr > 0 ? " and " + pct(scr) + " scrap" : "") + ".",
+        esc(v("drLine") || "产线") + "完成 " + fmt(ac) + " / " + fmt(tg) + " 件（" + pct(ach) + "）" + (dTot ? "，停机 " + dTot + " 分钟" + (top && top.r ? "，主要原因是" + esc(top.r) : "") : "") + (scr > 0 ? "，报废率 " + pct(scr) : "") + "。") : L("Enter target and actual output to generate the summary.", "请输入目标和实际产量以生成摘要。");
       out.innerHTML =
         "<h3>" + L("Daily production report", "每日生产报告") + "</h3><p>" + esc(v("drLine") || L("Line", "产线")) + " · " + esc(v("drDate")) + " · " + esc(v("drShift")) + "</p>" +
         "<p><b>" + status[1] + ".</b> " + summary + "</p>" +

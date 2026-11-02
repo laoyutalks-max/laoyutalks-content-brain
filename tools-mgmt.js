@@ -202,8 +202,8 @@
       var risk = val("erRisk");
       var m = function (n) { return cur + Math.round(n).toLocaleString(); };
       $("erCost").innerHTML =
-        '<div class="atChip ' + (cost ? "bad" : "") + '"><b>' + (cost ? m(cost) : "–") + "</b><span>" + L("Cost impact so far", "目前的成本影响") + "</span></div>" +
-        '<div class="atChip ' + (val("erQty") ? "bad" : "") + '"><b>' + (val("erQty") || "–") + "</b><span>" + L("Units at risk for delivery", "交付风险数量") + "</span></div>" +
+        '<div class="atChip ' + (cost ? "bad" : "") + '"><b>' + (cost ? esc(m(cost)) : "–") + "</b><span>" + L("Cost impact so far", "目前的成本影响") + "</span></div>" +
+        '<div class="atChip ' + (val("erQty") ? "bad" : "") + '"><b>' + (esc(val("erQty")) || "–") + "</b><span>" + L("Units at risk for delivery", "交付风险数量") + "</span></div>" +
         '<div class="atChip sev-' + sev + '"><b>' + sevT + "</b><span>" + L("Severity", "严重程度") + "</span></div>";
       var opts = [1, 2, 3].map(function (i) {
         var t = val("erOpt" + i); if (!t) return "";

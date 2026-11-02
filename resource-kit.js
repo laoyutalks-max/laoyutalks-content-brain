@@ -145,6 +145,10 @@
     var out = document.getElementById("mhOut"); if (!out) return;
     var units = g("mhUnits"), std = g("mhStd"), ppl = g("mhPeople"), hrs = g("mhHours"), eff = g("mhEff") / 100, abs = g("mhAbs") || 0, ot = g("mhOt") || 0;
     document.getElementById("mhAbsO").textContent = abs; document.getElementById("mhOtO").textContent = ot;
+    if (![units, std, ppl, hrs, eff].every(function (x) { return isFinite(x) && x >= 0; }) || !(eff > 0) || !(hrs > 0)) {
+      out.innerHTML = '<p class="resNote">' + T("Enter units, standard minutes, people, hours and efficiency (all above zero) to see the result.", "请填写产量、标准工时、人数、工时和效率（都需大于 0）以查看结果。") + "</p>";
+      return;
+    }
     var need = units * std / 60, avail = (Math.max(0, ppl - abs) * hrs + ot) * eff, util = avail > 0 ? need / avail : 0, gapH = need - avail, gapP = gapH > 0 && hrs > 0 ? Math.ceil(gapH / (hrs * eff)) : 0;
     out.innerHTML =
       '<div class="atChip"><b>' + need.toFixed(1) + "</b><span>" + T("Workload hours needed", "需要的工作工时") + "</span></div>" +

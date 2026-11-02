@@ -37,7 +37,7 @@ def page(slug, title_en, title_zh, h1_en, h1_zh, lead_en, lead_zh, meta, resourc
     h = re.sub(r'(<meta name="description" content=")[^"]*', r"\g<1>" + desc, h)
     h = re.sub(r'(<meta property="og:title" content=")[^"]*', r"\g<1>" + title_en, h)
     h = re.sub(r'(<meta property="og:description" content=")[^"]*', r"\g<1>" + desc, h)
-    h = h.replace('<link rel="stylesheet" href="twin.css?v=20261030c">', '<link rel="stylesheet" href="twin.css?v=20261030c"><link rel="stylesheet" href="tools2.css?v=20261030">')
+    h = h.replace('<link rel="stylesheet" href="twin.css?v=20261030c">', '<link rel="stylesheet" href="twin.css?v=20261030c"><link rel="stylesheet" href="tools2.css?v=20261101s">')
     main = (f'<main class="resPage">\n<section class="hero resHero"><div class="wrap">\n  <div class="eyebrow">FREE TOOL</div>\n'
             f'  <h1>{E(h1_en, h1_zh)}</h1>\n  {P(lead_en, lead_zh)}\n  <ul class="resMeta">{metas}</ul>\n</div></section>\n'
             f'<section class="section resSection" data-i18n-block><div class="wrap resWrap">\n'
