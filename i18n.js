@@ -124,6 +124,7 @@
     "What do you want to fix today?": "今天想解决什么问题？",
     "SEE ALL GOALS →": "查看全部目标 →",
     "READY TO USE": "立即可用",
+    "OPEN THE TOOLBOX →": "打开工具箱 →",
     "DASHBOARD TEMPLATES": "看板模板",
     "Production Performance Dashboard | LAOYU": "生产绩效看板 | LAOYU",
     "Dashboards from your own data": "用你自己的数据生成看板",

@@ -97,10 +97,10 @@
     $("hFlow").innerHTML = LAB[lab][1].map(function (n, i) { return '<div class="hNode"><small>' + esc(L(STEP[i])) + "</small><b>" + esc(L(n)) + "</b></div>"; }).join("");
     $("hStack").innerHTML = LAB[lab][2].map(function (s) { return "<span>" + esc(s) + "</span>"; }).join("");
   }
-  function all() { counts(); problems(); learn(); labUI(); labCta(); }
+  function all() { counts(); learn(); labUI(); labCta(); }
 
   document.addEventListener("DOMContentLoaded", function () {
-    if (!$("hProb")) return;
+    if (!$("hLearn")) return;
     $("hLearn").addEventListener("click", function (e) {
       if (e.target.closest("[data-notify]")) { var p = profile(); if (p && p.email) notify(p.email, p.name); }
     });

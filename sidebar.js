@@ -99,6 +99,9 @@
     });
     render();
     document.addEventListener("laoyu:lang", render);
+    // Any element with data-open-tools opens the sidebar (falls back to its link without JS)
+    document.addEventListener("click", function (e) { var t = e.target.closest("[data-open-tools]"); if (t) { e.preventDefault(); setOpen(true); } });
+    window.LAOYU_SIDEBAR = { open: function () { setOpen(true); }, close: function () { setOpen(false); } };
     var hintEl = root.querySelector(".sbHint");
     var hideHint = function () { hintEl.classList.remove("show"); setTimeout(function () { hintEl.hidden = true; }, 300); };
     try {
