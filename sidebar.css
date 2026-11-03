@@ -8,9 +8,6 @@
   transition: padding .2s, box-shadow .2s;
 }
 .sbTab:hover, .sbTab:focus-visible { padding-left: 11px; box-shadow: 0 0 26px rgba(53,224,255,.45); }
-.sbTab b { font-size: 15px; line-height: 1; }
-.sbTab span { writing-mode: vertical-rl; font: 700 11px var(--font-display, sans-serif); letter-spacing: .22em; }
-html[data-lang="zh"] .sbTab span { letter-spacing: .3em; font-size: 13px; }
 .sb.open .sbTab { opacity: 0; pointer-events: none; }
 
 .sbShade { position: fixed; inset: 0; z-index: 1590; background: rgba(0,4,10,.55); opacity: 0; pointer-events: none; transition: opacity .25s; }
@@ -61,8 +58,6 @@ html.sbOpen { overflow: hidden; }
 @media (max-width: 820px) {
   .sbTab { top: auto; bottom: 12px; left: 12px; transform: none; flex-direction: row; gap: 6px; padding: 9px 13px; border: 1px solid var(--line-strong, rgba(53,224,255,.35)); border-radius: 22px; }
   .sbTab:hover, .sbTab:focus-visible { padding-left: 13px; }
-  .sbTab span { writing-mode: horizontal-tb; letter-spacing: .14em; }
-  html[data-lang="zh"] .sbTab span { letter-spacing: .08em; }
   html.lyTyping .sbTab { opacity: 0; pointer-events: none; }
 }
 @media print { .sb { display: none !important; } }
@@ -74,3 +69,53 @@ html[data-theme="light"] .sbTitle, html[data-theme="light"] .sbHead, html[data-t
 html[data-theme="light"] .sbSearch { background: #f4f8fb; border-color: #c9d6e2; }
 html[data-theme="light"] .sbItem.off { color: #6b8196; }
 html[data-theme="light"] .sbShade { background: rgba(10,30,50,.35); }
+
+/* ===== Creative logo button ===== */
+.sbTab { padding: 10px 8px 12px; gap: 9px; border-color: rgba(255,122,26,.55); box-shadow: 0 0 22px rgba(255,122,26,.28), 0 0 18px rgba(53,224,255,.18); }
+.sbTab:hover, .sbTab:focus-visible { padding-left: 12px; box-shadow: 0 0 30px rgba(255,122,26,.5), 0 0 22px rgba(53,224,255,.3); }
+.sbLogo { position: relative; display: block; width: 40px; height: 40px; }
+.sbLogo::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid rgba(255,122,26,.55); animation: sbPulse 2.6s ease-out infinite; pointer-events: none; }
+.sbIco { width: 40px; height: 40px; display: block; overflow: visible; animation: sbNudge 9s ease-in-out infinite; }
+.sbHex { fill: rgba(53,224,255,.08); stroke: var(--cyan, #35e0ff); stroke-width: 2; stroke-linejoin: round; }
+.sbGear { transform-origin: 29px 19px; animation: sbSpin 7s linear infinite; }
+.sbTeeth { fill: none; stroke: var(--cyan, #35e0ff); stroke-width: 3.4; stroke-dasharray: 3.2 2.45; }
+.sbHub { fill: var(--cyan, #35e0ff); }
+.sbWrench { fill: #041120; stroke: var(--orange, #ff7a1a); stroke-width: 2.3; stroke-linecap: round; stroke-linejoin: round; }
+.sbSpark { fill: #ffd27a; animation: sbTwinkle 2.2s ease-in-out infinite; transform-origin: 37px 37px; }
+.sbTabTxt { writing-mode: vertical-rl; font: 700 11px var(--font-display, sans-serif); letter-spacing: .22em; color: var(--cyan, #35e0ff); }
+html[data-lang="zh"] .sbTabTxt { letter-spacing: .3em; font-size: 13px; }
+.sbTabN { font: 700 10px var(--font-mono, monospace); font-style: normal; color: #041120; background: var(--orange, #ff7a1a); border-radius: 10px; padding: 1px 6px; }
+.sbTab:hover .sbGear { animation-duration: 1.6s; }
+.sbTab:hover .sbIco { animation: none; transform: scale(1.08); transition: transform .2s; }
+@keyframes sbSpin { to { transform: rotate(360deg); } }
+@keyframes sbPulse { 0% { transform: scale(.85); opacity: .9; } 80%, 100% { transform: scale(1.35); opacity: 0; } }
+@keyframes sbTwinkle { 0%, 100% { opacity: .3; transform: scale(.6); } 50% { opacity: 1; transform: scale(1.15); } }
+@keyframes sbNudge { 0%, 88%, 100% { transform: rotate(0); } 90% { transform: rotate(-12deg); } 92% { transform: rotate(10deg); } 94% { transform: rotate(-6deg); } 96% { transform: rotate(3deg); } }
+
+/* "Click me" hint bubble */
+.sbHint { position: fixed; left: 70px; top: 50%; transform: translate(-8px, -50%); z-index: 1401; max-width: 230px; padding: 10px 14px; background: var(--orange, #ff7a1a); color: #1a0a00; font: 500 13px/1.35 var(--font-body, sans-serif); box-shadow: 0 6px 24px rgba(255,122,26,.45); cursor: pointer; opacity: 0; transition: opacity .3s, transform .3s; }
+.sbHint b { display: block; font: 700 14px var(--font-display, sans-serif); letter-spacing: .04em; }
+.sbHint::before { content: ""; position: absolute; left: -7px; top: 50%; margin-top: -7px; border: 7px solid transparent; border-left: 0; border-right-color: var(--orange, #ff7a1a); }
+.sbHint.show { opacity: 1; transform: translate(0, -50%); animation: sbBob 1.6s ease-in-out infinite; }
+@keyframes sbBob { 50% { transform: translate(5px, -50%); } }
+.sb.open ~ .sbHint, .sb.open .sbHint { display: none; }
+
+@media (max-width: 820px) {
+  .sbTab { padding: 6px 12px 6px 6px; gap: 7px; border-color: rgba(255,122,26,.6); }
+  .sbTab:hover, .sbTab:focus-visible { padding-left: 6px; }
+  .sbLogo, .sbIco { width: 30px; height: 30px; }
+  .sbTabTxt { writing-mode: horizontal-tb; letter-spacing: .14em; }
+  html[data-lang="zh"] .sbTabTxt { letter-spacing: .08em; }
+  .sbHint { left: 14px; top: auto; bottom: 66px; transform: translateY(8px); max-width: 220px; }
+  .sbHint::before { left: 22px; top: auto; bottom: -7px; margin-top: 0; border: 7px solid transparent; border-bottom: 0; border-top-color: var(--orange, #ff7a1a); }
+  .sbHint.show { transform: none; animation: sbBobM 1.6s ease-in-out infinite; }
+  @keyframes sbBobM { 50% { transform: translateY(-4px); } }
+  html.lyTyping .sbHint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sbLogo::after, .sbIco, .sbGear, .sbSpark, .sbHint.show { animation: none !important; }
+}
+html[data-theme="light"] .sbHex { fill: rgba(11,107,134,.08); stroke: #0b6b86; }
+html[data-theme="light"] .sbTeeth { stroke: #0b6b86; } html[data-theme="light"] .sbHub { fill: #0b6b86; }
+html[data-theme="light"] .sbWrench { fill: #fff; }
+html[data-theme="light"] .sbTabTxt { color: #0b6b86; }

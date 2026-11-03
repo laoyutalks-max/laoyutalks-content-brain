@@ -48,7 +48,10 @@
     panel.querySelector(".sbSearch input").placeholder = T("Search, e.g. downtime, OEE, 8D", "搜索，例如：停机、OEE、8D");
     panel.querySelector(".sbClose").setAttribute("aria-label", T("Close", "关闭"));
     panel.querySelector(".sbAll").textContent = T("OPEN FULL LIBRARY →", "打开完整资源库 →");
-    tab.querySelector("span").textContent = T("TOOLS", "工具");
+    tab.querySelector(".sbTabTxt").textContent = T("TOOLS", "工具");
+    tab.querySelector(".sbTabN").textContent = SB.items.filter(usable).length;
+    var hint = root.querySelector(".sbHint");
+    if (hint) hint.innerHTML = "<b>" + T("Click me!", "点我！") + "</b> " + T(SB.items.filter(usable).length + " free tools, sorted by problem", SB.items.filter(usable).length + " 个免费工具，按问题分类");
     tab.setAttribute("aria-label", T("Open Tools & Resources", "打开工具与资源"));
   }
 
@@ -66,7 +69,8 @@
     root.className = "sb";
     root.setAttribute("data-i18n-block", "");
     root.innerHTML =
-      '<button type="button" class="sbTab" aria-expanded="false" aria-controls="sbPanel"><b aria-hidden="true">☰</b><span></span></button>' +
+      '<button type="button" class="sbTab" aria-expanded="false" aria-controls="sbPanel"><span class="sbLogo"><svg class="sbIco" viewBox="0 0 48 48" aria-hidden="true"><polygon class="sbHex" points="24,2.5 42.5,13.25 42.5,34.75 24,45.5 5.5,34.75 5.5,13.25"/><g class="sbGear"><circle cx="29" cy="19" r="7.2" class="sbTeeth"/><circle cx="29" cy="19" r="3.2" class="sbHub"/></g><path class="sbWrench" transform="translate(9.5 14) scale(1.02)" d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/><path class="sbSpark" d="M37 33l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z"/></svg></span><span class="sbTabTxt"></span><em class="sbTabN"></em></button>' +
+      '<div class="sbHint" role="status" hidden></div>' +
       '<div class="sbShade" data-close></div>' +
       '<aside class="sbPanel" id="sbPanel" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sbTitle">' +
         '<div class="sbTop"><div><h2 class="sbTitle" id="sbTitle"></h2><p class="sbCount"></p></div><button type="button" class="sbClose" data-close>✕</button></div>' +
@@ -95,6 +99,16 @@
     });
     render();
     document.addEventListener("laoyu:lang", render);
+    var hintEl = root.querySelector(".sbHint");
+    var hideHint = function () { hintEl.classList.remove("show"); setTimeout(function () { hintEl.hidden = true; }, 300); };
+    try {
+      if (!sessionStorage.getItem("sbHint")) {
+        sessionStorage.setItem("sbHint", "1");
+        setTimeout(function () { if (root.classList.contains("open")) return; hintEl.hidden = false; requestAnimationFrame(function () { hintEl.classList.add("show"); }); setTimeout(hideHint, 6500); }, 1500);
+      }
+    } catch (e) {}
+    hintEl.addEventListener("click", function () { hideHint(); setOpen(true); });
+    tab.addEventListener("click", function () { if (!hintEl.hidden) hideHint(); });
     (window.LAOYU_OWNER || Promise.resolve(function () { try { return localStorage.getItem("laoyuOwner") === "f81cab01a5d016ce176b362075e0f61fbce75fda490f927f1fb296a4f34e6881"; } catch (e) { return false; } }()))
       .then(function (o) { owner = !!o; render(); });
   }
