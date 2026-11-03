@@ -1,0 +1,66 @@
+/* LAOYU dashboard templates */
+.dashWrap { max-width: 1180px; display: grid; gap: 18px; }
+.dashPage #dashApp:not([hidden]) { display: grid; gap: 18px; }
+.dashSoon { text-align: center; padding: 40px 24px; }
+.dashSoon h2 { color: var(--orange); margin-top: 0; }
+.ownerBar { margin: 0; padding: 8px 14px; border: 1px dashed var(--orange); color: var(--orange); font: 600 11px var(--font-display); letter-spacing: .12em; }
+html[data-lang="zh"] .ownerBar { letter-spacing: .04em; font-size: 12.5px; }
+.dashTop h2 { margin: 0 0 14px; }
+.dashBar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.dashBar .btn { cursor: pointer; font-family: var(--font-display); }
+.dFileBtn { position: relative; overflow: hidden; }
+.dFileBtn input { position: absolute; inset: 0; opacity: 0; cursor: pointer; font-size: 0; }
+.dFileBtn:focus-within { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.dGroupL { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; margin-left: auto; }
+.dGroupL select { width: auto; min-width: 140px; padding: 9px 10px; }
+.dErr { margin: 12px 0 0; color: #ff9b5c; font-weight: 600; }
+.dWarn { margin: 12px 0 0; color: #ffc23d; font-size: 14px; }
+.dInfo { margin: 10px 0 0; color: var(--muted); font-size: 13px; }
+.dCards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.dCard { padding: 16px; border: 1px solid var(--line); background: rgba(4,20,36,.8); display: grid; gap: 8px; min-width: 0; }
+.dCard span { color: var(--muted); font-size: 13px; line-height: 1.35; }
+.dCard b { font: 700 26px var(--font-display); color: var(--cyan); overflow-wrap: anywhere; }
+.dCard.txt b { font-size: 17px; line-height: 1.3; color: var(--text); }
+.dCard.ok b { color: #3ddc97; } .dCard.warn b { color: #ffc23d; } .dCard.bad b { color: #ff6b4a; }
+.dPanels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.dPanels h3 { margin: 0 0 12px; font-size: 16px; }
+.dChart { height: 260px; display: flex; align-items: flex-end; gap: 8px; padding: 18px 4px 34px; border-bottom: 1px solid var(--line-strong); overflow-x: auto; }
+.dCol { flex: 1; min-width: 38px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; position: relative; }
+.dCol i { width: 64%; background: linear-gradient(180deg, var(--orange), #c2410c); min-height: 2px; }
+.dCol em { font-style: normal; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.dCol span { position: absolute; bottom: -24px; font-size: 11px; color: var(--muted); max-width: 90px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.dTableWrap { overflow: auto; max-height: 320px; }
+.dTable { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.dTable th, .dTable td { padding: 8px 9px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.dTable th { position: sticky; top: 0; background: #071726; color: var(--cyan); font-weight: 600; }
+.dTable td.badCell { color: #ff6b4a; font-weight: 700; background: rgba(255,107,74,.1); }
+.dCols { font-family: var(--font-mono); font-size: 13px; color: var(--cyan); word-break: break-word; }
+.dashPage .kitBox ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--muted); }
+.dTitleBox label { display: block; color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+@media (max-width: 1000px) { .dCards { grid-template-columns: repeat(3, 1fr); } .dPanels { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .dCards { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .dCard { padding: 12px; } .dCard b { font-size: 21px; } .dCard.txt b { font-size: 15px; }
+  .dashBar .btn { flex: 1 1 calc(50% - 10px); text-align: center; padding-left: 8px; padding-right: 8px; }
+  .dGroupL { margin-left: 0; width: 100%; } .dGroupL select { flex: 1; }
+}
+html[data-theme="light"] .dCard { background: #fff; border-color: #c9d6e2; }
+html[data-theme="light"] .dTable th { background: #eef3f8; color: #0b6b86; }
+html[data-theme="light"] .dCard.txt b { color: var(--text); }
+
+/* Coming-soon cards on the Resources page */
+.upSec .upGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.upCard { display: grid; gap: 8px; align-content: start; padding: 18px; border: 1px dashed var(--line-strong); background: rgba(4,20,36,.55); text-decoration: none; color: inherit; }
+.upCard b { font: 700 17px var(--font-display); color: var(--text); }
+.upCard p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.upPill { justify-self: start; font: 700 10px var(--font-mono); letter-spacing: .12em; padding: 3px 8px; border: 1px solid rgba(255,176,32,.6); color: var(--amber, #ffb020); }
+a.upCard { border-style: solid; border-color: var(--orange); }
+a.upCard:hover { transform: translateY(-3px); }
+a.upCard .upPill { color: var(--orange); border-color: var(--orange); }
+.upGo { font: 700 11px var(--font-display); letter-spacing: .12em; color: var(--orange); }
+@media (max-width: 800px) { .upSec .upGrid { grid-template-columns: 1fr; } }
+html[data-theme="light"] .upCard { background: #fff; }
+/* keep wide tables inside their panel (grid items default to min-width:auto) */
+.dashWrap > *, #dashApp > *, .dPanels > *, .dPanels .panel, .dCards > * { min-width: 0; }
+.dashWrap { grid-template-columns: minmax(0, 1fr); }
+.ownerBar { overflow-wrap: anywhere; }
