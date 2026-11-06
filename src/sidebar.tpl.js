@@ -49,7 +49,6 @@
     panel.querySelector(".sbClose").setAttribute("aria-label", T("Close", "关闭"));
     panel.querySelector(".sbAll").textContent = T("OPEN FULL LIBRARY →", "打开完整资源库 →");
     tab.querySelector(".sbTabTxt").textContent = T("TOOLS", "工具");
-    tab.querySelector(".sbTabN").textContent = SB.items.filter(usable).length;
     var hint = document.querySelector(".sbHint");
     if (hint) hint.innerHTML = "<b>" + T("Click me!", "点我！") + "</b> " + T(SB.items.filter(usable).length + " free tools, sorted by problem", SB.items.filter(usable).length + " 个免费工具，按问题分类");
     tab.setAttribute("aria-label", T("Open Tools & Resources", "打开工具与资源"));
@@ -80,7 +79,7 @@
     var wrap = document.createElement("span");
     wrap.className = "sbTabWrap";
     wrap.setAttribute("data-i18n-block", "");
-    wrap.innerHTML = '<button type="button" class="sbTab" aria-expanded="false" aria-controls="sbPanel"><span class="sbLogo"><svg class="sbIco" viewBox="0 0 48 48" aria-hidden="true"><polygon class="sbHex" points="24,2.5 42.5,13.25 42.5,34.75 24,45.5 5.5,34.75 5.5,13.25"/><g class="sbGear"><circle cx="29" cy="19" r="7.2" class="sbTeeth"/><circle cx="29" cy="19" r="3.2" class="sbHub"/></g><path class="sbWrench" transform="translate(9.5 14) scale(1.02)" d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/><path class="sbSpark" d="M37 33l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z"/></svg></span><span class="sbTabTxt"></span><em class="sbTabN"></em></button>' + '<div class="sbHint" role="status" hidden></div>';
+    wrap.innerHTML = '<button type="button" class="sbTab" aria-expanded="false" aria-controls="sbPanel"><span class="sbLogo"><svg class="sbIco" viewBox="0 0 48 48" aria-hidden="true"><polygon class="sbHex" points="24,2.5 42.5,13.25 42.5,34.75 24,45.5 5.5,34.75 5.5,13.25"/><g class="sbGear"><circle cx="29" cy="19" r="7.2" class="sbTeeth"/><circle cx="29" cy="19" r="3.2" class="sbHub"/></g><path class="sbWrench" transform="translate(9.5 14) scale(1.02)" d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/><path class="sbSpark" d="M37 33l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z"/></svg></span><span class="sbTabTxt"></span></button>' + '<div class="sbHint" role="status" hidden></div>';
     var navIn = document.querySelector("header .navin"), logo = navIn && navIn.firstElementChild;
     if (logo) logo.insertAdjacentElement("afterend", wrap); else { wrap.classList.add("sbFloat"); document.body.appendChild(wrap); }
     panel = root.querySelector(".sbPanel"); tab = wrap.querySelector(".sbTab");
