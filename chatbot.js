@@ -1,5 +1,5 @@
 /* =========================================================
-   LAOYU AI ASSISTANT — rule-based chatbot (EN / 中文)
+   LAOYU ASSISTANT — rule-based chatbot (EN / 中文)
    Answers only about LAOYU content. Every question and answer
    (and any contact a visitor chooses to leave) is sent to the
    Google Sheet recorder set in LOG_URL below.
@@ -46,8 +46,8 @@
 
   var KB = [
     { id: "greet", kw: ["hi", "hello", "hey", "good morning", "good evening", "yo"], zh: ["你好", "您好", "嗨", "哈喽", "早上好", "晚上好"],
-      a: { en: "Hi! I'm the LAOYU AI assistant. Ask me about LAOYU's videos, AI × manufacturing, manager thinking, resources or how to get in touch.",
-           zh: "你好！我是老鱼 AI 助手。可以问我老鱼的视频、AI × 制造业、管理者思维、资源，或如何联系。" },
+      a: { en: "Hi! I'm the LAOYU assistant. Ask me about LAOYU's videos, AI × manufacturing, manager thinking, resources or how to get in touch.",
+           zh: "你好！我是老鱼助手。可以问我老鱼的视频、AI × 制造业、管理者思维、资源，或如何联系。" },
       chips: ["who", "popular", "ai_mfg", "manager"] },
 
     { id: "thanks", kw: ["thanks", "thank you", "thank", "thx", "great", "awesome", "nice"], zh: ["谢谢", "感谢", "多谢", "太好了", "不错"],
@@ -155,8 +155,8 @@
   function chipLabel(id) { var f = id && id.indexOf("f_") === 0 ? finderById(id) : null; return f ? L(f.label) : L(CHIP_LABELS[id]); }
 
   var UI = {
-    launcher:  { en: "Ask LAOYU AI", zh: "问老鱼 AI" },
-    title:     { en: "LAOYU AI Assistant", zh: "老鱼 AI 助手" },
+    launcher:  { en: "Ask LAOYU", zh: "问老鱼" },
+    title:     { en: "LAOYU Assistant", zh: "老鱼助手" },
     status:    { en: "Guided answers · not a live AI chat", zh: "引导式回答 · 非实时 AI 对话" },
     placeholder: { en: "e.g. analyse downtime, 5 Why, Excel formula", zh: "例如：分析停机、5 个为什么、Excel 公式" },
     send:      { en: "Send", zh: "发送" },
