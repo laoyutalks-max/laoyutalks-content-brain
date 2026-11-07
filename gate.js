@@ -59,15 +59,29 @@
     return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; });
   }
 
-  function send(data) {
+  /* Sends a sign-up to the recorder. If the visitor is offline (or the request is blocked),
+     the sign-up is kept in this browser and sent again on the next page view, so the
+     visitor still gets the resource and the lead is not lost. */
+  var QKEY = "laoyuPendingLeads";
+  function queue() { try { return JSON.parse(localStorage.getItem(QKEY) || "[]"); } catch (e) { return []; } }
+  function saveQueue(q) { try { if (q.length) localStorage.setItem(QKEY, JSON.stringify(q.slice(-10))); else localStorage.removeItem(QKEY); } catch (e) {} }
+  function post(data) {
     try {
-      fetch(LOG_URL, {
+      return fetch(LOG_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(data)
-      }).catch(function () {});
-    } catch (e) {}
+      }).then(function () { return true; }, function () { return false; });
+    } catch (e) { return Promise.resolve(false); }
+  }
+  function send(data) {
+    post(data).then(function (ok) { if (!ok) { var q = queue(); q.push(data); saveQueue(q); } });
+  }
+  function flushQueue() {
+    var q = queue(); if (!q.length) return;
+    saveQueue([]);
+    q.forEach(function (d) { send(d); });
   }
 
   function open(gate) {
@@ -159,6 +173,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    flushQueue();
     var gate = document.querySelector(".gate");
     if (!gate) return;
     var res = gate.getAttribute("data-resource");

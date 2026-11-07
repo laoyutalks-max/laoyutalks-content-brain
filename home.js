@@ -110,14 +110,29 @@
       "<p>" + T("16 short lessons, from AI basics to building your own automations.", "16 节短课，从 AI 入门到自己搭建自动化。") + "</p></div>" +
       '<div class="hlAct">' + form + "</div></div><ul class='hlLevels'>" + lv + "</ul>";
   }
+  var sending = false;
   function notify(email, name) {
+    if (sending) return; // ignore double clicks while the first request is on its way
     var LOG_URL = "https://script.google.com/macros/s/AKfycbyjk02ceJcMxwfuGGsnkwafQwP0tEkjoy7OWDhbnd3D_WUiu32qRJobGCNj2Tco__s6zg/exec";
+    var box = $("hLearn"), btn = box.querySelector(".btn"), err = box.querySelector(".hlErr");
+    sending = true;
+    if (btn) { btn.disabled = true; btn.textContent = T("SENDING…", "正在发送…"); }
+    var req;
     try {
-      fetch(LOG_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ type: "lead", name: name || "(Learning Centre)", email: email, message: "Learning Centre: notify me when lessons open", page: "index.html", lang: zh() ? "zh" : "en", session: "learn-" + Date.now().toString(36), hp: "" }) }).catch(function () {});
-    } catch (e) {}
-    try { localStorage.setItem("laoyuLearnNotify", "1"); } catch (e) {}
-    learn();
+      req = fetch(LOG_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ type: "lead", name: name || "(Learning Centre)", email: email, message: "Learning Centre: notify me when lessons open", page: "index.html", lang: zh() ? "zh" : "en", session: "learn-" + Date.now().toString(36), hp: "" }) })
+        .then(function () { return true; }, function () { return false; });
+    } catch (e) { req = Promise.resolve(false); }
+    Promise.race([req, new Promise(function (r) { setTimeout(function () { r(false); }, 8000); })]).then(function (ok) {
+      sending = false;
+      if (ok) { try { localStorage.setItem("laoyuLearnNotify", "1"); } catch (e) {} learn(); return; }
+      learn();
+      var e2 = $("hLearn").querySelector(".hlErr");
+      var msg = T("Couldn't save your email right now (connection problem). Please try again, or email laoyutalks@gmail.com.", "暂时无法保存你的邮箱（网络问题）。请稍后再试，或发邮件至 laoyutalks@gmail.com。");
+      if (e2) { e2.textContent = msg; e2.hidden = false; }
+      else $("hLearn").querySelector(".hlAct").insertAdjacentHTML("beforeend", '<p class="hlErr" role="alert">' + esc(msg) + "</p>");
+      var inp = $("hlEmail"); if (inp) inp.value = email;
+    });
   }
   function labCta() {
     $("hLabCta").innerHTML = "<p>" + T("Want a workflow like this for your team?", "想为你的团队做一个这样的流程？") + '</p><a class="btn outline" href="contact.html">' + T("TALK TO ME →", "联系我 →") + "</a>";

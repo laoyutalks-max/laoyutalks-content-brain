@@ -38,7 +38,7 @@ def page(slug, title_en, h1_en, h1_zh, lead_en, lead_zh, meta, desc, form, go_en
             f'\n<h3 class="mpH">{E("Result", "结果")}</h3><div class="demoOut" id="{out_id}" aria-live="polite"><p class="resNote">{E("Fill in the form, or load the sample, then press the button above.", "填写表单或载入示例，然后点击上方按钮。")}</p></div>\n{OUTBTNS}\n</article>\n'
             f'<div data-kit="bottom"></div>\n</div></section>\n</main>')
     f = foot_tpl.replace('<script src="tools.js?v=20261030"></script>', '<script src="resources-data.js?v=20261101"></script><script src="demos.js?v=20261101s"></script><script src="resource-kit.js?v=20261102a"></script>')
-    f = f.replace('<script src="gate.js?v=20261030b"></script>', "")
+    f = f.replace('<script src="gate.js?v=20261107c"></script>', "")
     open(f"{ROOT}/{slug}.html", "w").write(h + main + f)
     print("wrote", slug)
 

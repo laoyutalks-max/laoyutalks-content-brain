@@ -55,7 +55,7 @@
            zh: "不客气！在 TikTok 关注 @laoyu.talks，几乎每天都有新的实用想法。" },
       links: [{ en: "Follow @laoyu.talks ↗", zh: "关注 @laoyu.talks ↗", url: PROFILE }] },
 
-    { id: "who", kw: ["who", "laoyu", "about", "background", "yourself", "founder", "creator", "experience", "operations leader"], zh: ["老鱼", "是谁", "关于", "背景", "介绍", "经验", "你是"],
+    { id: "who", kw: ["who is laoyu", "about laoyu", "who are you", "who", "laoyu", "about", "background", "yourself", "founder", "creator", "experience", "operations leader"], zh: ["老鱼", "是谁", "关于", "背景", "介绍", "经验", "你是"],
       a: { en: "<b>老鱼 Laoyu</b> is an operations leader with 20 years of experience in manufacturing. He tests AI on real workplace problems and shares what works — for managers, teams and factories. Content focus: <b>AI · Managers · Manufacturing</b>.",
            zh: "<b>老鱼 Laoyu</b> 是一位拥有 20 年制造业经验的运营负责人。他把 AI 用在真实的工作问题上，分享真正有效的做法——面向管理者、团队与工厂。内容方向：<b>AI · 管理者 · 制造业</b>。" },
       chips: ["content", "popular", "contact"] },
@@ -117,8 +117,8 @@
       v: ["overthinking", "control", "change", "success", "skills"] },
 
     { id: "resources", kw: ["resource", "resources", "template", "templates", "download", "checklist", "checklists", "prompt library", "free", "tools", "planner", "handover", "tracker", "excel", "oee", "calculator", "worksheet"], zh: ["资源", "模板", "下载", "清单", "免费", "提示词库", "计划表", "交接", "追踪", "仪表板", "计算器", "工作表"],
-      a: { en: "LAOYU has 8 free resources: the <b>Quiet Quitting Early-Warning Checklist</b>, the <b>AI Prompt Pack for Operations Managers</b>, three productivity templates (<b>Supervisor Daily Planner</b>, <b>Shift Handover</b>, <b>Weekly Action Tracker</b>), an Excel <b>Production KPI Dashboard</b> with OEE and downtime Pareto, a <b>Manpower Gap Calculator</b> and a <b>Repeated Mistake Worksheet</b>. Leave your name and email once to unlock them.",
-           zh: "老鱼有 8 份免费资源：<b>员工默默躺平预警清单</b>、<b>运营经理 AI 提示词包</b>、三个效率模板（<b>主管每日计划表</b>、<b>交接班模板</b>、<b>每周行动追踪表</b>）、含 OEE 与停机 Pareto 的 Excel <b>生产 KPI 仪表板</b>、<b>人力缺口计算器</b>和<b>重复错误改善工作表</b>。留下一次姓名和邮箱即可解锁。" },
+      a: { en: "LAOYU has 16 free resources, including the <b>AI Prompt Pack for Operations Managers</b>, <b>Shift Handover Template</b>, <b>OEE Loss Calculator</b>, <b>Production KPI Dashboard</b> (Excel), <b>Fishbone + 5-Why Builder</b>, <b>8D Report Builder</b>, <b>Difficult Conversation Planner</b> and <b>Quiet Quitting Early-Warning Checklist</b>. Leave your name and email once to unlock them all.",
+           zh: "老鱼有 16 份免费资源，包括<b>运营经理 AI 提示词包</b>、<b>交接班模板</b>、<b>OEE 损失计算器</b>、Excel <b>生产 KPI 仪表板</b>、<b>鱼骨图 + 5 个为什么</b>、<b>8D 报告生成器</b>、<b>困难对话准备表</b>和<b>员工躺平预警清单</b>。留下一次姓名和邮箱即可全部解锁。" },
       links: [{ en: "All free resources →", zh: "全部免费资源 →", url: "resources.html" }, { en: "KPI Dashboard →", zh: "KPI 仪表板 →", url: "production-kpi-dashboard.html" }, { en: "Manpower calculator →", zh: "人力计算器 →", url: "manpower-gap-calculator.html" }] },
 
 
@@ -130,6 +130,11 @@
     { id: "website", kw: ["website", "site", "page", "pages", "menu", "navigate"], zh: ["网站", "页面", "网页"],
       a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"ai-tools.html\">AI Tools</a>, <a href=\"resources.html\">Resources</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
            zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"ai-tools.html\">AI 工具</a>、<a href=\"laoyutalks.html\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
+
+    { id: "lab", kw: ["automation lab", "inventory", "stock count", "low stock", "reorder", "maintenance request", "maintenance requests", "training expiry", "apps script", "google forms", "workflow", "workflows"], zh: ["自动化实验室", "库存", "补货", "维修申请", "培训到期", "流程自动化"],
+      a: { en: "The <a href=\"index.html#lab\">Automation Lab</a> on the home page shows five example workflows built with Google Forms, Sheets and Apps Script: daily production dashboard, maintenance requests, inventory reorder alerts, training expiry tracker and project tracking. Want one for your team? Leave your contact.",
+           zh: "首页的<a href=\"index.html#lab\">自动化实验室</a>展示了五个用 Google 表单、表格和 Apps Script 搭建的流程示例：每日生产看板、维修申请、库存补货提醒、培训到期追踪和项目追踪。想为团队做一个？可以留下联系方式。" },
+      chips: ["leave_contact", "website"] },
 
     { id: "language", kw: ["chinese", "english", "language", "translate", "mandarin"], zh: ["中文", "英文", "语言", "翻译", "华语"],
       a: { en: "LAOYU's videos are mainly in English. This site and I work in both English and 中文 — use the EN / 中文 switch at the top.",
@@ -150,7 +155,8 @@
     mindset:  { en: "Mindset & career", zh: "心态与职业" },
     resources:{ en: "Free resources", zh: "免费资源" },
     contact:  { en: "Contact LAOYU", zh: "联系老鱼" },
-    leave_contact: { en: "Leave my contact", zh: "留下联系方式" }
+    leave_contact: { en: "Leave my contact", zh: "留下联系方式" },
+    website:  { en: "Website pages", zh: "网站页面" }
   };
   function chipLabel(id) { var f = id && id.indexOf("f_") === 0 ? finderById(id) : null; return f ? L(f.label) : L(CHIP_LABELS[id]); }
 
@@ -164,8 +170,11 @@
     notice:    { en: "Chats are recorded to improve LAOYU content.", zh: "对话会被记录，用于改进老鱼的内容。" },
     welcome:   { en: "<b>What would you like to improve today?</b><br>Tell me the problem and I'll point you to the right tool, resource or demo. You can also ask about LAOYU's videos.",
                  zh: "<b>你今天想改善什么？</b><br>告诉我你的问题，我会推荐合适的工具、资源或演示。也可以问我老鱼的视频。" },
-    fallback:  { en: "I'm not sure yet. Try one of these workplace problems, or leave your contact and LAOYU can reply personally:",
-                 zh: "我暂时还不确定。试试下面这些工作问题，或留下联系方式让老鱼亲自回复：" },
+    /* Scope replies (fixed wording). The bot only answers from the approved website knowledge base in this file. */
+    fallback:  { en: "I’m here to help with questions about this website, its features, and how to use its services. What would you like to know?",
+                 zh: "我只能回答与本网站、网站功能以及如何使用网站服务有关的问题。你想了解什么？" },
+    unverified: { en: "I don’t have verified information about that yet. Please check our support page or contact our team.",
+                 zh: "关于这个问题，我暂时没有经过核实的信息。请查看支持页面或联系我们的团队。" },
     watch:     { en: "▶ Watch", zh: "▶ 观看" },
     askName:   { en: "Great! What's your name?", zh: "好的！请问怎么称呼你？" },
     askEmail:  { en: "Thanks, {name}. What email can LAOYU reply to?", zh: "谢谢，{name}。老鱼可以回复到哪个邮箱？" },
@@ -175,7 +184,8 @@
     typoAsk:   { en: "Did you mean {s}? Type it again to confirm, or type the one you meant.", zh: "你是不是要输入 {s}？请再输入一次确认，或输入正确的邮箱。" },
     askMsg:    { en: "What would you like to talk to LAOYU about?", zh: "想和老鱼聊些什么？" },
     leadDone:  { en: "Thank you! Your details have been sent to LAOYU, who will reply to {email}.", zh: "谢谢！你的信息已发送给老鱼，他会回复到 {email}。" },
-    leadOffline: { en: "Thanks! Recording isn't switched on yet, so please email LAOYU directly at " + EMAIL + ".", zh: "谢谢！记录功能尚未开启，请直接发邮件至 " + EMAIL + "。" },
+    leadOffline: { en: "Sorry, your details couldn't be sent right now (connection problem). Please email LAOYU directly at " + EMAIL + ".", zh: "抱歉，暂时无法发送你的信息（网络问题）。请直接发邮件至 " + EMAIL + "。" },
+    sending:   { en: "Sending…", zh: "正在发送…" },
     cancelled: { en: "No problem, cancelled. Anything else about LAOYU's content?", zh: "好的，已取消。还想了解老鱼的哪些内容？" }
   };
 
@@ -215,33 +225,42 @@
     return (location.pathname.split("/").pop() || "index.html");
   }
 
+  /* Returns a Promise of true (request reached the recorder) or false (offline / blocked / timed out).
+     With no-cors the reply can't be read, but a network failure still rejects. */
   function record(data) {
     data.session = sessionId();
     data.page = pageName();
     data.lang = lang();
     data.hp = "";
     if (window.LAOYU_CHAT_TEST) window.LAOYU_CHAT_TEST.push(data);
-    if (!LOG_URL) return false;
+    if (!LOG_URL || !window.fetch) return Promise.resolve(false);
+    var req;
     try {
-      fetch(LOG_URL, {
+      req = fetch(LOG_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(data)
-      }).catch(function () {});
-    } catch (e) {}
-    return true;
+      }).then(function () { return true; }, function () { return false; });
+    } catch (e) { return Promise.resolve(false); }
+    var timeout = new Promise(function (res) { setTimeout(function () { res(false); }, 8000); });
+    return Promise.race([req, timeout]);
   }
 
   /* ---------------- Matching ---------------- */
 
+  /* Common words that appear in many unrelated questions ("who", "why", "best"...).
+     They only count a little, so one of them alone never triggers an answer. */
+  var GENERIC = ["who", "why", "what", "about", "top", "best", "new", "nice", "great", "watch", "lead", "line", "care", "people",
+    "change", "control", "success", "grow", "stop", "loss", "action", "target", "report", "laoyu", "site", "page", "recommend",
+    "favourite", "favorite", "yourself", "experience", "business", "message", "system", "digital", "theme", "post"];
   function score(entry, text, words) {
     var s = 0;
     entry.kw.forEach(function (k) {
       if (k.indexOf(" ") > -1) {
         if (text.indexOf(k) > -1) s += 3;
       } else if (words.indexOf(k) > -1) {
-        s += k.length > 3 ? 2 : 1.5;
+        s += GENERIC.indexOf(k) > -1 ? 0.5 : (k.length > 3 ? 2 : 1.5);
       }
     });
     entry.zh.forEach(function (k) {
@@ -272,7 +291,7 @@
      lessons. Guided rules, not a live AI model. Future AI backend:
      replace findTools() with a call to your own server endpoint.      */
   var R = function (kind, en, zh, url) { return { k: kind, t: { en: en, zh: zh }, u: url }; };
-  var KIND = { tool: { en: "AI tool", zh: "AI 工具" }, res: { en: "Resource", zh: "资源" }, demo: { en: "AI demo", zh: "AI 演示" }, learn: { en: "Learn", zh: "学习" } };
+  var KIND = { tool: { en: "Tool", zh: "工具" }, res: { en: "Resource", zh: "资源" }, demo: { en: "Simulated demo", zh: "模拟演示" }, learn: { en: "Learn", zh: "学习" } };
   var FINDER = [
     { id: "f_perf", label: { en: "Analyse production performance", zh: "分析生产绩效" }, kw: ["performance", "oee", "output", "yield", "efficiency", "productivity", "kpi", "target"], zh: ["绩效", "产量", "良率", "效率", "达成", "目标", "综合效率"],
       r: [R("tool", "OEE Loss Calculator", "OEE 损失计算器", "oee-loss-calculator.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("demo", "AI Daily Production Report", "AI 每日生产报告", "demo-daily-report.html"), R("tool", "Downtime Analysis Assistant", "停机分析助手", "tool-downtime-analysis.html")] },
@@ -410,13 +429,38 @@
         botSay(function () { return esc(L(UI.askMsg)); }, []);
       });
     } else if (lead.step === "message") {
-      var sent = record({ type: "lead", name: lead.name, email: lead.email, message: text.trim().slice(0, 1000) });
-      var email = lead.email;
-      lead = null;
-      botSay(function () {
-        return esc(sent ? L(UI.leadDone).replace("{email}", email) : L(UI.leadOffline));
-      }, START_CHIPS);
+      if (lead.sending) return; // ignore extra Enter presses while sending
+      lead.sending = true;
+      var email = lead.email, cur2 = lead;
+      var wait = addMsg("bot", '<span class="lyDots"><i></i><i></i><i></i></span>');
+      record({ type: "lead", name: lead.name, email: lead.email, message: text.trim().slice(0, 1000) }).then(function (sent) {
+        if (wait.parentNode) wait.parentNode.removeChild(wait);
+        if (lead === cur2) lead = null;
+        botSay(function () {
+          return esc(sent ? L(UI.leadDone).replace("{email}", email) : L(UI.leadOffline));
+        }, sent ? START_CHIPS : ["contact"], 0);
+      });
     }
+  }
+
+  /* ---------------- Scope guard ----------------
+     Runs before any answer is chosen. Visitor text is treated as data, never as
+     instructions: it can only select one of the fixed answers in this file. */
+  var SCOPE = {
+    inject: [/\b(ignore|disregard|forget|override)\b.{0,40}\b(instruction|instructions|rules|prompt|prompts|guidelines)\b/i,
+      /system prompt|developer mode|jailbreak|\bDAN\b|you are now|act as (a|an|my)\b|pretend (to be|you are|you're)|role ?play|switch (your )?role|new instructions|^\s*(system|assistant)\s*:/i,
+      /<\s*\/?\s*(script|iframe|img|svg|style)\b/i,
+      /忽略.{0,10}(指令|规则|提示)|系统提示|扮演|假装你是|越狱/],
+    out: [/\b(elections?|president|prime minister|politics|political|government|minister|war|military|weather|stock market|stock prices?|share price|buy (\w+ )?(stocks?|shares)|stocks to buy|invest(ing|ment|ments|or)?|crypto|bitcoin|ethereum|forex|lottery|horoscope|medicine|medical|medication|doctor|diagnose|diagnosis|symptoms?|headache|chest pain|disease|covid|pregnant|pregnancy|joke|jokes|movies?|films?|songs?|music|celebrity|singer|actor|actress|taylor swift|football|soccer|nba|recipe|cooking|restaurant|capital of|sky|planet|history of|homework|essay|poem|girlfriend|boyfriend|dating|python|javascript|java|c\+\+|sql|scrape|scraper)\b/i,
+      /选举|总统|总理|政治|政府|战争|天气|股票|股价|投资|比特币|加密货币|外汇|彩票|星座|医生|吃什么药|药物|看病|诊断|症状|头疼|头痛|疾病|怀孕|笑话|电影|歌曲|音乐|明星|足球|篮球|菜谱|做饭|首都|作业|写诗|编程|写代码|爬虫/],
+    unverified: [/\b(prices?|pricing|how much (does|do|is|are|for)|fees?|subscription|subscribe to|refunds?|payment|pay for|discount|coupon|invoice|password|log ?in|sign ?in|forgot (my )?password|my account|delete my (data|account)|phone number|call me|whatsapp|office address|where are you located|mobile app|app store|play store|android|iphone|ios app|certificate|certification|warranty|shipping|delivery fee)\b/i,
+      /价格|多少钱|收费|订阅|退款|付款|支付|优惠券|发票|密码|登录|电话|手机号|办公地址|应用商店|手机应用|证书/]
+  };
+  function scope(text) {
+    if (SCOPE.inject.some(function (r) { return r.test(text); })) return "inject";
+    if (SCOPE.out.some(function (r) { return r.test(text); })) return "out";
+    if (SCOPE.unverified.some(function (r) { return r.test(text); })) return "unverified";
+    return "";
   }
 
   function handle(text, topicId) {
@@ -425,6 +469,14 @@
     addMsg("me", esc(text));
 
     if (lead) { continueLead(text); return; }
+
+    var sc = topicId ? "" : scope(text);
+    if (sc) {
+      record({ type: "chat", question: text.slice(0, 500), topic: sc === "inject" ? "blocked_injection" : sc === "out" ? "out_of_scope" : "unverified", answered: false });
+      if (sc === "unverified") botSay(function () { return esc(L(UI.unverified)); }, ["contact", "website"]);
+      else botSay(function () { return esc(L(UI.fallback)); }, FALLBACK_CHIPS);
+      return;
+    }
 
     if (topicId === "leave_contact") { startLead(); return; }
 

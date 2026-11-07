@@ -380,6 +380,7 @@
     var tip = document.createElement("div");
     tip.className = "tTip";
     tip.setAttribute("role", "tooltip");
+    tip.setAttribute("aria-hidden", "true"); // mouse-hover decoration over the 3D scene; the same topics are in the page text
     stage.appendChild(tip);
     var curKey = null, hideT = null;
 
