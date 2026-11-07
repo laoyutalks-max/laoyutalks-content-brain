@@ -221,3 +221,32 @@ html[data-theme="light"] .hlForm input { background: #fff; }
 .hProbCard i svg { width: 20px; height: 20px; fill: none; stroke: var(--cyan); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .hProbCard:hover i { border-color: var(--orange); }
 .hProbCard:hover i svg { stroke: var(--orange); }
+
+/* ---- Home: free-tool promo, featured tools, TikTok → tool strip (2026-11-07) ---- */
+.hResGrid.hResGrid3 { grid-template-columns: repeat(3, 1fr); }
+.hPromo { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 22px 26px; margin-bottom: 40px;
+  border: 1px solid rgba(255,106,0,.55); background: linear-gradient(100deg, rgba(255,106,0,.12), rgba(4,20,36,.85) 55%); }
+.hpText { display: grid; gap: 4px; max-width: 760px; }
+.hpText small { font: 700 10.5px var(--font-mono); letter-spacing: .14em; color: var(--orange); }
+.hpText b { font: 700 22px var(--font-display); color: #fff; }
+.hpText p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.hPromo .btn { flex: none; white-space: nowrap; }
+.hTik { display: grid; border: 1px solid var(--line); background: rgba(4,20,36,.8); }
+.hTikRow { display: grid; grid-template-columns: 1fr minmax(240px, 34%); align-items: center; gap: 20px; padding: 14px 20px; }
+.hTikRow + .hTikRow { border-top: 1px solid var(--line); }
+.hTikV { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; font: 600 16px/1.4 var(--font-body); }
+.hTikV i { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--cyan); color: var(--cyan); font-style: normal; font-size: 11px; }
+.hTikV:hover span { color: var(--cyan); }
+.hTikT { display: grid; gap: 2px; color: var(--orange); text-decoration: none; font: 600 14.5px var(--font-body); }
+.hTikT small { font: 600 10px var(--font-mono); letter-spacing: .12em; color: var(--muted); }
+.hTikT:hover { color: #fff; }
+@media (max-width: 760px) {
+  .hResGrid.hResGrid3 { grid-template-columns: 1fr; }
+  .hPromo { flex-direction: column; align-items: stretch; padding: 18px 16px; margin-bottom: 32px; }
+  .hPromo .btn { text-align: center; justify-content: center; }
+  .hpText b { font-size: 19px; }
+  .hTikRow { grid-template-columns: 1fr; gap: 8px; padding: 14px 16px; }
+  .hTikT { padding-left: 42px; }
+}
+html[data-theme="light"] .hTik, html[data-theme="light"] .hPromo { background: #fff; border-color: #c9d6e2; }
+html[data-theme="light"] .hTikV, html[data-theme="light"] .hpText b { color: var(--text); }

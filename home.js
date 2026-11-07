@@ -23,7 +23,37 @@
     [["LEVEL 2", "第 2 级"], ["AI Practitioner", "AI 实践"], [[["AI for manufacturing", "制造业中的 AI"], 30], [["AI for data analysis", "用 AI 做数据分析"], 35], [["AI for quality", "质量管理中的 AI"], 30], [["AI for planning", "生产计划中的 AI"], 30], [["AI for reporting", "用 AI 做管理汇报"], 25]]],
     [["LEVEL 3", "第 3 级"], ["AI Transformation", "AI 转型"], [[["AI agents", "AI 智能体"], 40], [["Workflow automation", "流程自动化"], 40], [["Google Apps Script", "Google Apps Script"], 60], [["AppSheet", "AppSheet"], 45], [["AI dashboards", "AI 看板开发"], 60], [["AI-powered operations", "AI 驱动的运营管理"], 45]]]
   ];
-  var FEATURED = ["shift-handover", "production-kpi-dashboard", "oee-loss-calculator", "skills-matrix"];
+  var FEATURED = ["difficult-conversation", "oee-loss-calculator", "shift-handover"];
+  var PROMO = "ai-prompt-pack";
+  /* Recent TikTok videos, each paired with the free tool that helps with the same problem */
+  var CHANNEL = [
+    ["7700187298062781716", ["Same mistake again?", "又犯同样的错误？"], "repeated-mistake-worksheet"],
+    ["7681167224157179157", ["Your best employee still works… but no longer cares?", "最好的员工还在工作，却已不在乎？"], "checklist-quiet-quitting"],
+    ["7699102838835711253", ["A department can be busy every day and still fail its business objectives", "部门每天都很忙，却仍可能达不成业务目标"], "weekly-action-tracker"]
+  ];
+  function res(id) { return D.resources.filter(function (x) { return x.id === id; })[0]; }
+  function signedUp() { var p = profile(); return !!(p && p.email); }
+  function promo() {
+    var r = res(PROMO); if (!r || !$("hPromo")) return;
+    var done = signedUp();
+    $("hPromo").innerHTML =
+      '<div class="hpText"><small>' + T("FREE · ONE-STEP SIGN-UP", "免费 · 一步领取") + "</small>" +
+      "<b>" + esc(L(r.title)) + "</b><p>" + esc(L(r.desc)) + "</p></div>" +
+      '<a class="btn orange" href="' + r.url + '">' + (done ? T("OPEN IT →", "打开 →") : T("GET IT FREE →", "免费领取 →")) + "</a>";
+  }
+  function freeHead() {
+    if (!$("hFreeHead")) return;
+    $("hFreeHead").innerHTML = '<h2 class="hubH">' + T("Free tools", "免费工具") + '</h2><a href="resources.html" data-open-tools>' + T("ALL TOOLS →", "全部工具 →") + "</a>";
+  }
+  function channel() {
+    if (!$("hTik")) return;
+    $("hTikHead").innerHTML = '<h2 class="hubH">' + T("From TikTok", "TikTok 话题") + '</h2><a href="https://www.tiktok.com/@laoyu.talks" target="_blank" rel="noopener noreferrer">' + T("FOLLOW @laoyu.talks ↗", "关注 @laoyu.talks ↗") + "</a>";
+    $("hTik").innerHTML = CHANNEL.map(function (c) {
+      var r = res(c[2]); if (!r) return "";
+      return '<div class="hTikRow"><a class="hTikV" href="https://www.tiktok.com/@laoyu.talks/video/' + c[0] + '" target="_blank" rel="noopener noreferrer"><i aria-hidden="true">▶</i><span>' + esc(L(c[1])) + "</span></a>" +
+        '<a class="hTikT" href="' + r.url + '"><small>' + T("FREE TOOL", "免费工具") + "</small>" + esc(L(r.title)) + " →</a></div>";
+    }).join("");
+  }
 
   function counts() {
     var tools = D.resources.filter(function (r) { return r.type !== "demo"; }).length, demos = D.resources.length - tools;
@@ -97,7 +127,7 @@
     $("hFlow").innerHTML = LAB[lab][1].map(function (n, i) { return '<div class="hNode"><small>' + esc(L(STEP[i])) + "</small><b>" + esc(L(n)) + "</b></div>"; }).join("");
     $("hStack").innerHTML = LAB[lab][2].map(function (s) { return "<span>" + esc(s) + "</span>"; }).join("");
   }
-  function all() { counts(); learn(); labUI(); labCta(); }
+  function all() { counts(); promo(); freeHead(); if ($("hRes")) resources(); channel(); learn(); labUI(); labCta(); }
 
   document.addEventListener("DOMContentLoaded", function () {
     if (!$("hLearn")) return;
