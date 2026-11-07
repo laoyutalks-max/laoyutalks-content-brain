@@ -19,7 +19,7 @@
 .stPos { display: inline-block; font: 700 12px var(--font-mono, monospace); letter-spacing: .14em; color: var(--orange); border: 1px solid rgba(255,122,26,.5); padding: 6px 10px; margin-bottom: 8px; }
 .stHero p { font-size: 19px; line-height: 1.55; color: var(--text); max-width: 600px; margin: 0 0 26px; }
 .stBtns { display: flex; gap: 12px; flex-wrap: wrap; }
-.stLogo { width: 100%; max-width: 440px; justify-self: end; filter: drop-shadow(0 0 22px rgba(53,224,255,.35)); }
+.stLogo { height: auto; width: 100%; max-width: 440px; justify-self: end; filter: drop-shadow(0 0 22px rgba(53,224,255,.35)); }
 
 /* The five principles drawn as a production line (station 01 -> 05) */
 .stLine { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 8px; }
@@ -86,7 +86,7 @@
 
 /* Founder message */
 .stFounder { display: grid; grid-template-columns: 200px 1fr; gap: 34px; padding: 36px !important; }
-.stFounder img { width: 100%; filter: drop-shadow(0 0 14px rgba(53,224,255,.35)); align-self: start; }
+.stFounder img { height: auto; width: 100%; filter: drop-shadow(0 0 14px rgba(53,224,255,.35)); align-self: start; }
 .stFounder blockquote { margin: 0; }
 .stFounder blockquote > strong { display: block; font: 700 clamp(20px, 2.4vw, 26px)/1.4 var(--font-display); color: #fff; margin-bottom: 16px; }
 .stFounder blockquote p { margin: 0 0 12px; font-size: 17px; line-height: 1.65; color: var(--text); }

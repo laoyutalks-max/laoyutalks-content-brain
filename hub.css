@@ -270,3 +270,28 @@ html[data-theme="light"] .hTikV, html[data-theme="light"] .hpText b { color: var
   .nav .logo { width: 88px; }
   .links { gap: 6px; }
 }
+
+/* Logo colour by theme: white logo on dark surfaces, navy logo on light ones.
+   The header stays dark in both themes, so it always uses the white logo. */
+.lgL { display: none !important; }
+html[data-theme="light"] .lgD { display: none !important; }
+html[data-theme="light"] .lgL { display: block !important; filter: none !important; }
+html[data-theme="light"] .foot img.lgL { display: inline-block !important; }
+
+/* ---- Light mode: plain white and clean (2026-11-07) ----
+   The header bar stays dark (brand band with the white logo). */
+html[data-theme="light"] { --bg: #ffffff; --bg-2: #ffffff; }
+html[data-theme="light"],
+html[data-theme="light"] body { background: #ffffff !important; }
+html[data-theme="light"] body::before,
+html[data-theme="light"] body::after,
+html[data-theme="light"] #hudCanvas,
+html[data-theme="light"] .stHero::after { display: none !important; }
+html[data-theme="light"] .section.alt,
+html[data-theme="light"] .resourceBg,
+html[data-theme="light"] .hubBand,
+html[data-theme="light"] .stCta,
+html[data-theme="light"] .footer { background: #ffffff !important; }
+html[data-theme="light"] .footer { border-top: 1px solid #e3e8ee; }
+html[data-theme="light"] .hNode, html[data-theme="light"] .formulaOut, html[data-theme="light"] .toolOut,
+html[data-theme="light"] .kitPrompt pre, html[data-theme="light"] .demoOut pre, html[data-theme="light"] main pre { background: #ffffff !important; border: 1px solid #e3e8ee; }
