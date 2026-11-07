@@ -503,6 +503,8 @@
     "COMING SOON": "即将推出",
     "Making AI Practical for Everyday Work.": "让 AI 真正用于日常工作。",
     "ASK LAOYU →": "问老鱼 →",
+    "OUR STORY": "品牌故事",
+    "Our Story | LAOYU": "品牌故事 | LAOYU 老鱼",
     "Page not found | LAOYU": "页面不存在 | LAOYU 老鱼",
     "ERROR 404": "错误 404",
     "Page not found.": "页面不存在。",

@@ -1,0 +1,132 @@
+/* =========================================================
+   LAOYUTALKS — Our Story page (about.html)
+   Reuses the site tokens (styles.css :root) and panel corners.
+   ========================================================= */
+.story section { padding: 72px 0 0; }
+.story .wrap > h2, .stH { font: 700 clamp(24px, 3vw, 34px)/1.2 var(--font-display); color: #fff; margin: 10px 0 14px; text-transform: none; }
+.stLead { max-width: 760px; color: var(--text); font-size: 18px; line-height: 1.6; margin: 0 0 26px; }
+.stKick { font: 700 11px var(--font-mono, monospace); letter-spacing: .16em; color: var(--cyan); text-transform: uppercase; }
+
+/* Hero */
+.stHero { position: relative; padding: 84px 0 40px !important; overflow: hidden; }
+.stHero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 55% 70% at 80% 40%, rgba(53,224,255,.10), transparent 70%),
+              linear-gradient(rgba(53,224,255,.05) 1px, transparent 1px) 0 0 / 40px 40px,
+              linear-gradient(90deg, rgba(53,224,255,.05) 1px, transparent 1px) 0 0 / 40px 40px; }
+.stHeroIn { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+.stHero h1 { font: 700 clamp(34px, 4.6vw, 58px)/1.08 var(--font-display); margin: 14px 0 16px; color: #fff; }
+.stHero h1 em { font-style: normal; color: var(--cyan); }
+.stPos { display: inline-block; font: 700 12px var(--font-mono, monospace); letter-spacing: .14em; color: var(--orange); border: 1px solid rgba(255,122,26,.5); padding: 6px 10px; margin-bottom: 8px; }
+.stHero p { font-size: 19px; line-height: 1.55; color: var(--text); max-width: 600px; margin: 0 0 26px; }
+.stBtns { display: flex; gap: 12px; flex-wrap: wrap; }
+.stLogo { width: 100%; max-width: 440px; justify-self: end; filter: drop-shadow(0 0 22px rgba(53,224,255,.35)); }
+
+/* The five principles drawn as a production line (station 01 -> 05) */
+.stLine { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 8px; }
+.stLine::before { content: ""; position: absolute; left: 4%; right: 4%; top: 46px; height: 6px;
+  background: repeating-linear-gradient(90deg, rgba(53,224,255,.55) 0 14px, transparent 14px 22px); opacity: .55; }
+.stSt { position: relative; z-index: 1; padding: 0 4px; }
+.stSt i { display: grid; place-items: center; width: 92px; height: 92px; margin-bottom: 14px; font: 700 22px var(--font-display); font-style: normal; color: var(--cyan);
+  background: var(--panel-solid); border: 1px solid var(--line-strong); box-shadow: var(--glow); clip-path: polygon(14% 0, 100% 0, 100% 86%, 86% 100%, 0 100%, 0 14%); }
+.stSt:nth-child(5) i { color: var(--orange); border-color: rgba(255,122,26,.7); box-shadow: var(--glow-orange); }
+.stSt b { display: block; font: 700 16px var(--font-display); letter-spacing: .1em; color: #fff; }
+.stSt p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; color: var(--muted); }
+
+/* Problem -> bridge */
+.stProb { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 6px 0 22px; }
+.stProb div { padding: 14px 14px 16px; border: 1px solid var(--line); background: rgba(4,20,36,.7); font-size: 15.5px; line-height: 1.45; color: var(--text); }
+.stProb div::before { content: "!"; display: block; font: 700 13px var(--font-mono, monospace); color: var(--orange); margin-bottom: 6px; }
+.stBridge { font: 600 20px/1.5 var(--font-body); color: #fff; border-left: 3px solid var(--orange); padding: 4px 0 4px 16px; max-width: 820px; }
+.stBridge span { color: var(--cyan); }
+
+/* Vision / mission */
+.stVM { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.stVM .panel { padding: 30px; }
+.stVM .panel h3 { font: 700 13px var(--font-mono, monospace); letter-spacing: .16em; color: var(--cyan); margin: 0 0 10px; text-transform: uppercase; }
+.stVM .panel strong { display: block; font: 700 22px/1.35 var(--font-display); color: #fff; margin-bottom: 10px; }
+.stVM .panel p { margin: 0; color: var(--muted); font-size: 16.5px; line-height: 1.55; }
+.stBeliefs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.stBeliefs span { font: 600 14px var(--font-body); color: var(--text); border: 1px solid var(--line); padding: 7px 12px; background: rgba(4,20,36,.6); }
+.stBeliefs span b { color: var(--cyan); font-weight: 700; }
+
+/* Content pillars */
+.stPil { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.stPil.four { grid-template-columns: repeat(4, 1fr); }
+.stPil a { display: block; padding: 18px; border: 1px solid var(--line); background: rgba(4,20,36,.8); text-decoration: none; transition: border-color .2s, transform .2s; }
+.stPil a:hover { border-color: var(--cyan); transform: translateY(-3px); }
+.stPil small { font: 700 11px var(--font-mono, monospace); letter-spacing: .12em; color: var(--orange); }
+.stPil b { display: block; font: 700 17px var(--font-display); color: #fff; margin: 6px 0; }
+.stPil em { font-style: normal; font-size: 15px; line-height: 1.45; color: var(--muted); }
+
+/* What you get: available now vs coming */
+.stGet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.stGet a, .stGet div { display: grid; gap: 4px; padding: 16px; border: 1px solid var(--line); background: rgba(4,20,36,.8); text-decoration: none; color: #fff; font: 700 16px var(--font-body); }
+.stGet a:hover { border-color: var(--cyan); }
+.stGet small { font: 700 10.5px var(--font-mono, monospace); letter-spacing: .12em; }
+.stGet .now small { color: #3ddc97; }
+.stGet .soon { opacity: .75; border-style: dashed; }
+.stGet .soon small { color: var(--amber, #ffb020); }
+.stLearn { margin-top: 18px; font-size: 18px; color: var(--text); }
+.stLearn b { color: var(--cyan); }
+
+/* Roadmap */
+.stRoad { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-top: 30px; }
+.stRoad::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 2px; background: linear-gradient(90deg, var(--cyan) 0 30%, rgba(53,224,255,.25) 30%); }
+.stPh { position: relative; padding: 18px; border: 1px solid var(--line); background: rgba(4,20,36,.8); }
+.stPh::before { content: ""; position: absolute; top: -27px; left: 16px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--line-strong); }
+.stPh.now { border-color: var(--cyan); box-shadow: var(--glow); }
+.stPh.now::before { background: var(--cyan); border-color: var(--cyan); box-shadow: var(--glow); }
+.stPh.started::before { background: linear-gradient(90deg, var(--cyan) 50%, var(--bg) 50%); border-color: var(--cyan); }
+.stPh small { font: 700 10.5px var(--font-mono, monospace); letter-spacing: .12em; color: var(--muted); }
+.stPh.now small { color: var(--cyan); }
+.stPh.started small { color: #8eeeff; }
+.stPh b { display: block; font: 700 17px var(--font-display); color: #fff; margin: 6px 0; }
+.stPh p { margin: 0; font-size: 15px; line-height: 1.45; color: var(--muted); }
+.stNote { margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+/* Founder message */
+.stFounder { display: grid; grid-template-columns: 200px 1fr; gap: 34px; padding: 36px !important; }
+.stFounder img { width: 100%; filter: drop-shadow(0 0 14px rgba(53,224,255,.35)); align-self: start; }
+.stFounder blockquote { margin: 0; }
+.stFounder blockquote > strong { display: block; font: 700 clamp(20px, 2.4vw, 26px)/1.4 var(--font-display); color: #fff; margin-bottom: 16px; }
+.stFounder blockquote p { margin: 0 0 12px; font-size: 17px; line-height: 1.65; color: var(--text); }
+.stFounder cite { display: block; margin-top: 16px; font: 700 15px var(--font-display); font-style: normal; color: var(--orange); letter-spacing: .08em; }
+
+/* Closing CTA */
+.stCta { margin: 72px 0 0; padding: 44px 0; border-top: 1px solid var(--line); background: radial-gradient(ellipse 50% 100% at 80% 50%, rgba(255,122,26,.10), transparent 70%); }
+.stCta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.stCta h2 { margin: 0; font: 700 clamp(22px, 2.8vw, 32px) var(--font-display); color: #fff; text-transform: none; }
+
+/* Home strip (option B) */
+.whyStrip { padding: 26px 0 0; }
+.whyStrip .wrap { display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center; padding: 20px 24px; border: 1px solid var(--line); background: rgba(4,20,36,.8); }
+.whyStrip p { margin: 0; font-size: 17px; color: var(--text); }
+.whyStrip ol { list-style: none; display: flex; gap: 6px; padding: 0; margin: 8px 0 0; flex-wrap: wrap; }
+.whyStrip li { font: 700 11.5px var(--font-mono, monospace); letter-spacing: .12em; color: var(--cyan); border: 1px solid var(--line); padding: 4px 8px; }
+.whyStrip li:last-child { color: var(--orange); border-color: rgba(255,122,26,.5); }
+.whyStrip a.btn { white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .stHeroIn { grid-template-columns: 1fr; }
+  .stLogo { justify-self: start; max-width: 300px; order: -1; }
+  .stLine, .stProb, .stPil, .stPil.four, .stGet { grid-template-columns: 1fr 1fr; }
+  .stLine::before { display: none; }
+  .stRoad { grid-template-columns: 1fr 1fr; }
+  .stRoad::before { display: none; }
+  .stPh::before { display: none; }
+}
+@media (max-width: 600px) {
+  .story section { padding-top: 54px; }
+  .stHero { padding-top: 48px !important; }
+  .stLine { grid-template-columns: 1fr; gap: 10px; }
+  .stSt { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
+  .stSt i { width: 64px; height: 64px; margin: 0; font-size: 17px; }
+  .stSt p { margin-top: 2px; }
+  .stProb, .stPil, .stPil.four, .stGet, .stRoad, .stVM { grid-template-columns: 1fr; }
+  .stFounder { grid-template-columns: 1fr; gap: 16px; padding: 22px !important; }
+  .stFounder img { max-width: 180px; }
+  .whyStrip .wrap { grid-template-columns: 1fr; }
+}
+html[data-theme="light"] .stHero h1, html[data-theme="light"] .stH, html[data-theme="light"] .stSt b, html[data-theme="light"] .stPil b,
+html[data-theme="light"] .stPh b, html[data-theme="light"] .stVM .panel strong, html[data-theme="light"] .stFounder blockquote > strong,
+html[data-theme="light"] .stCta h2, html[data-theme="light"] .stBridge, html[data-theme="light"] .stGet a, html[data-theme="light"] .stGet div { color: var(--text); }
