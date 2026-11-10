@@ -1,0 +1,11 @@
+# Agent scratch: logs, test results, issue list (never public)
+.agent-work/
+.claude/settings.local.json
+__pycache__/
+*.pyc
+
+# Private files that must never be published
+JARVIS*.html
+.env*
+*.pem
+*.key
