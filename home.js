@@ -33,6 +33,8 @@
   ];
   function res(id) { return D.resources.filter(function (x) { return x.id === id; })[0]; }
   function signedUp() { var p = profile(); return !!(p && p.email); }
+  /* Says up front whether a tool asks for the one-time sign-up */
+  function gateTag(r) { return r.type === "demo" ? T(" · NO SIGN-UP", " · 免注册") : signedUp() ? "" : T(" · ONE-TIME SIGN-UP", " · 一次注册"); }
   function promo() {
     var r = res(PROMO); if (!r || !$("hPromo")) return;
     var done = signedUp();
@@ -51,7 +53,7 @@
     $("hTik").innerHTML = CHANNEL.map(function (c) {
       var r = res(c[2]); if (!r) return "";
       return '<div class="hTikRow"><a class="hTikV" href="https://www.tiktok.com/@laoyu.talks/video/' + c[0] + '" target="_blank" rel="noopener noreferrer"><i aria-hidden="true">▶</i><span>' + esc(L(c[1])) + "</span></a>" +
-        '<a class="hTikT" href="' + r.url + '"><small>' + T("FREE TOOL", "免费工具") + "</small>" + esc(L(r.title)) + " →</a></div>";
+        '<a class="hTikT" href="' + r.url + '"><small>' + T("FREE TOOL", "免费工具") + gateTag(r) + "</small>" + esc(L(r.title)) + " →</a></div>";
     }).join("");
   }
 
@@ -92,7 +94,7 @@
   function resources() {
     $("hRes").innerHTML = FEATURED.map(function (id) {
       var r = D.resources.filter(function (x) { return x.id === id; })[0]; if (!r) return "";
-      return '<a class="hRes" href="' + r.url + '"><span class="hShot"><img src="assets/previews/' + r.id + "-" + (zh() ? "zh" : "en") + '.jpg" alt="" loading="lazy" width="680" height="427"></span><span class="hResB"><small>' + esc(L(D.types[r.type])) + "</small><b>" + esc(L(r.title)) + "</b><em>" + esc(L(r.problem)) + "</em></span></a>";
+      return '<a class="hRes" href="' + r.url + '"><span class="hShot"><img src="assets/previews/' + r.id + "-" + (zh() ? "zh" : "en") + '.jpg" alt="" loading="lazy" width="680" height="427"></span><span class="hResB"><small>' + esc(L(D.types[r.type])) + gateTag(r) + "</small><b>" + esc(L(r.title)) + "</b><em>" + esc(L(r.problem)) + "</em></span></a>";
     }).join("");
   }
   function profile() { try { return JSON.parse(localStorage.getItem("laoyuProfile") || "null"); } catch (e) { return null; } }

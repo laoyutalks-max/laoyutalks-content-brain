@@ -398,6 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }, { threshold: 0.12 });
       targets.forEach(function (el, n) {
+        if (el.getBoundingClientRect().top < window.innerHeight) return; // already on screen: show at once
         el.classList.add("reveal");
         el.style.transitionDelay = (n % 5) * 70 + "ms";
         io.observe(el);

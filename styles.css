@@ -2124,3 +2124,17 @@ html:not([data-lang="zh"]) .gpImg img.zh, html[data-lang="zh"] .gpImg img.en { d
   .gpProb { font-size: 15px; margin-top: 12px; }
 }
 html:not(.isUnlocked) .resWrap:has(> .gateRow) { max-width: 1080px; }
+
+/* contact form */
+.ctForm { display: grid; gap: 6px; max-width: 520px; margin: 14px 0 6px; }
+.ctForm label { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.ctForm input:not(.gateHp), .ctForm select, .ctForm textarea {
+  width: 100%; box-sizing: border-box; background: rgba(2, 10, 20, .75); color: var(--text);
+  border: 1px solid var(--line-strong); padding: 11px 12px; font: 16px var(--font-body); border-radius: 0;
+}
+.ctForm textarea { resize: vertical; min-height: 120px; }
+.ctForm input:focus, .ctForm select:focus, .ctForm textarea:focus { outline: 2px solid var(--cyan); outline-offset: 1px; }
+.ctForm .btn { justify-self: start; margin-top: 12px; }
+.ctDone { color: var(--cyan); font-weight: 600; }
+.ctAlt { font-size: 14px; color: var(--muted); }
+.ctAlt a { color: var(--orange); font-weight: 700; }

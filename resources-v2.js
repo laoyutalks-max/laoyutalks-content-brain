@@ -153,6 +153,10 @@
 
     document.querySelectorAll("[data-n-tools]").forEach(function (el) { el.textContent = tools; });
     document.querySelectorAll("[data-n-demos]").forEach(function (el) { el.textContent = demos; });
+    /* Same totals as the Tools drawer: every ready tool, and how many open with no sign-up */
+    var aiLive = (D.aitools || []).filter(function (t) { return t.status === "live"; }).length;
+    document.querySelectorAll("[data-n-all]").forEach(function (el) { el.textContent = D.resources.length + aiLive; });
+    document.querySelectorAll("[data-n-open]").forEach(function (el) { el.textContent = demos + aiLive; });
     function ph() {
       search.placeholder = T("Search a tool or a problem, e.g. downtime, handover, OEE", "搜索工具或问题，如：停机、交接班、OEE");
       search2.placeholder = T("Search resources", "搜索资源");

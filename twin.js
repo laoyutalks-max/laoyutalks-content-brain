@@ -94,18 +94,12 @@
     if (clockSpan) strip.appendChild(clockSpan);
   }
 
-  /* ---------- Sub-page hero: blueprint floor + mini production line ---------- */
+  /* ---------- Sub-page hero: blueprint floor ---------- */
   function subHero() {
     if ($(".tHero")) return;
     var h = $("main > .hero, main > section.hero, .resHero");
     if (!h) return;
     h.classList.add("subHero");
-    var w = h.querySelector(".wrap") || h;
-    var line = document.createElement("div");
-    line.className = "miniLine";
-    line.setAttribute("aria-hidden", "true");
-    line.innerHTML = "<i></i><i></i><i></i><i></i><b></b>";
-    w.appendChild(line);
   }
 
   /* ---------- Reveal on scroll ---------- */
@@ -119,6 +113,7 @@
     }, { threshold: 0.12 });
     els.forEach(function (el, i) {
       el.classList.remove("reveal");
+      if (el.getBoundingClientRect().top < window.innerHeight) return; // already on screen: show at once
       el.classList.add("rv");
       el.style.transitionDelay = (i % 5) * 80 + "ms";
       io.observe(el);
