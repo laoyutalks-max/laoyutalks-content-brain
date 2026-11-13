@@ -28,7 +28,7 @@ html[data-lang="zh"] .toolOut { font-family: "Noto Sans SC", var(--font-mono); }
 .dtChecks li.ok label { color: #9fbfae; text-decoration: line-through; text-decoration-color: rgba(61,255,162,.5); }
 .dtChecks label { display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; cursor: pointer; font-size: 15.5px; color: #e3f3fb; }
 .dtChecks label::before { content: counter(ck); font: 700 13px var(--font-mono); color: var(--orange); min-width: 16px; padding-top: 2px; }
-.dtCat { font: 700 10px/1 var(--font-mono); letter-spacing: .12em; color: #021322; background: var(--cyan); padding: 5px 6px; margin-top: 1px; white-space: nowrap; text-transform: uppercase; }
+.dtCat { font: 700 12px/1 var(--font-mono); letter-spacing: .12em; color: #021322; background: var(--cyan); padding: 5px 6px; margin-top: 1px; white-space: nowrap; text-transform: uppercase; }
 .dtCols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .dtCols > div { border: 1px solid var(--line); padding: 14px 16px; background: rgba(4,20,36,.55); }
 .dtCols h3 { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin: 0 0 8px; }
@@ -58,7 +58,7 @@ html[data-lang="zh"] .toolOut { font-family: "Noto Sans SC", var(--font-mono); }
 .oeWarn { color: var(--amber); font-size: 15px; }
 .oeLoss { display: grid; gap: 10px; }
 .oeRow { display: grid; grid-template-columns: 260px 1fr 60px; gap: 12px; align-items: center; font-size: 15px; color: #cfe4f0; }
-.oeRow em { font-style: normal; font: 600 10.5px var(--font-mono); letter-spacing: .1em; color: var(--muted); margin-left: 6px; text-transform: uppercase; }
+.oeRow em { font-style: normal; font: 600 12px var(--font-mono); letter-spacing: .1em; color: var(--muted); margin-left: 6px; text-transform: uppercase; }
 .oeRow i { height: 12px; background: rgba(255,122,26,.1); }
 .oeRow i b { display: block; height: 100%; background: rgba(255,122,26,.55); transition: width .5s; }
 .oeRow > b { font: 700 17px var(--font-display); color: #fff; text-align: right; }
@@ -77,8 +77,8 @@ html[data-lang="zh"] .toolOut { font-family: "Noto Sans SC", var(--font-mono); }
 .fbSvg .bt { fill: var(--cyan); font: 700 15px var(--font-display); }
 .fbSvg .cl { stroke: rgba(53,224,255,.45); stroke-width: 1.2; }
 .fbSvg .cs { stroke: var(--orange); stroke-width: 2; }
-.fbSvg .ct { fill: #cfe4f0; font: 500 11.5px var(--font-body); }
-.fbSvg .ctS { fill: var(--orange); font: 700 11.5px var(--font-body); }
+.fbSvg .ct { fill: #cfe4f0; font: 500 12px var(--font-body); }
+.fbSvg .ctS { fill: var(--orange); font: 700 12px var(--font-body); }
 .fbHead { color: #fff; font: 600 13px/1.3 var(--font-body); height: 100%; display: flex; align-items: center; overflow: hidden; }
 .fbBones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .fbBone { border: 1px solid var(--line); padding: 14px; background: rgba(4,20,36,.6); }
@@ -97,7 +97,7 @@ html[data-lang="zh"] .toolOut { font-family: "Noto Sans SC", var(--font-mono); }
 .fbAdd .btn { padding: 8px 14px; cursor: pointer; }
 .whyChain { display: grid; gap: 8px; margin: 14px 0; position: relative; }
 .whyStart { border: 1px solid var(--orange); padding: 12px 14px; color: #fff; font-weight: 600; background: rgba(255,122,26,.1); }
-.whyStart span { display: block; font: 700 10.5px var(--font-mono); letter-spacing: .14em; color: var(--orange); text-transform: uppercase; margin-bottom: 4px; }
+.whyStart span { display: block; font: 700 12px var(--font-mono); letter-spacing: .14em; color: var(--orange); text-transform: uppercase; margin-bottom: 4px; }
 .whyStep { display: grid; grid-template-columns: 90px 1fr; gap: 10px; align-items: center; padding-left: 18px; border-left: 2px dashed var(--line-strong); margin-left: 12px; }
 .whyStep label { font: 700 12px var(--font-mono); letter-spacing: .1em; color: var(--cyan); text-transform: uppercase; }
 .fbFix { margin-top: 10px; }
@@ -111,7 +111,7 @@ html[data-lang="zh"] .toolOut { font-family: "Noto Sans SC", var(--font-mono); }
 .d8Nav { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; }
 .d8Nav a { border: 1px solid var(--line); padding: 6px 4px; text-align: center; display: grid; gap: 2px; text-decoration: none; }
 .d8Nav a b { font: 700 13px var(--font-display); color: #fff; }
-.d8Nav a span { font: 600 10px var(--font-mono); color: var(--muted); }
+.d8Nav a span { font: 600 12px var(--font-mono); color: var(--muted); }
 .d8Nav a.warn { border-color: rgba(255,176,32,.6); } .d8Nav a.warn span { color: var(--amber); }
 .d8Nav a.ok { border-color: rgba(61,255,162,.6); background: rgba(61,255,162,.08); } .d8Nav a.ok span { color: var(--ok); }
 .d8 { scroll-margin-top: 190px; }
@@ -144,7 +144,7 @@ th:hover > .smX, td:hover > .smX, .smX:focus-visible { opacity: 1; }
 .pie.p0 { --p: 0%; border-color: rgba(53,224,255,.3); } .pie.p1 { --p: 25%; } .pie.p2 { --p: 50%; } .pie.p3 { --p: 75%; border-color: var(--ok); background: conic-gradient(var(--ok) 75%, transparent 0); } .pie.p4 { --p: 100%; border-color: var(--ok); background: var(--ok); box-shadow: 0 0 10px rgba(61,255,162,.6); }
 .smSum { font: 600 13px var(--font-mono); color: var(--muted); }
 .smSum b { color: #fff; font-size: 16px; }
-.smFoot th { font: 600 11px var(--font-mono) !important; letter-spacing: .08em; color: var(--muted) !important; text-transform: uppercase; }
+.smFoot th { font: 600 12px var(--font-mono) !important; letter-spacing: .08em; color: var(--muted) !important; text-transform: uppercase; }
 .smFoot td { font: 600 13px var(--font-mono); }
 .smFoot td b { font-size: 17px; }
 .smFoot td.bad { background: rgba(255,107,74,.15); color: #ff8f75; }
