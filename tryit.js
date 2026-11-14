@@ -185,9 +185,11 @@
   function ppCopy(btn) {
     var out = $("ppOut"), text = out && out._text; if (!text) return;
     var done = function (ok) {
-      btn.textContent = ok ? T("COPIED ✓", "已复制 ✓") : T("SELECT AND COPY", "请手动选择复制");
+      btn.textContent = ok ? T("COPIED! ✓", "已复制！✓") : T("SELECT AND COPY", "请手动选择复制");
+      btn.setAttribute("data-state", ok ? "ok" : "err");
       if (!ok) { var pre = $("ppPre"), r = document.createRange(); r.selectNodeContents(pre); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
-      setTimeout(function () { if (btn.isConnected) btn.textContent = T("COPY", "复制"); }, 2000);
+      clearTimeout(btn._t);
+      btn._t = setTimeout(function () { btn.removeAttribute("data-state"); if (btn.isConnected) btn.textContent = T("COPY", "复制"); }, 2000);
     };
     try { navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(false); }); }
     catch (e) { done(false); }
