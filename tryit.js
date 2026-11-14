@@ -170,7 +170,8 @@
     if (pp.busy) return;
     var ta = $("ppIn"); pp.draft = ta.value;
     if (!pp.draft.trim()) { pp.ran = false; $("ppOut").hidden = true; ppErr(T("Paste or type a draft prompt first.", "请先粘贴或输入一条提示词草稿。")); ta.focus(); return; }
-    if (pp.draft.trim().length < 8) { pp.ran = false; $("ppOut").hidden = true; ppErr(T("That is too short to check. Write at least a few words.", "内容太短，无法检查。请至少写几个词。")); ta.focus(); return; }
+    /* Chinese says more per character, so it needs fewer of them */
+    if (pp.draft.trim().length < (/[一-鿿]/.test(pp.draft) ? 4 : 8)) { pp.ran = false; $("ppOut").hidden = true; ppErr(T("That is too short to check. Write at least a few words.", "内容太短，无法检查。请至少写几个词。")); ta.focus(); return; }
     ppErr("");
     var btn = $("hPp").querySelector("[data-pp-run]");
     pp.busy = true; btn.disabled = true; btn.textContent = T("CHECKING…", "正在检查…");

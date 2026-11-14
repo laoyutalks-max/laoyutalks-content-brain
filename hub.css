@@ -447,3 +447,4 @@ html[data-theme="light"] .oqGauge .g0 { stroke: #dbe3ea; }
 html[data-theme="light"] .oqBars i { background: #dbe3ea; }
 html[data-theme="light"] .ppPre { background: #f3f6f9 !important; border-left: 3px solid var(--orange) !important; }
 html[data-theme="light"] .ppPre mark { background: #ffe7d6; color: #8a2f08; }
+@media (max-width: 760px) { .tryAct .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; } .tryMore { display: block; padding: 12px 0; margin: -6px 0; } }
