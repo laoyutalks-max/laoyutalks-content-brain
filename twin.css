@@ -424,7 +424,7 @@ html[data-lang="zh"] .tStage.is3d::after { content: "拖动旋转 · 鼠标移�
 /* =========================================================
    TOOL CRIB — Resources page (Phase 1)
    ========================================================= */
-html:not([data-lang="zh"]) .resLib .zh, html[data-lang="zh"] .resLib .en { display: none !important; }
+html:not([data-bi]):not([data-lang="zh"]) .resLib .zh, html:not([data-bi])[data-lang="zh"] .resLib .en { display: none !important; }
 .resLib .subHero { padding-bottom: 40px !important; }
 
 /* pass banner */

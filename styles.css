@@ -1939,8 +1939,8 @@ html[data-lang="zh"] .hero h1 span { white-space: nowrap; }
 /* =========================================================
    FREE RESOURCE PAGES (checklist, prompt pack, sign-up gate)
    ========================================================= */
-html:not([data-lang="zh"]) .resPage .zh,
-html[data-lang="zh"] .resPage .en { display: none !important; }
+html:not([data-bi]):not([data-lang="zh"]) .resPage .zh,
+html:not([data-bi])[data-lang="zh"] .resPage .en { display: none !important; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 .resHero { padding-bottom: 24px; }
@@ -2138,3 +2138,42 @@ html:not(.isUnlocked) .resWrap:has(> .gateRow) { max-width: 1080px; }
 .ctDone { color: var(--cyan); font-weight: 600; }
 .ctAlt { font-size: 14px; color: var(--muted); }
 .ctAlt a { color: var(--orange); font-weight: 700; }
+
+/* =========================================================
+   BILINGUAL MODE (html[data-bi]) + COPY / CSV BUTTONS (ux.js)
+   ========================================================= */
+/* three-way language switch: keep the header compact on small screens
+   by showing one button that steps EN -> 中文 -> EN+中 */
+@media (max-width: 600px) {
+  .langToggle button { display: none; }
+  .langToggle button.next { display: block; }
+}
+.langToggle button:focus-visible, .themeToggle:focus-visible, .uxBtn:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+/* paired labels inside one element: English first, Chinese under it */
+html[data-bi] :is(.resPage, .resLib) span.en + span.zh { display: block; font-size: .88em; opacity: .85; letter-spacing: .02em; }
+html[data-bi] :is(.resPage, .resLib) :is(button, .btn, th, label, summary, option, small, dt, .sr) > span.en + span.zh { display: inline; font-size: inherit; opacity: 1; }
+html[data-bi] :is(.resPage, .resLib) :is(button, .btn, th, label, summary, small, dt) > span.en + span.zh::before { content: " · "; }
+html[data-bi] :is(.resPage, .resLib) :is(p, pre, li, div).en + .zh { margin-top: 6px; }
+
+/* copy button above prompt / template blocks, CSV button under tables */
+.uxCopyBar, .uxCsvBar { display: flex; justify-content: flex-end; }
+.uxCopyBar { margin: 8px 0 -4px; }
+.uxCsvBar { margin: 8px 0 4px; }
+.uxCopyBar:has(+ pre:empty) { display: none; }
+html:not([data-bi]) .uxCopyBar.dup, .uxCopyBar.dup:not(.en):not(.zh) { display: none; }
+.uxBtn {
+  cursor: pointer; min-height: 32px; padding: 6px 12px; background: transparent;
+  border: 1px solid var(--line-strong); color: var(--cyan);
+  font: 700 12px/1 var(--font-display); letter-spacing: .1em;
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+}
+.uxBtn:hover { background: rgba(53, 224, 255, .1); }
+.uxBtn[data-state="ok"] { color: #2fd98a; border-color: #2fd98a; }
+.uxBtn[data-state="err"] { color: #ff7a6b; border-color: #ff7a6b; }
+html[data-theme="light"] .uxBtn[data-state="ok"] { color: #0a7d4f; border-color: #0a7d4f; }
+html[data-theme="light"] .uxBtn[data-state="err"] { color: #b3261e; border-color: #b3261e; }
+html[data-lang="zh"] .uxBtn { letter-spacing: .04em; font-size: 13px; }
+@media (max-width: 760px) { .uxBtn { min-height: 44px; padding: 10px 14px; } }
+@media (prefers-reduced-motion: reduce) { .uxBtn { transition: none; } }
+@media print { .uxCopyBar, .uxCsvBar { display: none !important; } }
