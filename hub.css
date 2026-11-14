@@ -311,3 +311,61 @@ html[data-theme="light"] .kitPrompt pre, html[data-theme="light"] .demoOut pre, 
   .hTikV, .hTikT { min-height: 44px; }
   .hubHead a { padding: 13px 0; }
 }
+
+/* ---- Light mode: readable contrast (2026-11-14) ----
+   Accent colours are darkened on white so text reaches 4.5:1.
+   The dark bands (header, homepage hero) keep the bright brand accents. */
+html[data-theme="light"] {
+  --cyan: #0b7285; --cyan-soft: #0b6678;
+  --orange: #c2410c; --ok: #0a7d4f; --amber: #8f5300;
+  --glow: none; --glow-orange: none;
+}
+html[data-theme="light"] .nav .links, html[data-theme="light"] .nav .brand, html[data-theme="light"] .hubHero, html[data-theme="light"] .gpImg, html[data-theme="light"] .fbSvg {
+  --cyan: #35e0ff; --cyan-soft: #8eeeff; --orange: #ff7a1a; --ok: #3dffa2; --amber: #ffb020;
+}
+html[data-theme="light"] .orange { background: linear-gradient(135deg, #c2410c, #a8370a) !important; border-color: #c2410c; box-shadow: none; }
+html[data-theme="light"] .orange:hover { background: linear-gradient(135deg, #d9500f, #c2410c) !important; box-shadow: 0 4px 14px rgba(194,65,12,.3); }
+/* No neon glow on white */
+html[data-theme="light"] main :is(h1, h2, h3, h1 span, h2 span, .eyebrow, b, strong, small, i):not(.hubHero *) { text-shadow: none !important; }
+/* Soften the join between the dark hero and the white page */
+html[data-theme="light"] .hubHero { border-bottom: 3px solid; border-image: linear-gradient(90deg, #35e0ff, #ff7a1a) 1; }
+/* Resources page */
+html[data-theme="light"] .rlStats b { color: var(--text); }
+html[data-theme="light"] .bLv { color: #33424f; }
+html[data-theme="light"] .bLv.lv-intermediate { color: var(--amber); border-color: rgba(143,83,0,.5); }
+html[data-theme="light"] .bLv.lv-advanced { color: #b3261e; border-color: rgba(179,38,30,.5); }
+html[data-theme="light"] .bFree, html[data-theme="light"] .pass.on .passStat span { border-color: rgba(10,125,79,.5); }
+html[data-theme="light"] .path header p { color: #33424f; }
+html[data-theme="light"] .rlQuick button:hover { color: var(--text); }
+html[data-theme="light"] .hTikT:hover { color: var(--text); }
+/* Preview screenshots are dark: frame them on white cards */
+html[data-theme="light"] .rShot { border: 1px solid #c9d6e2; }
+/* Our Story: cards that kept a dark fill */
+html[data-theme="light"] :is(.stProb div, .stBeliefs span, .stPil a, .stGet a, .stGet div, .stPh, .whyStrip .wrap) { background: #fff; border-color: #c9d6e2; }
+html[data-theme="light"] .stPh::before { background: #fff; }
+html[data-theme="light"] .stPh.started small { color: var(--cyan); }
+/* Dark ink on the cyan fill no longer passes once cyan is darkened */
+html[data-theme="light"] :is(.rType, .pN, .atPill.p-exist) { color: #fff; }
+/* Demo pages */
+html[data-theme="light"] .simBanner { color: #33424f; background: #fff4ea; }
+html[data-theme="light"] .kitPath { background: linear-gradient(120deg, #fff4ea, #fff); }
+html[data-theme="light"] .kitPath li a, html[data-theme="light"] .kitPath li span { color: #33424f; }
+html[data-theme="light"] .kitPath li.cur span { color: var(--text); background: #ffe7d6; }
+html[data-theme="light"] .fb button.fbBtn, html[data-theme="light"] .fb button.fbBtn.on { color: var(--text); }
+/* 404 page uses inline dark-theme colours */
+html[data-theme="light"] main p[style*="#cbdbea"] { color: var(--muted) !important; }
+html[data-theme="light"] .footer b[style*="#ff6a00"] { color: var(--orange) !important; }
+/* Tool pages: status colours and white ink tuned for white backgrounds */
+html[data-theme="light"] :is(.scoreBand.bad b, .atChip.bad b, .atChip.sev-high b, .dCard.bad b, .dTable td.badCell, .dKpis .bad b, .actions tr.late td:first-child, .actions tr.late input[type=date], .rowDel:hover, .gapCell.neg, .oeBig.bad b, .fbDel:hover, .dmBar.ko em) { color: #b3261e; }
+html[data-theme="light"] select.stat:has(option[value="act"]:checked) { color: #b3261e; border-color: #b3261e; }
+html[data-theme="light"] :is(.scoreBand.ok b, .hubH small.ok, .hlDone, .sbFree, .sbCount, .stGet .now small, .atChip.ok b, .gapCell.pos, .dCard.ok b) { color: var(--ok); }
+html[data-theme="light"] select.stat:has(option[value="ok"]:checked) { color: var(--ok); border-color: var(--ok); }
+html[data-theme="light"] :is(.scoreBand.warn b, .dCard.warn b) { color: var(--amber); }
+html[data-theme="light"] :is(.d8Nav a b, .dtClock, .smCell, .dmVerdict, .demoOut .hyp, .dtSafe) { color: var(--text); }
+html[data-theme="light"] .dtClockBox.live .dtClock { color: var(--orange); }
+html[data-theme="light"] .smLegend { color: #33424f; }
+html[data-theme="light"] .smRisk li { background: #f3f6f9; }
+html[data-theme="light"] .d8Tag { color: rgba(11,114,133,.45); }
+html[data-theme="light"] .d8.dDone .d8Tag { color: rgba(10,125,79,.75); }
+html[data-theme="light"] .resPage mark { color: #8a2f08; }
+html[data-theme="light"] .fbBone h3 span { color: #fff; }
