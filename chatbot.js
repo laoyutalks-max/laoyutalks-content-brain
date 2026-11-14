@@ -132,8 +132,8 @@
            zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"ai-tools.html\">AI 工具</a>、<a href=\"laoyutalks.html\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
 
     { id: "lab", kw: ["automation lab", "inventory", "stock count", "low stock", "reorder", "maintenance request", "maintenance requests", "training expiry", "apps script", "google forms", "workflow", "workflows"], zh: ["自动化实验室", "库存", "补货", "维修申请", "培训到期", "流程自动化"],
-      a: { en: "The <a href=\"index.html#lab\">Automation Lab</a> on the home page shows five example workflows built with Google Forms, Sheets and Apps Script: daily production dashboard, maintenance requests, inventory reorder alerts, training expiry tracker and project tracking. Want one for your team? Leave your contact.",
-           zh: "首页的<a href=\"index.html#lab\">自动化实验室</a>展示了五个用 Google 表单、表格和 Apps Script 搭建的流程示例：每日生产看板、维修申请、库存补货提醒、培训到期追踪和项目追踪。想为团队做一个？可以留下联系方式。" },
+      a: { en: "LAOYU builds workflows with Google Forms, Sheets and Apps Script, such as a daily production dashboard, maintenance requests, inventory reorder alerts, a training expiry tracker and project tracking. Want one for your team? Leave your contact.",
+           zh: "老鱼可以用 Google 表单、表格和 Apps Script 搭建流程，例如：每日生产看板、维修申请、库存补货提醒、培训到期追踪和项目追踪。想为团队做一个？可以留下联系方式。" },
       chips: ["leave_contact", "website"] },
 
     { id: "language", kw: ["chinese", "english", "language", "translate", "mandarin"], zh: ["中文", "英文", "语言", "翻译", "华语"],
@@ -302,9 +302,9 @@
     { id: "f_5why", label: { en: "5 Why analysis", zh: "5 个为什么分析" }, kw: ["5 why", "5why", "five why", "root cause", "why", "fishbone", "capa", "8d", "defect", "complaint", "mistake", "ncr"], zh: ["5 个为什么", "五个为什么", "根本原因", "鱼骨", "纠正", "缺陷", "投诉", "错误", "不合格"],
       r: [R("demo", "AI Root Cause Assistant", "AI 根本原因助手", "demo-root-cause.html"), R("res", "Fishbone + 5-Why Builder", "鱼骨图 + 5 个为什么", "fishbone-5why.html"), R("tool", "CAPA Action Planner", "CAPA 措施计划", "tool-capa-planner.html"), R("res", "8D Report Builder", "8D 报告生成器", "8d-report.html")] },
     { id: "f_project", label: { en: "Project tracker", zh: "项目追踪" }, kw: ["project", "tracker", "tracking", "action", "actions", "overdue", "task", "tasks", "follow up", "meeting"], zh: ["项目", "追踪", "行动", "逾期", "任务", "跟进", "会议"],
-      r: [R("res", "Weekly Action Tracker", "每周行动追踪表", "weekly-action-tracker.html"), R("tool", "Meeting Minutes Generator", "会议纪要生成器", "tool-meeting-minutes.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html"), R("learn", "Automation Lab", "自动化实验室", "index.html#lab")] },
+      r: [R("res", "Weekly Action Tracker", "每周行动追踪表", "weekly-action-tracker.html"), R("tool", "Meeting Minutes Generator", "会议纪要生成器", "tool-meeting-minutes.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html")] },
     { id: "f_excel", label: { en: "Excel formula", zh: "Excel 公式" }, kw: ["excel", "formula", "formulas", "spreadsheet", "sheets", "vlookup", "xlookup", "countif", "sumif"], zh: ["公式", "表格", "函数"],
-      r: [R("tool", "Excel Formula Assistant", "Excel 公式助手", "tool-excel-formula.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("res", "AI Prompt Pack", "AI 提示词包", "ai-prompt-pack.html"), R("learn", "AI for Excel (soon)", "用 AI 做 Excel（即将推出）", "index.html#learn")] },
+      r: [R("tool", "Excel Formula Assistant", "Excel 公式助手", "tool-excel-formula.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("res", "AI Prompt Pack", "AI 提示词包", "ai-prompt-pack.html")] },
     { id: "f_present", label: { en: "Management presentation", zh: "管理层汇报" }, kw: ["presentation", "slides", "report", "management", "boss", "director", "escalate", "escalation", "budget", "email"], zh: ["汇报", "演示", "报告", "管理层", "上级", "升级", "预算", "邮件"],
       r: [R("res", "Escalation Report Builder", "升级报告生成器", "escalation-report.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html"), R("res", "Decision Matrix", "决策矩阵", "decision-matrix.html"), R("demo", "AI Daily Production Report", "AI 每日生产报告", "demo-daily-report.html")] },
     { id: "f_handover", label: { en: "Shift handover", zh: "交接班" }, kw: ["handover", "hand over", "shift", "night shift"], zh: ["交接", "交接班", "班次", "夜班"],
