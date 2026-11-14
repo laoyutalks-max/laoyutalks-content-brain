@@ -55,7 +55,8 @@ html[data-lang="zh"] .sbTabTxt { letter-spacing: .1em; font-size: 14.5px; }
   .sbTabTxt { display: none; }
   .sbTab { padding: 4px 8px 4px 4px; gap: 5px; }
   /* language switch: show only the button for the other language (same function, half the width) */
-  .langToggle button.on { display: none; }
+  .langToggle button { display: none; }
+  .langToggle button.next { display: block; }
   .langToggle button { padding: 8px 10px; }
   .themeToggle { margin-left: 0; }
   .sbHint { max-width: 210px; }

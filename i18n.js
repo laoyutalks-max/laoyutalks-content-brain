@@ -1,5 +1,5 @@
 /* =========================================================
-   LAOYU — BILINGUAL (English / 简体中文)
+   LAOYU — LANGUAGE (English / 简体中文 / Bilingual)
    Loaded before script.js. Swaps page text in place; English
    in the HTML stays the source of truth. To translate new
    text, add "English text": "中文" to TEXT below.
@@ -582,6 +582,7 @@
   };
 
   var KEY = "laoyuLang";
+  var BASE_KEY = "laoyuLangBase";
 
   function squash(s) {
     return String(s).replace(/\s+/g, "");
@@ -597,16 +598,31 @@
   var REVERSE = {};
   Object.keys(TEXT).forEach(function (en) { REVERSE[TEXT[en]] = en; });
 
-  function load() {
-    try {
-      var saved = localStorage.getItem(KEY);
-      if (saved === "en" || saved === "zh") return saved;
-    } catch (e) {}
+  function browserLang() {
     var nav = (navigator.language || "").toLowerCase();
     return nav.indexOf("zh") === 0 ? "zh" : "en";
   }
 
-  var lang = load();
+  function stored(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  /* mode = what the visitor picked: "en", "zh" or "bi" (bilingual).
+     lang = the single language used for menus, buttons and generated
+     text. In bilingual mode it is the last single language chosen. */
+  function loadMode() {
+    var saved = stored(KEY);
+    return saved === "en" || saved === "zh" || saved === "bi" ? saved : browserLang();
+  }
+
+  function loadBase(m) {
+    if (m !== "bi") return m;
+    var saved = stored(BASE_KEY);
+    return saved === "en" || saved === "zh" ? saved : browserLang();
+  }
+
+  var mode = loadMode();
+  var lang = loadBase(mode);
 
   function t(english) {
     return lang === "zh" && TEXT[norm(english)] ? TEXT[norm(english)] : english;
@@ -632,6 +648,8 @@
         if (!p || /^(SCRIPT|STYLE)$/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
         if (p.closest("[data-i18n-block]")) return NodeFilter.FILTER_REJECT;
         if (p.closest(".lyChat")) return NodeFilter.FILTER_REJECT;
+        /* paired .en / .zh content is already written in its own language */
+        if (p.closest(".en, .zh")) return NodeFilter.FILTER_REJECT;
         return norm(node.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
       }
     });
@@ -652,14 +670,20 @@
   function apply() {
     document.documentElement.lang = lang === "zh" ? "zh-Hans" : "en";
     document.documentElement.setAttribute("data-lang", lang);
+    if (mode === "bi") document.documentElement.setAttribute("data-bi", "");
+    else document.documentElement.removeAttribute("data-bi");
     var title = norm(document.title);
     var enTitle = TEXT[title] ? title : REVERSE[title];
     if (enTitle) document.title = lang === "zh" ? TEXT[enTitle] : enTitle;
     applyBlocks(document.body);
     applyText(document.documentElement);
+    var order = ["en", "zh", "bi"];
+    var next = order[(order.indexOf(mode) + 1) % order.length];
     document.querySelectorAll(".langToggle [data-l]").forEach(function (b) {
-      b.classList.toggle("on", b.getAttribute("data-l") === lang);
-      b.setAttribute("aria-pressed", b.getAttribute("data-l") === lang ? "true" : "false");
+      var l = b.getAttribute("data-l");
+      b.classList.toggle("on", l === mode);
+      b.classList.toggle("next", l === next);
+      b.setAttribute("aria-pressed", l === mode ? "true" : "false");
     });
     try {
       document.dispatchEvent(new CustomEvent("laoyu:lang", { detail: lang }));
@@ -667,8 +691,13 @@
   }
 
   function set(next) {
-    lang = next;
-    try { localStorage.setItem(KEY, next); } catch (e) {}
+    if (next !== "en" && next !== "zh" && next !== "bi") return;
+    mode = next;
+    if (next !== "bi") lang = next;
+    try {
+      localStorage.setItem(KEY, mode);
+      localStorage.setItem(BASE_KEY, lang);
+    } catch (e) {}
     apply();
   }
 
@@ -680,8 +709,9 @@
     wrap.setAttribute("role", "group");
     wrap.setAttribute("aria-label", "Language / 语言");
     wrap.innerHTML =
-      '<button type="button" data-l="en">EN</button>' +
-      '<button type="button" data-l="zh">中文</button>';
+      '<button type="button" data-l="en" lang="en" aria-label="English">EN</button>' +
+      '<button type="button" data-l="zh" lang="zh-Hans" aria-label="中文">中文</button>' +
+      '<button type="button" data-l="bi" aria-label="Bilingual / 双语" title="Bilingual / 双语">EN+中</button>';
     wrap.addEventListener("click", function (e) {
       var b = e.target.closest("[data-l]");
       if (b) set(b.getAttribute("data-l"));
@@ -694,6 +724,7 @@
     t: t,
     apply: apply,
     lang: function () { return lang; },
+    mode: function () { return mode; },
     init: function () { addToggle(); apply(); }
   };
 
