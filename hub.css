@@ -29,11 +29,11 @@ html[data-lang="zh"] .hubCopy h1 { line-height: 1.15; }
 .hubHero .tStage.is3d .tHint { display: none; }
 
 .hubSec { padding: 56px 0 0; }
-.hubHead { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 18px; }
+.hubHead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 16px; margin-bottom: 18px; }
 .hubHead a { font: 600 12px var(--font-mono); letter-spacing: .12em; color: var(--cyan); text-decoration: none; white-space: nowrap; }
 .hubH { font-size: clamp(26px, 3vw, 36px); font-weight: 700; margin: 0 0 18px; text-transform: none; color: #fff; }
 .hubHead .hubH { margin: 0; }
-.hubH small { font: 700 12px var(--font-mono); letter-spacing: .14em; color: var(--amber); border: 1px solid rgba(255,176,32,.5); padding: 4px 7px; vertical-align: middle; margin-left: 10px; }
+.hubH small { font: 700 12px var(--font-mono); letter-spacing: .14em; color: var(--amber); border: 1px solid rgba(255,176,32,.5); padding: 4px 7px; vertical-align: middle; margin-left: 10px; display: inline-block; white-space: nowrap; }
 html[data-lang="zh"] .hubH small { letter-spacing: .04em; font-size: 12px; }
 
 .hubCards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
