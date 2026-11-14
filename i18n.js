@@ -202,6 +202,11 @@
     "FOLLOW @laoyu.talks ↗": "关注 @laoyu.talks ↗",
     "About": "关于",
     "Contact": "联系",
+    "Privacy": "隐私政策",
+    "Terms": "服务条款",
+    "Privacy Policy": "隐私政策",
+    "Terms of Service": "服务条款",
+    "LEGAL": "法律信息",
 
     /* AI Content Brain page */
     "An AI-powered content management workflow designed around your real content process.": "围绕你真实创作流程设计的 AI 内容管理工作流。",
