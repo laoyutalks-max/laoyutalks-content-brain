@@ -499,6 +499,7 @@
     "AI Tools": "AI 工具",
     "LAOYU · MANUFACTURING × AI": "老鱼 · 制造 × AI",
     "Practical AI for manufacturing leaders.": "写给制造业管理者的实用 AI。",
+    "Free tools for supervisors, engineers and managers: OEE, shift handover, 8D, root cause and more.": "为主管、工程师和经理准备的免费工具：OEE、交接班、8D、根因分析等。",
     "EXPLORE AI TOOLS →": "探索 AI 工具 →",
     "FREE RESOURCES": "免费资源",
     "Learn AI": "学习 AI",
@@ -514,6 +515,7 @@
     "Making AI Practical for Everyday Work.": "让 AI 真正用于日常工作。",
     "ASK LAOYU →": "问老鱼 →",
     "OUR STORY": "品牌故事",
+    "Our Story": "品牌故事",
     "Our Story | LAOYU": "品牌故事 | LAOYU 老鱼",
     "Page not found | LAOYU": "页面不存在 | LAOYU 老鱼",
     "ERROR 404": "错误 404",
@@ -563,6 +565,8 @@
       '写给<span>制造业管理者</span><br>的实用 AI。',
     "Work Smarter. Create Better.":
       '工作更<span>聪明</span>，<br>创造更<span>出色</span>。',
+    "Fix Real Factory Problems. Faster, with AI.":
+      '解决工厂真问题，<br><span>用 AI 更快一步。</span>',
     "Work Smarter. Think Better. Build with AI.":
       '工作更聪明，<br>思考更深入，<span>用 AI 创造。</span>',
     "AI Tools for Real Work.":

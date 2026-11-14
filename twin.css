@@ -371,6 +371,7 @@ html[data-lang="zh"] .tCopy h1 { line-height: 1.18; font-size: clamp(34px, 4.1vw
   .tHud.h3 { position: relative; right: auto; bottom: auto; max-width: none; margin-top: 10px; }
   .tHud .big { font-size: 22px; }
   .tHint { display: none; }
+  .t3Label { letter-spacing: .08em; padding: 3px 6px; }
   .tStage { aspect-ratio: auto; }
   .tTip { width: 220px; }
   .station { padding: 60px 0; }
