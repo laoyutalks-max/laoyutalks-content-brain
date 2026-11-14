@@ -62,6 +62,21 @@
       list.forEach(function (m) { m.addedNodes.forEach(function (n) { if (n.nodeType === 1 && n.classList.contains("t3Label")) fix(n); }); });
     }).observe(stage, { childList: true, subtree: true });
     document.addEventListener("laoyu:lang", function () { $$(".t3Label[data-en]").forEach(fix); });
+    /* Keep 3D labels inside the stage so none is cut off at the edge (mainly phones).
+       The renderer owns `transform`, so the nudge uses the separate `translate` property. */
+    setInterval(function () {
+      if (!stage.classList.contains("is3d") || document.hidden) return;
+      var box = stage.getBoundingClientRect(), pad = 24; // the scene fades out near its edge
+      $$(".t3Label", stage).forEach(function (el) {
+        var r = el.getBoundingClientRect(); if (!r.width) return;
+        var cur = parseFloat(el.dataset.dx) || 0, left = r.left - cur, right = r.right - cur, dx = 0, mid = (left + right) / 2;
+        if (mid < box.left || mid > box.right) dx = 0; // machine itself is off-screen: leave its label there
+        else if (left < box.left + pad) dx = box.left + pad - left;
+        else if (right > box.right - pad) dx = box.right - pad - right;
+        dx = Math.round(dx);
+        if (dx !== cur) { el.dataset.dx = dx; el.style.translate = dx ? dx + "px 0" : ""; }
+      });
+    }, 120);
   }
 
   /* ---------- Line-status ticker in the strip under the header ---------- */
