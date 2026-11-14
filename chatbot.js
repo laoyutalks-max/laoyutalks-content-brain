@@ -507,6 +507,7 @@
     root.querySelector(".lyStatus").textContent = L(UI.status);
     root.querySelector(".lyNotice").textContent = L(UI.notice);
     input.placeholder = L(UI.placeholder);
+    input.setAttribute("aria-label", L({ en: "Your question", zh: "你的问题" }));
     root.querySelector(".lySend").setAttribute("aria-label", L(UI.send));
     root.querySelector(".lyClose").setAttribute("aria-label", L(UI.close));
     chipsBox.querySelectorAll(".lyChip").forEach(function (b) {

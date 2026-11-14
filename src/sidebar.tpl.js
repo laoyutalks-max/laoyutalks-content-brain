@@ -39,13 +39,14 @@
       total += list.length;
       var ready = list.filter(usable).length, isOpen = q || open[c[0]];
       return '<section class="sbCat' + (isOpen ? " open" : "") + '"><button type="button" class="sbHead" data-cat="' + c[0] + '" aria-expanded="' + (!!isOpen) + '">' +
-        '<i aria-hidden="true">' + c[1] + "</i><b>" + esc(L(c[2])) + '</b><span class="sbN">' + ready + "/" + list.length + '</span><span class="sbChev" aria-hidden="true">▾</span></button>' +
+        '<i aria-hidden="true">' + c[1] + "</i><b>" + esc(L(c[2])) + '</b><span class="sbN">' + (ready === list.length ? ready : ready + T(" ready · ", " 可用 · ") + (list.length - ready) + T(" soon", " 即将")) + '</span><span class="sbChev" aria-hidden="true">▾</span></button>' +
         '<div class="sbList">' + list.map(itemHTML).join("") + "</div></section>";
     }).join("");
     body.innerHTML = html || '<p class="sbEmpty">' + T("No match. Try another word.", "没有匹配结果，换个关键词试试。") + "</p>";
     panel.querySelector(".sbCount").textContent = q ? T(total + " found", "找到 " + total + " 项") : T(SB.items.filter(usable).length + " ready to use", SB.items.filter(usable).length + " 项可用");
     panel.querySelector(".sbTitle").textContent = T("Tools & Resources", "工具与资源");
     panel.querySelector(".sbSearch input").placeholder = T("Search, e.g. downtime, OEE, 8D", "搜索，例如：停机、OEE、8D");
+    panel.querySelector(".sbSearch input").setAttribute("aria-label", T("Search tools and resources", "搜索工具与资源"));
     panel.querySelector(".sbClose").setAttribute("aria-label", T("Close", "关闭"));
     panel.querySelector(".sbAll").textContent = T("OPEN FULL LIBRARY →", "打开完整资源库 →");
     tab.querySelector(".sbTabTxt").textContent = T("TOOLS", "工具");

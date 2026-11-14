@@ -3,7 +3,7 @@
 .dashPage #dashApp:not([hidden]) { display: grid; gap: 18px; }
 .dashSoon { text-align: center; padding: 40px 24px; }
 .dashSoon h2 { color: var(--orange); margin-top: 0; }
-.ownerBar { margin: 0; padding: 8px 14px; border: 1px dashed var(--orange); color: var(--orange); font: 600 11px var(--font-display); letter-spacing: .12em; }
+.ownerBar { margin: 0; padding: 8px 14px; border: 1px dashed var(--orange); color: var(--orange); font: 600 12px var(--font-display); letter-spacing: .12em; }
 html[data-lang="zh"] .ownerBar { letter-spacing: .04em; font-size: 12.5px; }
 .dashTop h2 { margin: 0 0 14px; }
 .dashBar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
@@ -27,8 +27,8 @@ html[data-lang="zh"] .ownerBar { letter-spacing: .04em; font-size: 12.5px; }
 .dChart { height: 260px; display: flex; align-items: flex-end; gap: 8px; padding: 18px 4px 34px; border-bottom: 1px solid var(--line-strong); overflow-x: auto; }
 .dCol { flex: 1; min-width: 38px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; position: relative; }
 .dCol i { width: 64%; background: linear-gradient(180deg, var(--orange), #c2410c); min-height: 2px; }
-.dCol em { font-style: normal; font-size: 11px; color: var(--muted); margin-bottom: 4px; }
-.dCol span { position: absolute; bottom: -24px; font-size: 11px; color: var(--muted); max-width: 90px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.dCol em { font-style: normal; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+.dCol span { position: absolute; bottom: -24px; font-size: 12px; color: var(--muted); max-width: 90px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .dTableWrap { overflow: auto; max-height: 320px; }
 .dTable { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .dTable th, .dTable td { padding: 8px 9px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
@@ -53,11 +53,11 @@ html[data-theme="light"] .dCard.txt b { color: var(--text); }
 .upCard { display: grid; gap: 8px; align-content: start; padding: 18px; border: 1px dashed var(--line-strong); background: rgba(4,20,36,.55); text-decoration: none; color: inherit; }
 .upCard b { font: 700 17px var(--font-display); color: var(--text); }
 .upCard p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
-.upPill { justify-self: start; font: 700 10px var(--font-mono); letter-spacing: .12em; padding: 3px 8px; border: 1px solid rgba(255,176,32,.6); color: var(--amber, #ffb020); }
+.upPill { justify-self: start; font: 700 12px var(--font-mono); letter-spacing: .12em; padding: 3px 8px; border: 1px solid rgba(255,176,32,.6); color: var(--amber, #ffb020); }
 a.upCard { border-style: solid; border-color: var(--orange); }
 a.upCard:hover { transform: translateY(-3px); }
 a.upCard .upPill { color: var(--orange); border-color: var(--orange); }
-.upGo { font: 700 11px var(--font-display); letter-spacing: .12em; color: var(--orange); }
+.upGo { font: 700 12px var(--font-display); letter-spacing: .12em; color: var(--orange); }
 @media (max-width: 800px) { .upSec .upGrid { grid-template-columns: 1fr; } }
 html[data-theme="light"] .upCard { background: #fff; }
 /* keep wide tables inside their panel (grid items default to min-width:auto) */

@@ -41,6 +41,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* Create mobile menu button */
 
+    const menuLabel = function (open) {
+      const zh = document.documentElement.getAttribute("data-lang") === "zh";
+      return open ? (zh ? "关闭导航菜单" : "Close navigation menu") : (zh ? "打开导航菜单" : "Open navigation menu");
+    };
+
     const menuButton =
       document.createElement("button");
 
@@ -50,9 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
     menuButton.type =
       "button";
 
+    document.addEventListener("laoyu:lang", function () {
+      menuButton.setAttribute("aria-label", menuLabel(menuButton.getAttribute("aria-expanded") === "true"));
+    });
+
     menuButton.setAttribute(
       "aria-label",
-      "Open navigation menu"
+      menuLabel(false)
     );
 
     menuButton.setAttribute(
@@ -88,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
         menuButton.setAttribute(
           "aria-label",
           isOpen
-            ? "Close navigation menu"
-            : "Open navigation menu"
+            ? menuLabel(true)
+            : menuLabel(false)
         );
 
       }
@@ -120,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             menuButton.setAttribute(
               "aria-label",
-              "Open navigation menu"
+              menuLabel(false)
             );
 
           }
@@ -149,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
           menuButton.setAttribute(
             "aria-label",
-            "Open navigation menu"
+            menuLabel(false)
           );
 
         }
@@ -398,6 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }, { threshold: 0.12 });
       targets.forEach(function (el, n) {
+        if (el.getBoundingClientRect().top < window.innerHeight) return; // already on screen: show at once
         el.classList.add("reveal");
         el.style.transitionDelay = (n % 5) * 70 + "ms";
         io.observe(el);
