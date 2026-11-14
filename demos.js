@@ -26,11 +26,7 @@
     });
     return out.join("\n").trim();
   }
-  function copy(text, btn) {
-    var done = function () { var o = btn.innerHTML; btn.textContent = L("COPIED ✓", "已复制 ✓"); setTimeout(function () { btn.innerHTML = o; }, 1500); };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fb(); done(); }); else { fb(); done(); }
-    function fb() { var t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); } catch (e) {} t.remove(); }
-  }
+  function copy(text, btn) { window.LAOYU_UX.copy(text, btn); }   /* shared helper in ux.js */
   function download(name, text) {
     var a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob(["﻿" + text], { type: "text/plain;charset=utf-8" }));

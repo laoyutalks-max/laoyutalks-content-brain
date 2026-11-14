@@ -2177,3 +2177,60 @@ html[data-lang="zh"] .uxBtn { letter-spacing: .04em; font-size: 13px; }
 @media (max-width: 760px) { .uxBtn { min-height: 44px; padding: 10px 14px; } }
 @media (prefers-reduced-motion: reduce) { .uxBtn { transition: none; } }
 @media print { .uxCopyBar, .uxCsvBar { display: none !important; } }
+
+/* =========================================================
+   B2B POLISH (Nov 2026): hero button hierarchy, copy feedback,
+   smooth hover states and the "runs in your browser" note
+   ========================================================= */
+
+/* ---------- Hero calls to action: one solid primary, outlined secondaries ---------- */
+:is(.hubHero .actions, .stBtns) { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+:is(.hubHero .actions, .stBtns) .btn { padding: 15px 28px; font-size: 13px; text-align: center; }
+:is(.hubHero .actions, .stBtns) .btn.orange { font-weight: 700; }
+:is(.hubHero .actions, .stBtns) .btn.outline {
+  --fill: transparent;
+  border: 1.5px solid var(--cyan);
+  box-shadow: none;
+  /* the two corner gradients draw the border along the cut corners */
+  background:
+    linear-gradient(135deg, var(--cyan) 8.6px, transparent 9.1px) top left / 50% 50% no-repeat,
+    linear-gradient(315deg, var(--cyan) 8.6px, transparent 9.1px) bottom right / 50% 50% no-repeat,
+    var(--fill) !important;
+}
+:is(.hubHero .actions, .stBtns) .btn.outline:hover { --fill: rgba(53, 224, 255, .12); box-shadow: 0 0 18px rgba(53, 224, 255, .25); }
+html[data-theme="light"] :is(.hubHero .actions, .stBtns) .btn.outline:hover { box-shadow: none; }
+
+/* ---------- Smooth hover / press feedback on interactive triggers ---------- */
+main :is(button, .btn, summary, .tryMore, .kitRel a) {
+  transition: color .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease, opacity .2s ease;
+}
+.btn:not(.disabled):not([disabled]):active, .uxBtn:active { transform: translateY(0) scale(.98); }
+.btn:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.tryLink:hover { color: var(--cyan-soft); }
+.fbBtn:hover, .gateSwap:hover { border-color: var(--cyan); color: var(--cyan); }
+
+/* ---------- "Copied! ✓" state on any copy button ---------- */
+.btn[data-state="ok"]:not(.orange) { color: #2fd98a !important; border-color: #2fd98a; background: rgba(47, 217, 138, .1) !important; box-shadow: none; }
+.btn[data-state="err"]:not(.orange) { color: #ff7a6b !important; border-color: #ff7a6b; background: rgba(255, 122, 107, .1) !important; box-shadow: none; }
+html[data-theme="light"] .btn[data-state="ok"]:not(.orange) { color: #0a7d4f !important; border-color: #0a7d4f; }
+html[data-theme="light"] .btn[data-state="err"]:not(.orange) { color: #b3261e !important; border-color: #b3261e; }
+
+/* ---------- Trust note beside interactive tools ---------- */
+.trustNote {
+  display: flex; align-items: flex-start; gap: 8px; width: fit-content; max-width: 100%;
+  margin: 14px 0; padding: 7px 12px;
+  border: 1px solid rgba(47, 217, 138, .35); background: rgba(47, 217, 138, .06);
+  font-size: 13px; line-height: 1.45; color: #a9c7d8;
+}
+.trustNote svg { flex: none; margin-top: 2px; color: #2fd98a; }
+html[data-theme="light"] .trustNote { color: #33424f; border-color: rgba(10, 125, 79, .4); background: rgba(10, 125, 79, .06); }
+html[data-theme="light"] .trustNote svg { color: #0a7d4f; }
+
+@media (max-width: 760px) {
+  :is(.hubHero .actions, .stBtns) { flex-direction: column; align-items: stretch; }
+}
+@media (prefers-reduced-motion: reduce) {
+  main :is(button, .btn, summary, .tryMore, .kitRel a) { transition: none; }
+  .btn:active, .uxBtn:active { transform: none; }
+}
+@media print { .trustNote { display: none !important; } }

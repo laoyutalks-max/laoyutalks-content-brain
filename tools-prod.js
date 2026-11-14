@@ -14,12 +14,7 @@
   function $(id) { return document.getElementById(id); }
   function num(id) { var el = $(id); var v = el ? parseFloat(el.value) : NaN; return isFinite(v) ? v : NaN; }
   function on(ev, fn) { document.addEventListener(ev, fn); }
-  function copyText(text, btn) {
-    var done = function () { var o = btn.innerHTML; btn.textContent = L("COPIED ✓", "已复制 ✓"); setTimeout(function () { btn.innerHTML = o; }, 1500); };
-    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fb(); done(); });
-    else { fb(); done(); }
-    function fb() { var ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); } catch (e) {} ta.remove(); }
-  }
+  function copyText(text, btn) { window.LAOYU_UX.copy(text, btn); }   /* shared helper in ux.js */
   window.LAOYU_TOOLS = { L: L, zh: zh, load: load, save: save, esc: esc, copyText: copyText };
 
   /* =======================================================

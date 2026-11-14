@@ -20,7 +20,7 @@
 
   var TXT = {
     copy: ["COPY", "复制"],
-    copied: ["COPIED ✓", "已复制 ✓"],
+    copied: ["COPIED! ✓", "已复制！✓"],
     copyFail: ["COPY FAILED", "复制失败"],
     csv: ["EXPORT CSV", "导出 CSV"],
     csvDone: ["DOWNLOADED ✓", "已下载 ✓"],
@@ -30,7 +30,8 @@
     saidCopied: ["Copied to clipboard", "已复制到剪贴板"],
     saidFail: ["Copy failed. Select the text and copy it manually.", "复制失败，请手动选择并复制文本。"],
     saidCsv: ["CSV file downloaded", "CSV 文件已下载"],
-    saidEmpty: ["The table is empty, nothing to export", "表格是空的，没有可导出的内容"]
+    saidEmpty: ["The table is empty, nothing to export", "表格是空的，没有可导出的内容"],
+    trust: ["Client-side execution: Your data stays secure in your browser.", "本地运行：你的数据安全地保留在你的浏览器中。"]
   };
   function tx(k) { return L(TXT[k][0], TXT[k][1]); }
 
@@ -53,14 +54,18 @@
     if (btn.__uxTimer) return;
     btn.textContent = tx(btn.getAttribute("data-ux") === "csv" ? "csv" : "copy");
   }
+  /* Works for this file's own buttons and for any other button on the site:
+     a foreign button gets its original content back when the message ends. */
   function flash(btn, key, state) {
     clearTimeout(btn.__uxTimer);
+    if (!btn.hasAttribute("data-ux") && btn.__uxHtml == null) btn.__uxHtml = btn.innerHTML;
     btn.textContent = tx(key);
     btn.setAttribute("data-state", state);
     btn.__uxTimer = setTimeout(function () {
       btn.__uxTimer = null;
       btn.removeAttribute("data-state");
-      label(btn);
+      if (btn.__uxHtml != null) { btn.innerHTML = btn.__uxHtml; btn.__uxHtml = null; }
+      else label(btn);
     }, 1800);
   }
 
@@ -88,6 +93,47 @@
     } catch (e) { pending = null; }                    /* blocked by browser policy: use the fallback */
     if (pending && pending.then) pending.then(function () { done(true); }, function () { done(legacyCopy(text)); });
     else done(legacyCopy(text));
+  }
+  /* shared by every copy button on the site (tools, demos, kits) */
+  window.LAOYU_UX = { copy: copyText };
+
+  /* ---------- "runs in your browser" note beside each interactive tool ---------- */
+  var SHIELD = '<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 3v5c0 4.6-2.9 8.3-7 10-4.1-1.7-7-5.4-7-10V6l7-3zM9 12l2 2 4-4"/></svg>';
+  function trustText(note) {
+    note.lastChild.textContent = bi() ? TXT.trust[0] + " / " + TXT.trust[1] : tx("trust");
+  }
+  function trustNote() {
+    var p = document.createElement("p");
+    p.className = "trustNote";
+    p.innerHTML = SHIELD + "<span></span>";
+    trustText(p);
+    return p;
+  }
+  function hasFields(el) { return !!(el && el.querySelector("input:not([type=hidden]), textarea, select")); }
+  function addTrust() {
+    var main = document.querySelector("main");
+    if (!main) return;
+    function place(sel, where, scope) {
+      $$(sel, main).forEach(function (box) {
+        if (box.__uxTrust && main.contains(box.__uxTrust)) return;
+        if (!hasFields(scope ? box.closest(scope) : box)) return;
+        box.__uxTrust = trustNote();
+        box.insertAdjacentElement(where, box.__uxTrust);
+      });
+    }
+    /* sign-up pages: inside the unlocked tool, never beside the sign-up form */
+    $$(".gated", main).forEach(function (g) {
+      if (g.__uxTrust && main.contains(g.__uxTrust)) return;
+      if (!hasFields(g)) return;
+      var bar = g.querySelector(".resTools");
+      g.__uxTrust = trustNote();
+      if (bar && bar.parentNode === g) bar.insertAdjacentElement("afterend", g.__uxTrust);
+      else g.insertAdjacentElement("afterbegin", g.__uxTrust);
+    });
+    place(".toolWrap", "beforebegin");
+    place(".demoPart .dBtns", "afterend", ".demoPart");
+    place("#dashApp", "afterbegin");
+    place(".hTry", "afterend");
   }
 
   /* ---------- CSV ---------- */
@@ -240,17 +286,20 @@
     }
   });
 
-  document.addEventListener("laoyu:lang", function () { $$(".uxBtn").forEach(label); });
+  document.addEventListener("laoyu:lang", function () {
+    $$(".uxBtn").forEach(label);
+    $$(".trustNote").forEach(trustText);
+  });
 
   document.addEventListener("DOMContentLoaded", function () {
-    decorate();
+    decorate(); addTrust();
     var main = document.querySelector("main");
     if (!main || !("MutationObserver" in window)) return;
     var queued = false;
     new MutationObserver(function () {
       if (queued) return;
       queued = true;
-      setTimeout(function () { queued = false; decorate(); }, 60);
+      setTimeout(function () { queued = false; decorate(); addTrust(); }, 60);
     }).observe(main, { childList: true, subtree: true });
   });
 })();

@@ -42,23 +42,7 @@
     save(d);
   }
 
-  function copy(text, btn) {
-    var done = function () {
-      var o = btn.innerHTML;
-      btn.textContent = zh() ? "已复制 ✓" : "COPIED ✓";
-      setTimeout(function () { btn.innerHTML = o; }, 1500);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
-    } else { fallback(text); done(); }
-  }
-  function fallback(text) {
-    var ta = document.createElement("textarea");
-    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
-    document.body.appendChild(ta); ta.select();
-    try { document.execCommand("copy"); } catch (e) {}
-    ta.remove();
-  }
+  function copy(text, btn) { window.LAOYU_UX.copy(text, btn); }   /* shared helper in ux.js */
 
   function langOptions() {
     document.querySelectorAll("option[data-en]").forEach(function (o) { o.textContent = o.getAttribute(zh() ? "data-zh" : "data-en"); });
