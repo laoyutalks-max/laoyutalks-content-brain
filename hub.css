@@ -21,7 +21,7 @@
 .hubCopy h1 span { display: block; color: var(--cyan); }
 html[data-lang="zh"] .hubCopy h1 { line-height: 1.15; }
 .hubCopy p { font-size: 18px; color: #a9c7d8; margin: 0 0 26px; }
-.hubJourney { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(53,224,255,.1); margin-top: 6px; }
+.hubJourney { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid rgba(53,224,255,.1); margin-top: 6px; }
 .hubJourney a { display: flex; align-items: center; gap: 12px; padding: 18px 0; text-decoration: none; color: #fff; font: 700 17px var(--font-display); }
 .hubJourney a + a { border-left: 1px solid rgba(53,224,255,.1); padding-left: 26px; }
 .hubJourney i { font: 600 12px var(--font-mono); font-style: normal; color: var(--cyan); }
