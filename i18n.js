@@ -555,7 +555,64 @@
     "Shift Handover Template | LAOYU": "交接班模板 | LAOYU 老鱼",
     "Supervisor Daily Planner | LAOYU": "主管每日计划表 | LAOYU 老鱼",
     "Weekly Action Tracker | LAOYU": "每周行动追踪表 | LAOYU 老鱼",
-    "Contact | LAOYU": "联系 | LAOYU 老鱼"
+    "Contact | LAOYU": "联系 | LAOYU 老鱼",
+
+    /* LAOYUTALKS 3.0 homepage */
+    "LAOYUTALKS | Solve Real Problems. Work Smarter with AI.": "LAOYUTALKS 老鱼说 | 解决真实问题，用 AI 更聪明地工作",
+    "Learn": "学习",
+    "AI Lab": "AI 实验室",
+    "Practical AI × Manufacturing × Workplace Productivity": "实用 AI × 制造业 × 职场效率",
+    "Practical AI tools, resources and automation solutions designed to help people improve productivity and solve real workplace challenges.": "实用的 AI 工具、资源和自动化方案，帮助你提升效率，解决真实的工作难题。",
+    "Explore Free Tools": "浏览免费工具",
+    "Discover LAOYUTALKS": "了解 LAOYUTALKS",
+    "Runs in your browser. Your numbers are not sent anywhere.": "在你的浏览器中运行，你输入的数字不会被发送到任何地方。",
+    "Our philosophy": "我们的理念",
+    "Think First": "先思考",
+    "Understand the problem before you pick a tool.": "先弄清问题，再选工具。",
+    "Improve Always": "持续改进",
+    "Small, steady improvements that last.": "小步改进，长期坚持。",
+    "Turn ideas into working tools and workflows.": "把想法变成能用的工具和流程。",
+    "Problems we solve": "我们解决的问题",
+    "Pick a problem to see the tools that help.": "选一个问题，查看对应的工具。",
+    "Manufacturing & Production": "制造与生产",
+    "OEE, downtime and daily reports": "OEE、停机与每日报告",
+    "Quality & Problem Solving": "质量与问题解决",
+    "8D, 5 Why, fishbone and CAPA": "8D、5 个为什么、鱼骨图与 CAPA",
+    "Management & Leadership": "管理与领导力",
+    "Manpower, skills and hard conversations": "人力、技能与难谈的对话",
+    "Workplace Productivity": "职场效率",
+    "Planning, handover and action tracking": "计划、交接班与行动跟进",
+    "Data & Reporting": "数据与报告",
+    "KPI dashboards and loss analysis": "KPI 看板与损失分析",
+    "AI & Automation": "AI 与自动化",
+    "Prompts, AI demos and AI tools": "提示词、AI 演示与 AI 工具",
+    "Featured resources": "精选资源",
+    "Six free tools people start with.": "大家最先使用的六个免费工具。",
+    "All resources →": "全部资源 →",
+    "Learn with LAOYU": "跟老鱼学习",
+    "Short videos on real workplace problems, each paired with a free tool.": "讲真实工作问题的短视频，每条都配有一个免费工具。",
+    "Follow @laoyu.talks ↗": "关注 @laoyu.talks ↗",
+    "ASK LAOYU": "问老鱼",
+    "Three AI assistants for manufacturing, quality and management questions are being built in the AI Lab.": "面向制造、质量和管理问题的三个 AI 助手，正在 AI 实验室中开发。",
+    "Open AI Tools →": "打开 AI 工具 →",
+    "Manufacturing Assistant": "制造助手",
+    "Output, OEE, downtime and shift routines.": "产量、OEE、停机与班次管理。",
+    "Quality & Problem-Solving Assistant": "质量与问题解决助手",
+    "Root cause, 8D and CAPA.": "根本原因、8D 与 CAPA。",
+    "Productivity & Management Assistant": "效率与管理助手",
+    "Planning, people and reporting.": "计划、人员与汇报。",
+    "In development": "开发中",
+    "The assistants are not live yet. What works today: the prompt playground here, the AI tools, and the site helper for guided answers.": "这些助手尚未上线。目前可用的有：这里的提示词练习场、AI 工具，以及提供引导式回答的网站助手。",
+    "Ask the site helper": "问问网站助手",
+    "Real-world impact": "真实应用",
+    "Worked examples using sample data. Real case studies will be added here.": "以下是使用示例数据的演示，真实案例会陆续补充到这里。",
+    "Our story": "品牌故事",
+    "My years in manufacturing taught me that improvement doesn't always need more resources. Sometimes it just needs a smarter way to work.": "多年的制造业经历让我明白，改善并不总是需要更多资源，有时只需要更聪明的工作方式。",
+    "Read our story": "阅读我们的故事",
+    "Join the community": "加入社区",
+    "Follow @laoyu.talks on TikTok, or get an email when a new free resource is released.": "在 TikTok 关注 @laoyu.talks，或在有新的免费资源时收到邮件通知。",
+    "Follow on TikTok ↗": "在 TikTok 关注 ↗",
+    "Think First. Improve Always. Build with AI.": "先思考，持续改进，用 AI 构建。"
   };
 
   /* Headings/lines built from several pieces: matched on the whole
@@ -578,7 +635,10 @@
     "Turn Ideas Into Action.":
       '把想法变成<span>行动。</span>',
     "Stay curious. Keep improving. Lead with thinking. Improve with AI.":
-      '保持好奇，持续改善。<br>以<b style="color:#ff6a00">思维</b>引领，用 <b style="color:#ff6a00">AI</b> 提升。'
+      '保持好奇，持续改善。<br>以<b style="color:#ff6a00">思维</b>引领，用 <b style="color:#ff6a00">AI</b> 提升。',
+
+    /* LAOYUTALKS 3.0 homepage */
+    "Solve Real Problems. Work Smarter with AI.": '解决真实问题，<span>用 AI 更聪明地工作。</span>'
   };
 
   var KEY = "laoyuLang";
