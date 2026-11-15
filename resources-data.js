@@ -431,3 +431,81 @@ window.LAOYU_DATA.aitools = [
 window.LAOYU_DATA.status = {
   live: ["New · works now", "新 · 可用"], exist: ["On site", "已上线"], soon: ["Coming soon", "即将推出"], api: ["Needs AI API", "需接入 AI"]
 };
+
+/* =========================================================
+   RESOURCES 3.0 — extra metadata (added on top of the records above)
+   · cats3: the eight library categories
+   · the five working AI tools become full library records
+   · every record gets: cat3, lang, access and related
+   To file a new resource, add its id to CAT3 below.
+   ========================================================= */
+(function () {
+  var D = window.LAOYU_DATA;
+
+  D.types.aitool = ["AI tool", "AI 工具"];
+
+  D.cats3 = {
+    production:   { t: ["Production Management", "生产管理"], d: ["Output, OEE, downtime and shift routines.", "产量、OEE、停机与班次管理。"], ico: '<path d="M3 21V9l6 4V9l6 4V4h5v17z"/><path d="M8 17h2M14 17h2"/>' },
+    quality:      { t: ["Quality Management", "质量管理"], d: ["Complaints, 8D and corrective actions.", "客户投诉、8D 与纠正措施。"], ico: '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>' },
+    ci:           { t: ["Continuous Improvement", "持续改善"], d: ["Root cause and repeat problems.", "根本原因与重复问题。"], ico: '<path d="M20 12a8 8 0 1 1-2.300-5.600"/><path d="M20 4v4h-4"/>' },
+    manpower:     { t: ["Manpower & Resource Planning", "人力与资源规划"], d: ["Coverage, skills and gaps.", "人员配置、技能与缺口。"], ico: '<circle cx="9" cy="8" r="3.500"/><path d="M2.500 20c.600-3.600 3.200-5.500 6.500-5.500s5.900 1.900 6.500 5.500M16 4.500a3.500 3.500 0 0 1 0 7M18.500 15c1.700.900 2.700 2.600 3 5"/>' },
+    analytics:    { t: ["Data Analytics", "数据分析"], d: ["KPIs, dashboards and formulas.", "KPI、看板与公式。"], ico: '<path d="M4 20V4M4 20h16M8 16v-5M12 16V8M16 16v-3"/>' },
+    productivity: { t: ["Workplace Productivity", "职场效率"], d: ["Meetings, emails, actions and decisions.", "会议、邮件、行动与决策。"], ico: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>' },
+    prompts:      { t: ["AI Prompts & Assistants", "AI 提示词与助手"], d: ["Ready prompts for everyday work.", "日常工作可直接使用的提示词。"], ico: '<path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/>' },
+    automation:   { t: ["Automation & Digitalisation", "自动化与数字化"], d: ["Workflows that run themselves.", "能自动运行的工作流程。"], ico: '<rect x="3" y="4" width="6" height="5" rx="1"/><rect x="15" y="15" width="6" height="5" rx="1"/><path d="M9 6.500h4a3 3 0 0 1 3 3V15"/>' }
+  };
+
+  D.langs = { en: ["English", "English"], zh: ["中文", "中文"] };
+  D.access = { open: ["No sign-up", "免注册"], signup: ["Free sign-up", "免费注册"] };
+
+  /* The five AI tools that work today (fixed rules in the browser, no live AI) */
+  var browser = ["Web browser", "网页浏览器"];
+  function tool(id, cats, title, problem, desc) {
+    return { id: id, url: id + ".html", type: "aitool", ai: true, sim: true, gated: false, noShot: true, cats: cats, level: "beginner",
+      version: "1.0", updated: "2026-11-01", title: title, problem: problem, desc: desc,
+      setup: ["2 min", "2 分钟"], software: browser, formats: ["web", "copy"] };
+  }
+  D.resources.push(
+    tool("tool-downtime-analysis", ["ops", "perf", "ai"], ["Downtime Analysis Assistant", "停机分析助手"],
+      ["Stops are logged, but nobody sees which cause costs the most time.", "停机有记录，却没人看得出哪个原因损失的时间最多。"],
+      ["Paste your stop records and get a Pareto of the causes.", "粘贴停机记录，得到停机原因的柏拉图。"]),
+    tool("tool-meeting-minutes", ["time", "ai"], ["Meeting Minutes Generator", "会议纪要生成器"],
+      ["Meeting notes stay as notes, so decisions and actions get lost.", "会议笔记只是笔记，决定和行动容易丢失。"],
+      ["Turn rough meeting notes into decisions and actions.", "把零散的会议笔记整理成决定和行动。"]),
+    tool("tool-capa-planner", ["solve", "ai"], ["CAPA Action Planner", "CAPA 措施计划"],
+      ["Corrective actions stop at containment and are never verified.", "纠正措施停留在围堵阶段，从未验证是否有效。"],
+      ["Plan a CAPA from containment through to the effectiveness check.", "从围堵到有效性验证，完整规划一份 CAPA。"]),
+    tool("tool-excel-formula", ["perf", "time", "ai"], ["Excel Formula Assistant", "Excel 公式助手"],
+      ["You know what you want Excel to do, but not the formula.", "知道想让 Excel 做什么，却不知道公式怎么写。"],
+      ["Pick a task and get the formula, ready to copy.", "选择任务，得到可直接复制的公式。"]),
+    tool("tool-email-writer", ["time", "ai"], ["Email Writing Assistant", "邮件写作助手"],
+      ["Writing a clear work email takes too long.", "写一封清楚的工作邮件太花时间。"],
+      ["Enter the purpose and the facts and get a clear email draft.", "输入目的和事实，得到一封清晰的邮件草稿。"])
+  );
+
+  var CAT3 = {
+    production: ["demo-daily-report", "oee-loss-calculator", "downtime-troubleshooter", "tool-downtime-analysis", "supervisor-daily-planner", "shift-handover", "demo-shift-handover"],
+    quality: ["8d-report", "tool-capa-planner"],
+    ci: ["fishbone-5why", "repeated-mistake-worksheet", "demo-root-cause"],
+    manpower: ["manpower-gap-calculator", "skills-matrix"],
+    analytics: ["production-kpi-dashboard", "tool-excel-formula"],
+    productivity: ["weekly-action-tracker", "tool-meeting-minutes", "tool-email-writer", "difficult-conversation", "checklist-quiet-quitting", "escalation-report", "decision-matrix"],
+    prompts: ["ai-prompt-pack"],
+    automation: []
+  };
+  var where = {};
+  Object.keys(CAT3).forEach(function (k) { CAT3[k].forEach(function (id) { where[id] = k; }); });
+
+  D.resources.forEach(function (r) {
+    r.cat3 = where[r.id] || "productivity";
+    r.lang = ["en", "zh"];
+    r.gated = r.gated !== false; /* older records only mark the open ones (gated: false) */
+    r.access = r.gated ? "signup" : "open";
+  });
+  /* related: same category first, then anything sharing a goal; three at most */
+  D.resources.forEach(function (r) {
+    var same = D.resources.filter(function (x) { return x !== r && x.cat3 === r.cat3; });
+    var near = D.resources.filter(function (x) { return x !== r && x.cat3 !== r.cat3 && x.cats.some(function (c) { return c !== "ai" && r.cats.indexOf(c) > -1; }); });
+    r.related = same.concat(near).slice(0, 3).map(function (x) { return x.id; });
+  });
+})();

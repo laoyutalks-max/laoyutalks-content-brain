@@ -612,7 +612,16 @@
     "Join the community": "加入社区",
     "Follow @laoyu.talks on TikTok, or get an email when a new free resource is released.": "在 TikTok 关注 @laoyu.talks，或在有新的免费资源时收到邮件通知。",
     "Follow on TikTok ↗": "在 TikTok 关注 ↗",
-    "Think First. Improve Always. Build with AI.": "先思考，持续改进，用 AI 构建。"
+    "Think First. Improve Always. Build with AI.": "先思考，持续改进，用 AI 构建。",
+
+    /* Resources 3.0 */
+    "LAOYU RESOURCES 3.0": "老鱼资源 3.0",
+    "CHOOSE A CATEGORY": "选择分类",
+    "Browse by category": "按分类浏览",
+    "Pick a category to see its resources.": "选择一个分类，查看其中的资源。",
+    "DIFFICULTY": "难度",
+    "ACCESS": "获取方式",
+    "Search by name or problem, then filter. Preview any resource before you open it.": "按名称或问题搜索，再筛选。打开前可以先预览任何资源。"
   };
 
   /* Headings/lines built from several pieces: matched on the whole
