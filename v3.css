@@ -1,44 +1,10 @@
 /* =========================================================
    LAOYUTALKS 3.0 — design system + homepage
-   Navy foundation, light content surfaces, one green accent.
-   Light is the default; dark applies when <html> has no
-   data-theme="light" (same switch the rest of the site uses).
-   Self-contained: pages that load this file do not load
-   styles.css / twin.css / hub.css.
+   Page components for the new-style pages (home first).
+   Tokens, header and footer live in shell3.css, which must
+   load before this file. Pages that load this file do not
+   load styles.css / twin.css / hub.css.
    ========================================================= */
-
-/* ---------- Tokens (dark) ---------- */
-:root {
-  --bg: #0a121e; --surface: #111d2e; --ink: #e8eef5; --muted: #9fb0c5; --line: #22344c;
-  --green: #3ddc84; --on-green: #07140d; --green-soft: #12301f;
-  --amber: #f2c04b; --amber-soft: #33280c; --bad: #ff8a80;
-  --navy: #070e18; --navy2: #0f1b2c; --navy-line: #22344c;
-  --on-navy: #e8eef5; --on-navy-muted: #9fb0c5; --green-on-navy: #3ddc84;
-  --shadow: 0 8px 24px rgba(0, 0, 0, .35);
-  --r-card: 10px; --r-ctl: 6px;
-  --font-display: "Space Grotesk", "Noto Sans SC", system-ui, sans-serif;
-  --font-body: "Inter", "Noto Sans SC", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  /* names the shared drawer (sidebar.css) still reads */
-  --text: var(--ink); --cyan: var(--green); --cyan-soft: var(--green); --orange: var(--green);
-  --line-strong: var(--line); --ok: var(--green); --font-mono: var(--font-body);
-  color-scheme: dark;
-}
-/* ---------- Tokens (light, the default) ---------- */
-html[data-theme="light"] {
-  --bg: #f3f5f8; --surface: #ffffff; --ink: #0e1a2b; --muted: #56657a; --line: #dce2ea;
-  --green: #0f7a45; --on-green: #ffffff; --green-soft: #e3f4ea;
-  --amber: #8a5a00; --amber-soft: #fcf0d6; --bad: #b3261e;
-  --navy: #0b1626; --navy2: #13243b; --navy-line: #24374f;
-  --shadow: 0 8px 24px rgba(14, 26, 43, .12);
-  color-scheme: light;
-}
-/* Navy bands keep light text in both themes */
-.on-navy {
-  --ink: var(--on-navy); --muted: var(--on-navy-muted); --line: var(--navy-line);
-  --surface: var(--navy2); --bg: var(--navy); --green: var(--green-on-navy); --on-green: #07140d;
-  --green-soft: rgba(61, 220, 132, .14); --amber: #f2c04b; --amber-soft: rgba(242, 192, 75, .14); --bad: #ff8a80;
-  background: var(--navy); color: var(--ink);
-}
 
 /* ---------- Base ---------- */
 * { box-sizing: border-box; }
@@ -49,7 +15,6 @@ p { margin: 0; }
 a { color: var(--green); }
 img { max-width: 100%; }
 button, input, textarea { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
 [id] { scroll-margin-top: 84px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
@@ -71,67 +36,6 @@ button, input, textarea { font: inherit; color: inherit; }
 .chip { display: inline-block; padding: 1px 9px; border: 1px solid var(--line); border-radius: 999px; font-size: 12px; line-height: 1.6; color: var(--muted); white-space: nowrap; }
 .chip.g { border-color: transparent; background: var(--green-soft); color: var(--green); }
 .chip.a, .bAi { border: 0; border-radius: 999px; padding: 1px 9px; background: var(--amber-soft); color: var(--amber); font-size: 12px; white-space: nowrap; }
-
-/* ---------- Header ---------- */
-.nav { position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--navy-line); }
-.navin { display: flex; align-items: center; gap: 12px; min-height: 64px; position: relative; }
-.navin > a:first-child { display: flex; flex: none; }
-.logo { display: block; width: 132px; height: 48px; object-fit: contain; object-position: left center; }
-.links { order: 1; flex: 1; display: flex; align-items: center; gap: 4px; margin-left: 12px; min-width: 0; }
-.links a { padding: 8px 10px; border-radius: var(--r-ctl); color: var(--muted); font-size: 15px; font-weight: 500; text-decoration: none; white-space: nowrap; }
-.links a:hover { color: var(--ink); }
-.links a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--green); border-radius: 0; }
-.nav .sbTabWrap { order: 2; margin: 0; }
-.nav .sbTab {
-  gap: 6px; padding: 8px 12px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: transparent;
-  box-shadow: none; color: var(--ink); font: 600 13px/1.2 var(--font-body); min-height: 36px;
-}
-.nav .sbTab::before {
-  content: ""; width: 14px; height: 14px; flex: none;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e8eef5' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.500'/%3E%3C/svg%3E") center / contain no-repeat;
-}
-.nav .sbTab::after, .nav .sbLogo { display: none; }
-.nav .sbTab:hover, .nav .sbTab:focus-visible { transform: none; box-shadow: none; border-color: var(--green); }
-.nav .sbTabTxt { display: inline !important; font: inherit; letter-spacing: 0; color: inherit; }
-.nav .sbHint { border: 1px solid var(--green-on-navy); border-radius: var(--r-ctl); box-shadow: var(--shadow); animation: none; }
-.nav .sbHint b { color: #0f7a45; }
-.langToggle { order: 3; display: flex; flex: none; border: 1px solid var(--line); border-radius: var(--r-ctl); overflow: hidden; }
-.langToggle button { border: 0; background: transparent; color: var(--muted); padding: 8px 10px; font-size: 13px; font-weight: 600; cursor: pointer; min-height: 36px; }
-.langToggle button:hover { color: var(--ink); }
-.langToggle button.on { background: var(--green); color: var(--on-green); }
-.themeToggle, .mobileMenu {
-  flex: none; width: 38px; height: 38px; display: grid; place-items: center; padding: 0;
-  border: 1px solid var(--line); border-radius: var(--r-ctl); background: transparent; color: var(--ink); cursor: pointer;
-}
-.themeToggle { order: 4; }
-.themeToggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-.themeToggle:hover, .mobileMenu:hover { border-color: var(--green); }
-.mobileMenu { order: 5; display: none; gap: 4px; align-content: center; }
-.mobileMenu span { display: block; width: 18px; height: 2px; background: currentColor; }
-@media (max-width: 900px) {
-  .mobileMenu { display: grid; }
-  .links {
-    display: none; position: absolute; top: 100%; left: -16px; right: -16px; margin: 0; padding: 8px 16px 16px;
-    flex-direction: column; align-items: stretch; gap: 0; background: var(--navy); border-bottom: 1px solid var(--navy-line); box-shadow: var(--shadow);
-  }
-  .menuOpen .links { display: flex; }
-  .links a { padding: 13px 4px; font-size: 16px; }
-  .links a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--green); padding-left: 12px; }
-  .nav .sbTabWrap { margin-left: auto; }
-  .logo { width: 112px; height: 42px; }
-}
-@media (max-width: 420px) {
-  .navin { gap: 6px; }
-  .nav .sbTab { padding: 8px; }
-  .langToggle button { padding: 8px; }
-  .themeToggle, .mobileMenu { width: 36px; height: 36px; }
-}
-@media (max-width: 360px) {
-  .logo { width: 96px; height: 36px; }
-  /* icon-only finder button; the label stays available to screen readers */
-  .nav .sbTabTxt { display: block !important; position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
-  .nav .sbTab { gap: 0; }
-}
 
 /* ---------- Hero ---------- */
 .hero { padding-block: 56px; }
@@ -273,17 +177,6 @@ a.card .go { margin-top: auto; padding-top: 4px; font-size: 14px; font-weight: 6
 .subMsg.err { color: var(--bad); }
 .subMsg.ok { color: var(--green); font-weight: 600; }
 .fine { font-size: 13px; color: var(--muted); }
-
-/* ---------- Footer ---------- */
-.footer { padding-block: 40px 24px; font-size: 14.5px; }
-.foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 28px; }
-.foot h4 { font: 600 12px var(--font-body); letter-spacing: .08em; color: var(--muted); margin-bottom: 10px; }
-.foot a { display: block; padding: 4px 0; color: var(--ink); text-decoration: none; }
-.foot a:hover { color: var(--green); }
-.foot p { margin-top: 12px; color: var(--muted); max-width: 30ch; }
-.foot .lgL { display: none; }
-.copy { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-@media (max-width: 720px) { .foot { grid-template-columns: 1fr 1fr; } .foot > div:first-child { grid-column: 1 / -1; } }
 
 /* ---------- Site helper chat (built by chatbot.js) ---------- */
 .lyChat { position: fixed; right: 16px; bottom: 16px; z-index: 1200; }
