@@ -325,6 +325,91 @@ a.card .go { margin-top: auto; padding-top: 4px; font-size: 14px; font-weight: 6
 @media (max-width: 900px) { .wfBody { grid-template-columns: 1fr; } }
 @media (max-width: 480px) { .wfPager { flex-direction: column; } }
 
+/* Automation Lab 2.0 */
+.crumbs { margin-bottom: 14px; font-size: 13.5px; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--green); text-decoration: underline; }
+.heroFlow { margin: 0; padding: 18px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); }
+.heroFlow figcaption { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.heroFlow .fine { margin-top: 10px; }
+.flowV { list-style: none; margin: 12px 0 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.flowV li { position: relative; display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: center; padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); }
+.flowV li + li::before { content: ""; position: absolute; left: 50%; top: -18px; height: 18px; border-left: 2px solid var(--green); }
+.flowV small { font-size: 11.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.flowV b { font-weight: 500; font-size: 14.5px; }
+.modGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.modGrid > * { min-width: 0; }
+.modCard { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); color: var(--ink); text-decoration: none; }
+.modCard span:not(.chip):not(.modK) { font-size: 14px; color: var(--muted); flex: 1; }
+.modCard b { font: 600 16px/1.3 var(--font-display); }
+.modCard.live { border-color: var(--green); }
+.modCard.live:hover b { color: var(--green); }
+.modK { font: 700 13px var(--font-display); color: var(--green); letter-spacing: .08em; }
+.finderTile { width: 100%; text-align: left; font: inherit; color: var(--ink); cursor: pointer; transition: border-color .15s; }
+.finderTile:hover { border-color: var(--green); }
+.finderTile[aria-pressed="true"] { border-color: var(--green); box-shadow: inset 3px 0 0 var(--green); }
+.finderTile b { font: 600 16px/1.35 var(--font-display); }
+.finderTile small { font-size: 13px; color: var(--muted); }
+.featCard, .wfCard { color: inherit; text-decoration: none; transition: border-color .15s; }
+.featCard:hover, .wfCard:hover { border-color: var(--green); }
+.featCard h3 { font-size: 18px; }
+.go { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--green); }
+.wfCardTop { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.chip.cat { border-color: transparent; background: var(--bg); color: var(--ink); white-space: normal; }
+.sec.alt .chip.cat { background: var(--surface); border-color: var(--line); }
+.flowH { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px 26px; counter-reset: fl; }
+.flowH li { position: relative; counter-increment: fl; flex: 1 1 130px; max-width: 220px; padding: 10px 12px; border: 1px solid var(--line); border-top: 3px solid var(--green); border-radius: var(--r-ctl); background: var(--surface); font-size: 14.5px; font-weight: 500; }
+.flowH li::before { content: counter(fl); display: block; font-size: 11.5px; font-weight: 600; color: var(--green); }
+.flowH li + li::after { content: "→"; position: absolute; left: -20px; top: 50%; transform: translateY(-50%); color: var(--green); font-weight: 700; }
+.wfPart ol.flowH { flex-direction: row; padding-left: 0; gap: 8px 26px; }
+.flowH.mini { gap: 6px 18px; }
+.flowH.mini li { flex: 1 1 90px; padding: 6px 8px; font-size: 12.5px; border-top-width: 2px; }
+.flowH.mini li::before { display: none; }
+.flowH.mini li + li::after { left: -14px; }
+.libTools { display: flex; flex-direction: column; gap: 14px; }
+.libSearch { display: flex; align-items: center; gap: 8px; max-width: 560px; padding: 0 12px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); }
+.libSearch:focus-within { border-color: var(--green); }
+.libSearch span { color: var(--muted); font-size: 18px; }
+.libSearch input { flex: 1; min-width: 0; min-height: 44px; border: 0; background: transparent; color: var(--ink); font-size: 15.5px; outline: none; }
+.libCats { display: flex; flex-wrap: wrap; gap: 8px; }
+.libCats .labChip { background: var(--bg); }
+.libCats .labChip[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--on-green); }
+.labChip .n { opacity: .7; font-size: 12px; }
+.libSelects { display: flex; flex-wrap: wrap; gap: 10px 14px; }
+.libSel { display: flex; flex-direction: column; gap: 4px; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.libSel select { min-height: 40px; min-width: 170px; padding: 6px 10px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); color: var(--ink); font-size: 14.5px; }
+.libActive { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.libActive:empty { display: none; }
+.actChip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 6px 4px 12px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 13.5px; font-weight: 600; }
+.actChip button { width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
+.actChip button:hover { background: var(--bg); }
+.wfFacts { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.wfFacts dt { font-size: 12.5px; color: var(--muted); }
+.wfFacts dd { margin: 2px 0 0; font-size: 15px; }
+.wfBtns { display: flex; gap: 8px; flex-wrap: wrap; }
+.wfEx pre.code { max-height: 420px; overflow: auto; white-space: pre; overflow-wrap: normal; font-size: 13px; }
+.wfPart .fine { margin-bottom: 8px; }
+.autoCta .wrap { align-items: flex-start; }
+.autoCta h2 { font-size: clamp(24px, 3vw, 32px); max-width: 30ch; }
+.autoCta p { color: var(--muted); }
+.autoCta .actions { margin-top: 4px; }
+@media (max-width: 1024px) { .modGrid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 900px) { .autoHero .heroIn { grid-template-columns: 1fr; } }
+@media (max-width: 720px) {
+  .modGrid { grid-template-columns: 1fr 1fr; }
+  .flowH, .wfPart ol.flowH { flex-direction: column; gap: 18px; }
+  .flowH li { max-width: none; flex: none; }
+  .flowH li + li::after { content: "↓"; left: 50%; top: -17px; transform: translateX(-50%); }
+  .flowH.mini { flex-direction: row; gap: 6px 18px; }
+  .flowH.mini li { flex: 1 1 90px; }
+  .flowH.mini li + li::after { content: "→"; left: -14px; top: 50%; transform: translateY(-50%); }
+  .libCats { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; margin-inline: -16px; padding-inline: 16px; scrollbar-width: thin; }
+  .libCats .labChip { flex: none; white-space: nowrap; }
+  .libSel { flex: 1 1 140px; }
+  .libSel select { min-width: 0; width: 100%; }
+}
+@media (max-width: 480px) { .modGrid { grid-template-columns: 1fr; } }
+
 /* ---------- Paired English / Chinese text (class "pair" on a container) ---------- */
 html:not([data-bi]):not([data-lang="zh"]) .pair .zh,
 html:not([data-bi])[data-lang="zh"] .pair .en { display: none; }
