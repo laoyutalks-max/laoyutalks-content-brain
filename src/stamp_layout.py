@@ -11,7 +11,7 @@ class "legacy", which switches on the legacy skin in shell3.css.
 import glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SHELL_V = "20261117b"     # bump when shell3.css changes
+SHELL_V = "20261117c"     # bump when shell3.css changes
 SIDEBAR_V = "20261117c"   # bump when sidebar.js changes
 
 # Menu items. Learn and AI Lab point at homepage sections until their own pages exist.

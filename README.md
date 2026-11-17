@@ -10,3 +10,5 @@ Live: https://laoyutalks-max.github.io/laoyutalks-content-brain/
 - After editing a CSS/JS file, bump its `?v=` value in the HTML pages so browsers load the new copy.
 - `sitemap.xml` lists public pages; owner-only pages use `noindex` and are left out.
 - Never commit keys, owner keys or real company data.
+
+- Full 3.0 notes (architecture, common tasks, deployment, known limits): `docs/LAOYUTALKS-3.0.md`.

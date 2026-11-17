@@ -166,3 +166,7 @@ html.legacy main > .hero:first-child, html.legacy main > section:first-child.her
 html.legacy main > .hero:first-child > .wrap { padding-top: 0 !important; }
 html.legacy h1, html.legacy h2, html.legacy h3 { text-shadow: none !important; }
 html.legacy .eyebrow { letter-spacing: .08em; color: var(--cyan); }
+
+/* Chinese-only notice, e.g. on English-only legal pages */
+html:not([data-lang="zh"]) .zhOnly { display: none; }
+.langNote { margin: 14px 0 0; padding: 10px 14px; border-radius: var(--r-ctl); background: var(--amber-soft); color: var(--amber) !important; font-size: 15px; max-width: 60ch; }
