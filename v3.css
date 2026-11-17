@@ -290,3 +290,37 @@ a.card .go { margin-top: auto; padding-top: 4px; font-size: 14px; font-weight: 6
   .labChatHead, .labSuggest, .labForm { padding-inline: 12px; }
   .labMsg.me p { max-width: 92%; }
 }
+
+/* ---------- Automation Lab (automation.html) ---------- */
+.wfFilter { display: flex; flex-wrap: wrap; gap: 8px; }
+.wfFilter .labChip[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: var(--on-green); }
+.wfCount { font-size: 14px; color: var(--muted); }
+#wfList { display: flex; flex-direction: column; gap: 20px; }
+#wfList[hidden], .wfDetail[hidden], .wfEmpty[hidden] { display: none; }
+.wfCard { gap: 10px; }
+.wfCard h3 { font-size: 18px; }
+.wfEmpty { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; border: 1px dashed var(--line); border-radius: var(--r-card); color: var(--muted); }
+.wfDetail { display: flex; flex-direction: column; gap: 20px; }
+.wfBack { align-self: flex-start; font-weight: 600; text-decoration: none; }
+.wfBack:hover { text-decoration: underline; }
+.wfHead { display: flex; flex-direction: column; gap: 10px; }
+.wfHead h1 { font-size: clamp(26px, 3.6vw, 38px); outline: none; }
+.wfBody { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+.wfMain, .wfSide { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.wfPart h2 { font-size: 13px; font-family: var(--font-body); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.wfPart p, .wfPart li { font-size: 16px; }
+.wfPart ol, .wfPart ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.wfSide .wfPart { padding: 16px; border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); }
+.wfEx { border: 1px solid var(--line); border-radius: var(--r-card); background: var(--surface); overflow: hidden; }
+.wfExTop { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.wfEx pre { margin: 0; padding: 14px; font: 14px/1.6 ui-monospace, Consolas, "Noto Sans SC", monospace; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink); }
+.wfRel { display: flex; flex-direction: column; gap: 8px; }
+.wfRel a { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; }
+.wfRel a:hover { border-color: var(--green); }
+.wfRel b { font: 600 15px/1.3 var(--font-display); color: var(--ink); }
+.wfRel span { font-size: 13.500px; color: var(--muted); }
+.wfPager { display: flex; justify-content: space-between; gap: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-weight: 600; }
+.wfPager a { text-decoration: none; }
+.wfPager a:hover { text-decoration: underline; }
+@media (max-width: 900px) { .wfBody { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .wfPager { flex-direction: column; } }

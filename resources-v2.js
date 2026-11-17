@@ -91,12 +91,12 @@
     /* ---------- shared bits ---------- */
     function shot(r) { return "assets/previews/" + r.id + "-" + (zh() ? "zh" : "en") + ".jpg"; }
     function langs(r) { return r.lang.map(function (k) { return k === "en" ? "EN" : "中文"; }).join(" · "); }
-    function aiBadge(r) { return r.ai ? '<span class="bAi">' + (r.type === "demo" || r.sim ? T("SIMULATED AI", "模拟 AI") : T("AI PROMPT INCLUDED", "含 AI 提示词")) + "</span>" : ""; }
+    function aiBadge(r) { return r.ai ? '<span class="bAi">' + (r.type === "demo" || r.sim ? T("SIMULATED AI", "模拟 AI") : r.type === "workflow" ? T("USES AI", "使用 AI") : T("AI PROMPT INCLUDED", "含 AI 提示词")) + "</span>" : ""; }
     function badges(r) {
       return '<span class="bFree">' + esc(L(D.access[r.access])) + "</span>" + aiBadge(r) +
         '<span class="bLv lv-' + r.level + '">' + esc(L(D.levels[r.level])) + '</span><span class="bLv">' + langs(r) + "</span>";
     }
-    function openLabel(r) { return r.type === "demo" ? T("TRY DEMO", "试用演示") : r.type === "aitool" ? T("OPEN TOOL", "打开工具") : T("VIEW RESOURCE", "查看资源"); }
+    function openLabel(r) { return r.type === "demo" ? T("TRY DEMO", "试用演示") : r.type === "aitool" ? T("OPEN TOOL", "打开工具") : r.type === "workflow" ? T("VIEW WORKFLOW", "查看工作流程") : T("VIEW RESOURCE", "查看资源"); }
 
     /* ---------- cards ---------- */
     function card(r) {

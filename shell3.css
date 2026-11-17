@@ -101,7 +101,7 @@ html.v3 .nav .themeToggle svg { width: 18px; height: 18px; fill: none; stroke: c
 html.v3 .nav .themeToggle:hover, html.v3 .nav .mobileMenu:hover { border-color: var(--green) !important; }
 html.v3 .nav .mobileMenu { order: 5; display: none; gap: 4px; align-content: center; flex-direction: column; }
 html.v3 .nav .mobileMenu span { display: block; width: 18px; height: 2px; background: currentColor; box-shadow: none; transform: none; opacity: 1; }
-@media (max-width: 900px) {
+@media (max-width: 1023px) {
   html.v3 .nav .mobileMenu { display: grid; }
   html.v3 .nav .links {
     display: none; position: absolute; top: 100%; left: -16px; right: -16px; margin: 0; padding: 8px 16px 16px;

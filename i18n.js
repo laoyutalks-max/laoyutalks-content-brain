@@ -638,7 +638,24 @@
     "Open the AI Lab →": "打开 AI 实验室 →",
     "Open the AI Lab": "打开 AI 实验室",
     "Prototype": "原型",
-    "The AI Lab is a prototype: answers come from built-in guidance, not a live AI. Live AI will be switched on once the server is set up.": "AI 实验室目前是原型：回答来自内置指引，不是实时 AI。服务器配置完成后将接入实时 AI。"
+    "The AI Lab is a prototype: answers come from built-in guidance, not a live AI. Live AI will be switched on once the server is set up.": "AI 实验室目前是原型：回答来自内置指引，不是实时 AI。服务器配置完成后将接入实时 AI。",
+
+    /* Automation Lab */
+    "Automation Lab | LAOYU": "自动化实验室 | LAOYU 老鱼",
+    "Automation": "自动化",
+    "Take repetitive work off your team.": "把重复性工作从团队身上拿走。",
+    "Practical workflows built with tools most teams already have: Google Sheets, Forms, Apps Script, AppSheet and an AI chat tool. Each one shows the problem, the steps and an example of the result.": "用大多数团队已有的工具搭建实用的工作流程：Google Sheets、Forms、Apps Script、AppSheet 和 AI 对话工具。每个流程都说明问题、步骤和结果示例。",
+    "Workflow library": "工作流程库",
+    "Filter by the tools you have. Open a workflow to see the steps.": "按你已有的工具筛选，打开工作流程查看步骤。",
+    "Before you automate": "自动化之前",
+    "Fix the process first. Automating a messy process only makes the mess faster.": "先理顺流程。把混乱的流程自动化，只会让混乱来得更快。",
+    "Start with one line or one team, run it alongside the old way, then roll out.": "先在一条产线或一个团队试行，与旧方法并行，再推广。",
+    "Check your company's rules before putting work data into any AI tool or new app.": "把工作数据放进任何 AI 工具或新应用之前，先确认公司的规定。",
+    "Name an owner for every automation, so someone fixes it when it breaks.": "每个自动化流程都要指定负责人，出问题时有人修复。",
+    "Want one of these for your team?": "想为你的团队搭建其中一个？",
+    "These are guides, not ready-made apps. If you would like help adapting one to your site, get in touch.": "这些是操作指南，不是现成的应用。如果你需要帮助把它用到自己的工厂，欢迎联系。",
+    "Contact LAOYU": "联系老鱼",
+    "Prompts, AI tools and automation workflows": "提示词、AI 工具与自动化流程"
   };
 
   /* Headings/lines built from several pieces: matched on the whole
