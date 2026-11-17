@@ -18,6 +18,22 @@
   function hay(i) { return [i.title[0], i.title[1], i.kw].concat(i.aka.reduce(function (a, b) { return a.concat(b); }, []), SB.types[i.type]).join(" ").toLowerCase(); }
   function hit(i) { if (!q) return true; var h = hay(i); return q.toLowerCase().split(/\s+/).filter(Boolean).every(function (w) { return h.indexOf(w) > -1; }); }
 
+  /* Site pages, so the search covers the whole site and not only the tools */
+  var PAGES = [
+    ["index.html", ["Home", "首页"], "home start homepage 主页"],
+    ["learn.html", ["Learn with LAOYU", "跟老鱼学习"], "learn video videos lesson tiktok topic 视频 课程 学习 话题"],
+    ["ai-lab.html", ["ASK LAOYU · AI Lab", "问老鱼 · AI 实验室"], "ai lab assistant ask laoyu chat manufacturing quality management 助手 提问 实验室"],
+    ["automation.html", ["Automation Lab", "自动化实验室"], "automation workflow apps script google sheets forms appsheet looker report email document 自动化 工作流程 表格 报告"],
+    ["resources.html", ["Resource library", "资源库"], "resources library all tools templates 全部 资源 模板"],
+    ["ai-tools.html", ["AI Tools", "AI 工具"], "ai tools roadmap 工具"],
+    ["laoyutalks.html", ["LAOYUTALKS videos", "LAOYUTALKS 视频"], "videos tiktok channel 视频 频道"],
+    ["about.html", ["Our Story", "品牌故事"], "about story mission vision founder 关于 故事 使命"],
+    ["contact.html", ["Contact", "联系"], "contact email message feedback 联系 邮箱 留言"],
+    ["privacy.html", ["Privacy policy", "隐私政策"], "privacy data 隐私 数据"],
+    ["terms.html", ["Terms of use", "使用条款"], "terms conditions 条款"]
+  ];
+  function pageHit(p) { var h = (p[1][0] + " " + p[1][1] + " " + p[2]).toLowerCase(); return q.toLowerCase().split(/\s+/).filter(Boolean).every(function (w) { return h.indexOf(w) > -1; }); }
+
   function itemHTML(i) {
     var badge = i.status === "ready" ? (i.signup ? "" : '<em class="sbFree">' + T("NO SIGN-UP", "免注册") + "</em>")
       : usable(i) ? '<em class="sbOwn">' + T("OWNER", "站长") + "</em>"
@@ -42,17 +58,25 @@
         '<i aria-hidden="true">' + c[1] + "</i><b>" + esc(L(c[2])) + '</b><span class="sbN">' + (ready === list.length ? ready : ready + T(" ready · ", " 可用 · ") + (list.length - ready) + T(" soon", " 即将")) + '</span><span class="sbChev" aria-hidden="true">▾</span></button>' +
         '<div class="sbList">' + list.map(itemHTML).join("") + "</div></section>";
     }).join("");
+    if (q) {
+      var pages = PAGES.filter(pageHit);
+      if (pages.length) {
+        total += pages.length;
+        html += '<section class="sbCat open"><div class="sbHead"><b>' + T("Pages", "页面") + '</b><span class="sbN">' + pages.length + '</span></div><div class="sbList">' +
+          pages.map(function (p) { return '<a class="sbItem" href="' + p[0] + '"><span>' + esc(L(p[1])) + "<small>" + T("Page", "页面") + "</small></span></a>"; }).join("") + "</div></section>";
+      }
+    }
     body.innerHTML = html || '<p class="sbEmpty">' + T("No match. Try another word.", "没有匹配结果，换个关键词试试。") + "</p>";
     panel.querySelector(".sbCount").textContent = q ? T(total + " found", "找到 " + total + " 项") : T(SB.items.filter(usable).length + " ready to use", SB.items.filter(usable).length + " 项可用");
     panel.querySelector(".sbTitle").textContent = T("Tools & Resources", "工具与资源");
-    panel.querySelector(".sbSearch input").placeholder = T("Search, e.g. downtime, OEE, 8D", "搜索，例如：停机、OEE、8D");
-    panel.querySelector(".sbSearch input").setAttribute("aria-label", T("Search tools and resources", "搜索工具与资源"));
+    panel.querySelector(".sbSearch input").placeholder = T("Search tools and pages, e.g. OEE, 8D, contact", "搜索工具和页面，例如：OEE、8D、联系");
+    panel.querySelector(".sbSearch input").setAttribute("aria-label", T("Search the site", "搜索全站"));
     panel.querySelector(".sbClose").setAttribute("aria-label", T("Close", "关闭"));
     panel.querySelector(".sbAll").textContent = T("OPEN FULL LIBRARY →", "打开完整资源库 →");
-    tab.querySelector(".sbTabTxt").textContent = T("TOOLS", "工具");
+    tab.querySelector(".sbTabTxt").textContent = T("Search", "搜索");
     var hint = document.querySelector(".sbHint");
     if (hint) hint.innerHTML = "<b>" + T("Click me!", "点我！") + "</b> " + T(SB.items.filter(usable).length + " free tools, sorted by problem", SB.items.filter(usable).length + " 个免费工具，按问题分类");
-    tab.setAttribute("aria-label", T("Open Tools & Resources", "打开工具与资源"));
+    tab.setAttribute("aria-label", T("Search tools and pages", "搜索工具和页面"));
   }
 
   function setOpen(v) {

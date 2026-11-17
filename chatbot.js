@@ -161,8 +161,8 @@
   function chipLabel(id) { var f = id && id.indexOf("f_") === 0 ? finderById(id) : null; return f ? L(f.label) : L(CHIP_LABELS[id]); }
 
   var UI = {
-    launcher:  { en: "Ask LAOYU", zh: "问老鱼" },
-    title:     { en: "LAOYU Assistant", zh: "老鱼助手" },
+    launcher:  { en: "Help", zh: "帮助" },
+    title:     { en: "LAOYU site helper", zh: "老鱼网站助手" },
     status:    { en: "Guided answers · not a live AI chat", zh: "引导式回答 · 非实时 AI 对话" },
     placeholder: { en: "e.g. analyse downtime, 5 Why, Excel formula", zh: "例如：分析停机、5 个为什么、Excel 公式" },
     send:      { en: "Send", zh: "发送" },

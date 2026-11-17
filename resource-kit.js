@@ -68,6 +68,16 @@
       box(num(), T("Was this useful?", "这个资源有用吗？"),
         done ? '<p class="fbThanks">' + T("Thanks for your feedback!", "谢谢你的反馈！") + "</p>" :
         '<div class="fb" data-fb><button type="button" class="fbBtn" data-v="up">👍 ' + T("Yes, useful", "有用") + '</button><button type="button" class="fbBtn" data-v="down">👎 ' + T("Not yet", "还不够") + '</button></div><div class="fbMore" hidden><label for="fbTxt">' + T("What would make it better? (optional)", "怎样能更好？（选填）") + '</label><textarea id="fbTxt" rows="2" maxlength="400"></textarea><button type="button" class="btn orange" data-fb-send>' + T("SEND FEEDBACK", "发送反馈") + "</button></div>") +
+      (function () {
+        /* Resources 3.0: category, difficulty, access and last updated on every detail page */
+        var bits = [];
+        if (R.cat3 && D.cats3) bits.push(esc(L(D.cats3[R.cat3].t)));
+        if (R.level && D.levels[R.level]) bits.push(esc(L(D.levels[R.level])));
+        if (R.access && D.access) bits.push(esc(L(D.access[R.access])));
+        var d = new Date(R.updated + "T00:00:00");
+        if (R.updated && !isNaN(d)) bits.push(T("Last updated ", "最近更新 ") + (zh() ? d.getFullYear() + " 年 " + (d.getMonth() + 1) + " 月 " + d.getDate() + " 日" : d.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()] + " " + d.getFullYear()) + " · v" + esc(R.version));
+        return bits.length ? '<p class="kitMeta">' + bits.join(" · ") + "</p>" : "";
+      })() +
       "</div>";
   }
   function downloads() {
