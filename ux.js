@@ -15,7 +15,7 @@
   var root = document.documentElement;
   function zh() { return root.getAttribute("data-lang") === "zh"; }
   function bi() { return root.hasAttribute("data-bi"); }
-  function L(en, cn) { return zh() ? cn : en; }
+  function L(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
 
   var TXT = {

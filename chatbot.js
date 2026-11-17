@@ -204,7 +204,10 @@
     return window.LAOYU_I18N ? window.LAOYU_I18N.lang() : "en";
   }
 
+  /* EN+中 mode: both languages (i18n.js turns them into English + smaller Chinese) */
   function L(obj) {
+    var I = window.LAOYU_I18N;
+    if (I && I.pick && obj.zh) return I.pick(obj.en, obj.zh);
     return obj[lang()] || obj.en;
   }
 
@@ -390,7 +393,7 @@
     if (s.k === "f") return recsHTML(finderById(s.id));
     if (s.k === "kb") return answerHTML(byId(s.id));
     var txt = L(UI[s.key]);
-    Object.keys(s.rep || {}).forEach(function (k) { txt = txt.replace(k, s.rep[k]); });
+    Object.keys(s.rep || {}).forEach(function (k) { txt = txt.split(k).join(s.rep[k]); });
     return s.raw ? txt : esc(txt);
   }
 
@@ -666,7 +669,7 @@
 
     chipsBox.addEventListener("click", function (e) {
       var b = e.target.closest(".lyChip");
-      if (b) handle(b.textContent, b.getAttribute("data-topic"));
+      if (b) { var I = window.LAOYU_I18N, id = b.getAttribute("data-topic"); handle(I && I.one ? I.one(chipLabel(id)) : b.textContent, id); }
     });
 
     relabel();

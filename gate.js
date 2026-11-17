@@ -41,7 +41,7 @@
     oneClick: ["UNLOCK WITH ONE CLICK →", "一键解锁 →"],
     notMe: ["Use a different email", "使用其他邮箱"]
   };
-  function t(k) { return T[k][zh() ? 1 : 0]; }
+  function t(k) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(T[k][0], T[k][1]) : T[k][zh() ? 1 : 0]; } /* EN+中: both, see i18n.js */
 
   function unlocked() {
     try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; }
@@ -106,7 +106,7 @@
     });
     remember(res, p.name);
     var note = document.querySelector(".gateDone");
-    if (note) { note.dataset.name = p.name; note.textContent = t("done").replace("{name}", p.name); note.hidden = false; }
+    if (note) { note.dataset.name = p.name; note.textContent = t("done").split("{name}").join(p.name); note.hidden = false; }
     open(gate);
     var first = document.querySelector(".gated");
     if (first && !quiet) first.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -118,8 +118,8 @@
     if (p && p.email && !full) {
       gate.innerHTML =
         '<div class="gateForm gateBack">' +
-          "<h2>" + esc(t("back").replace("{name}", p.name)) + "</h2>" +
-          "<p>" + esc(t("backSub")).replace("{email}", "<b>" + esc(p.email) + "</b>") + "</p>" +
+          "<h2>" + esc(t("back").split("{name}").join(p.name)) + "</h2>" +
+          "<p>" + esc(t("backSub")).split("{email}").join("<b>" + esc(p.email) + "</b>") + "</p>" +
           '<button type="button" class="btn orange" data-one>' + t("oneClick") + "</button> " +
           '<button type="button" class="gateSwap" data-swap>' + t("notMe") + "</button>" +
           '<p class="gatePriv">' + t("privacy") + '<a href="privacy.html">' + t("privacyLink") + "</a></p>" +
@@ -136,7 +136,7 @@
           '<label for="gName">' + t("name") + '</label><input id="gName" name="name" autocomplete="name" maxlength="80" required>' +
           '<label for="gEmail">' + t("email") + '</label><input id="gEmail" name="email" type="email" autocomplete="email" maxlength="120" required>' +
           '<label for="gRole">' + t("role") + '</label><select id="gRole" name="role"><option value=""></option>' +
-            T.roles.map(function (r) { return '<option value="' + esc(r[0]) + '">' + esc(r[zh() ? 1 : 0]) + "</option>"; }).join("") +
+            T.roles.map(function (r) { return '<option value="' + esc(r[0]) + '">' + esc(window.LAOYU_I18N && LAOYU_I18N.pick ? LAOYU_I18N.pick(r[0], r[1]) : r[zh() ? 1 : 0]) + "</option>"; }).join("") +
           "</select>" +
           '<input class="gateHp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         "</div>" +
@@ -159,7 +159,7 @@
       var fix = EC ? EC.typoFix(email) : null;
       if (fix && f.dataset.keptTypo !== email) {
         err.hidden = false;
-        err.innerHTML = esc(t("typo")).replace("{s}", "<b>" + esc(fix) + "</b>") + ' <button type="button" class="gateSwap" data-fix>' + t("useIt") + "</button>";
+        err.innerHTML = esc(t("typo")).split("{s}").join("<b>" + esc(fix) + "</b>") + ' <button type="button" class="gateSwap" data-fix>' + t("useIt") + "</button>";
         err.querySelector("[data-fix]").addEventListener("click", function () { f.email.value = fix; err.hidden = true; f.dataset.keptTypo = ""; });
         f.dataset.keptTypo = email; // pressing UNLOCK again keeps what they typed
         return;
@@ -188,7 +188,7 @@
     document.addEventListener("laoyu:lang", function () {
       if (!gate.hidden) render(gate);
       var note = document.querySelector(".gateDone");
-      if (note && note.dataset.name) note.textContent = t("done").replace("{name}", note.dataset.name);
+      if (note && note.dataset.name) note.textContent = t("done").split("{name}").join(note.dataset.name);
     });
   });
 

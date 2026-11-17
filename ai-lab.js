@@ -26,8 +26,9 @@
 
   var root = document.documentElement;
   function zh() { return root.getAttribute("data-lang") === "zh"; }
-  function L(a) { return a ? (zh() ? a[1] : a[0]) : ""; }
-  function T(en, cn) { return zh() ? cn : en; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function L(a) { return a ? biPick(a[0], a[1]) : ""; }
+  function T(en, cn) { return biPick(en, cn); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function $(id) { return document.getElementById(id); }
   var D = window.LAOYU_DATA || { resources: [] };
@@ -415,6 +416,7 @@
   }
 
   function copy(btn, text) {
+    if (window.LAOYU_I18N && LAOYU_I18N.one) text = LAOYU_I18N.one(text); // EN+中: copy one language
     var ok = function () { btn.textContent = T("Copied ✓", "已复制 ✓"); setTimeout(function () { btn.textContent = T("Copy", "复制"); }, 1800); };
     var fallback = function () {
       var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";

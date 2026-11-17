@@ -9,8 +9,9 @@
   var D = window.LAOYU_DATA;
   if (!D || !D.workflows) return;
   function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
-  function L(a) { return a ? (zh() ? a[1] : a[0]) : ""; }
-  function T(en, cn) { return zh() ? cn : en; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function L(a) { return a ? biPick(a[0], a[1]) : ""; }
+  function T(en, cn) { return biPick(en, cn); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function $(id) { return document.getElementById(id); }
   function wf(id) { return D.workflows.filter(function (w) { return w.id === id; })[0]; }
@@ -87,7 +88,9 @@
   }
 
   function copy(btn) {
-    var text = $("wfExample").textContent;
+    var el = $("wfExample"), z = el.querySelector(".biZh"), all = el.textContent;
+    /* EN+中 shows both; copy only the visitor's language */
+    var text = z ? (zh() ? z.textContent : all.slice(0, all.length - z.textContent.length)) : all;
     var ok = function () { btn.textContent = T("Copied ✓", "已复制 ✓"); setTimeout(function () { btn.textContent = T("Copy", "复制"); }, 1800); };
     var manual = function () {
       var sel = window.getSelection && window.getSelection();
