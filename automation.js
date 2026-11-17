@@ -52,7 +52,7 @@
     { k: "B", t: ["Workflow Builder", "工作流程设计器"], d: ["Map your own process from input to output.", "从输入到输出，梳理你自己的流程。"], href: "#builder", live: true },
     { k: "C", t: ["ASK LAOYU – Automation Advisor", "问老鱼 – 自动化顾问"], d: ["Describe a task and get a suggested approach.", "描述一项任务，获得建议的自动化方案。"], href: "#advisor", live: true },
     { k: "D", t: ["ROI Calculator", "投资回报计算器"], d: ["Estimate the hours an automation could save.", "估算自动化可节省的工时。"], href: "#roi", live: true },
-    { k: "E", t: ["Case studies", "实践案例"], d: ["Manufacturing examples, step by step.", "制造业实例，逐步讲解。"] }
+    { k: "E", t: ["Case studies", "实践案例"], d: ["Manufacturing examples, step by step.", "制造业实例，逐步讲解。"], href: "#cases", live: true }
   ];
 
   /* ---------- small renderers ---------- */
@@ -241,6 +241,7 @@
     var h = (location.hash || "").slice(1), w = /^wf-/.test(h) ? wf(h) : null, m;
     if ((m = h.match(/^tool-(.+)$/)) && D.tools[m[1]]) { S.tool = m[1]; S.cat = "all"; }
     if ((m = h.match(/^cat-(.+)$/)) && CATS[m[1]]) { S.cat = m[1]; }
+    if ((m = h.match(/^build-(.+)$/)) && BUILDS[m[1]]) { S.build = m[1]; S.cat = "all"; }
     openId = w ? w.id : null;
     $("wfList").hidden = !!w;
     $("wfDetail").hidden = !w;
@@ -251,7 +252,7 @@
     } else {
       renderList();
       document.title = T("Automation Lab | LAOYU", "自动化实验室 | LAOYU 老鱼");
-      if (fromHash && /^(tool|cat)-/.test(h)) $("library").scrollIntoView();
+      if (fromHash && /^(tool|cat|build)-/.test(h)) $("library").scrollIntoView();
     }
   }
   function renderAll() { renderModules(); renderFinder(); renderFeatured(); renderFilters(); show(false); }
@@ -327,6 +328,6 @@
     window.addEventListener("popstate", function () { show(true); });
     document.addEventListener("laoyu:lang", renderAll);
     renderAll();
-    if (/^#(wf|tool|cat)-/.test(location.hash)) show(true);
+    if (/^#(wf|tool|cat|build)-/.test(location.hash)) show(true);
   });
 })();
