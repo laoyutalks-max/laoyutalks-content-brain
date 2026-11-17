@@ -295,4 +295,21 @@
     document.addEventListener("laoyu:lang", function () { if (summary) summary = build(); if (Object.keys(errs).length) validate(); renderForm(); });
     renderForm();
   });
+
+  /* Used by the Automation Advisor: "Open in Workflow Builder" */
+  window.LAOYU_BUILDER = {
+    prefill: function (v) {
+      if (!$("wbForm") || !v) return false;
+      if (hasDraft() && !window.confirm(O("Replace your current Workflow Builder draft with this recommendation?", "要用这条建议替换流程设计器中的当前草稿吗？"))) return false;
+      S = blank();
+      ["problem", "current", "input", "trigger", "logic", "output", "notify"].forEach(function (k) { S[k] = String(v[k] || "").slice(0, 400); });
+      S.tools = (v.tools || []).filter(function (t) { return TOOLS.indexOf(t) > -1; });
+      S.steps = (v.steps || []).filter(Boolean).slice(0, MAX_STEPS).map(function (s) { return String(s).slice(0, 60); });
+      while (S.steps.length < 2) S.steps.push("");
+      errs = {}; summary = ""; save(); renderForm();
+      $("builder").scrollIntoView({ behavior: "smooth", block: "start" });
+      var f = $("wb-problem"); if (f) f.focus({ preventScroll: true });
+      return true;
+    }
+  };
 })();

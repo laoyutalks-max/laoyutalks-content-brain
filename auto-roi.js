@@ -144,4 +144,16 @@
     document.addEventListener("laoyu:lang", function () { renderInputs(); renderOut(); });
     renderInputs(); renderOut();
   });
+
+  /* Used by the Automation Advisor: "Refine in ROI Calculator" */
+  window.LAOYU_ROI = {
+    set: function (v) {
+      if (!$("roiForm") || !v) return false;
+      IN.forEach(function (f) { if (v[f.k] !== undefined) S[f.k] = String(v[f.k]); });
+      renderInputs(); renderOut();
+      $("roi").scrollIntoView({ behavior: "smooth", block: "start" });
+      var f = $("roi-cost"); if (f) f.focus({ preventScroll: true });
+      return true;
+    }
+  };
 })();

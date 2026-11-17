@@ -436,6 +436,57 @@ a.card .go { margin-top: auto; padding-top: 4px; font-size: 14px; font-weight: 6
 .wbSummary { display: flex; flex-direction: column; gap: 8px; }
 .wbSummary[hidden] { display: none; }
 .wbSummary pre { max-height: 520px; overflow: auto; }
+/* ASK LAOYU Automation Advisor (auto-advisor.js) */
+.advBox { gap: 18px; padding: 22px; }
+.sec.alt .advBox { background: var(--bg); }
+.advProg { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13.5px; color: var(--muted); }
+.advProg li { display: inline-flex; align-items: center; gap: 6px; }
+.advProg span { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line); font-size: 12px; font-weight: 600; }
+.advProg li.done span { background: var(--green-soft); border-color: transparent; color: var(--green); }
+.advProg li.now { color: var(--ink); font-weight: 600; }
+.advProg li.now span { background: var(--green); border-color: var(--green); color: var(--on-green); }
+.advForm { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
+.advMode { display: flex; }
+.advQ { font: 600 18px/1.35 var(--font-display); margin: 0; padding: 0; }
+.advSet { margin: 0; padding: 0; border: 0; display: flex; flex-direction: column; gap: 8px; }
+.advForm textarea, .advNums input { width: 100%; min-height: 44px; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); color: var(--ink); font-size: 15.5px; }
+.sec.alt .advBox textarea, .sec.alt .advBox .advNums input { background: var(--surface); }
+.advForm textarea:focus, .advNums input:focus { outline: 2px solid var(--green); outline-offset: 1px; border-color: var(--green); }
+.advForm [aria-invalid="true"] { border-color: var(--bad); }
+.advForm textarea { resize: vertical; min-height: 110px; }
+.advCount { align-self: flex-end; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; margin-top: -6px; }
+.advRadios { display: flex; flex-wrap: wrap; gap: 8px; }
+.advRadios input { accent-color: var(--green); margin: 0; }
+.advNums { display: flex; flex-wrap: wrap; gap: 14px; }
+.advNums label { display: flex; flex-direction: column; gap: 6px; flex: 1 1 180px; max-width: 240px; font-size: 14px; font-weight: 600; }
+.advNav { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.advNext { justify-content: flex-start; }
+.advRes { display: flex; flex-direction: column; gap: 18px; outline: none; }
+.advTitle { font-size: clamp(20px, 2.6vw, 26px); }
+.advTitle small { font: 500 14px var(--font-body); }
+.advRes .wfPart h3 { font-size: 13px; font-family: var(--font-body); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.advRes .wfPart p, .advRes .wfPart li { font-size: 15.5px; }
+.advRes blockquote { margin: 8px 0 0; padding: 8px 12px; border-left: 3px solid var(--line); color: var(--muted); font-size: 14.5px; overflow-wrap: anywhere; white-space: pre-wrap; }
+.advStages { flex-direction: row !important; flex-wrap: nowrap; gap: 8px 22px !important; padding: 0 !important; }
+.advStages li { flex: 1 1 0; min-width: 0; }
+.advStages li + li::before { content: "→" !important; top: 50% !important; left: -16px !important; transform: translateY(-50%); }
+.advTwo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.advTwo .wfPart { padding: 14px; border: 1px solid var(--line); border-radius: var(--r-card); }
+.cx { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: 14px; }
+.cx.low { background: var(--green-soft); color: var(--green); }
+.cx.medium { background: var(--amber-soft); color: var(--amber); }
+.cx.high { background: var(--bad); color: var(--surface); }
+.advBig { font: 700 22px/1.2 var(--font-display); color: var(--green); }
+@media (max-width: 900px) {
+  .advStages { flex-direction: column !important; gap: 16px !important; }
+  .advStages li { flex: none; }
+  .advStages li + li::before { content: "↓" !important; top: -17px !important; left: 18px !important; transform: none; }
+}
+@media (max-width: 720px) {
+  .advBox { padding: 16px; }
+  .advTwo { grid-template-columns: 1fr; }
+  .advProg li:not(.now) { font-size: 0; gap: 0; }
+}
 /* ROI calculator (auto-roi.js) */
 .roiGrid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 20px; align-items: start; }
 .roiForm { gap: 16px; }
