@@ -1,0 +1,17 @@
+# LAOYUTALKS AI Lab proxy - Cloudflare Worker settings.
+# The API key is NOT stored here. Set it once with:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+name = "laoyu-ai-lab"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+# Sites allowed to call the Worker (comma-separated, no trailing slash)
+ALLOWED_ORIGINS = "https://laoyutalks-max.github.io"
+# Claude model and effort. claude-opus-5-5 is the most capable default;
+# claude-haiku-5-5 costs far less per question if quality is good enough for you.
+MODEL = "claude-opus-5-5"
+EFFORT = "medium"
+# Questions per visitor per minute (best effort; see README for a hard limit)
+RATE_PER_MINUTE = "6"

@@ -621,7 +621,24 @@
     "Pick a category to see its resources.": "选择一个分类，查看其中的资源。",
     "DIFFICULTY": "难度",
     "ACCESS": "获取方式",
-    "Search by name or problem, then filter. Preview any resource before you open it.": "按名称或问题搜索，再筛选。打开前可以先预览任何资源。"
+    "Search by name or problem, then filter. Preview any resource before you open it.": "按名称或问题搜索，再筛选。打开前可以先预览任何资源。",
+
+    /* AI Lab */
+    "AI Lab | LAOYU": "AI 实验室 | LAOYU 老鱼",
+    "Assistants for manufacturing, quality and management questions. Pick an assistant, ask a question and get a structured answer you can act on.": "解答制造、质量和管理问题的助手。选择一个助手，提出问题，得到可以直接执行的结构化回答。",
+    "Choose an assistant": "选择助手",
+    "Your question": "你的问题",
+    "Send": "发送",
+    "Responsible use": "负责任地使用",
+    "Do not enter confidential company data, customer names, personal data or anything you would not post publicly.": "请勿输入公司机密数据、客户名称、个人信息，或任何你不会公开发布的内容。",
+    "Answers are general guidance, not professional, legal, safety or medical advice. Check them against your own procedures before acting.": "回答只是一般性指引，不构成专业、法律、安全或医疗建议。行动前请对照你自己的流程核实。",
+    "Safety comes first: for any hazard, follow your site's lockout and escalation rules, not a chat answer.": "安全第一：遇到任何危险，请遵守你所在工厂的上锁挂牌和上报规定，而不是依据聊天回答。",
+    "Privacy and how it works": "隐私与运行方式",
+    "Three assistants for manufacturing, quality and management questions. Try the prototype in the AI Lab.": "解答制造、质量和管理问题的三个助手。到 AI 实验室试用原型。",
+    "Open the AI Lab →": "打开 AI 实验室 →",
+    "Open the AI Lab": "打开 AI 实验室",
+    "Prototype": "原型",
+    "The AI Lab is a prototype: answers come from built-in guidance, not a live AI. Live AI will be switched on once the server is set up.": "AI 实验室目前是原型：回答来自内置指引，不是实时 AI。服务器配置完成后将接入实时 AI。"
   };
 
   /* Headings/lines built from several pieces: matched on the whole

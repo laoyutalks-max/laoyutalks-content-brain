@@ -22,7 +22,7 @@
   var PAGES = [
     ["index.html", ["Home", "首页"], "home start homepage 主页"],
     ["index.html#learn", ["Learn with LAOYU", "跟老鱼学习"], "learn video lesson tiktok 视频 课程 学习"],
-    ["index.html#ask", ["ASK LAOYU · AI Lab", "问老鱼 · AI 实验室"], "ai lab assistant ask chat 助手 提问"],
+    ["ai-lab.html", ["ASK LAOYU · AI Lab", "问老鱼 · AI 实验室"], "ai lab assistant ask laoyu chat manufacturing quality management 助手 提问 实验室"],
     ["resources.html", ["Resource library", "资源库"], "resources library all tools templates 全部 资源 模板"],
     ["ai-tools.html", ["AI Tools", "AI 工具"], "ai tools roadmap 工具"],
     ["laoyutalks.html", ["LAOYUTALKS videos", "LAOYUTALKS 视频"], "videos tiktok channel 视频 频道"],

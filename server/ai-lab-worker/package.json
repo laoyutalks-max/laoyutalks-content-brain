@@ -1,0 +1,10 @@
+{
+  "name": "laoyu-ai-lab-worker",
+  "private": true,
+  "type": "module",
+  "description": "Server proxy for the LAOYUTALKS AI Lab. Holds the Anthropic API key so the website never does.",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  }
+}
