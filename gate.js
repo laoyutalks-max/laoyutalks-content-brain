@@ -65,7 +65,10 @@
   var QKEY = "laoyuPendingLeads";
   function queue() { try { return JSON.parse(localStorage.getItem(QKEY) || "[]"); } catch (e) { return []; } }
   function saveQueue(q) { try { if (q.length) localStorage.setItem(QKEY, JSON.stringify(q.slice(-10))); else localStorage.removeItem(QKEY); } catch (e) {} }
+  /* Text starting with = + - @ would run as a formula in Google Sheets; a leading ' keeps it plain text. */
+  function cell(v) { return typeof v === "string" && /^[=+\-@\t\r]/.test(v) ? "'" + v : v; }
   function post(data) {
+    Object.keys(data).forEach(function (k) { data[k] = cell(data[k]); });
     try {
       return fetch(LOG_URL, {
         method: "POST",
@@ -95,7 +98,7 @@
       type: "lead",
       name: p.name,
       email: p.email,
-      message: "Free resource: " + res + " · Role: " + (p.role || "not given") + " · New resources by email: " + (p.updates ? "yes" : "no"),
+      message: (quiet ? "Auto-unlock (returning visitor) · " : "") + "Free resource: " + res + " · Role: " + (p.role || "not given") + " · New resources by email: " + (p.updates ? "yes" : "no"),
       page: location.pathname.split("/").pop() || "index.html",
       lang: zh() ? "zh" : "en",
       session: "res-" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
@@ -137,7 +140,7 @@
           "</select>" +
           '<input class="gateHp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         "</div>" +
-        '<label class="gateCheck" for="gUpd"><input id="gUpd" type="checkbox" checked> ' + t("updates") + "</label>" +
+        '<label class="gateCheck" for="gUpd"><input id="gUpd" type="checkbox"> ' + t("updates") + "</label>" +
         '<p class="gateErr" role="alert" hidden></p>' +
         '<button type="submit" class="btn orange">' + t("btn") + "</button>" +
         '<p class="gatePriv">' + t("privacy") + '<a href="privacy.html">' + t("privacyLink") + "</a></p>" +

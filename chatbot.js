@@ -69,7 +69,7 @@
       a: { en: "LAOYU's most-watched videos:", zh: "老鱼最受欢迎的视频：" },
       v: ["bestNoCare", "fewerPeople", "overthinking", "control", "noIdeas"] },
 
-    { id: "latest", kw: ["latest", "new", "newest", "recent", "recently", "new videos", "this week"], zh: ["最新", "新视频", "最近", "这周"],
+    { id: "latest", kw: ["latest", "new", "newest", "recent", "recently", "new videos", "new video", "latest videos", "latest video", "recent videos", "this week"], zh: ["最新", "新视频", "最近", "这周"],
       a: { en: "LAOYU's latest videos:", zh: "老鱼最新的视频：" },
       v: ["sameMistake", "aiMore", "busyDept", "change", "bestLeader"],
       links: [{ en: "See all on TikTok ↗", zh: "在 TikTok 查看全部 ↗", url: PROFILE }] },
@@ -97,7 +97,7 @@
       v: ["records", "sameMistake"],
       links: [{ en: "More on @laoyu.talks ↗", zh: "更多请看 @laoyu.talks ↗", url: PROFILE }] },
 
-    { id: "ai_tools", kw: ["ai", "chatgpt", "gemini", "claude", "copilot", "prompt", "prompts", "ai tool", "ai tools", "automation", "automate", "email", "emails", "verify", "schedule", "shift"], zh: ["人工智能", "提示词", "自动化", "邮件", "排班", "工具", "验证"],
+    { id: "ai_tools", kw: ["ai", "chatgpt", "gemini", "claude", "copilot", "prompt", "prompts", "ai tool", "ai tools", "automation", "automate", "emails", "verify", "schedule", "shift"], zh: ["人工智能", "提示词", "自动化", "邮件", "排班", "工具", "验证"],
       a: { en: "On using AI at work, LAOYU covers:<br>• What AI can do beyond answering questions<br>• How to write a good AI prompt<br>• Too many emails? Let AI find what needs attention<br>• How to verify an AI answer on something you don't know<br>• Can AI build a shift schedule that actually works?",
            zh: "关于在工作中用 AI，老鱼讲过：<br>• AI 不只是回答问题，还能做什么<br>• 如何写出好的 AI 提示词<br>• 邮件太多？让 AI 找出需要处理的<br>• 遇到不懂的领域，如何验证 AI 的答案<br>• AI 能排出真正可用的班表吗？" },
       v: ["aiMore"],
@@ -122,7 +122,7 @@
       links: [{ en: "All free resources →", zh: "全部免费资源 →", url: "resources.html" }, { en: "KPI Dashboard →", zh: "KPI 仪表板 →", url: "production-kpi-dashboard.html" }, { en: "Manpower calculator →", zh: "人力计算器 →", url: "manpower-gap-calculator.html" }] },
 
 
-    { id: "contact", kw: ["contact", "email", "reach", "collaborate", "collaboration", "collab", "partner", "partnership", "sponsor", "hire", "consult", "consulting", "business", "speak", "speaking", "work with", "get in touch", "message"], zh: ["联系", "邮箱", "合作", "赞助", "咨询", "商务", "讲座", "找你", "私信"],
+    { id: "contact", kw: ["contact", "email", "reach", "collaborate", "collaboration", "collab", "partner", "partnership", "sponsor", "hire", "consult", "consulting", "business", "speak", "speaking", "work with", "get in touch", "message", "email laoyu", "contact laoyu"], zh: ["联系", "联系老鱼", "找老鱼", "邮箱", "合作", "赞助", "咨询", "商务", "讲座", "找你", "私信"],
       a: { en: "You can email LAOYU at <a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a>. Or leave your name and email here and LAOYU can get back to you.",
            zh: "可以发邮件至 <a href=\"mailto:" + EMAIL + "\">" + EMAIL + "</a>。也可以在这里留下姓名和邮箱，老鱼会回复你。" },
       chips: ["leave_contact"] },
@@ -135,6 +135,12 @@
       a: { en: "LAOYU builds workflows with Google Forms, Sheets and Apps Script, such as a daily production dashboard, maintenance requests, inventory reorder alerts, a training expiry tracker and project tracking. Want one for your team? Leave your contact.",
            zh: "老鱼可以用 Google 表单、表格和 Apps Script 搭建流程，例如：每日生产看板、维修申请、库存补货提醒、培训到期追踪和项目追踪。想为团队做一个？可以留下联系方式。" },
       chips: ["leave_contact", "website"] },
+
+    { id: "account", kw: ["login", "log in", "sign in", "signin", "sign up", "signup", "register", "password", "forgot password", "my account", "account login", "unlock", "locked"], zh: ["登录", "登入", "注册", "密码", "忘记密码", "我的账号", "解锁"],
+      a: { en: "There's no account or password on this site. Free resources unlock when you leave your name and email once — this browser then remembers you. On a new device or browser, just enter them again.",
+           zh: "本网站没有账号和密码。留下一次姓名和邮箱即可解锁免费资源，这个浏览器会记住你。换了设备或浏览器，再输入一次即可。" },
+      links: [{ en: "Free resources →", zh: "免费资源 →", url: "resources.html" }],
+      chips: ["resources", "contact"] },
 
     { id: "language", kw: ["chinese", "english", "language", "translate", "mandarin"], zh: ["中文", "英文", "语言", "翻译", "华语"],
       a: { en: "LAOYU's videos are mainly in English. This site and I work in both English and 中文 — use the EN / 中文 switch at the top.",
@@ -184,7 +190,7 @@
     typoAsk:   { en: "Did you mean {s}? Type it again to confirm, or type the one you meant.", zh: "你是不是要输入 {s}？请再输入一次确认，或输入正确的邮箱。" },
     askMsg:    { en: "What would you like to talk to LAOYU about?", zh: "想和老鱼聊些什么？" },
     leadDone:  { en: "Thank you! Your details have been sent to LAOYU, who will reply to {email}.", zh: "谢谢！你的信息已发送给老鱼，他会回复到 {email}。" },
-    leadOffline: { en: "Sorry, your details couldn't be sent right now (connection problem). Please email LAOYU directly at " + EMAIL + ".", zh: "抱歉，暂时无法发送你的信息（网络问题）。请直接发邮件至 " + EMAIL + "。" },
+    leadOffline: { en: "Sorry, your details couldn't be sent right now (connection problem). They're saved in this browser and will be sent automatically the next time you open a page here. You can also email LAOYU directly at " + EMAIL + ".", zh: "抱歉，暂时无法发送你的信息（网络问题）。信息已保存在这个浏览器中，下次打开本网站任一页面时会自动发送。也可以直接发邮件至 " + EMAIL + "。" },
     sending:   { en: "Sending…", zh: "正在发送…" },
     cancelled: { en: "No problem, cancelled. Anything else about LAOYU's content?", zh: "好的，已取消。还想了解老鱼的哪些内容？" }
   };
@@ -225,6 +231,9 @@
     return (location.pathname.split("/").pop() || "index.html");
   }
 
+  /* Text starting with = + - @ would run as a formula in Google Sheets; a leading ' keeps it plain text. */
+  function cell(v) { return typeof v === "string" && /^[=+\-@\t\r]/.test(v) ? "'" + v : v; }
+
   /* Returns a Promise of true (request reached the recorder) or false (offline / blocked / timed out).
      With no-cors the reply can't be read, but a network failure still rejects. */
   function record(data) {
@@ -232,7 +241,24 @@
     data.page = pageName();
     data.lang = lang();
     data.hp = "";
+    Object.keys(data).forEach(function (k) { data[k] = cell(data[k]); });
     if (window.LAOYU_CHAT_TEST) window.LAOYU_CHAT_TEST.push(data);
+    return post(data);
+  }
+
+  /* Leads that couldn't be sent wait in this browser (same queue as the sign-up gate, gate.js)
+     and are sent again on the next page view. */
+  var QKEY = "laoyuPendingLeads";
+  function queueLead(data) {
+    try { var q = JSON.parse(localStorage.getItem(QKEY) || "[]"); q.push(data); localStorage.setItem(QKEY, JSON.stringify(q.slice(-10))); } catch (e) {}
+  }
+  function flushLeads() {
+    var q;
+    try { q = JSON.parse(localStorage.getItem(QKEY) || "[]"); if (!q.length) return; localStorage.removeItem(QKEY); } catch (e) { return; }
+    q.forEach(function (d) { post(d).then(function (ok) { if (!ok) queueLead(d); }); });
+  }
+
+  function post(data) {
     if (!LOG_URL || !window.fetch) return Promise.resolve(false);
     var req;
     try {
@@ -297,21 +323,27 @@
       r: [R("tool", "OEE Loss Calculator", "OEE 损失计算器", "oee-loss-calculator.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("demo", "AI Daily Production Report", "AI 每日生产报告", "demo-daily-report.html"), R("tool", "Downtime Analysis Assistant", "停机分析助手", "tool-downtime-analysis.html")] },
     { id: "f_manpower", label: { en: "Manpower utilization", zh: "人力利用率" }, kw: ["manpower", "utilization", "utilisation", "headcount", "absence", "absent", "workload", "staffing", "people", "overtime"], zh: ["人力", "利用率", "人手", "缺勤", "工作量", "排班", "加班", "缺人"],
       r: [R("tool", "Manpower Gap Calculator", "人力缺口计算器", "manpower-gap-calculator.html"), R("res", "Team Skills Matrix", "团队技能矩阵", "skills-matrix.html"), R("res", "Supervisor Daily Planner", "主管每日计划表", "supervisor-daily-planner.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html")] },
-    { id: "f_downtime", label: { en: "Analyse downtime", zh: "分析停机" }, kw: ["downtime", "breakdown", "stoppage", "stop", "stops", "jam", "machine down", "pareto", "loss", "losses"], zh: ["停机", "故障", "卡料", "停线", "柏拉图", "损失"],
+    { id: "f_downtime", label: { en: "Analyse downtime", zh: "分析停机" }, kw: ["downtime", "breakdown", "stoppage", "stop", "stops", "stopping", "stopped", "jam", "machine down", "machine is down", "down time", "line down", "line is down", "pareto", "loss", "losses"], zh: ["停机", "故障", "卡料", "停线", "柏拉图", "损失"],
       r: [R("tool", "Downtime Analysis Assistant", "停机分析助手", "tool-downtime-analysis.html"), R("res", "Downtime Troubleshooter", "停机排查工具", "downtime-troubleshooter.html"), R("tool", "OEE Loss Calculator", "OEE 损失计算器", "oee-loss-calculator.html"), R("res", "Escalation Report Builder", "升级报告生成器", "escalation-report.html")] },
-    { id: "f_5why", label: { en: "5 Why analysis", zh: "5 个为什么分析" }, kw: ["5 why", "5why", "five why", "root cause", "why", "fishbone", "capa", "8d", "defect", "complaint", "mistake", "ncr"], zh: ["5 个为什么", "五个为什么", "根本原因", "鱼骨", "纠正", "缺陷", "投诉", "错误", "不合格"],
+    { id: "f_5why", label: { en: "5 Why analysis", zh: "5 个为什么分析" }, kw: ["5 why", "5why", "five why", "root cause", "why", "fishbone", "capa", "8d", "defect", "complaint", "mistake", "ncr"], zh: ["5 个为什么", "5个为什么", "五个为什么", "根本原因", "鱼骨", "纠正", "缺陷", "投诉", "错误", "不合格"],
       r: [R("demo", "AI Root Cause Assistant", "AI 根本原因助手", "demo-root-cause.html"), R("res", "Fishbone + 5-Why Builder", "鱼骨图 + 5 个为什么", "fishbone-5why.html"), R("tool", "CAPA Action Planner", "CAPA 措施计划", "tool-capa-planner.html"), R("res", "8D Report Builder", "8D 报告生成器", "8d-report.html")] },
     { id: "f_project", label: { en: "Project tracker", zh: "项目追踪" }, kw: ["project", "tracker", "tracking", "action", "actions", "overdue", "task", "tasks", "follow up", "meeting"], zh: ["项目", "追踪", "行动", "逾期", "任务", "跟进", "会议"],
       r: [R("res", "Weekly Action Tracker", "每周行动追踪表", "weekly-action-tracker.html"), R("tool", "Meeting Minutes Generator", "会议纪要生成器", "tool-meeting-minutes.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html")] },
     { id: "f_excel", label: { en: "Excel formula", zh: "Excel 公式" }, kw: ["excel", "formula", "formulas", "spreadsheet", "sheets", "vlookup", "xlookup", "countif", "sumif"], zh: ["公式", "表格", "函数"],
       r: [R("tool", "Excel Formula Assistant", "Excel 公式助手", "tool-excel-formula.html"), R("res", "Production KPI Dashboard", "生产 KPI 仪表板", "production-kpi-dashboard.html"), R("res", "AI Prompt Pack", "AI 提示词包", "ai-prompt-pack.html")] },
-    { id: "f_present", label: { en: "Management presentation", zh: "管理层汇报" }, kw: ["presentation", "slides", "report", "management", "boss", "director", "escalate", "escalation", "budget", "email"], zh: ["汇报", "演示", "报告", "管理层", "上级", "升级", "预算", "邮件"],
+    { id: "f_present", label: { en: "Management presentation", zh: "管理层汇报" }, kw: ["presentation", "slides", "report", "management", "boss", "director", "escalate", "escalation", "budget"], zh: ["汇报", "演示", "报告", "管理层", "上级", "升级", "预算", "邮件"],
       r: [R("res", "Escalation Report Builder", "升级报告生成器", "escalation-report.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html"), R("res", "Decision Matrix", "决策矩阵", "decision-matrix.html"), R("demo", "AI Daily Production Report", "AI 每日生产报告", "demo-daily-report.html")] },
     { id: "f_handover", label: { en: "Shift handover", zh: "交接班" }, kw: ["handover", "hand over", "shift", "night shift"], zh: ["交接", "交接班", "班次", "夜班"],
       r: [R("demo", "AI Shift Handover Assistant", "AI 交接班助手", "demo-shift-handover.html"), R("res", "Shift Handover Template", "交接班模板", "shift-handover.html"), R("res", "Supervisor Daily Planner", "主管每日计划表", "supervisor-daily-planner.html"), R("tool", "Meeting Minutes Generator", "会议纪要生成器", "tool-meeting-minutes.html")] },
     { id: "f_team", label: { en: "Team & people issues", zh: "团队与人员问题" }, kw: ["employee", "motivation", "engagement", "quiet quitting", "conversation", "feedback", "performance review", "conflict", "attitude"], zh: ["员工", "积极性", "躺平", "谈话", "反馈", "冲突", "态度"],
       r: [R("res", "Difficult Conversation Planner", "困难对话准备表", "difficult-conversation.html"), R("res", "Quiet Quitting Checklist", "员工躺平预警清单", "checklist-quiet-quitting.html"), R("res", "Team Skills Matrix", "团队技能矩阵", "skills-matrix.html"), R("tool", "Email Writing Assistant", "邮件写作助手", "tool-email-writer.html")] }
   ];
+  /* Follow-up chips: the next three topics after this one (wrapping round), so every topic stays reachable */
+  function nextFinderChips(id) {
+    var ids = FINDER.map(function (x) { return x.id; }), i = ids.indexOf(id), out = [];
+    for (var n = 1; n < ids.length && out.length < 3; n++) out.push(ids[(i + n) % ids.length]);
+    return out;
+  }
   function finderById(id) { for (var i = 0; i < FINDER.length; i++) if (FINDER[i].id === id) return FINDER[i]; return null; }
   function findTools(input) {
     var text = " " + input.toLowerCase().replace(/[?!.,;:()"'“”‘’？！。，；：（）]/g, " ").replace(/\s+/g, " ") + " ";
@@ -351,6 +383,43 @@
     return html;
   }
 
+  /* A bot reply is stored as a small spec, not HTML, so it can be redrawn in the
+     other language and restored on the next page:
+       {k:"f", id} finder tools · {k:"kb", id} knowledge answer · {k:"ui", key, rep, raw} fixed UI text */
+  function renderSpec(s) {
+    if (s.k === "f") return recsHTML(finderById(s.id));
+    if (s.k === "kb") return answerHTML(byId(s.id));
+    var txt = L(UI[s.key]);
+    Object.keys(s.rep || {}).forEach(function (k) { txt = txt.replace(k, s.rep[k]); });
+    return s.raw ? txt : esc(txt);
+  }
+
+  /* Conversation kept for this browser tab (sessionStorage), so following a chat
+     link to another page doesn't wipe it. */
+  var SKEY = "laoyuChatLog", hist = [], curChips = [];
+  function save() {
+    try {
+      var l = lead && !lead.sending ? { step: lead.step, name: lead.name, email: lead.email, typo: lead.typo } : null;
+      sessionStorage.setItem(SKEY, JSON.stringify({ log: hist.slice(-40), chips: curChips, lead: l }));
+    } catch (e) {}
+  }
+  function restore() {
+    var st;
+    try { st = JSON.parse(sessionStorage.getItem(SKEY) || "null"); } catch (e) { st = null; }
+    if (!st || !st.log || !st.log.length) return;
+    st.log.forEach(function (m) {
+      try {
+        if (m.w === "me") { addMsg("me", esc(m.t)); }
+        else { var row = addMsg("bot", renderSpec(m.s)); row.__render = function () { return renderSpec(m.s); }; }
+        hist.push(m);
+      } catch (e) {} // an answer removed since: skip it
+    });
+    greeted = true;
+    if (st.lead && st.lead.step) lead = st.lead;
+    setChips(st.chips || START_CHIPS);
+    log.scrollTop = log.scrollHeight;
+  }
+
   function addMsg(who, html) {
     var row = document.createElement("div");
     row.className = "lyMsg " + (who === "me" ? "lyMe" : "lyBot");
@@ -361,6 +430,8 @@
   }
 
   function setChips(ids) {
+    curChips = ids || [];
+    save();
     chipsBox.innerHTML = "";
     (ids || []).forEach(function (id) {
       if (!CHIP_LABELS[id] && !(id.indexOf("f_") === 0 && finderById(id))) return;
@@ -373,14 +444,16 @@
     });
   }
 
-  /* render: a function returning the reply HTML in the current language,
-     kept on the message so it can be redrawn when the language changes */
-  function botSay(render, chips, delay) {
+  /* spec: see renderSpec(); the render function stays on the message so it can be
+     redrawn when the language changes */
+  function botSay(spec, chips, delay) {
     var typing = addMsg("bot", '<span class="lyDots"><i></i><i></i><i></i></span>');
+    var render = function () { return renderSpec(spec); };
     setChips([]);
     setTimeout(function () {
       typing.__render = render;
       typing.querySelector(".lyBubble").innerHTML = render();
+      hist.push({ w: "bot", s: spec });
       log.scrollTop = Math.max(0, typing.offsetTop - log.offsetTop - 60);
       setChips(chips);
     }, delay === undefined ? 450 + Math.random() * 300 : delay);
@@ -388,57 +461,65 @@
 
   /* ---------------- Conversation ---------------- */
 
+  function ui(key, rep) { return { k: "ui", key: key, rep: rep }; }
+
   function startLead() {
     lead = { step: "name" };
-    botSay(function () { return esc(L(UI.askName)); }, []);
+    botSay(ui("askName"), []);
+  }
+
+  /* A visitor who left their details in the chat isn't asked again by the
+     free-resource sign-up gate (gate.js reads the same profile). */
+  function keepProfile(name, email) {
+    try { if (!localStorage.getItem("laoyuProfile")) localStorage.setItem("laoyuProfile", JSON.stringify({ name: name, email: email, role: "", updates: false })); } catch (e) {}
   }
 
   function continueLead(text) {
     if (/^(cancel|stop|quit|取消|算了|不用了)$/i.test(text.trim())) {
       lead = null;
-      botSay(function () { return esc(L(UI.cancelled)); }, START_CHIPS);
+      botSay(ui("cancelled"), START_CHIPS);
       return;
     }
     if (lead.step === "name") {
       lead.name = text.trim().slice(0, 80);
       lead.step = "email";
-      var name = lead.name;
-      botSay(function () { return esc(L(UI.askEmail).replace("{name}", name)); }, []);
+      botSay(ui("askEmail", { "{name}": lead.name }), []);
     } else if (lead.step === "email") {
       var email = text.trim().toLowerCase();
       var EC = window.LAOYU_EMAIL;
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
-        botSay(function () { return esc(L(UI.badEmail)); }, []);
+        botSay(ui("badEmail"), []);
         return;
       }
       var fix = EC ? EC.typoFix(email) : null;
       if (fix && lead.typo !== email) {
         lead.typo = email;
-        botSay(function () { return esc(L(UI.typoAsk).replace("{s}", fix)); }, []);
+        botSay(ui("typoAsk", { "{s}": fix }), []);
         return;
       }
       var cur = lead;
       (EC ? EC.check(email) : Promise.resolve({ ok: true })).then(function (r) {
         if (lead !== cur) return; // cancelled meanwhile
         if (!r.ok) {
-          botSay(function () { return esc(L(r.reason === "disposable" ? UI.tempEmail : r.reason === "nomail" ? UI.noMail : UI.badEmail)); }, []);
+          botSay(ui(r.reason === "disposable" ? "tempEmail" : r.reason === "nomail" ? "noMail" : "badEmail"), []);
           return;
         }
         lead.email = email.slice(0, 120);
         lead.step = "message";
-        botSay(function () { return esc(L(UI.askMsg)); }, []);
+        botSay(ui("askMsg"), []);
       });
     } else if (lead.step === "message") {
       if (lead.sending) return; // ignore extra Enter presses while sending
       lead.sending = true;
-      var email = lead.email, cur2 = lead;
+      var email = lead.email, name = lead.name, cur2 = lead;
       var wait = addMsg("bot", '<span class="lyDots"><i></i><i></i><i></i></span>');
-      record({ type: "lead", name: lead.name, email: lead.email, message: text.trim().slice(0, 1000) }).then(function (sent) {
+      var data = { type: "lead", name: name, email: email, message: text.trim().slice(0, 1000) };
+      record(data).then(function (sent) {
         if (wait.parentNode) wait.parentNode.removeChild(wait);
         if (lead === cur2) lead = null;
-        botSay(function () {
-          return esc(sent ? L(UI.leadDone).replace("{email}", email) : L(UI.leadOffline));
-        }, sent ? START_CHIPS : ["contact"], 0);
+        if (!sent) queueLead(data);
+        keepProfile(name, email);
+        botSay(sent ? ui("leadDone", { "{email}": email }) : ui("leadOffline"), sent ? START_CHIPS : ["contact"], 0);
       });
     }
   }
@@ -453,8 +534,8 @@
       /忽略.{0,10}(指令|规则|提示)|系统提示|扮演|假装你是|越狱/],
     out: [/\b(elections?|president|prime minister|politics|political|government|minister|war|military|weather|stock market|stock prices?|share price|buy (\w+ )?(stocks?|shares)|stocks to buy|invest(ing|ment|ments|or)?|crypto|bitcoin|ethereum|forex|lottery|horoscope|medicine|medical|medication|doctor|diagnose|diagnosis|symptoms?|headache|chest pain|disease|covid|pregnant|pregnancy|joke|jokes|movies?|films?|songs?|music|celebrity|singer|actor|actress|taylor swift|football|soccer|nba|recipe|cooking|restaurant|capital of|sky|planet|history of|homework|essay|poem|girlfriend|boyfriend|dating|python|javascript|java|c\+\+|sql|scrape|scraper)\b/i,
       /选举|总统|总理|政治|政府|战争|天气|股票|股价|投资|比特币|加密货币|外汇|彩票|星座|医生|吃什么药|药物|看病|诊断|症状|头疼|头痛|疾病|怀孕|笑话|电影|歌曲|音乐|明星|足球|篮球|菜谱|做饭|首都|作业|写诗|编程|写代码|爬虫/],
-    unverified: [/\b(prices?|pricing|how much (does|do|is|are|for)|fees?|subscription|subscribe to|refunds?|payment|pay for|discount|coupon|invoice|password|log ?in|sign ?in|forgot (my )?password|my account|delete my (data|account)|phone number|call me|whatsapp|office address|where are you located|mobile app|app store|play store|android|iphone|ios app|certificate|certification|warranty|shipping|delivery fee)\b/i,
-      /价格|多少钱|收费|订阅|退款|付款|支付|优惠券|发票|密码|登录|电话|手机号|办公地址|应用商店|手机应用|证书/]
+    unverified: [/\b(prices?|pricing|how much (does|do|is|are|for)|fees?|subscription|subscribe to|refunds?|payment|pay for|discount|coupon|invoice|delete my (data|account)|phone number|call me|whatsapp|office address|where are you located|mobile app|app store|play store|android|iphone|ios app|certificate|certification|warranty|shipping|delivery fee)\b/i,
+      /价格|多少钱|收费|订阅|退款|付款|支付|优惠券|发票|电话|手机号|办公地址|应用商店|手机应用|证书/]
   };
   function scope(text) {
     if (SCOPE.inject.some(function (r) { return r.test(text); })) return "inject";
@@ -467,14 +548,16 @@
     text = text.trim();
     if (!text) return;
     addMsg("me", esc(text));
+    hist.push({ w: "me", t: text.slice(0, 500) });
+    save();
 
     if (lead) { continueLead(text); return; }
 
     var sc = topicId ? "" : scope(text);
     if (sc) {
       record({ type: "chat", question: text.slice(0, 500), topic: sc === "inject" ? "blocked_injection" : sc === "out" ? "out_of_scope" : "unverified", answered: false });
-      if (sc === "unverified") botSay(function () { return esc(L(UI.unverified)); }, ["contact", "website"]);
-      else botSay(function () { return esc(L(UI.fallback)); }, FALLBACK_CHIPS);
+      if (sc === "unverified") botSay(ui("unverified"), ["contact", "website"]);
+      else botSay(ui("fallback"), FALLBACK_CHIPS);
       return;
     }
 
@@ -486,15 +569,15 @@
     if (fz.f && fz.s >= 1.5 && fz.s >= kbScore) {
       var f = fz.f;
       record({ type: "chat", question: text.slice(0, 500), topic: f.id, answered: true });
-      botSay(function () { return recsHTML(f); }, FINDER.filter(function (x) { return x.id !== f.id; }).slice(0, 3).map(function (x) { return x.id; }).concat(["contact"]));
+      botSay({ k: "f", id: f.id }, nextFinderChips(f.id).concat(["contact"]));
       return;
     }
     if (entry) {
       record({ type: "chat", question: text.slice(0, 500), topic: entry.id, answered: true });
-      botSay(function () { return answerHTML(entry); }, entry.chips || START_CHIPS.filter(function (c) { return c !== entry.id; }).slice(0, 4));
+      botSay({ k: "kb", id: entry.id }, entry.chips || START_CHIPS.filter(function (c) { return c !== entry.id; }).slice(0, 4));
     } else {
       record({ type: "chat", question: text.slice(0, 500), topic: "unanswered", answered: false });
-      botSay(function () { return esc(L(UI.fallback)); }, FALLBACK_CHIPS);
+      botSay(ui("fallback"), FALLBACK_CHIPS);
     }
   }
 
@@ -524,7 +607,7 @@
     root.querySelector(".lyLaunch").setAttribute("aria-expanded", "true");
     if (!greeted) {
       greeted = true;
-      botSay(function () { return L(UI.welcome); }, START_CHIPS, 250);
+      botSay({ k: "ui", key: "welcome", raw: true }, START_CHIPS, 250);
     }
     setTimeout(function () { input.focus(); }, 200);
   }
@@ -587,6 +670,8 @@
     });
 
     relabel();
+    restore();
+    flushLeads();
   }
 
   document.addEventListener("DOMContentLoaded", build);
