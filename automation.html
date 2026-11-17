@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="sidebar.css?v=20261114u"><link rel="stylesheet" href="shell3.css?v=20261117c"><link rel="stylesheet" href="v3.css?v=20261118b">
+  <link rel="stylesheet" href="sidebar.css?v=20261114u"><link rel="stylesheet" href="shell3.css?v=20261117c"><link rel="stylesheet" href="v3.css?v=20261118f">
 <script>try{if(localStorage.getItem("laoyuTheme")!=="dark")document.documentElement.setAttribute("data-theme","light")}catch(e){document.documentElement.setAttribute("data-theme","light")}</script></head>
 <body>
 
@@ -94,6 +94,40 @@
   </div>
 </section>
 
+<section class="sec" id="builder">
+  <div class="wrap">
+    <div class="secHead"><div><h2>Workflow Builder</h2><p>Map one process from input to output, then generate a summary you can share with your team. It plans the workflow; it does not run it.</p></div></div>
+    <div class="wbExamples" id="wbExamples" data-i18n-block></div>
+    <div class="wbGrid">
+      <form class="wbForm card" id="wbForm" novalidate data-i18n-block></form>
+      <div class="wbSide">
+        <div class="card wbDiagram" id="wbDiagram" aria-live="polite" data-i18n-block></div>
+      </div>
+    </div>
+    <div class="wbSummary" id="wbSummary" hidden data-i18n-block></div>
+  </div>
+</section>
+
+<section class="sec alt" id="roi">
+  <div class="wrap">
+    <div class="secHead"><div><h2>Automation ROI Calculator</h2><p>Estimate the hours an automation could give back to your team each year.</p></div></div>
+    <div class="roiGrid">
+      <div class="roiForm card" id="roiForm" data-i18n-block></div>
+      <div class="roiOut" id="roiOut" aria-live="polite" data-i18n-block></div>
+    </div>
+    <details class="roiHow">
+      <summary>How this is calculated</summary>
+      <ul class="labList">
+        <li>Annual manual hours = employees × hours per week × working weeks.</li>
+        <li>Estimated hours saved = annual manual hours × automation efficiency.</li>
+        <li>Remaining manual hours = annual manual hours − hours saved.</li>
+        <li>Estimated labour value saved = hours saved × hourly labour cost.</li>
+        <li>Productivity improvement = annual manual hours ÷ remaining hours − 1: the same work done in fewer hours means more output per hour on this task.</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
 <section class="sec">
   <div class="wrap grid2">
     <div class="card">
@@ -160,11 +194,13 @@
   </div>
 </footer>
 
-<script src="i18n.js?v=20261118a"></script>
+<script src="i18n.js?v=20261118c"></script>
 <script src="v3.js?v=20261117bm"></script>
 <script src="resources-data.js?v=20261115b"></script>
 <script src="workflows-data.js?v=20261118b"></script>
-<script src="automation.js?v=20261118a"></script>
+<script src="automation.js?v=20261118c"></script>
+<script src="auto-builder.js?v=20261118d"></script>
+<script src="auto-roi.js?v=20261118c"></script>
 <script src="chatbot.js?v=20261117bm"></script>
 <script src="sidebar.js?v=20261117bm"></script>
 </body>

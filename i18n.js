@@ -678,6 +678,16 @@
     "Don't just learn about AI. Use it to improve the way you work.": "不要只是学习 AI，要用它改进你的工作方式。",
     "Pick one repetitive task and automate it this week.": "选一项重复性任务，本周就把它自动化。",
     "Browse all resources": "浏览全部资源",
+    "Workflow Builder": "工作流程设计器",
+    "Map one process from input to output, then generate a summary you can share with your team. It plans the workflow; it does not run it.": "从输入到输出梳理一个流程，然后生成可与团队分享的总结。它只用于规划流程，不会实际运行。",
+    "Automation ROI Calculator": "自动化投资回报计算器",
+    "Estimate the hours an automation could give back to your team each year.": "估算自动化每年能为团队省下多少工时。",
+    "How this is calculated": "计算方法",
+    "Annual manual hours = employees × hours per week × working weeks.": "每年手工工时 = 员工人数 × 每周小时数 × 工作周数。",
+    "Estimated hours saved = annual manual hours × automation efficiency.": "预计节省工时 = 每年手工工时 × 自动化效率。",
+    "Remaining manual hours = annual manual hours − hours saved.": "剩余手工工时 = 每年手工工时 − 节省工时。",
+    "Estimated labour value saved = hours saved × hourly labour cost.": "预计节省的人工价值 = 节省工时 × 每小时人工成本。",
+    "Productivity improvement = annual manual hours ÷ remaining hours − 1: the same work done in fewer hours means more output per hour on this task.": "效率提升 = 每年手工工时 ÷ 剩余工时 − 1：用更少的时间完成同样的工作，意味着该任务每小时产出更高。",
     "Prompts, AI tools and automation workflows": "提示词、AI 工具与自动化流程",
 
     /* Learn */

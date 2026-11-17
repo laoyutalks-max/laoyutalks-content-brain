@@ -49,9 +49,9 @@
 
   var MODULES = [
     { k: "A", t: ["Automation Library", "自动化资源库"], d: ["Searchable workflows with steps, diagrams and code.", "可搜索的工作流程，含步骤、流程图和代码。"], href: "#library", live: true },
-    { k: "B", t: ["Workflow Builder", "工作流程设计器"], d: ["Map your own process from input to output.", "从输入到输出，梳理你自己的流程。"] },
+    { k: "B", t: ["Workflow Builder", "工作流程设计器"], d: ["Map your own process from input to output.", "从输入到输出，梳理你自己的流程。"], href: "#builder", live: true },
     { k: "C", t: ["ASK LAOYU – Automation Advisor", "问老鱼 – 自动化顾问"], d: ["Describe a task and get a suggested approach.", "描述一项任务，获得建议的自动化方案。"] },
-    { k: "D", t: ["ROI Calculator", "投资回报计算器"], d: ["Estimate the hours an automation could save.", "估算自动化可节省的工时。"] },
+    { k: "D", t: ["ROI Calculator", "投资回报计算器"], d: ["Estimate the hours an automation could save.", "估算自动化可节省的工时。"], href: "#roi", live: true },
     { k: "E", t: ["Case studies", "实践案例"], d: ["Manufacturing examples, step by step.", "制造业实例，逐步讲解。"] }
   ];
 
