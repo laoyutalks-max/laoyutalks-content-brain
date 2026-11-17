@@ -12,10 +12,10 @@ import glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SHELL_V = "20261117b"     # bump when shell3.css changes
-SIDEBAR_V = "20261117b"   # bump when sidebar.js changes
+SIDEBAR_V = "20261117c"   # bump when sidebar.js changes
 
 # Menu items. Learn and AI Lab point at homepage sections until their own pages exist.
-NAV = [("index.html", "Home"), ("index.html#learn", "Learn"), ("resources.html", "Resources"),
+NAV = [("index.html", "Home"), ("learn.html", "Learn"), ("resources.html", "Resources"),
        ("ai-lab.html", "AI Lab"),
        ("automation.html", "Automation"), ("about.html", "Our Story")]
 

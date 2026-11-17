@@ -655,7 +655,33 @@
     "Want one of these for your team?": "想为你的团队搭建其中一个？",
     "These are guides, not ready-made apps. If you would like help adapting one to your site, get in touch.": "这些是操作指南，不是现成的应用。如果你需要帮助把它用到自己的工厂，欢迎联系。",
     "Contact LAOYU": "联系老鱼",
-    "Prompts, AI tools and automation workflows": "提示词、AI 工具与自动化流程"
+    "Prompts, AI tools and automation workflows": "提示词、AI 工具与自动化流程",
+
+    /* Learn */
+    "Learn | LAOYU": "学习 | LAOYU 老鱼",
+    "Learn it, then use it.": "学了就用。",
+    "Short videos on real workplace problems from the shop floor and the management office. Where a free tool helps with the same problem, it is linked right under the video.": "讲车间和管理工作中真实问题的短视频。如果有免费工具能解决同样的问题，就链接在视频下方。",
+    "How to learn with LAOYU": "怎样跟老鱼学习",
+    "Three steps, from idea to working practice.": "三个步骤，从想法到日常实践。",
+    "Watch": "看",
+    "Pick a short video on a problem you have today.": "挑一个与你眼前问题相关的短视频。",
+    "Try": "试",
+    "Open the free tool linked under it and use it on your own numbers.": "打开视频下方链接的免费工具，用你自己的数据试一试。",
+    "Automate": "自动化",
+    "When it works, make it routine with a workflow from the Automation Lab.": "行之有效后，用自动化实验室的工作流程把它变成日常。",
+    "Automation Lab →": "自动化实验室 →",
+    "Videos by topic": "按话题浏览视频",
+    "Videos open on TikTok in a new tab.": "视频会在新标签页中的 TikTok 打开。",
+    "Start here if you are new to AI": "AI 新手从这里开始",
+    "Prompt playground": "提示词练习场",
+    ": paste a prompt and see what is missing.": "：粘贴提示词，看看缺了什么。",
+    "AI Prompt Pack": "AI 提示词包",
+    ": 10 tested prompts for operations managers.": "：10 条经过验证的运营管理提示词。",
+    ": ask the assistants a manufacturing, quality or management question.": "：向助手提问制造、质量或管理问题。",
+    "Written guides": "图文指南",
+    "Short written guides are planned. Until then, every free tool includes setup steps, an AI prompt and its limitations.": "简短的图文指南正在计划中。在此之前，每个免费工具都附有上手步骤、AI 提示词和使用局限说明。",
+    "Browse the free tools": "浏览免费工具",
+    "All videos →": "全部视频 →"
   };
 
   /* Headings/lines built from several pieces: matched on the whole
