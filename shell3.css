@@ -170,3 +170,23 @@ html.legacy .eyebrow { letter-spacing: .08em; color: var(--cyan); }
 /* Chinese-only notice, e.g. on English-only legal pages */
 html:not([data-lang="zh"]) .zhOnly { display: none; }
 .langNote { margin: 14px 0 0; padding: 10px 14px; border-radius: var(--r-ctl); background: var(--amber-soft); color: var(--amber) !important; font-size: 15px; max-width: 60ch; }
+/* EN+中 mode: header links and the Search button put the Chinese on a second, smaller line, so the header fits.
+   Below 1200px the full row can't fit in two languages, so EN+中 uses the menu button there (same as tablets). */
+@media (min-width: 1200px) {
+  html.v3[data-bi] .nav .links { gap: 0; margin-left: 6px; }
+  html.v3[data-bi] .nav .links a { display: inline-flex; flex-direction: column; align-items: center; padding: 4px 6px; line-height: 1.15; }
+  html.v3[data-bi] .nav .sbTabTxt { display: inline-flex !important; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+  html.v3[data-bi] .nav .links .biZh.biIn, html.v3[data-bi] .nav .sbTabTxt .biZh.biIn { font-size: 11.5px; font-weight: 500; }
+  html.v3[data-bi] .nav .links .biZh.biIn::before, html.v3[data-bi] .nav .sbTabTxt .biZh.biIn::before { content: none; }
+}
+@media (min-width: 1024px) and (max-width: 1199px) {
+  html.v3[data-bi] .nav .mobileMenu { display: grid; }
+  html.v3[data-bi] .nav .links {
+    display: none; position: absolute; top: 100%; left: -16px; right: -16px; margin: 0; padding: 8px 16px 16px;
+    flex-direction: column; align-items: stretch; gap: 0; background: var(--navy); border-bottom: 1px solid var(--navy-line); box-shadow: var(--shadow);
+  }
+  html.v3[data-bi] .nav.menuOpen .links { display: flex; }
+  html.v3[data-bi] .nav .links a { display: block; padding: 13px 4px; font-size: 16px; }
+  html.v3[data-bi] .nav .links a.active, html.v3[data-bi] .nav .links a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--green); padding-left: 12px; }
+  html.v3[data-bi] .nav .sbTabWrap { margin-left: auto; }
+}
