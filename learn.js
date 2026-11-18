@@ -10,8 +10,9 @@
   "use strict";
   var D = window.LAOYU_DATA || { resources: [] };
   function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
-  function L(a) { return a ? (zh() ? a[1] : a[0]) : ""; }
-  function T(en, cn) { return zh() ? cn : en; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function L(a) { return a ? biPick(a[0], a[1]) : ""; }
+  function T(en, cn) { return biPick(en, cn); }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function $(id) { return document.getElementById(id); }
   function res(id) { return D.resources.filter(function (r) { return r.id === id; })[0]; }

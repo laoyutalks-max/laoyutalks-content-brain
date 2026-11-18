@@ -12,11 +12,12 @@
   var D = window.LAOYU_DATA;
   if (!D) return;
   function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
-  function L(a) { return a ? (zh() ? a[1] : a[0]) : ""; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function L(a) { return a ? biPick(a[0], a[1]) : ""; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function $(s) { return document.querySelector(s); }
   function byId(id) { return D.resources.filter(function (r) { return r.id === id; })[0]; }
-  function T(en, cn) { return zh() ? cn : en; }
+  function T(en, cn) { return biPick(en, cn); }
   function date(s) {
     var d = new Date(s + "T00:00:00");
     if (zh()) return d.getFullYear() + " 年 " + (d.getMonth() + 1) + " 月 " + d.getDate() + " 日";
@@ -203,7 +204,7 @@
         return '<article class="path" id="path-' + p.id + '"><header><i aria-hidden="true">' + p.icon + "</i><div><h3>" + esc(L(p.t)) + "</h3><p>" + esc(L(p.d)) + "</p></div></header><ol>" +
           p.steps.map(function (s, i) {
             var r = byId(s[0]);
-            return '<li><a href="' + r.url + '"><span class="pN">' + (i + 1) + '</span><span class="pT"><b>' + esc(L(r.title)) + "</b><small>" + esc(zh() ? s[2] : s[1]) + '</small></span><span class="pTy t-' + r.type + '">' + esc(L(D.types[r.type])) + "</span></a></li>";
+            return '<li><a href="' + r.url + '"><span class="pN">' + (i + 1) + '</span><span class="pT"><b>' + esc(L(r.title)) + "</b><small>" + esc(biPick(s[1], s[2])) + '</small></span><span class="pTy t-' + r.type + '">' + esc(L(D.types[r.type])) + "</span></a></li>";
           }).join("") + "</ol></article>";
       }).join("");
     }

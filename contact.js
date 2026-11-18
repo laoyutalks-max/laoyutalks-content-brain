@@ -9,7 +9,8 @@
   var box, sent = false, sending = false, keep = { name: "", email: "", topic: "", message: "" };
 
   function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
-  function T(en, cn) { return zh() ? cn : en; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function T(en, cn) { return biPick(en, cn); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function profile() { try { return JSON.parse(localStorage.getItem("laoyuProfile") || "null"); } catch (e) { return null; } }
   function btnText() { return T("SEND MESSAGE →", "发送消息 →"); }
@@ -24,7 +25,7 @@
         '<label for="ctName">' + T("Your name", "你的名字") + '</label><input id="ctName" name="name" autocomplete="name" maxlength="80" required value="' + esc(keep.name) + '">' +
         '<label for="ctEmail">' + T("Email (so I can reply)", "邮箱（用于回复你）") + '</label><input id="ctEmail" name="email" type="email" autocomplete="email" maxlength="120" required value="' + esc(keep.email) + '">' +
         '<label for="ctTopic">' + T("What is it about?", "关于什么？") + '</label><select id="ctTopic" name="topic">' +
-          TOPICS.map(function (t) { return '<option value="' + esc(t[0]) + '"' + (keep.topic === t[0] ? " selected" : "") + ">" + esc(zh() ? t[1] : t[0]) + "</option>"; }).join("") + "</select>" +
+          TOPICS.map(function (t) { return '<option value="' + esc(t[0]) + '"' + (keep.topic === t[0] ? " selected" : "") + ">" + esc(biPick(t[0], t[1])) + "</option>"; }).join("") + "</select>" +
         '<label for="ctMsg">' + T("Message", "留言") + '</label><textarea id="ctMsg" name="message" rows="5" maxlength="1000" required>' + esc(keep.message) + "</textarea>" +
         '<input class="gateHp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">' +
         '<p class="gateErr" role="alert" hidden></p>' +

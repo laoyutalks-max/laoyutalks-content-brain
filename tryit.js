@@ -3,7 +3,8 @@
 (function () {
   "use strict";
   function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
-  function T(en, cn) { return zh() ? cn : en; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function T(en, cn) { return biPick(en, cn); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function $(id) { return document.getElementById(id); }
 
@@ -184,6 +185,7 @@
   }
   function ppCopy(btn) {
     var out = $("ppOut"), text = out && out._text; if (!text) return;
+    if (window.LAOYU_I18N && LAOYU_I18N.one) text = LAOYU_I18N.one(text); // EN+中: copy one language
     var done = function (ok) {
       btn.textContent = ok ? T("COPIED! ✓", "已复制！✓") : T("SELECT AND COPY", "请手动选择复制");
       btn.setAttribute("data-state", ok ? "ok" : "err");

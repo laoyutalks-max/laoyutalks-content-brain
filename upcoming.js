@@ -8,14 +8,15 @@
     ["dash-manpower.html", ["Manpower Planning Dashboard", "人力规划看板"], ["Required vs available headcount, the gap, overtime and output attainment.", "需求与可用人数、人数差距、加班和产出达成率。"]]
   ];
   function zh() { return document.documentElement.getAttribute("data-lang") === "zh"; }
-  function L(a) { return zh() ? a[1] : a[0]; }
+  function biPick(en, cn) { var I = window.LAOYU_I18N; return I && I.pick ? I.pick(en, cn) : (zh() ? cn : en); } /* EN+中: both, see i18n.js */
+  function L(a) { return a ? biPick(a[0], a[1]) : ""; }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   var owner = false;
   function render() {
     var g = document.getElementById("upGrid"); if (!g) return;
     g.innerHTML = UP.map(function (u) {
-      var inner = '<span class="upPill">' + (owner ? (zh() ? "站长预览" : "OWNER PREVIEW") : (zh() ? "即将推出" : "COMING SOON")) + "</span><b>" + esc(L(u[1])) + "</b><p>" + esc(L(u[2])) + "</p>";
-      return owner ? '<a class="upCard" href="' + u[0] + '">' + inner + '<span class="upGo">' + (zh() ? "打开 →" : "OPEN →") + "</span></a>"
+      var inner = '<span class="upPill">' + (owner ? biPick("OWNER PREVIEW", "站长预览") : biPick("COMING SOON", "即将推出")) + "</span><b>" + esc(L(u[1])) + "</b><p>" + esc(L(u[2])) + "</p>";
+      return owner ? '<a class="upCard" href="' + u[0] + '">' + inner + '<span class="upGo">' + biPick("OPEN →", "打开 →") + "</span></a>"
                    : '<div class="upCard" aria-disabled="true">' + inner + "</div>";
     }).join("");
   }

@@ -655,6 +655,61 @@
     "Want one of these for your team?": "想为你的团队搭建其中一个？",
     "These are guides, not ready-made apps. If you would like help adapting one to your site, get in touch.": "这些是操作指南，不是现成的应用。如果你需要帮助把它用到自己的工厂，欢迎联系。",
     "Contact LAOYU": "联系老鱼",
+    "Eliminate repetitive work. Build smarter workflows.": "消除重复工作，搭建更聪明的工作流程。",
+    "Practical automation for manufacturing and office teams, built with tools most teams already have: Google Sheets, Forms, Apps Script, AppSheet and AI.": "为制造和办公团队打造的实用自动化，所用工具大多数团队都已具备：Google Sheets、Forms、Apps Script、AppSheet 和 AI。",
+    "Find My Automation Opportunity": "找到我的自动化机会",
+    "Explore Automation Library": "浏览自动化资源库",
+    "How every workflow is built": "每个工作流程的构成",
+    "Input": "输入", "Trigger": "触发", "Process": "处理", "Output": "输出",
+    "Shift numbers": "班次数据",
+    "Every morning, 06:30": "每天早上 06:30",
+    "Summarise by line": "按产线汇总",
+    "Report in every manager's inbox": "报告送达每位管理者的邮箱",
+    "Example: daily production report": "示例：每日生产报告",
+    "What the Automation Lab is for": "自动化实验室的用途",
+    "Help people eliminate repetitive work, simplify processes and build smarter workflows using practical automation and AI.": "用实用的自动化和 AI，帮助大家消除重复工作、简化流程、搭建更聪明的工作流程。",
+    "What takes up your team's time?": "什么最占用团队的时间？",
+    "Pick the task that sounds most familiar. The library will show the workflows that fit.": "选出最熟悉的任务，资源库会显示适合的工作流程。",
+    "Featured manufacturing workflows": "精选制造业工作流程",
+    "Three workflows that suit most production sites.": "适合大多数生产现场的三个工作流程。",
+    "See all workflows →": "查看全部工作流程 →",
+    "Automation Library": "自动化资源库",
+    "Search, or filter by category, difficulty, build type and where it is used. Open a workflow for the steps.": "可搜索，或按类别、难度、实现方式和适用领域筛选。打开工作流程查看步骤。",
+    "Don't just learn about AI. Use it to improve the way you work.": "不要只是学习 AI，要用它改进你的工作方式。",
+    "Pick one repetitive task and automate it this week.": "选一项重复性任务，本周就把它自动化。",
+    "Browse all resources": "浏览全部资源",
+    "Workflow Builder": "工作流程设计器",
+    "ASK LAOYU – Automation Advisor": "问老鱼 – 自动化顾问",
+    "Answer four short questions about a repetitive task and get a suggested automation approach, the tools, a workflow, the effort involved and an estimate of the time it could save.": "回答关于一项重复性任务的四个简短问题，即可获得建议的自动化方案、工具、流程、所需投入，以及可节省时间的估算。",
+    "Describe your own task →": "描述你自己的任务 →",
+    "Real-world case studies": "实践案例",
+    "Six manufacturing examples, from the manual process to the automation, with what to expect and what was learned.": "六个制造业实例：从手工流程到自动化，包括预期效果和经验教训。",
+    "Learning resources": "学习资源",
+    "Keep going with the rest of LAOYUTALKS.": "继续探索老鱼说的更多内容。",
+    "Short videos on practical AI and automation, each paired with a tool.": "实用 AI 与自动化短视频，每个都配有对应工具。",
+    "Watch the lessons →": "观看课程 →",
+    "Resources library": "资源库",
+    "Templates, calculators, checklists and problem solvers for the shop floor.": "面向车间的模板、计算器、检查清单和问题解决工具。",
+    "Browse resources →": "浏览资源 →",
+    "Apps Script templates": "Apps Script 模板",
+    "Five ready-to-paste scripts for reports, reminders, documents and approvals.": "五段可直接粘贴使用的脚本，用于报告、提醒、文档和审批。",
+    "See the scripts →": "查看脚本 →",
+    "Production KPI dashboard": "生产 KPI 看板",
+    "An Excel dashboard template for daily output, scrap and downtime.": "用于每日产量、报废和停机的 Excel 看板模板。",
+    "Get the template →": "获取模板 →",
+    "AI prompt pack": "AI 提示词包",
+    "Tested prompts for reports, emails, root cause and meetings.": "经过验证的提示词，适用于报告、邮件、根本原因分析和会议。",
+    "Open the prompt pack →": "打开提示词包 →",
+    "Ask manufacturing, quality and management questions.": "提问制造、质量和管理方面的问题。",
+    "Map one process from input to output, then generate a summary you can share with your team. It plans the workflow; it does not run it.": "从输入到输出梳理一个流程，然后生成可与团队分享的总结。它只用于规划流程，不会实际运行。",
+    "Automation ROI Calculator": "自动化投资回报计算器",
+    "Estimate the hours an automation could give back to your team each year.": "估算自动化每年能为团队省下多少工时。",
+    "How this is calculated": "计算方法",
+    "Annual manual hours = employees × hours per week × working weeks.": "每年手工工时 = 员工人数 × 每周小时数 × 工作周数。",
+    "Estimated hours saved = annual manual hours × automation efficiency.": "预计节省工时 = 每年手工工时 × 自动化效率。",
+    "Remaining manual hours = annual manual hours − hours saved.": "剩余手工工时 = 每年手工工时 − 节省工时。",
+    "Estimated labour value saved = hours saved × hourly labour cost.": "预计节省的人工价值 = 节省工时 × 每小时人工成本。",
+    "Productivity improvement = annual manual hours ÷ remaining hours − 1: the same work done in fewer hours means more output per hour on this task.": "效率提升 = 每年手工工时 ÷ 剩余工时 − 1：用更少的时间完成同样的工作，意味着该任务每小时产出更高。",
     "Prompts, AI tools and automation workflows": "提示词、AI 工具与自动化流程",
 
     /* Learn */
@@ -707,7 +762,73 @@
       '保持好奇，持续改善。<br>以<b style="color:#ff6a00">思维</b>引领，用 <b style="color:#ff6a00">AI</b> 提升。',
 
     /* LAOYUTALKS 3.0 homepage */
-    "Solve Real Problems. Work Smarter with AI.": '解决真实问题，<span>用 AI 更聪明地工作。</span>'
+    "Solve Real Problems. Work Smarter with AI.": '解决真实问题，<span>用 AI 更聪明地工作。</span>',
+
+    /* Legal pages (privacy.html, terms.html). Chinese is for reference; the English version prevails. */
+    "Effective Date: September 2, 2026": "<strong>生效日期：</strong>2026 年 9 月 2 日",
+    "LAOYUTALKS Content Brain respects your privacy. This Privacy Policy explains how information may be used when you use the service or connect your TikTok account.":
+      "LAOYUTALKS Content Brain 尊重你的隐私。本隐私政策说明你在使用本服务或连接 TikTok 账号时，信息可能会被如何使用。",
+    "1. Information We May Access": "1. 我们可能获取的信息",
+    "Depending on the features you use and the permissions you authorize, the service may access information from your TikTok account, such as basic account information and information about your published TikTok videos and their available performance statistics.":
+      "根据你使用的功能和你授权的权限，本服务可能会获取你 TikTok 账号中的信息，例如基本账号信息、你已发布的 TikTok 视频信息及其可用的表现数据。",
+    "2. How Information Is Used": "2. 信息的使用方式",
+    "Information may be used to:": "信息可能用于：",
+    "Display and organize your TikTok content.": "展示和整理你的 TikTok 内容。",
+    "Retrieve available video performance information.": "获取可用的视频表现信息。",
+    "Analyze content performance.": "分析内容表现。",
+    "Generate AI-assisted content recommendations and insights.": "生成 AI 辅助的内容建议与洞察。",
+    "Improve your content planning workflow.": "改进你的内容规划流程。",
+    "3. AI Processing": "3. AI 处理",
+    "Information may be processed by AI services to generate content, summaries, or performance insights. Only information necessary for the requested feature should be submitted for processing.":
+      "信息可能由 AI 服务处理，以生成内容、摘要或表现洞察。只应提交所请求功能所必需的信息进行处理。",
+    "4. Data Sharing": "4. 数据共享",
+    "We do not sell personal information.": "我们不出售个人信息。",
+    "Information may be processed through third-party services required to provide the functionality of the service, including TikTok, Google, and AI service providers.":
+      "为提供本服务的功能，信息可能会通过所需的第三方服务进行处理，包括 TikTok、Google 和 AI 服务提供商。",
+    "5. Data Retention": "5. 数据保留",
+    "Information may be stored in the user's connected Google Sheets or other systems used to operate the service. Users should remove information that is no longer required.":
+      "信息可能存储在用户连接的 Google 表格或用于运营本服务的其他系统中。用户应删除不再需要的信息。",
+    "6. Account Access": "6. 账号访问",
+    "Users may revoke the service's access to their TikTok account through TikTok's account and security settings.":
+      "用户可以通过 TikTok 的账号与安全设置，撤销本服务对其 TikTok 账号的访问权限。",
+    "7. Security": "7. 安全",
+    "Reasonable measures are used to protect information. However, no internet-based service can guarantee absolute security.":
+      "我们采取合理措施保护信息。但任何基于互联网的服务都无法保证绝对安全。",
+    "8. Changes to This Policy": "8. 本政策的变更",
+    "This Privacy Policy may be updated from time to time. The updated version will be published on this website.":
+      "本隐私政策可能会不时更新。更新后的版本将发布在本网站上。",
+    "9. Free Resource Sign-ups": "9. 免费资源注册",
+    "When you unlock a free resource on this website (for example a checklist or prompt pack), we collect the name, email address and optional job role you enter, plus whether you want to hear about new resources. These details are stored in a private Google Sheet owned by LAOYU and are used only to send LAOYU resources and updates. We do not sell them. Answers you type inside a resource are saved only in your own browser and are never sent to us. To be removed, email laoyutalks@gmail.com.":
+      "当你在本网站解锁免费资源（例如清单或提示词包）时，我们会收集你填写的姓名、邮箱地址和选填的职位，以及你是否希望收到新资源通知。这些信息保存在老鱼所有的私人 Google 表格中，仅用于发送老鱼的资源与更新。我们不会出售这些信息。你在资源中输入的内容只保存在你自己的浏览器中，绝不会发送给我们。如需删除你的信息，请发邮件至 <a href=\"mailto:laoyutalks@gmail.com\">laoyutalks@gmail.com</a>。",
+    "10. Contact": "10. 联系方式",
+    "For privacy questions or requests, please contact the service owner through the contact information provided on this website.":
+      "如有隐私相关的问题或请求，请通过本网站提供的联系方式联系服务所有者。",
+    "Welcome to LAOYUTALKS Content Brain. By using this website or connected services, you agree to these Terms of Service.":
+      "欢迎使用 LAOYUTALKS Content Brain。使用本网站或相关服务，即表示你同意本服务条款。",
+    "1. Service": "1. 服务内容",
+    "LAOYUTALKS Content Brain provides tools for organizing TikTok content, generating AI-assisted content, and analyzing published content performance.":
+      "LAOYUTALKS Content Brain 提供用于整理 TikTok 内容、生成 AI 辅助内容以及分析已发布内容表现的工具。",
+    "2. User Responsibility": "2. 用户责任",
+    "Users are responsible for reviewing AI-generated content before publishing or using it. AI-generated information may contain errors and should be reviewed for accuracy, suitability, and compliance with applicable laws and platform policies.":
+      "用户在发布或使用 AI 生成的内容之前，有责任对其进行审核。AI 生成的信息可能存在错误，应审核其准确性、适用性，以及是否符合适用法律和平台政策。",
+    "3. TikTok Integration": "3. TikTok 集成",
+    "If you connect your TikTok account, the service may access information and content permitted by the permissions you authorize. The service only uses information required for the features you enable.":
+      "如果你连接 TikTok 账号，本服务可能会在你授权的权限范围内获取信息和内容。本服务只使用你所启用功能所需的信息。",
+    "4. Third-Party Services": "4. 第三方服务",
+    "The service may interact with third-party platforms, including TikTok, Google, and AI service providers. Their respective terms and policies may also apply.":
+      "本服务可能与第三方平台交互，包括 TikTok、Google 和 AI 服务提供商。它们各自的条款和政策也可能适用。",
+    "5. Availability": "5. 可用性",
+    "We do not guarantee that the service will always be available or error-free. Third-party APIs and services may experience interruptions or changes.":
+      "我们不保证本服务始终可用或没有错误。第三方 API 和服务可能出现中断或变更。",
+    "6. Acceptable Use": "6. 可接受的使用",
+    "Users must not use the service for unlawful activities, abuse third-party services, or violate TikTok's policies.":
+      "用户不得将本服务用于违法活动、滥用第三方服务或违反 TikTok 的政策。",
+    "7. Changes": "7. 变更",
+    "These Terms may be updated from time to time. Continued use of the service after an update constitutes acceptance of the revised Terms.":
+      "本条款可能会不时更新。更新后继续使用本服务，即表示你接受修订后的条款。",
+    "8. Contact": "8. 联系方式",
+    "For questions regarding these Terms, please contact the service owner through the contact information provided on this website.":
+      "如对本条款有疑问，请通过本网站提供的联系方式联系服务所有者。"
   };
 
   var KEY = "laoyuLang";
@@ -754,11 +875,174 @@
   var lang = loadBase(mode);
 
   function t(english) {
-    return lang === "zh" && TEXT[norm(english)] ? TEXT[norm(english)] : english;
+    var zh = TEXT[norm(english)];
+    if (!zh) return english;
+    return mode === "bi" ? pick(english, zh) : lang === "zh" ? zh : english;
+  }
+
+  /* ---------- Bilingual (EN+中) ----------
+     Page scripts ask pick(en, zh) for their text. In EN+中 mode it returns both
+     languages wrapped in invisible markers: START en MID zh END. fixBi() then
+     turns every marker it finds in the page into the English text followed by
+     <span class="biZh"> with the Chinese (a smaller line under headings and
+     paragraphs, " · 中文" after short labels, buttons and links). In attributes
+     (placeholder, title, aria-label…) the two are joined with " · ".        */
+  var BI_S = "\u2062", BI_M = "\u2063", BI_E = "\u2064";
+  var BI_ANY = /[\u2062\u2063\u2064]/;
+  function pick(en, zh) {
+    if (zh === undefined || zh === null || zh === "") return en;
+    if (mode === "bi" && zh !== en) return BI_S + en + BI_M + zh + BI_E;
+    return lang === "zh" ? zh : en;
+  }
+  /* "en · zh" — for places that can only hold plain text */
+  function plain(s) {
+    return String(s).replace(/\u2062/g, "").replace(/\u2063/g, " · ").replace(/\u2064/g, "");
+  }
+  /* Only the visitor's base language — for text that is copied or sent somewhere */
+  function one(s) {
+    return String(s).replace(/\u2062([^\u2063]*)\u2063([^\u2064]*)\u2064/g, function (m, en, zh) {
+      return lang === "zh" ? zh : en;
+    }).replace(/[\u2062\u2063\u2064]/g, "");
+  }
+
+  var INLINE_TAGS = /^(A|BUTTON|LABEL|SUMMARY|SMALL|B|STRONG|EM|I|SPAN|TH|DT|LEGEND|CODE|KBD)$/;
+  function biKind(parent) {
+    if (parent.closest("nav, .links, .langToggle, .btn, button, a, label, summary, .eyebrow, .chip, .lyChip, .tag, .pill, th, select")) return "biIn";
+    var d = "";
+    try { d = getComputedStyle(parent).display; } catch (e) {}
+    if (/^inline/.test(d) || (!d && INLINE_TAGS.test(parent.tagName))) return "biIn";
+    return "biBlk";
+  }
+  var BI_ATTRS = ["placeholder", "title", "aria-label", "alt", "value", "content", "data-tip"];
+  function fixAttrs(el) {
+    if (!el.getAttribute) return;
+    BI_ATTRS.forEach(function (a) {
+      var v = el.getAttribute(a);
+      if (v && BI_ANY.test(v)) el.setAttribute(a, plain(v));
+    });
+  }
+  /* Split one text node at its markers. Chinese that holds markup spans
+     several nodes: everything up to the END marker moves into the span. */
+  /* A sentence built from several pieces ("Biggest loss: " + "Performance" + ".")
+     gets one Chinese span per piece. Keep the English inline and join the
+     Chinese into one span at the end: "最大损失：性能稼动率（速度）。" */
+  var biTouched = [];
+  function mergeBi() {
+    var list = biTouched; biTouched = [];
+    list.forEach(function (p) {
+      if (!p.isConnected) return;
+      ["biBlk", "biIn"].forEach(function (kind) {
+        var spans = [].filter.call(p.children, function (c) {
+          return c.classList.contains("biZh") && c.classList.contains(kind) && !c.classList.contains("biTx");
+        });
+        if (spans.length < 2) return;
+        var first = spans[0];
+        spans.slice(1).forEach(function (s) { while (s.firstChild) first.appendChild(s.firstChild); s.remove(); });
+        p.appendChild(first);
+      });
+    });
+  }
+  function fixText(node) {
+    var p = node.parentNode;
+    if (!p || !BI_ANY.test(node.data)) return;
+    if (biTouched.indexOf(p) < 0) biTouched.push(p);
+    if (p.nodeType === 1 && /^(TITLE|SCRIPT|STYLE)$/.test(p.tagName)) { node.data = one(node.data); return; }
+    if (p.nodeType !== 1 || /^(OPTION|TEXTAREA)$/.test(p.tagName)) { node.data = plain(node.data); return; }
+    var d = node.data.replace(/\u2062/g, ""), m = d.indexOf(BI_M);
+    if (m < 0) { node.data = d.replace(/[\u2063\u2064]/g, ""); return; }
+    node.data = d.slice(0, m);
+    var span = document.createElement("span");
+    span.className = "biZh " + biKind(p);
+    span.setAttribute("lang", "zh-Hans");
+    p.insertBefore(span, node.nextSibling);
+    var rest = d.slice(m + 1), e = rest.indexOf(BI_E), after = null;
+    if (e > -1) {
+      span.appendChild(document.createTextNode(rest.slice(0, e)));
+      if (rest.slice(e + 1)) { after = document.createTextNode(rest.slice(e + 1)); p.insertBefore(after, span.nextSibling); }
+    } else {
+      if (rest) span.appendChild(document.createTextNode(rest));
+      while (span.nextSibling) {
+        var nx = span.nextSibling;
+        if (nx.nodeType === 3 && nx.data.indexOf(BI_E) > -1) {
+          var k = nx.data.indexOf(BI_E);
+          span.appendChild(document.createTextNode(nx.data.slice(0, k)));
+          nx.data = nx.data.slice(k + 1);
+          after = nx;
+          break;
+        }
+        span.appendChild(nx);
+      }
+    }
+    /* In a flex/grid box (buttons, chips) the Chinese would become its own
+       column: keep the English and the Chinese together as one item. */
+    var pd = "";
+    try { pd = getComputedStyle(p).display; } catch (x) {}
+    if (/flex|grid/.test(pd) && node.data.trim()) {
+      var wrap = document.createElement("span");
+      wrap.className = "biWrap";
+      p.insertBefore(wrap, node);
+      wrap.appendChild(node);
+      wrap.appendChild(span);
+    }
+    if (after && BI_ANY.test(after.data)) fixText(after);
+  }
+  function fixBi(root) {
+    if (!root) return;
+    if (root.nodeType === 3) { fixText(root); return; }
+    if (root.nodeType !== 1 && root.nodeType !== 9) return;
+    var el = root.nodeType === 9 ? root.documentElement : root;
+    fixAttrs(el);
+    if (el.querySelectorAll) el.querySelectorAll("[placeholder],[title],[aria-label],[alt],[value],[data-tip],meta[content]").forEach(fixAttrs);
+    var list = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) { return BI_ANY.test(n.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; }
+    }), n;
+    while ((n = w.nextNode())) list.push(n);
+    list.forEach(function (x) { if (x.parentNode && BI_ANY.test(x.data)) fixText(x); });
+    mergeBi();
+    if (BI_ANY.test(document.title)) document.title = one(document.title);
+  }
+  var biBusy = false;
+  function watchBi() {
+    if (!window.MutationObserver) return;
+    new MutationObserver(function (records) {
+      if (biBusy) return;
+      biBusy = true;
+      try {
+        records.forEach(function (r) {
+          if (r.type === "childList") r.addedNodes.forEach(function (x) { fixBi(x); });
+          else if (r.type === "characterData") fixText(r.target);
+          else if (r.type === "attributes") fixAttrs(r.target);
+        });
+        mergeBi();
+        if (BI_ANY.test(document.title)) document.title = one(document.title);
+      } finally { biBusy = false; }
+    }).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: BI_ATTRS });
+  }
+  function biStyle() {
+    if (document.getElementById("biStyle")) return;
+    var s = document.createElement("style");
+    s.id = "biStyle";
+    s.textContent =
+      ".biZh.biBlk{display:block;font-size:.86em;opacity:.85;margin-top:3px;letter-spacing:.02em}" +
+      "h1>.biZh.biBlk,h1 .biZh.biBlk{font-size:.62em;margin-top:6px}" +
+      "h2>.biZh.biBlk,h3>.biZh.biBlk{font-size:.72em}" +
+      ".biZh.biIn{opacity:.85}.biZh.biIn::before{content:\" · \"}" +
+      "html:not([data-bi]) .biZh.biTx{display:none}" +
+      "html[data-bi] .zhOnly{display:block}";
+    (document.head || document.documentElement).appendChild(s);
+  }
+
+  /* Chinese for dictionary text, added next to the English in EN+中 mode */
+  function biTx(html, parent) {
+    var s = document.createElement("span");
+    s.className = "biZh biTx " + biKind(parent);
+    s.setAttribute("lang", "zh-Hans");
+    s.innerHTML = html;
+    return s;
   }
 
   function applyBlocks(root) {
-    root.querySelectorAll("h1, h2, h3, p").forEach(function (el) {
+    root.querySelectorAll("h1, h2, h3, h4, p, li").forEach(function (el) {
       if (el.__laoyuEn === undefined) {
         var key = BLOCK_INDEX[squash(el.textContent)];
         if (!key) return;
@@ -766,7 +1050,12 @@
         el.__laoyuKey = key;
         el.setAttribute("data-i18n-block", "");
       }
-      el.innerHTML = lang === "zh" ? BLOCKS[el.__laoyuKey] : el.__laoyuEn;
+      if (mode === "bi") {
+        el.innerHTML = el.__laoyuEn;
+        el.appendChild(biTx(BLOCKS[el.__laoyuKey], el));
+      } else {
+        el.innerHTML = lang === "zh" ? BLOCKS[el.__laoyuKey] : el.__laoyuEn;
+      }
     });
   }
 
@@ -776,13 +1065,13 @@
         var p = node.parentElement;
         if (!p || /^(SCRIPT|STYLE)$/.test(p.tagName)) return NodeFilter.FILTER_REJECT;
         if (p.closest("[data-i18n-block]")) return NodeFilter.FILTER_REJECT;
-        if (p.closest(".lyChat")) return NodeFilter.FILTER_REJECT;
+        if (p.closest(".lyChat, .biZh")) return NodeFilter.FILTER_REJECT;
         /* paired .en / .zh content is already written in its own language */
         if (p.closest(".en, .zh")) return NodeFilter.FILTER_REJECT;
         return norm(node.data) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
       }
     });
-    var node;
+    var node, bi = [];
     while ((node = walker.nextNode())) {
       var current = norm(node.data);
       var en = node.__laoyuEn ||
@@ -792,8 +1081,34 @@
       node.__laoyuEn = en;
       var lead = node.data.match(/^\s*/)[0];
       var trail = node.data.match(/\s*$/)[0];
-      node.data = lead + (lang === "zh" ? TEXT[en] : en) + trail;
+      var p = node.parentElement;
+      if (p.tagName === "TITLE") {
+        node.data = lead + (lang === "zh" ? TEXT[en] : en) + trail; // tab title: one language
+      } else if (mode === "bi" && !/^(OPTION|TEXTAREA)$/.test(p.tagName)) {
+        node.data = lead + en + trail;
+        if (TEXT[en] !== en) bi.push(node);
+      } else if (mode === "bi") {
+        node.data = lead + en + " · " + TEXT[en].replace(/<[^>]+>/g, "") + trail;
+      } else {
+        node.data = lead + (lang === "zh" ? TEXT[en] : en) + trail;
+      }
     }
+    /* added after the walk so the walker doesn't visit the new spans */
+    bi.forEach(function (n) {
+      var p = n.parentElement, s = biTx(TEXT[n.__laoyuEn], p), pd = "";
+      try { pd = getComputedStyle(p).display; } catch (x) {}
+      if (/flex|grid/.test(pd)) {
+        /* flex/grid box: keep English + Chinese together as one item */
+        var w = document.createElement("span");
+        w.className = "biWrap biTx";
+        p.insertBefore(w, n);
+        w.appendChild(n);
+        w.appendChild(s);
+        s.classList.remove("biTx");
+      } else {
+        p.insertBefore(s, n.nextSibling);
+      }
+    });
   }
 
   function apply() {
@@ -801,9 +1116,15 @@
     document.documentElement.setAttribute("data-lang", lang);
     if (mode === "bi") document.documentElement.setAttribute("data-bi", "");
     else document.documentElement.removeAttribute("data-bi");
-    var title = norm(document.title);
+    biStyle();
+    /* drop the Chinese lines added by the previous apply(); they are rebuilt below */
+    document.querySelectorAll(".biTx").forEach(function (s) {
+      if (s.classList.contains("biWrap") && s.parentNode && s.firstChild) s.parentNode.insertBefore(s.firstChild, s); // keep the English
+      s.remove();
+    });
+    var title = norm(document.title).split(" · ")[0];
     var enTitle = TEXT[title] ? title : REVERSE[title];
-    if (enTitle) document.title = lang === "zh" ? TEXT[enTitle] : enTitle;
+    if (enTitle) document.title = lang === "zh" ? TEXT[enTitle] : enTitle; // tab title: one language, even in EN+中
     applyBlocks(document.body);
     applyText(document.documentElement);
     var order = ["en", "zh", "bi"];
@@ -854,8 +1175,13 @@
     apply: apply,
     lang: function () { return lang; },
     mode: function () { return mode; },
-    init: function () { addToggle(); apply(); }
+    bi: function () { return mode === "bi"; },
+    pick: pick,
+    plain: plain,
+    one: one,
+    init: function () { addToggle(); apply(); fixBi(document); }
   };
+  watchBi();
 
   document.documentElement.lang = lang === "zh" ? "zh-Hans" : "en";
 

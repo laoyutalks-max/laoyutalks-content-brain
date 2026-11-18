@@ -9,7 +9,7 @@ The site is still a static site on GitHub Pages: plain HTML, CSS and JavaScript,
 | Layer | Files | Notes |
 |---|---|---|
 | Shared shell (every page) | `shell3.css`, `v3.js`, `src/stamp_layout.py` | Design tokens, header, footer, light/dark theme, phone menu. The menu and footer live in one place (`stamp_layout.py`) and are stamped into all pages. |
-| New-style pages | `v3.css` + page script | Home (`home3.js`), AI Lab (`ai-lab.js`), Automation Lab (`automation.js`), Learn (`learn.js`), Our Story. |
+| New-style pages | `v3.css` + page script | Home (`home3.js`), AI Lab (`ai-lab.js`), Automation Lab (`automation.js` plus `auto-builder.js`, `auto-advisor.js`, `auto-roi.js`, `auto-cases.js`; see section 8), Learn (`learn.js`), Our Story. |
 | Older pages | `styles.css`, `twin.css`, `hub.css` + `shell3.css` skin | The 24 tool pages, Resources, Contact, legal pages. `html.legacy` switches on a skin in `shell3.css` that moves them onto the new palette without changing their layouts or tools. |
 | Content data | `resources-data.js`, `workflows-data.js` | One record per resource and workflow, in English and Chinese. Drives the library, the homepage cards, previews and related links. |
 | Site search | `sidebar.js` (data in `src/catalog.json`) | The "Search" button: tools plus site pages. |
@@ -25,7 +25,8 @@ Home · Learn · Resources · AI Lab · Automation · Our Story, plus Contact, P
 
 - **Change the menu or footer:** edit `NAV` / `FOOTER` in `src/stamp_layout.py`, then run `python src/stamp_layout.py`.
 - **Add a resource:** add a record to `resources-data.js`, add its id to the right category in the `CAT3` list in the same file, and add it to `src/catalog.json` for the Search drawer.
-- **Add a workflow:** add a record to `workflows-data.js`. It appears in the Automation Lab and the library automatically.
+- **Add a workflow:** add a record to `workflows-data.js` with `cat`, `build`, `aud`, `time` and `flow` (and `code` if it has a script). It appears in the Automation Lab library and the Resources library automatically. Add its id to `WORKFLOW_IDS` in `server/ai-lab-worker/src/index.js` so the live advisor may link to it.
+- **Add a case study:** add a record to `CASES` in `auto-cases.js`.
 - **Add a video:** add a row to `VIDEOS` in `learn.js`.
 - **After editing any CSS or JS file:** bump its `?v=` value in the pages that load it.
 - **Before every push:** `python .claude/tests/run_checks.py`.
@@ -95,3 +96,57 @@ Not tested: real phones and Safari or Firefox (one desktop browser was used at p
 4. Add real case studies to Real-World Impact and written guides to Learn.
 5. Retake the resource screenshots in the new design.
 6. Remove the unused files once 3.0 has been live for a while.
+
+## 8. Automation Lab 2.0 (branch `feature/automation-lab-2`, November 2026)
+
+`automation.html` was rebuilt as an automation hub. Same static stack: no framework, no build step, no new libraries; charts are inline SVG.
+
+### Page order and files
+
+| Section | Anchor | Script | Notes |
+|---|---|---|---|
+| Hero, intro, module overview | `#intro` | `automation.js` | Breadcrumb back to Home. Primary call to action opens the advisor. |
+| Opportunity finder | `#finder` | `automation.js` | Six common time-wasters; each filters the library. |
+| Featured workflows | `#featured` | `automation.js` | Three manufacturing workflows. |
+| Automation Library (module A) | `#library` | `automation.js`, data `workflows-data.js` | 16 workflows in 8 categories; search (EN/ZH) and filters for category, difficulty, build type, area, tool. Detail view with flow diagram, steps, sample output and, for 5 workflows, Apps Script code to copy or download (.gs). Links: `#wf-…`, `#cat-…`, `#tool-…`, `#build-…`. |
+| Workflow Builder (module B) | `#builder` | `auto-builder.js` | 8 fields, 2–8 steps, live INPUT → TRIGGER → PROCESS → AUTOMATION → OUTPUT diagram, 4 examples, Markdown summary (copy / download .md). Plans only; runs nothing. |
+| ASK LAOYU – Automation Advisor (module C) | `#advisor` | `auto-advisor.js` | Five steps. Rule-based engine (nine patterns) until `ENDPOINT` is set; then the Worker's `/advise` path. Hours saved are always calculated on the page. Falls back to rules if the Worker fails. |
+| ROI calculator (module D) | `#roi` | `auto-roi.js` | Brief's formulas; productivity improvement = manual hours ÷ remaining hours − 1. Everything labelled as an estimate. |
+| Case studies (module E) | `#cases` | `auto-cases.js` | Six illustrative, composite cases. No company data and no measured results. Starter .csv per case. |
+| Learning resources | `#learning` | static | Links to Learn, Resources, scripts, KPI template, prompt pack, AI Lab. |
+
+The modules talk to each other through small page-level hooks: `LAOYU_BUILDER.prefill()` and `LAOYU_ROI.set()` (used by the advisor), `LAOYU_ADVISOR.setEndpoint()`, `LAOYU_CASES`.
+
+### Storage and privacy
+
+- Only the Workflow Builder stores anything: its draft, in this browser's `localStorage` (`laoyuWfDraft`). It is not shared between devices, and the page says so. If storage is blocked, the builder still works.
+- The advisor (rule-based mode), calculator, library and case studies keep everything in memory and send nothing.
+- In live mode the advisor sends the task text, the tool ids ticked, frequency, minutes and number of people to the Worker. The Worker does not log them.
+
+### Switching on live AI for the advisor
+
+Deploy the Worker as in `server/ai-lab-worker/README.md`, then set `ENDPOINT` in `auto-advisor.js` to the Worker's `/advise` address and bump its `?v=`. The `/advise` path has not been run yet (Node.js is not installed on this PC).
+
+### Test results (Phase 5)
+
+| Check | Result |
+|---|---|
+| Repo site checks | 9 of 9 pass |
+| All 38 pages (404 excluded, see 6) loaded at 1280 px | No script errors, no missing CSS/JS/images, no sideways scroll |
+| All 38 pages at 375 px | No sideways scroll |
+| Automation Lab, EN / 中文 / EN+中 | No untranslated text apart from product, tool and file names |
+| Accessibility audit of the page, a workflow, a case and an advisor result | Every field labelled; no empty buttons, duplicate ids or skipped heading levels |
+| Colour contrast of the new text styles | AA in both themes; lowest 4.94:1 (light), 7.66:1 (dark) |
+| ROI calculator | Matches the formulas at typical and extreme inputs |
+| Advisor live mode | Tested against a stand-in response and an unreachable server only |
+
+### Known limitations
+
+- The live advisor and `/advise` are untested against the real Worker.
+- The Apps Script templates have not been run in Google Apps Script; the page tells visitors to test on a copy of their sheet.
+- Downloads (.gs, .md, .csv) and the clipboard were not exercised in a real browser download; the generated file contents were checked.
+- Workflow and case text, set-up times and the advisor's time-saving percentages are LAOYU's estimates and should be reviewed.
+- Starter .csv templates have English column names.
+- When a workflow or case is open, the page has two `h1` headings (page title and detail title).
+- EN+中 at phone width: the header menu button overflows by 4 px on every new-style page (pre-existing; logged in `.agent-work/issues.md`).
+

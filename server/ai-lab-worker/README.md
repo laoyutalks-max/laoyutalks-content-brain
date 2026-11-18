@@ -66,6 +66,20 @@ All in `wrangler.toml` under `[vars]`; run `npx wrangler deploy` again after a c
 
 **The per-visitor limit is best effort**: each Cloudflare location keeps its own count. For a hard limit, add a rate-limiting rule in the Cloudflare dashboard (Security > WAF > Rate limiting rules) on the path `/ask`, and rely on the Anthropic spend limit as the final cap.
 
+## Automation Advisor (same Worker)
+
+The Automation Lab's **ASK LAOYU – Automation Advisor** (`auto-advisor.js` on `automation.html`) uses the same Worker on a second path, `/advise`. Until it is switched on, the advisor gives rule-based recommendations from keyword rules in `auto-advisor.js`, labelled "Rule-based · not live AI", and nothing leaves the browser.
+
+To switch it on after the Worker is deployed: in `auto-advisor.js`, set
+```js
+var ENDPOINT = "https://laoyu-ai-lab.<your-name>.workers.dev/advise";
+```
+bump `auto-advisor.js?v=` in `automation.html`, and publish through a branch and pull request. If a rate-limiting rule is added in Cloudflare, cover `/advise` as well as `/ask`.
+
+What it sends: the task description (15 to 600 characters), the tool ids ticked, the frequency, minutes and number of people. The model returns the approach, tools, five-stage workflow, complexity, steps, risks and up to three library workflow ids. It is not asked to estimate savings: the page calculates hours from the visitor's own numbers. If the Worker fails or declines, the page shows the rule-based recommendation with a note saying so.
+
+The `/advise` path has not been run either. Test it with `npx wrangler dev` along with `/ask`.
+
 ## Testing locally
 
 ```bash
