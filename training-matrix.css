@@ -1,0 +1,120 @@
+/* LAOYU — Training Matrix (training-matrix.html). Uses the v3 theme tokens. */
+.tm { --sC: #2fbf71; --sT: #5b8def; --sP: #e0a91b; --sX: #e2574c; --sR: #e2574c; --sN: color-mix(in srgb, var(--muted) 30%, transparent); }
+.tmDemo { margin-top: 18px; display: inline-block; }
+.tmKpis { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.tmKpi { padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); }
+.tmKpi small { display: block; font-size: 13px; color: var(--muted); }
+.tmKpi b { display: block; margin-top: 4px; font-size: 26px; font-family: var(--font-display); }
+.tmKpi.bad b { color: var(--bad); }
+.tmKpi.warn b { color: var(--amber); }
+.sec.alt .tmKpi, .sec.alt .tmBox { background: var(--bg); }
+.tmBox { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); min-width: 0; }
+.tmBox h3 { font-size: 17px; margin-bottom: 4px; }
+.tmScroll { overflow-x: auto; }
+.tmTable { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tmTable th, .tmTable td { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: center; white-space: nowrap; }
+.tmTable th { font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.tmTable .l { text-align: left; }
+.tmTable .sep { border-left: 2px solid var(--line-strong, var(--line)); }
+.tmHeatRow { cursor: pointer; }
+.tmHeatRow:hover td, .tmHeatRow:focus-visible td { background: color-mix(in srgb, var(--green) 6%, transparent); }
+.tmHeatRow.on td { background: color-mix(in srgb, var(--green) 12%, transparent); }
+.tmHeatRow.on td:first-child { box-shadow: inset 3px 0 0 var(--green); }
+.tmHeat { display: block; padding: 6px 4px; border-radius: 6px; font-weight: 600; color: var(--ink); }
+.tmHeat.g { background: color-mix(in srgb, var(--sC) 24%, transparent); }
+.tmHeat.a { background: color-mix(in srgb, var(--sP) 26%, transparent); }
+.tmHeat.r { background: color-mix(in srgb, var(--sX) 24%, transparent); }
+.tmHeat.n { color: var(--muted); }
+.tmGapN { font-weight: 700; color: var(--bad); }
+.tmGapN.z { color: var(--muted); font-weight: 400; }
+.tmGroups { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+.tmGroup { padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); }
+.tmGroup small { color: var(--muted); font-size: 12.5px; }
+.tmGroup b { display: block; font-size: 22px; font-family: var(--font-display); }
+.tmGroup .st { float: right; font-size: 12px; font-weight: 600; color: var(--green); }
+.tmGroup.low { border-color: var(--bad); }
+.tmGroup.low .st { color: var(--bad); }
+.tmBar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tmBar input, .tmBar select, .tmForm input, .tmForm select { min-height: 38px; padding: 6px 10px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; }
+.sec.alt .tmBar input, .sec.alt .tmBar select { background: var(--bg); }
+.tmBar input[type=search] { flex: 1 1 180px; max-width: 260px; }
+.tmToggle { min-height: 38px; padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+.tmToggle[aria-pressed=true] { background: var(--green); border-color: var(--green); color: var(--on-green); font-weight: 600; }
+.tmGh { cursor: pointer; color: var(--ink) !important; background: color-mix(in srgb, var(--green) 10%, transparent); }
+.tmGh:hover { background: color-mix(in srgb, var(--green) 18%, transparent); }
+.tmGh button { all: unset; cursor: pointer; font-weight: 600; }
+.tmGh button:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.tmMx td.op { position: sticky; left: 0; background: var(--surface); text-align: left; z-index: 1; }
+.sec.alt .tmMx td.op { background: var(--bg); }
+.tmMx th.op { position: sticky; left: 0; background: inherit; z-index: 1; }
+.tmOpBtn { all: unset; cursor: pointer; font-weight: 600; }
+.tmOpBtn:hover { color: var(--green); text-decoration: underline; }
+.tmOpBtn:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.tmTeam td { background: color-mix(in srgb, var(--ink) 5%, transparent); text-align: left; font-size: 13px; font-weight: 600; }
+.tmTeam button { all: unset; cursor: pointer; }
+.tmTeam button:focus-visible { outline: 2px solid var(--green); }
+.tmCell { width: 30px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: inline-grid; place-items: center; }
+.tmCell:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.tmCell:focus-visible { outline: 2px solid var(--green); }
+.tmDot { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: middle; }
+.tmDot.C { background: var(--sC); }
+.tmDot.T { background: var(--sT); }
+.tmDot.P { background: var(--sP); }
+.tmDot.X { background: var(--sX); }
+.tmDot.R { background: transparent; border: 2px dashed var(--sR); width: 12px; height: 12px; }
+.tmDot.N { background: var(--sN); }
+.tmDot.E { box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--sP); }
+.tmLegend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--muted); }
+.tmLegend span { display: inline-flex; gap: 6px; align-items: center; }
+.tmFoot { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; align-items: center; margin-top: 10px; }
+.tmPages { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; font-size: 13px; color: var(--muted); }
+.tmPages button { min-width: 32px; min-height: 32px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
+.tmPages button[aria-current=page] { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+.tmEmpty { padding: 22px; color: var(--muted); text-align: center; }
+.tmForm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.tmForm form { display: flex; flex-direction: column; gap: 8px; }
+.tmForm label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.tmForm .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+.tmForm .row > * { flex: 1 1 120px; }
+.tmMsg { font-size: 13px; min-height: 18px; }
+.tmMsg.err { color: var(--bad); }
+.tmMsg.ok { color: var(--green); }
+.tmSetT td input { width: 70px; min-height: 32px; padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--ink); font: inherit; }
+.tmChips { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-start; }
+.tmChips span { padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; font-size: 12.5px; }
+dialog.tmDlg { width: min(520px, 100% - 24px); max-height: min(86vh, 760px); padding: 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+dialog.tmDlg::backdrop { background: rgba(4, 10, 18, .55); }
+.tmDlgIn { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+.tmDlgIn h3 { font-size: 19px; padding-right: 30px; }
+.tmDlgX { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: 22px; cursor: pointer; }
+.tmDlgX:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 8%, transparent); }
+.tmOpts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+.tmOpts label { display: flex; gap: 8px; align-items: center; padding: 8px 10px; border: 1px solid var(--line); border-radius: var(--r-ctl); cursor: pointer; font-size: 14px; }
+.tmOpts label:has(input:checked) { border-color: var(--green); background: color-mix(in srgb, var(--green) 10%, transparent); }
+.tmCert { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tmCert[hidden] { display: none; }
+.tmCert label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.tmCert input { min-height: 38px; padding: 6px 10px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); color: var(--ink); font: inherit; }
+.tmHist { max-height: 180px; overflow-y: auto; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+.tmHist li { list-style: none; padding: 3px 0; }
+.tmHist b { color: var(--ink); font-weight: 600; }
+.tmNote { font-size: 13px; color: var(--muted); }
+@media (max-width: 900px) { .tmKpis { grid-template-columns: repeat(3, minmax(0, 1fr)); } .tmForm { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .tmKpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tmOpts, .tmCert { grid-template-columns: 1fr; } }
+/* Email sign-up gate (gate.js) in the v3 theme */
+.tm .gated[hidden], .tm .gate[hidden], .tm .gateDone[hidden] { display: none !important; }
+html:not(.isUnlocked) .tmNeedsUnlock { display: none; }
+.isUnlocked .tmGateNote { display: none; }
+.tmGate { padding: 22px; background: var(--surface); border: 1px solid var(--green); border-radius: var(--r-card); }
+.tmGate h2 { font-size: 22px; }
+.tmGate p { color: var(--muted); margin-top: 6px; }
+.tmGate .gateFields { display: grid; gap: 6px; margin: 16px 0 12px; max-width: 460px; }
+.tmGate .gateFields label { font-size: 14px; color: var(--muted); margin-top: 6px; }
+.tmGate input:not([type=checkbox]), .tmGate select { min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--bg); color: var(--ink); font: inherit; }
+.tmGate .gateHp { position: absolute !important; left: -9999px; width: 1px !important; }
+.tmGate .gateCheck { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; margin-bottom: 14px; max-width: 460px; }
+.tmGate .gateErr { color: var(--bad); font-weight: 600; margin-bottom: 10px; }
+.tmGate .gatePriv { font-size: 13px; }
+.tmGate .gateSwap { background: none; border: 0; color: var(--green); text-decoration: underline; cursor: pointer; font: inherit; margin-left: 10px; }
+.tmGateNote { margin-top: -12px; }
+.tmSetT td input.tmName { width: min(260px, 60vw); }

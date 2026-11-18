@@ -1,0 +1,4 @@
+{
+  "about": "SHA-256 of lower-case emails approved for the Training Matrix Excel download. Add with: python src/tm_approve.py email@example.com",
+  "emails": []
+}
