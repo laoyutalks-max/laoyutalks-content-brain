@@ -175,6 +175,9 @@
     });
   }
 
+  /* Lets other page scripts (training-matrix.js) record a request through the same recorder. */
+  window.LAOYU_GATE = { send: send };
+
   document.addEventListener("DOMContentLoaded", function () {
     flushQueue();
     var gate = document.querySelector(".gate");

@@ -63,6 +63,7 @@
         rows: [["2026-11-12", "Packing", "Set in order", "Unlabelled tote stack at bay 3", "", "Packing lead", "2026-11-19", "Open"], ["2026-11-12", "Packing", "Shine", "Broom missing from shadow board", "", "Shift B", "2026-11-14", "Done"], ["2026-11-12", "Stores", "Sort", "Obsolete labels on rack 2", "", "Stores lead", "2026-11-21", "Open"]] } },
 
     { id: "cs-training-matrix", tools: ["sheets", "script", "gmail", "docs"],
+      app: { url: "training-matrix.html", t: ["A working matrix with departments, process groups and expiry tracking, filled with demo data.", "可直接使用的矩阵，包含部门、工序组和到期跟踪，内含演示数据。"] },
       t: ["Automated Training Matrix", "自动化培训矩阵"],
       ctx: ["A site where machine licences, forklift tickets and quality sign-offs expire on different cycles.", "一个工厂，设备操作证、叉车证和质量授权的有效期各不相同。"],
       problem: ["Training records were spread across several files. Expired qualifications were usually found during an audit or when a trained person was suddenly needed.", "培训记录分散在多个文件里。过期的资格通常在审核时或急需某个合格人员时才被发现。"],
@@ -135,6 +136,7 @@
         part(T("Opportunities for further improvement", "进一步改进的机会"), items(c.next, "ul")) +
       "</div><aside class=\"wfSide\">" +
         part(T("Tools used", "使用的工具"), '<div class="chips">' + chips(c) + "</div>") +
+        (c.app ? part(T("Try it", "试用"), "<p>" + esc(L(c.app.t)) + '</p><a class="btn pri" href="' + esc(c.app.url) + '">' + T("Open the training matrix", "打开培训矩阵") + "</a>") : "") +
         part(T("Starter template", "入门模板"), "<p>" + T("A starter sheet with the columns used in this case and three rows of sample data. Opens in Google Sheets or Excel.", "包含本案例所用列和三行示例数据的入门表格（列名为英文），可用 Google Sheets 或 Excel 打开。") + '</p><button type="button" class="btn" data-csdl>' + T("Download .csv", "下载 .csv") + '</button><p class="fine">' + esc(c.csv.file) + "</p>") +
         (wfs.length ? part(T("Workflows in the library", "资源库中的相关流程"), '<div class="wfRel">' + wfs.map(function (w) { return '<a href="#' + w.id + '"><b>' + esc(L(w.title)) + "</b><span>" + esc(L(w.problem)) + "</span></a>"; }).join("") + "</div>") : "") +
         (rel.length ? part(T("Related resources", "相关资源"), '<div class="wfRel">' + rel.map(function (r) { return '<a href="' + esc(r.url) + '"><b>' + esc(L(r.title)) + "</b><span>" + esc(L(r.problem)) + "</span></a>"; }).join("") + "</div>") : "") +
