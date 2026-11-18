@@ -297,6 +297,22 @@ window.LAOYU_DATA = {
       }
     },
     {
+      id: "training-matrix", url: "training-matrix.html", type: "tracker", ai: false, noShot: true,
+      cats: ["people", "ops"], level: "intermediate", version: "1.0", updated: "2026-11-18",
+      title: ["Training Matrix", "培训矩阵"],
+      problem: ["Nobody can say quickly who is certified for which process, or whose certificate expires next.", "没人能马上说清谁有哪个工序的资格，谁的证书快到期。"],
+      desc: ["Track certification by department and process group, find the gaps and keep expiry dates in view. Comes with 100 demo operators.", "按部门和工序组跟踪认证情况，找出缺口，掌握到期日期。内含 100 名演示操作员。"],
+      setup: ["15 min", "15 分钟"], software: ["Web browser", "网页浏览器"], formats: ["web", "xlsx"],
+      kit: {
+        who: ["Supervisors, trainers and managers who track qualifications across departments.", "跨部门跟踪人员资格的主管、培训员和经理。"],
+        inc: [["Department and process-group overview", "部门与工序组总览"], ["Matrix with gaps-only view", "可只看缺口的矩阵"], ["Certification with assessor and expiry", "带评估人和到期日的认证"], ["Excel download after approval", "审批后可下载 Excel"]],
+        steps: [["Open a department in the overview to see its operators.", "在总览中打开一个部门，查看其操作员。"], ["Rename departments and processes, and add your own operators.", "修改部门和工序名称，并新增你的操作员。"], ["Select a cell to record training or certify after an assessment.", "点击格子记录培训，或在评估后认证。"]],
+        prompt: ["Here is my training matrix (one row per operator and process, with status and expiry date):\n[paste the rows]\nMinimum qualified people per process: [n].\n1. List the processes below the minimum, worst first.\n2. List certificates expiring in the next 30 days.\n3. Propose a 6-week training and assessment plan that keeps every process covered.", "这是我的培训矩阵（每行一个操作员和工序，含状态和到期日期）：\n[粘贴数据]\n每个工序最低合格人数：[n]。\n1. 列出低于最低人数的工序，从最差的开始。\n2. 列出未来 30 天内到期的证书。\n3. 提出一个 6 周的培训和评估计划，确保每个工序都有人覆盖。"],
+        out: ["Processes at risk, expiring certificates and a 6-week plan.", "有风险的工序、即将到期的证书和 6 周计划。"],
+        lim: ["Finishing training is not certification. Record a certification only after an observed assessment.", "完成培训不等于认证。只有经过现场评估后才记录认证。"]
+      }
+    },
+    {
       id: "difficult-conversation", url: "difficult-conversation.html", type: "solver", ai: false,
       cats: ["people"], level: "beginner", version: "1.1", updated: "2026-11-01",
       title: ["Difficult Conversation Planner", "困难对话准备表"],
@@ -388,6 +404,7 @@ window.LAOYU_DATA = {
         ["checklist-quiet-quitting", "Spot early signs of disengagement.", "发现投入度下降的早期信号。"],
         ["difficult-conversation", "Plan the conversation with facts, not labels.", "用事实而不是标签来准备谈话。"],
         ["skills-matrix", "Build cover so no job depends on one person.", "建立补位能力，让任何岗位都不依赖一个人。"],
+        ["training-matrix", "Track who is certified for each process and what expires next.", "跟踪每个工序谁已认证、什么快到期。"],
         ["manpower-gap-calculator", "Balance people on the day with qualified moves.", "当天用合格人员调动来平衡人力。"],
         ["escalation-report", "Escalate structural staffing issues with numbers.", "用数据向上反映结构性的人员问题。"]
       ]
@@ -487,7 +504,7 @@ window.LAOYU_DATA.status = {
     production: ["demo-daily-report", "oee-loss-calculator", "downtime-troubleshooter", "tool-downtime-analysis", "supervisor-daily-planner", "shift-handover", "demo-shift-handover"],
     quality: ["8d-report", "tool-capa-planner"],
     ci: ["fishbone-5why", "repeated-mistake-worksheet", "demo-root-cause"],
-    manpower: ["manpower-gap-calculator", "skills-matrix"],
+    manpower: ["manpower-gap-calculator", "skills-matrix", "training-matrix"],
     analytics: ["production-kpi-dashboard", "tool-excel-formula"],
     productivity: ["weekly-action-tracker", "tool-meeting-minutes", "tool-email-writer", "difficult-conversation", "checklist-quiet-quitting", "escalation-report", "decision-matrix"],
     prompts: ["ai-prompt-pack"],
