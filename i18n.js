@@ -750,7 +750,14 @@
     "Written guides": "图文指南",
     "Short written guides are planned. Until then, every free tool includes setup steps, an AI prompt and its limitations.": "简短的图文指南正在计划中。在此之前，每个免费工具都附有上手步骤、AI 提示词和使用局限说明。",
     "Browse the free tools": "浏览免费工具",
-    "All videos →": "全部视频 →"
+    "All videos →": "全部视频 →",
+
+    /* Home — cinematic 3D story */
+    "See the tools →": "查看工具 →",
+    "Manufacturing, quality and management questions": "制造、质量与管理问题",
+    "Illustration · sample data": "示意图 · 示例数据",
+    "SCROLL ↓": "向下滚动 ↓",
+    "Try it now": "马上试试"
   };
 
   /* Headings/lines built from several pieces: matched on the whole
@@ -842,7 +849,9 @@
       "本条款可能会不时更新。更新后继续使用本服务，即表示你接受修订后的条款。",
     "8. Contact": "8. 联系方式",
     "For questions regarding these Terms, please contact the service owner through the contact information provided on this website.":
-      "如对本条款有疑问，请通过本网站提供的联系方式联系服务所有者。"
+      "如对本条款有疑问，请通过本网站提供的联系方式联系服务所有者。",
+    /* Home — cinematic 3D story: brush-ring title */
+    "Manufacturing × AI": '制造 <em>×</em> AI'
   };
 
   var KEY = "laoyuLang";
