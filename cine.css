@@ -1,0 +1,91 @@
+/* LAOYUTALKS — homepage cinematic 3D story (index.html only). Always dark, in light and dark theme. */
+.cine { --c-ink: #eef4fb; --c-muted: #a9bad0; --c-green: #3ddc84; --c-cyan: #35c8ff; --c-line: rgba(120, 190, 255, .28);
+  position: relative; background: #040a16; color: var(--c-ink); isolation: isolate;
+  clip-path: inset(0); overflow: clip; } /* keeps the sticky stage inside the story (overflow:hidden would break sticky) */
+.cine a { color: inherit; }
+
+/* sticky 3D stage: stays on screen while the chapters scroll over it */
+.cineStage { position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; overflow: hidden; z-index: 0;
+  background: radial-gradient(ellipse 70% 60% at 20% 55%, rgba(255, 160, 70, .18), transparent 60%), radial-gradient(ellipse 60% 60% at 75% 45%, #10264a, #040a16 70%); }
+.cineGl { position: absolute; inset: 0; }
+.cineGl canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.cineGrade { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 90% 80% at 55% 45%, transparent 55%, rgba(2, 5, 12, .7) 100%), linear-gradient(0deg, rgba(3, 7, 16, .75) 0%, transparent 35%); }
+.cineRays { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; opacity: .9; transition: opacity .6s;
+  background: radial-gradient(ellipse 45% 60% at 0% 55%, rgba(255, 170, 70, .35), transparent 70%),
+              repeating-conic-gradient(from 75deg at -6% 58%, rgba(255, 185, 90, .16) 0deg 2.2deg, transparent 2.2deg 7deg);
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 0% 58%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 60% 70% at 0% 58%, #000 20%, transparent 75%); filter: blur(2px); }
+.cine:not([data-ch="0"]) .cineRays { opacity: 0; }
+
+/* chapters */
+.cineCh { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end;
+  padding: 96px clamp(16px, 5vw, 64px) clamp(28px, 8vh, 80px); pointer-events: none; }
+.cineCh > * { pointer-events: auto; }
+.cineCh.r { justify-content: flex-end; }
+.cineHero { display: block; padding-top: clamp(84px, 12vh, 120px); }
+.cine .brand { position: relative; width: min(700px, 92vw); aspect-ratio: 700 / 330; margin-left: -2vw; pointer-events: none; }
+.cine .brand .ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.cine .brand .bt { margin: 0; position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-58%); text-align: center; white-space: nowrap;
+  font: 500 italic clamp(34px, 5.1vw, 72px)/1 var(--font-display, "Space Grotesk"), system-ui, sans-serif; letter-spacing: -.03em; color: #f4f8ff;
+  text-shadow: 0 0 30px rgba(140, 200, 255, .35), 0 2px 0 rgba(0, 0, 0, .2); }
+.cine .brand .bt em { font-style: normal; color: #ffd08a; text-shadow: 0 0 24px rgba(255, 179, 71, .6); }
+.cine .brand .bt .biZh { display: block; font-size: .34em; margin-top: 8px; letter-spacing: .04em; opacity: .9; }
+.cineCopy { margin-top: 4px; max-width: 680px; }
+.cine h1 { font: 600 clamp(22px, 2.3vw, 30px)/1.25 var(--font-display, "Space Grotesk"), system-ui, sans-serif; letter-spacing: -.02em; margin: 0; color: var(--c-ink); }
+.cine h1 span { background: linear-gradient(90deg, var(--c-green), var(--c-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.cineActions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.cineBtn { display: inline-flex; align-items: center; min-height: 46px; padding: 10px 20px; border-radius: 999px; border: 1px solid var(--c-line); color: var(--c-ink) !important;
+  text-decoration: none; font-weight: 600; font-size: 14px; background: rgba(255, 255, 255, .05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: border-color .2s, box-shadow .2s; }
+.cineBtn:hover { border-color: var(--c-cyan); box-shadow: 0 0 20px rgba(53, 200, 255, .25); }
+.cineBtn.pri { background: var(--c-green); border-color: var(--c-green); color: #07140d !important; box-shadow: 0 8px 28px rgba(61, 220, 132, .35); }
+.cineBtn:focus-visible, .cineStory a:focus-visible, .cinePin a:focus-visible, .cineDots a:focus-visible { outline: 2px solid var(--c-cyan); outline-offset: 3px; }
+.cineScroll { position: absolute; left: 50%; bottom: clamp(18px, 4vh, 36px); transform: translateX(-50%); font-size: 11px; letter-spacing: .18em; color: #8ea3bd; }
+.cineNote { position: absolute; left: clamp(16px, 5vw, 64px); bottom: 10px; z-index: 3; margin: 0; font-size: 11px; color: #7f93ad; pointer-events: none; }
+
+.cineStory { width: min(380px, 100%); padding: 18px 22px; border: 1px solid var(--c-line); border-radius: 14px;
+  background: linear-gradient(135deg, rgba(14, 34, 64, .62), rgba(6, 16, 32, .72)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); will-change: transform, opacity; }
+.cineStory .k { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #8fd6ff; }
+.cineStory h2 { font: 700 clamp(22px, 2.4vw, 28px)/1.15 var(--font-display, "Space Grotesk"), system-ui, sans-serif; margin: 6px 0 0; letter-spacing: -.02em; color: var(--c-ink); }
+.cineStory a { display: inline-block; margin-top: 10px; color: var(--c-green) !important; font-weight: 600; font-size: 14px; text-decoration: none; }
+
+/* glass cards pinned to 3D points (placed by cine.js) */
+.cinePin { position: absolute; left: 0; top: 0; z-index: 1; opacity: 0; pointer-events: none; transition: opacity .4s; will-change: transform; }
+html:not(.cine-gl) .cinePin { display: none; }
+.cine[data-ch="1"] .cinePin[data-ch="1"], .cine[data-ch="2"] .cinePin[data-ch="2"], .cine[data-ch="3"] .cinePin[data-ch="3"],
+.cine[data-ch="4"] .cinePin[data-ch="4"], .cine[data-ch="5"] .cinePin[data-ch="5"] { opacity: 1; pointer-events: auto; }
+.cinePin .dot { position: absolute; left: -6px; top: -6px; width: 12px; height: 12px; border-radius: 50%; background: var(--c-cyan); box-shadow: 0 0 0 4px rgba(53, 200, 255, .2), 0 0 16px var(--c-cyan); }
+.cinePin .dot::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 1px solid var(--c-cyan); animation: cinePing 2.4s infinite; }
+@keyframes cinePing { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.8); opacity: 0; } }
+.cinePin a { position: absolute; left: 18px; top: -46px; display: block; min-width: 168px; padding: 10px 14px; border: 1px solid var(--c-line); border-radius: 12px; text-decoration: none; color: var(--c-ink) !important;
+  background: linear-gradient(135deg, rgba(20, 50, 90, .55), rgba(6, 16, 34, .6)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .35); transition: transform .25s, border-color .25s, box-shadow .25s; }
+.cinePin a::before { content: ""; position: absolute; left: -12px; top: 40px; width: 12px; height: 1px; background: var(--c-line); }
+.cinePin b { display: block; font: 600 13px/1.3 var(--font-display, "Space Grotesk"), system-ui, sans-serif; }
+.cinePin small { display: block; color: var(--c-muted); font-size: 11.5px; margin-top: 4px; }
+.cinePin a:hover { transform: translateY(-3px); border-color: var(--c-cyan); box-shadow: 0 14px 36px rgba(0, 0, 0, .45), 0 0 24px rgba(53, 200, 255, .22); }
+.cinePin.ask .dot { background: var(--c-green); box-shadow: 0 0 0 4px rgba(61, 220, 132, .2), 0 0 16px var(--c-green); } .cinePin.ask .dot::after { border-color: var(--c-green); }
+.cinePin.ask a { border-color: rgba(61, 220, 132, .45); }
+.cinePin.ask b::after { content: " →"; color: var(--c-green); }
+
+/* chapter dots */
+.cineDots { position: absolute; right: clamp(12px, 2.5vw, 32px); top: 50%; transform: translateY(-50%); z-index: 3; display: flex; flex-direction: column; gap: 12px; }
+html:not(.cine-js) .cineDots { display: none; }
+.cineDots a { width: 8px; height: 8px; border-radius: 50%; background: rgba(160, 200, 240, .3); transition: .3s; }
+.cineDots a.on { background: var(--c-cyan); box-shadow: 0 0 10px var(--c-cyan); transform: scale(1.4); }
+
+/* section after the story: lede + OEE try card (unchanged content, moved from the old hero) */
+.tryNow .heroIn { align-items: start; }
+.tryNow .lede { margin-top: 12px; font-size: 18px; color: var(--muted); max-width: 54ch; }
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+@media (max-width: 760px) {
+  .cineScroll, .cineDots { display: none; }
+  .cineHero { padding-top: 90px; }
+  .cine .brand { width: auto; margin-left: -16px; margin-right: -16px; }
+  .cineCh, .cineCh.r { justify-content: center; }
+  .cinePin small { display: none; } .cinePin a { min-width: 0; padding: 7px 10px; top: -36px; } .cinePin a::before { top: 30px; }
+  .cinePin[data-hide-mobile] { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cinePin .dot::after { animation: none; } .cineBtn, .cinePin a { transition: none; } }
