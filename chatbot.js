@@ -128,8 +128,8 @@
       chips: ["leave_contact"] },
 
     { id: "website", kw: ["website", "site", "page", "pages", "menu", "navigate"], zh: ["网站", "页面", "网页"],
-      a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"ai-tools.html\">AI Tools</a>, <a href=\"resources.html\">Resources</a>, <a href=\"laoyutalks.html\">LAOYUTALKS</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
-           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"ai-tools.html\">AI 工具</a>、<a href=\"laoyutalks.html\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
+      a: { en: "This site has: <a href=\"index.html\">Home</a>, <a href=\"ai-tools.html\">AI Tools</a>, <a href=\"resources.html\">Resources</a>, <a href=\"about.html#watch\">LAOYUTALKS</a>, <a href=\"about.html\">About</a> and <a href=\"contact.html\">Contact</a>.",
+           zh: "本网站包括：<a href=\"index.html\">首页</a>、<a href=\"ai-tools.html\">AI 工具</a>、<a href=\"about.html#watch\">老鱼说</a>、<a href=\"resources.html\">资源</a>、<a href=\"about.html\">关于</a>和<a href=\"contact.html\">联系</a>。" } },
 
     { id: "lab", kw: ["automation lab", "inventory", "stock count", "low stock", "reorder", "maintenance request", "maintenance requests", "training expiry", "apps script", "google forms", "workflow", "workflows"], zh: ["自动化实验室", "库存", "补货", "维修申请", "培训到期", "流程自动化"],
       a: { en: "LAOYU builds workflows with Google Forms, Sheets and Apps Script, such as a daily production dashboard, maintenance requests, inventory reorder alerts, a training expiry tracker and project tracking. Want one for your team? Leave your contact.",

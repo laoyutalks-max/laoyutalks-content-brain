@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="sidebar.css?v=20261114u"><link rel="stylesheet" href="shell3.css?v=20261118c"><link rel="stylesheet" href="v3.css?v=20261118i"><link rel="stylesheet" href="cine.css?v=20261120d">
+  <link rel="stylesheet" href="sidebar.css?v=20261114u"><link rel="stylesheet" href="shell3.css?v=20261118c"><link rel="stylesheet" href="v3.css?v=20261122b"><link rel="stylesheet" href="cine.css?v=20261122a">
   <!-- 3D story libraries: exact pinned versions -->
   <script type="importmap">{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/" } }</script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -52,7 +52,6 @@
     <div class="cinePin" data-anchor="-4.4,5.6,-6" data-ch="4" data-hide-mobile aria-hidden="true"><span class="dot"></span><a href="resources.html#cat-perf" tabindex="-1"><b>Data &amp; Reporting</b><small>KPI dashboards and loss analysis</small></a></div>
     <div class="cinePin ask" data-anchor="-2.75,2.3,2.6" data-ch="5" aria-hidden="true"><span class="dot"></span><a href="ai-lab.html" tabindex="-1"><b>ASK LAOYU</b><small>Manufacturing, quality and management questions</small></a></div>
     <nav class="cineDots" aria-label="Story chapters"></nav>
-    <p class="cineNote">Illustration · sample data</p>
   </div>
 
   <div class="cineCh cineHero" id="c0">
@@ -102,15 +101,11 @@
   </div>
 </section>
 
-<!-- B · Brand philosophy -->
-<section class="sec alt" id="philosophy">
+<!-- D · Featured resources -->
+<section class="sec alt" id="featured">
   <div class="wrap">
-    <h2 class="sr">Our philosophy</h2>
-    <div class="grid3 pillars">
-      <div class="card"><h3>Think First</h3><p>Understand the problem before you pick a tool.</p></div>
-      <div class="card"><h3>Improve Always</h3><p>Small, steady improvements that last.</p></div>
-      <div class="card"><h3>Build with AI</h3><p>Turn ideas into working tools and workflows.</p></div>
-    </div>
+    <div class="secHead"><div><h2>Featured resources</h2><p>Six free tools people start with.</p></div><a href="resources.html">All resources →</a></div>
+    <div class="grid3" id="hFeatured" data-i18n-block></div>
   </div>
 </section>
 
@@ -129,16 +124,8 @@
   </div>
 </section>
 
-<!-- D · Featured resources -->
-<section class="sec alt" id="featured">
-  <div class="wrap">
-    <div class="secHead"><div><h2>Featured resources</h2><p>Six free tools people start with.</p></div><a href="resources.html">All resources →</a></div>
-    <div class="grid3" id="hFeatured" data-i18n-block></div>
-  </div>
-</section>
-
 <!-- E · Learn with LAOYU -->
-<section class="sec" id="learn">
+<section class="sec alt" id="learn">
   <div class="wrap">
     <div class="secHead"><div><h2>Learn with LAOYU</h2><p>Short videos on real workplace problems, each paired with a free tool.</p></div><a href="learn.html">All videos →</a></div>
     <div class="grid3" id="hLessons" data-i18n-block></div>
@@ -146,15 +133,15 @@
 </section>
 
 <!-- F · ASK LAOYU -->
-<section class="sec alt" id="ask">
+<section class="sec" id="ask">
   <div class="wrap">
-    <div class="secHead"><div><h2>ASK LAOYU</h2><p>Three assistants for manufacturing, quality and management questions. Try the prototype in the AI Lab.</p></div><a href="ai-lab.html">Open the AI Lab →</a></div>
+    <div class="secHead"><div><h2>ASK LAOYU</h2><p>Three assistants for manufacturing, quality and management questions.</p></div><a href="ai-lab.html">Open the AI Lab →</a></div>
     <div class="grid2">
       <div class="assist">
-        <a class="card" href="ai-lab.html?a=manufacturing"><div><h3>Manufacturing Assistant</h3><p>Output, OEE, downtime and shift routines.</p></div><span class="chip a">Prototype</span></a>
-        <a class="card" href="ai-lab.html?a=quality"><div><h3>Quality &amp; Problem-Solving Assistant</h3><p>Root cause, 8D and CAPA.</p></div><span class="chip a">Prototype</span></a>
-        <a class="card" href="ai-lab.html?a=management"><div><h3>Productivity &amp; Management Assistant</h3><p>Planning, people and reporting.</p></div><span class="chip a">Prototype</span></a>
-        <p class="notice">The AI Lab is a prototype: answers come from built-in guidance, not a live AI. Live AI will be switched on once the server is set up.</p>
+        <a class="card" href="ai-lab.html?a=manufacturing"><div><h3>Manufacturing Assistant</h3><p>Output, OEE, downtime and shift routines.</p></div><span class="chip a">Guided</span></a>
+        <a class="card" href="ai-lab.html?a=quality"><div><h3>Quality &amp; Problem-Solving Assistant</h3><p>Root cause, 8D and CAPA.</p></div><span class="chip a">Guided</span></a>
+        <a class="card" href="ai-lab.html?a=management"><div><h3>Productivity &amp; Management Assistant</h3><p>Planning, people and reporting.</p></div><span class="chip a">Guided</span></a>
+        <p class="notice">Answers come from LAOYU's built-in shop-floor guidance, not a live AI.</p>
         <div class="actions" style="margin-top:0"><a class="btn pri" href="ai-lab.html">Open the AI Lab</a></div>
       </div>
       <div class="tryCard" id="hPp" data-i18n-block></div>
@@ -163,20 +150,21 @@
 </section>
 
 <!-- G · Real-world impact -->
-<section class="sec" id="impact">
+<section class="sec alt" id="impact">
   <div class="wrap">
-    <div class="secHead"><div><h2>Real-world impact</h2><p>Worked examples using sample data. Real case studies will be added here.</p></div></div>
+    <div class="secHead"><div><h2>See it in action</h2><p>Step-by-step walkthroughs with sample data.</p></div></div>
     <div class="grid3" id="hDemos" data-i18n-block></div>
   </div>
 </section>
 
 <!-- H · Our story + I · Community -->
-<section class="sec alt" id="story">
+<section class="sec" id="story">
   <div class="wrap">
     <div class="grid2">
       <div class="split story">
         <h2>Our story</h2>
         <blockquote><p>My years in manufacturing taught me that improvement doesn't always need more resources. Sometimes it just needs a smarter way to work.</p><cite>LAOYU 老鱼</cite></blockquote>
+        <p class="pillLine">Think First. Improve Always. Build with AI.</p>
         <a class="btn" href="about.html">Read our story</a>
       </div>
       <div class="split" id="community">
@@ -200,7 +188,6 @@
     <div>
       <h4>NAVIGATION</h4>
       <a href="index.html">Home</a>
-      <a href="laoyutalks.html">LAOYUTALKS</a>
       <a href="about.html">Our Story</a>
       <a href="resources.html">Resources</a>
       <a href="ai-tools.html">AI Tools</a>
@@ -225,14 +212,14 @@
   </div>
 </footer>
 
-<script src="i18n.js?v=20261120b"></script>
+<script src="i18n.js?v=20261122a"></script>
 <script src="v3.js?v=20261117bm"></script>
 <script src="email-check.js?v=20261030"></script>
-<script src="resources-data.js?v=20261118c"></script><script src="home3.js?v=20261117bm"></script><script src="tryit.js?v=20261117bm"></script><script src="chatbot.js?v=20261117bm"></script>
-<script src="sidebar.js?v=20261118a"></script>
+<script src="resources-data.js?v=20261118c"></script><script src="home3.js?v=20261117bm"></script><script src="tryit.js?v=20261117bm"></script><script src="chatbot.js?v=20261122a"></script>
+<script src="sidebar.js?v=20261122a"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script type="module" src="cine.js?v=20261120d"></script>
+<script type="module" src="cine.js?v=20261122a"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@
     ["automation.html", ["Automation Lab", "自动化实验室"], "automation workflow apps script google sheets forms appsheet looker report email document 自动化 工作流程 表格 报告"],
     ["resources.html", ["Resource library", "资源库"], "resources library all tools templates 全部 资源 模板"],
     ["ai-tools.html", ["AI Tools", "AI 工具"], "ai tools roadmap 工具"],
-    ["laoyutalks.html", ["LAOYUTALKS videos", "LAOYUTALKS 视频"], "videos tiktok channel 视频 频道"],
+    ["about.html#watch", ["LAOYUTALKS videos", "LAOYUTALKS 视频"], "videos tiktok channel 视频 频道"],
     ["about.html", ["Our Story", "品牌故事"], "about story mission vision founder 关于 故事 使命"],
     ["contact.html", ["Contact", "联系"], "contact email message feedback 联系 邮箱 留言"],
     ["privacy.html", ["Privacy policy", "隐私政策"], "privacy data 隐私 数据"],
