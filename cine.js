@@ -64,7 +64,9 @@ function initText() {
 }
 
 /* ======================= 3D scene ======================= */
-const lite = !!(navigator.connection && navigator.connection.saveData) || (navigator.deviceMemory && navigator.deviceMemory <= 2);
+const conn = navigator.connection || {};
+/* skip the heavy 3D scene on "save data", slow mobile networks (2G/3G) or low-memory devices; the text story still runs */
+const lite = !!conn.saveData || /(^|-)(2g|3g)$/.test(conn.effectiveType || "") || (navigator.deviceMemory && navigator.deviceMemory <= 2);
 let gl = null;
 if (stage && !lite) { try { gl = document.createElement("canvas").getContext("webgl2"); } catch (e) {} }
 async function loadThree() {
