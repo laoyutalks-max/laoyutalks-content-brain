@@ -605,3 +605,4 @@ html:not([data-theme="light"]) .founderLogo.onDark { display: block; }
 @media (max-width: 1024px) { .stations { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 720px) { .storyCols { grid-template-columns: 1fr; gap: 16px; } .stations { grid-template-columns: 1fr; } }
 .story .pillLine { margin: 4px 0 14px; font-family: "Space Grotesk", Inter, sans-serif; font-weight: 700; letter-spacing: .02em; color: var(--amber); }
+#watch .card .watch { margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--amber); }
