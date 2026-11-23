@@ -1,0 +1,77 @@
+/* LAOYUTALKS 3.1 — visual resource library layer
+   Additive presentation overrides only. Resource data, IDs, routes,
+   filters, previews and sign-up behaviour remain owned by resources-v2.js. */
+.resLib2 { --rl-accent: #55d6ff; --rl-accent-2: #7ce6ad; }
+/* Dark hero look applies in dark theme only: in light theme the hero stays light, so its dark text stays readable. */
+html:not([data-theme="light"]) .resLib2 .rlHero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(38,145,210,.24), transparent 38%),
+    radial-gradient(ellipse at 8% 92%, rgba(43,184,133,.13), transparent 42%),
+    linear-gradient(135deg,#071426 0%,#0b1c31 52%,#07111f 100%);
+  border-bottom: 1px solid rgba(110,190,230,.18);
+}
+html:not([data-theme="light"]) .resLib2 .rlHero::before,html:not([data-theme="light"]) .resLib2 .rlHero::after { content:""; position:absolute; pointer-events:none; z-index:-1; }
+html:not([data-theme="light"]) .resLib2 .rlHero::before {
+  inset:0; opacity:.22;
+  background-image:linear-gradient(rgba(120,190,230,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(120,190,230,.12) 1px,transparent 1px);
+  background-size:48px 48px; mask-image:linear-gradient(90deg,transparent,#000 65%);
+}
+html:not([data-theme="light"]) .resLib2 .rlHero::after { width:420px;height:420px;right:-160px;top:-230px;border:1px solid rgba(85,214,255,.2);border-radius:50%;box-shadow:0 0 0 34px rgba(85,214,255,.035),0 0 0 72px rgba(85,214,255,.025); }
+html:not([data-theme="light"]) .resLib2 .rlHero .eyebrow { color:#7ce6ad; }
+.resLib2 .rlHero .eyebrow { letter-spacing:.16em; }
+/* no gradient text on the second line: shell3.css removes h1 span gradients site-wide (html.legacy), which left it transparent */
+.resLib2 .rlHero h1 { max-width:880px; letter-spacing:-.045em; line-height:1.02; }
+html:not([data-theme="light"]) .resLib2 .rlHero > .wrap > p { color:#b6c9db; }
+.resLib2 .rlHero > .wrap > p { max-width:660px; line-height:1.7; }
+.resLib2 .rlSearchBig { border-radius:14px; }
+html:not([data-theme="light"]) .resLib2 .rlSearchBig { border-color:rgba(123,196,230,.34); background:rgba(3,13,27,.82); backdrop-filter:blur(14px); box-shadow:0 18px 55px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.05); }
+.resLib2 .rlSearchBig .btn { border-radius:9px; }
+.resLib2 .rlQuick button { border-radius:999px; transition:background .2s,border-color .2s,transform .2s; }
+.resLib2 .rlQuick button:hover { transform:translateY(-2px);background:rgba(85,214,255,.13); }
+html:not([data-theme="light"]) .resLib2 .rlStats li { border-color:rgba(150,190,220,.2); }
+html:not([data-theme="light"]) .resLib2 .rlStats b { color:#f2f8ff; }
+html:not([data-theme="light"]) .resLib2 .rlStats span { color:#9bb3c8; }
+.resLib2 .rlStats span { letter-spacing:.1em; }
+.resLib2 .rlSec { padding-top:clamp(38px,5vw,64px); }
+.resLib2 .stHead h2 { letter-spacing:-.035em; }
+.resLib2 .stHead p { max-width:62ch; }
+.resLib2 .goals { gap:16px; }
+.resLib2 .goal { min-height:132px; border-radius:16px; background:linear-gradient(145deg,rgba(18,43,66,.92),rgba(8,22,38,.94)); border-color:rgba(120,175,210,.2); box-shadow:0 12px 30px rgba(0,0,0,.12); }
+.resLib2 .goal:hover { transform:translateY(-5px);border-color:rgba(85,214,255,.65);box-shadow:0 18px 42px rgba(0,0,0,.22),0 0 0 1px rgba(85,214,255,.12); }
+.resLib2 .goal.on { border-color:#7ce6ad;box-shadow:0 0 0 1px #7ce6ad,0 14px 34px rgba(20,160,110,.13); }
+.resLib2 .goal i { border-radius:12px;background:rgba(85,214,255,.09);border-color:rgba(120,190,230,.25); }
+.resLib2 .rlBar { gap:12px; }
+.resLib2 .rlSearchSmall { border-radius:12px; }
+.resLib2 .rlFilters { border-radius:14px; padding:16px; background:var(--surface); border:1px solid var(--line); }
+.resLib2 .rGrid { gap:18px; }
+.resLib2 .rCard { overflow:hidden; border-radius:16px; border:1px solid var(--line); background:var(--surface); box-shadow:0 12px 30px rgba(0,0,0,.08); transition:transform .22s,border-color .22s,box-shadow .22s; }
+.resLib2 .rCard:hover { transform:translateY(-4px);border-color:rgba(61,190,220,.55);box-shadow:0 20px 44px rgba(0,0,0,.16); }
+.resLib2 .rShot { overflow:hidden; background:linear-gradient(135deg,#102942,#0a1728); }
+.resLib2 .rShot img { transition:transform .45s ease,filter .45s ease; }
+.resLib2 .rCard:hover .rShot img { transform:scale(1.035);filter:saturate(1.08); }
+.resLib2 .rBody { padding:20px; }
+.resLib2 .rBody h3 { letter-spacing:-.025em; }
+.resLib2 .rBody h3 a { text-decoration:none; }
+.resLib2 .rBody h3 a:hover { color:var(--green); }
+.resLib2 .rBadges { gap:7px; }
+.resLib2 .rFoot { gap:12px; align-items:center; }
+.resLib2 .rAct .btn { border-radius:9px; }
+.resLib2 .rAct .btn.orange { box-shadow:0 5px 16px rgba(18,140,90,.14); }
+.resLib2 .pass { border-radius:14px; }
+.resLib2 .paths > * { border-radius:14px; }
+@media (min-width:1100px) { .resLib2 .rGrid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:760px) {
+  .resLib2 .rlHero { padding-block:44px; }
+  .resLib2 .rlStats { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 0; }
+  .resLib2 .rlStats li { padding:0 12px; }
+  .resLib2 .rlStats li:nth-child(odd) { padding-left:0;border-left:0; }
+  .resLib2 .rlFilters { padding:12px; }
+  .resLib2 .rBody { padding:16px; }
+  .resLib2 .rFoot { align-items:flex-start;flex-direction:column; }
+  .resLib2 .rAct { width:100%; }
+  .resLib2 .rAct .btn { flex:1; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .resLib2 .goal,.resLib2 .rCard,.resLib2 .rShot img { transition:none!important; }
+}

@@ -1,0 +1,29 @@
+/* LAOYUTALKS 3.0/3.1 — additive cinematic polish for the existing 3D homepage.
+   Keeps the current Three.js scene, chapter layout, navigation and brand SVG intact. */
+.cine { --c-cyan:#67cfff; --c-green:#73e5a5; }
+.cineStage { background:
+  radial-gradient(ellipse 58% 58% at 72% 42%,rgba(32,112,190,.28),transparent 70%),
+  radial-gradient(ellipse 48% 65% at 8% 66%,rgba(245,157,75,.17),transparent 72%),
+  linear-gradient(125deg,#030914 0%,#08172a 48%,#030914 100%); }
+.cineStage::before { content:"";position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.14;
+  background-image:linear-gradient(rgba(125,190,235,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(125,190,235,.2) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:linear-gradient(90deg,transparent 2%,#000 70%,transparent); }
+.cineGrade { background:radial-gradient(ellipse 80% 80% at 50% 45%,transparent 38%,rgba(1,5,12,.72) 100%),linear-gradient(0deg,rgba(2,7,16,.82),transparent 48%); }
+.cine .brand .bt { text-shadow:0 0 36px rgba(105,194,255,.38),0 3px 16px rgba(0,0,0,.65); }
+.cine h1 { text-shadow:0 2px 18px rgba(0,0,0,.35); }
+.cineStory { padding:clamp(22px,3vw,34px);border:1px solid rgba(145,205,245,.2);border-radius:18px;
+  background:linear-gradient(145deg,rgba(8,24,43,.78),rgba(5,14,27,.58));backdrop-filter:blur(16px);
+  box-shadow:0 22px 70px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.06); }
+.cineStory .k { color:#7ce6ad;text-shadow:0 0 22px rgba(124,230,173,.35); }
+.cineStory h2 { letter-spacing:-.035em;text-shadow:0 2px 20px rgba(0,0,0,.45); }
+.cineStory a { display:inline-flex;margin-top:18px;padding:10px 15px;border:1px solid rgba(130,205,245,.3);border-radius:999px;
+  background:rgba(80,165,220,.08);text-decoration:none;transition:background .2s,border-color .2s,transform .2s; }
+.cineStory a:hover { transform:translateY(-2px);background:rgba(80,165,220,.16);border-color:#67cfff; }
+.cineBtn { border-radius:999px;box-shadow:0 8px 26px rgba(0,0,0,.2); }
+.cineBtn.pri { background:linear-gradient(110deg,#76e7a7,#a4f1bd);border-color:transparent; }
+.cinePin { filter:drop-shadow(0 12px 24px rgba(0,0,0,.45)); }
+.cinePin a { border-color:rgba(125,205,245,.3);background:linear-gradient(145deg,rgba(13,39,65,.88),rgba(4,15,30,.82));backdrop-filter:blur(14px); }
+@media (max-width:760px) {
+  .cineStory { max-width:min(92vw,420px); }
+  .cineCh { padding-bottom:36px; }
+}
