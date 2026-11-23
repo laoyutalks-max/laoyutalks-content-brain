@@ -135,16 +135,15 @@
   function ppCard() {
     var box = $("hPp"); if (!box) return;
     box.innerHTML =
-      '<div class="tryHead"><small>' + T("AI PROMPT · NO SIGN-UP", "AI 提示词 · 免注册") + ' <span class="bAi">' + T("SIMULATED AI", "模拟 AI") + "</span></small>" +
+      '<div class="tryHead"><small>' + T("AI PROMPT · NO SIGN-UP", "AI 提示词 · 免注册") + "</small>" +
       "<h3>" + T("Prompt playground", "提示词练习场") + "</h3>" +
       "<p>" + T("Paste a draft prompt. See what is missing and get a stronger version.", "粘贴一条提示词草稿，看看缺了什么，并得到更完整的版本。") + "</p></div>" +
       '<label class="sr" for="ppIn">' + T("Your draft prompt", "你的提示词草稿") + "</label>" +
       '<textarea id="ppIn" rows="4" maxlength="1500" placeholder="' + T("e.g. write a report about downtime", "例如：写一份停机报告") + '">' + esc(pp.draft) + "</textarea>" +
-      '<div class="tryAct"><button type="button" class="btn orange" data-pp-run>' + T("SIMULATE AI RESPONSE", "模拟 AI 回复") + "</button>" +
+      '<div class="tryAct"><button type="button" class="btn orange" data-pp-run>' + T("CHECK MY PROMPT", "检查我的提示词") + "</button>" +
       '<button type="button" class="tryLink" data-pp-ex>' + T("Try an example", "试试示例") + "</button></div>" +
       '<p class="oqMsg isErr" id="ppErr" role="alert" hidden></p>' +
       '<div class="ppOut" id="ppOut" aria-live="polite" hidden></div>' +
-      '<p class="tryNote">' + T("Runs in your browser with fixed rules. This is not a live AI, and nothing you type is sent anywhere.", "在你的浏览器中按固定规则运行。这不是真正的 AI，你输入的内容不会被发送到任何地方。") + "</p>" +
       '<a class="tryMore" href="ai-prompt-pack.html">' + T("AI Prompt Pack: 10 tested prompts for operations managers →", "AI 提示词包：10 条经过验证的运营管理提示词 →") + "</a>";
     if (pp.ran && pp.draft.trim()) ppShow();
   }
@@ -179,7 +178,7 @@
     setTimeout(function () {
       pp.busy = false; pp.ran = true;
       var b = $("hPp").querySelector("[data-pp-run]");
-      if (b) { b.disabled = false; b.textContent = T("SIMULATE AI RESPONSE", "模拟 AI 回复"); }
+      if (b) { b.disabled = false; b.textContent = T("CHECK MY PROMPT", "检查我的提示词"); }
       ppShow();
     }, 450);
   }

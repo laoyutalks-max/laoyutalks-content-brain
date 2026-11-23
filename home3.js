@@ -55,7 +55,7 @@
     box.innerHTML = DEMOS.map(function (id) {
       var r = res(id); if (!r) return "";
       return '<a class="card rcard" href="' + r.url + '">' + shot(r) + '<span class="body"><span class="chips"><span class="chip a">' + T("Sample data", "示例数据") +
-        '</span><span class="chip a">' + T("Simulated AI", "模拟 AI") + "</span></span><b>" + esc(L(r.title)) + "</b><em>" + esc(L(r.problem)) +
+        "</span></span><b>" + esc(L(r.title)) + "</b><em>" + esc(L(r.problem)) +
         '</em><span class="go">' + T("Try the demo →", "试用演示 →") + "</span></span></a>";
     }).join("");
   }

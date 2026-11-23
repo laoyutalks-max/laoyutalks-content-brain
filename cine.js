@@ -35,9 +35,8 @@ function initText() {
     paths.forEach((p) => { const L = p.getTotalLength(); gsap.set(p, { strokeDasharray: L, strokeDashoffset: L }); });
     gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.15 })
       .to(paths, { strokeDashoffset: 0, duration: 1.6, stagger: 0.12, ease: "power2.inOut" }, 0)
-      .from(cine.querySelector(".brand .bt"), { autoAlpha: 0, y: 26, filter: "blur(8px)", duration: 1.1 }, 0.35)
-      .from(cine.querySelector("h1"), { autoAlpha: 0, y: 24, duration: 0.9 }, 0.75)
-      .from(cine.querySelectorAll(".cineActions .cineBtn"), { autoAlpha: 0, y: 18, duration: 0.8, stagger: 0.08 }, 0.9);
+      .from(cine.querySelector(".brand .bt"), { autoAlpha: 0, y: 26, filter: "blur(8px)", duration: 1.1 }, 0.35);
+    /* headline and buttons are visible from the first frame (no fade-in), so visitors can act at once */
     /* hero text drifts up and fades as the camera starts moving */
     gsap.to([cine.querySelector(".brand"), cine.querySelector(".cineCopy")], { yPercent: -18, autoAlpha: 0, ease: "none", stagger: 0.04,
       scrollTrigger: { trigger: chs[0], start: "top top", end: "60% top", scrub: 0.6 } });
@@ -57,6 +56,9 @@ function initText() {
     const a = document.createElement("a"); a.href = "#" + s.id; a.setAttribute("aria-label", "Chapter " + (i + 1)); dots.appendChild(a);
     a.addEventListener("click", (e) => { e.preventDefault(); if (lenis) lenis.scrollTo(s, { duration: 1.4 }); else s.scrollIntoView({ behavior: reduce ? "auto" : "smooth" }); });
   });
+  /* "Skip to free tools": go through Lenis so smooth scrolling doesn't fight the jump */
+  const skip = cine.querySelector(".cineScroll");
+  if (skip) skip.addEventListener("click", (e) => { const t = document.querySelector(skip.getAttribute("href")); if (!t || !lenis) return; e.preventDefault(); lenis.scrollTo(t, { duration: 1.2, offset: -65 }); /* clear the sticky header */ });
   let cur = -1;
   const setCh = (ch) => { if (ch === cur) return; cur = ch; cine.dataset.ch = ch; [...dots.children].forEach((d, k) => d.classList.toggle("on", k === ch)); };
   ScrollTrigger.create({ trigger: cine, start: "top top", end: "bottom bottom", onUpdate: (self) => setCh(Math.round(self.progress * (chs.length - 1))) });
