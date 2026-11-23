@@ -762,6 +762,9 @@
     "Manufacturing, quality and management questions": "制造、质量与管理问题",
     "Illustration · sample data": "示意图 · 示例数据",
     "SCROLL ↓": "向下滚动 ↓",
+    "Skip to free tools ↓": "直接看免费工具 ↓",
+    "Guided assistants, a prompt checker and step-by-step demos.": "指引式助手、提示词检查和分步演示。",
+    "Everything in this section runs on LAOYU's built-in shop-floor rules and sample data. It is not a live AI, and nothing you type is sent anywhere.": "本区内容全部基于老鱼内置的现场规则和示例数据运行，不是实时 AI，你输入的内容也不会被发送到任何地方。",
     "Try it now": "马上试试"
   };
 
